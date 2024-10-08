@@ -11,14 +11,14 @@ stmts: stmt (SEMI_SYMBOL stmt)* SEMI_SYMBOL?;
 stmt: query_statement;
 
 // query_statement: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax
-query_statement: query_expr;
+query_statement: query;
 
-query_expr:
+query:
 	with_statement? (
 		select
-		| LR_BRACKET_SYMBOL query_expr RR_BRACKET_SYMBOL
+		| LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL
 	) order_by_clause? limit_clause?
-	| query_expr set_operator query_expr order_by_clause? limit_clause?;
+	| query set_operator query order_by_clause? limit_clause?;
 
 query_primary: select;
 
@@ -127,7 +127,7 @@ from_item:
 		from_item cross_join_operator from_item
 		| from_item conditional_join_operator from_item join_condition
 	) RR_BRACKET_SYMBOL
-	| LR_BRACKET_SYMBOL query_expr RR_BRACKET_SYMBOL as_alias?
+	| LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL as_alias?
 	// | field_path
 	| unnest_operator
 	| cte_name as_alias?;
@@ -197,7 +197,7 @@ cte: non_recursive_cte | recursive_cte;
 
 // non_recursive_cte: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#simple_cte
 non_recursive_cte:
-	cte_name AS_SYMBOL LR_BRACKET_SYMBOL query_expr RR_BRACKET_SYMBOL;
+	cte_name AS_SYMBOL LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL;
 
 // recursive_cte: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#recursive_cte
 recursive_cte:
@@ -206,24 +206,42 @@ recursive_cte:
 recursive_union_operation:
 	base_term union_operator recursive_term;
 
-base_term: query_expr;
+base_term: query;
 
 union_operator: UNION_SYMBOL ALL_SYMBOL;
 
-recursive_term: query_expr;
+recursive_term: query;
 
 // expression: https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/bison_parser.y#L7712
-expression: expression_higher_prec_than_and;
-// | and_expression | or_expression;
+expression:
+	expression_higher_prec_than_and
+	| and_expression					# andExpression
+	| expression OR_SYMBOL expression	# orExpression;
 
 // expression_higher_prec_than_and: https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/bison_parser.y#L7747
 expression_higher_prec_than_and:
-	unparenthesized_expression_higher_prec_than_and;
-// | parenthesized_expression_not_a_query | parenthesized_query;
+	unparenthesized_expression_higher_prec_than_and
+	| parenthesized_expression_not_a_query
+	| parenthesized_query;
+
+parenthesized_query: LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL;
+
+parenthesized_expression_not_a_query:
+	LR_BRACKET_SYMBOL expression_maybe_parenthesized_not_a_query RR_BRACKET_SYMBOL;
+
+expression_maybe_parenthesized_not_a_query:
+	parenthesized_expression_not_a_query
+	| unparenthesized_expression_higher_prec_than_and
+	| and_expression					# andExpression
+	| expression OR_SYMBOL expression	# orExpression;
+
+and_expression:
+	and_expression AND_SYMBOL expression_higher_prec_than_and
+	| expression_higher_prec_than_and AND_SYMBOL expression_higher_prec_than_and;
 
 // unparenthesized_expression_higher_prec_than_and: https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/bison_parser.y#L7781
 unparenthesized_expression_higher_prec_than_and:
-	NULL_SYMBOL
+	null_literal
 	| boolean_literal
 	| string_literal
 	| bytes_literal
@@ -883,6 +901,8 @@ bytes_literal:
 	 separated by whitespace or comments.", nil, nil) } }
 	| bytes_literal string_literal_component {p.NotifyErrorListeners("Syntax error: string and bytes literals cannot be concatenated.", nil,
 	 nil); };
+
+null_literal: NULL_SYMBOL;
 
 boolean_literal: TRUE_SYMBOL | FALSE_SYMBOL;
 
