@@ -14,13 +14,96 @@ stmt: query_statement;
 query_statement: query;
 
 query:
-	with_statement? (
+	query_without_pipe_operators
+	| with_statement? (
 		select
 		| LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL
 	) order_by_clause? limit_clause?
 	| query set_operator query order_by_clause? limit_clause?;
 
-query_primary: select;
+query_without_pipe_operators:
+	with_clause query_primary_or_set_operation order_by_clause? limit_offset_clause?
+	| with_clause_with_trailing_comma select_or_from_keyword {p.NotifyErrorListeners("Syntax error: Trailing comma after the WITH " "clause before the main query is not allowed", nil, nil)
+		}
+	| with_clause PIPE_SYMBOL {p.NotifyErrorListeners("Syntax error: A pipe operator cannot follow "
+                               "the WITH clause before the main query; The "
+                               "main query usually starts with SELECT or "
+                               "FROM here", nil, nil)}
+	| query_primary_or_set_operation order_by_clause? limit_offset_clause?
+	| with_clause from_clause?;
+
+with_clause_with_trailing_comma: with_clause COMMA_SYMBOL;
+
+select_or_from_keyword: SELECT_SYMBOL | FROM_SYMBOL;
+
+query_primary_or_set_operation:
+	query_primary
+	| query_set_operation;
+
+query_set_operation: query_set_operation_prefix;
+
+query_set_operation_prefix:
+	query_primary set_operation_metadata query_primary
+	| query_set_operation_prefix set_operation_metadata query_primary
+	| query_primary set_operation_metadata FROM_SYMBOL { p.NotifyErrorListeners("Syntax error: Unexpected FROM;" "FROM queries following a set operation must be parenthesized", nil, nil); 
+		}
+	| query_set_operation_prefix set_operation_metadata FROM_SYMBOL { p.NotifyErrorListeners("Syntax error: Unexpected FROM;" "FROM queries following a set operation must be parenthesized", nil, nil); 
+		};
+
+query_primary:
+	select
+	| parenthesized_query opt_as_alias_with_required_as;
+
+set_operation_metadata:
+	opt_corresponding_outer_mode? query_set_operation_type hint? all_or_distinct opt_strict?
+		opt_column_match_suffix?;
+
+opt_column_match_suffix:
+	CORRESPONDING_SYMBOL
+	| CORRESPONDING_SYMBOL BY_SYMBOL;
+
+opt_strict: STRICT_SYMBOL;
+
+all_or_distinct: ALL_SYMBOL | DISTINCT_SYMBOL;
+
+query_set_operation_type:
+	UNION_SYMBOL
+	| EXCEPT_SYMBOL
+	| INTERSECT_SYMBOL;
+
+opt_corresponding_outer_mode:
+	FULL_SYMBOL opt_outer?
+	| OUTER_SYMBOL
+	| LEFT_SYMBOL opt_outer?;
+
+opt_outer: OUTER_SYMBOL;
+
+with_clause:
+	WITH_SYMBOL aliased_query
+	| WITH_SYMBOL RECURSIVE_SYMBOL aliased_query
+	| with_clause COMMA_SYMBOL aliased_query;
+
+aliased_query:
+	identifier AS_SYMBOL parenthesized_query opt_aliased_query_modifiers?;
+
+opt_aliased_query_modifiers: recursion_depth_modifier;
+
+recursion_depth_modifier:
+	WITH_SYMBOL DEPTH_SYMBOL opt_as_alias_with_required_as?
+	| WITH_SYMBOL DEPTH_SYMBOL opt_as_alias_with_required_as BETWEEN_SYMBOL
+		possibly_unbounded_int_literal_or_parameter AND_SYMBOL
+		possibly_unbounded_int_literal_or_parameter
+	| WITH_SYMBOL DEPTH_SYMBOL opt_as_alias_with_required_as MAX_SYMBOL
+		possibly_unbounded_int_literal_or_parameter;
+
+possibly_unbounded_int_literal_or_parameter:
+	int_literal_or_parameter
+	| UNBOUNDED_SYMBOL;
+
+int_literal_or_parameter:
+	integer_literal
+	| parameter_expression
+	| system_variable_expression;
 
 limit_clause: LIMIT_SYMBOL count (OFFSET_SYMBOL skip_rows);
 
@@ -53,8 +136,62 @@ select:
 		;
 
 // from_clause: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#from_clause
-from_clause:
-	FROM_SYMBOL from_item (pivot_operator | unpivot_operator)? tablesample_operator?;
+from_clause: FROM_SYMBOL from_clause_contents;
+
+from_clause_contents:
+	table_primary
+	| from_clause_contents COMMA_SYMBOL table_primary
+	| from_clause_contents opt_natural? join_type? join_hint
+	| AT_SYMBOL {p.NotifyErrorListeners("Query parameters cannot be used in place of table names",nil,nil)
+		}
+	| QUESTION_SYMBOL {p.NotifyErrorListeners("Query parameters cannot be used in place of table names",nil,nil)
+		}
+	| ATAT_SYMBOL {p.NotifyErrorListeners("System variables cannot be used in place of table names",nil,nil)
+		};
+
+table_primary:
+	tvf_with_suffixes
+	| table_path_expression
+	| LR_BRACKET_SYMBOL join RR_BRACKET_SYMBOL
+	| table_subquery
+	| table_primary match_recognize_clause
+	| table_primary sample_clause;
+
+tvf_with_suffixes:
+	tvf_prefix_no_args RR_BRACKET_SYMBOL hint? pivot_or_unpivot_clause_and_aliases?
+	| tvf_prefix RR_BRACKET_SYMBOL hint? pivot_or_unpivot_clause_and_aliases?;
+
+pivot_or_unpivot_clause_and_aliases:
+	AS_SYMBOL identifier
+	| identifier
+	| AS_SYMBOL identifier pivot_clause as_alias?
+	| AS_SYMBOL identifier unpivot_clause as_alias?
+	| AS_SYMBOL identifier qualify_clause_nonreseved {
+				 p.NotifyErrorListeners("QUALIFY clause must be used in conjunction with WHERE or GROUP BY " "or HAVING clause", nil, nil); 
+		}
+	| identifier pivot_clause as_alias
+	| identifier unpivot_clause as_alias
+	| identifier qualify_clause_non_reserved {
+				 p.NotifyErrorListeners("QUALIFY clause must be used in conjunction with WHERE or GROUP BY " "or HAVING clause", nil, nil); 
+		}
+	| pivot_clause as_alias?
+	| unpivot_clause as_alias?
+	| qualify_clause_non_reserved {
+				 p.NotifyErrorListeners("QUALIFY clause must be used in conjunction with WHERE or GROUP BY " "or HAVING clause", nil, nil); 
+		};
+
+tvf_prefix_no_args:
+	path_expression
+	| IF_SYMBOL LR_BRACKET_SYMBOL;
+
+join_type:
+	CROSS_SYMBOL
+	| FULL_SYMBOL opt_outer?
+	| INNER_SYMBOL
+	| LEFT_SYMBOL opt_outer?
+	| RIGHT_SYMBOL opt_outer?;
+
+opt_natural: NATURAL_SYMBOL;
 
 // tablesample_operator: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#tablesample_operator
 tablesample_operator:
