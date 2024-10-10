@@ -293,17 +293,18 @@ select_column_expr_with_as_alias:
 table_subquery:
 	parenthesized_query opt_pivot_or_unpivot_clause_and_alias?;
 
-join:
-	join_input opt_natural join_type join_hint? JOIN_SYMBOL hint? table_primary
-		on_or_using_clause_list?;
+join: table_primary join_item*;
+
+// join_item resolves the mutually left-recursive for [join, join_input]. join_input: join |
+// table_primary;
+join_item:
+	opt_natural? join_type join_hint? JOIN_SYMBOL hint? table_primary on_or_using_clause_list?;
 
 on_or_using_clause_list: on_or_using_clause+;
 
 on_or_using_clause: on_clause | using_clause;
 
 join_hint: HASH_SYMBOL | LOOKUP_SYMBOL;
-
-join_input: join | table_primary;
 
 table_path_expression:
 	table_path_expression_base hint? opt_pivot_or_unpivot_clause_and_alias?

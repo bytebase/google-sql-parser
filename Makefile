@@ -6,3 +6,4 @@ build:
 
 test:
 	go test ./...
+
