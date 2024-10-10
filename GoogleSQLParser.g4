@@ -121,8 +121,9 @@ limit_clause: LIMIT_SYMBOL count (OFFSET_SYMBOL skip_rows);
 order_by_clause: order_by_clause_prefix;
 
 order_by_clause_prefix:
-	ORDER_SYMBOL hint? BY_SYMBOL ordering_expression
-	| order_by_clause_prefix COMMA_SYMBOL ordering_expression;
+	ORDER_SYMBOL hint? BY_SYMBOL ordering_expression (
+		COMMA_SYMBOL ordering_expression
+	)*;
 
 ordering_expression:
 	expression collate_clause? asc_or_desc? null_order?;
@@ -396,8 +397,7 @@ expression_with_opt_alias:
 	expression opt_as_alias_with_required_as?;
 
 tvf_prefix:
-	tvf_prefix_no_args tvf_argument
-	| tvf_prefix COMMA_SYMBOL tvf_argument;
+	tvf_prefix_no_args tvf_argument (COMMA_SYMBOL tvf_argument)*;
 
 tvf_argument:
 	expression
@@ -748,8 +748,9 @@ frame_unit: ROWS_SYMBOL | RANGE_SYMBOL;
 partition_by_clause: partition_by_clause_prefix;
 
 partition_by_clause_prefix:
-	PARTITION_SYMBOL hint? BY_SYMBOL expression
-	| partition_by_clause_prefix COMMA_SYMBOL expression;
+	PARTITION_SYMBOL hint? BY_SYMBOL expression (
+		COMMA_SYMBOL expression
+	)*;
 
 with_group_rows:
 	WITH_SYMBOL GROUP_SYMBOL ROWS_SYMBOL /* XXX(zp): query = parenthesized_query*/;
@@ -767,8 +768,7 @@ options_list:
 	| LR_BRACKET_SYMBOL RR_BRACKET_SYMBOL;
 
 options_list_prefix:
-	LR_BRACKET_SYMBOL options_entry
-	| options_list_prefix COMMA_SYMBOL options_entry;
+	LR_BRACKET_SYMBOL options_entry (COMMA_SYMBOL options_entry)*;
 
 options_entry:
 	identifier_in_hints options_assignment_operator expression_or_proto;
@@ -823,8 +823,7 @@ opt_having_or_group_by_modifier:
 	| HAVING_SYMBOL MIN_SYMBOL expression group_by_clause_prefix;
 
 group_by_clause_prefix:
-	preamble = group_by_preamble item = grouping_item
-	| prefix = group_by_clause_prefix COMMA_SYMBOL item = grouping_item;
+	group_by_preamble grouping_item (COMMA_SYMBOL grouping_item)*;
 
 group_by_preamble: GROUP_SYMBOL hint? opt_and_order? BY_SYMBOL;
 
@@ -836,9 +835,9 @@ hint:
 hint_with_body: hint_with_body_prefix RC_BRACKET_SYMBOL;
 
 hint_with_body_prefix:
-	AT_SYMBOL integer_literal AT_SYMBOL LC_BRACKET_SYMBOL entry = hint_entry
-	| AT_SYMBOL LC_BRACKET_SYMBOL entry = hint_entry
-	| hint_with_body_prefix COMMA_SYMBOL hint_entry;
+	AT_SYMBOL (integer_literal AT_SYMBOL)? LC_BRACKET_SYMBOL hint_entry (
+		COMMA_SYMBOL hint_entry
+	)*;
 
 hint_entry:
 	identifier_in_hints EQUAL_SYMBOL expression
@@ -861,8 +860,9 @@ grouping_item:
 	| grouping_set_list RR_BRACKET_SYMBOL;
 
 grouping_set_list:
-	GROUPING_SYMBOL SETS_SYMBOL LR_BRACKET_SYMBOL grouping_set
-	| grouping_set_list COMMA_SYMBOL grouping_set;
+	GROUPING_SYMBOL SETS_SYMBOL LR_BRACKET_SYMBOL grouping_set (
+		COMMA_SYMBOL grouping_set
+	)*;
 
 grouping_set:
 	LR_BRACKET_SYMBOL RR_BRACKET_SYMBOL
@@ -871,12 +871,12 @@ grouping_set:
 	| cube_list RR_BRACKET_SYMBOL;
 
 cube_list:
-	CUBE_SYMBOL LR_BRACKET_SYMBOL expression
-	| cube_list COMMA_SYMBOL expression;
+	CUBE_SYMBOL LR_BRACKET_SYMBOL (COMMA_SYMBOL expression)*;
 
 rollup_list:
-	ROLLUP_SYMBOL LR_BRACKET_SYMBOL expression
-	| rollup_list COMMA_SYMBOL expression;
+	ROLLUP_SYMBOL LR_BRACKET_SYMBOL expression (
+		COMMA_SYMBOL expression
+	)*;
 
 opt_as_alias_with_required_as: AS_SYMBOL identifier;
 
@@ -907,8 +907,9 @@ replace_fields_expression:
 	replace_fields_prefix RR_BRACKET_SYMBOL;
 
 replace_fields_prefix:
-	REPLACE_FIELDS_SYMBOL LR_BRACKET_SYMBOL expression COMMA_SYMBOL replace_fields_arg
-	| replace_fields_prefix COMMA_SYMBOL replace_fields_arg;
+	REPLACE_FIELDS_SYMBOL LR_BRACKET_SYMBOL expression COMMA_SYMBOL replace_fields_arg (
+		COMMA_SYMBOL replace_fields_arg
+	)*;
 
 replace_fields_arg:
 	expression AS_SYMBOL generalized_path_expression
@@ -931,8 +932,9 @@ with_expression:
 		LR_BRACKET_SYMBOL with_expression_variable_prefix COMMA_SYMBOL expression RR_BRACKET_SYMBOL;
 
 with_expression_variable_prefix:
-	with_expression_variable
-	| with_expression_variable_prefix COMMA_SYMBOL with_expression_variable;
+	with_expression_variable (
+		COMMA_SYMBOL with_expression_variable
+	)*;
 
 with_expression_variable: identifier AS_SYMBOL expression;
 
@@ -966,12 +968,12 @@ case_expression_prefix:
 	| case_value_expression_prefix;
 
 case_value_expression_prefix:
-	CASE_SYMBOL expression WHEN_SYMBOL expression THEN_SYMBOL expression
-	| case_value_expression_prefix WHEN_SYMBOL expression THEN_SYMBOL expression;
+	CASE_SYMBOL expression (
+		WHEN_SYMBOL expression THEN_SYMBOL expression
+	)+;
 
 case_no_value_expression_prefix:
-	CASE_SYMBOL WHEN_SYMBOL expression THEN_SYMBOL expression
-	| case_no_value_expression_prefix WHEN_SYMBOL expression THEN_SYMBOL expression;
+	CASE_SYMBOL (WHEN_SYMBOL expression THEN_SYMBOL expression)+;
 
 struct_braced_constructor:
 	stype = struct_type ctor = braced_constructor
@@ -1011,8 +1013,9 @@ new_constructor:
 	| new_constructor_prefix_no_arg RR_BRACKET_SYMBOL;
 
 new_constructor_prefix:
-	new_constructor_prefix_no_arg new_constructor_arg
-	| new_constructor_prefix COMMA_SYMBOL new_constructor_arg;
+	new_constructor_prefix_no_arg new_constructor_arg (
+		COMMA_SYMBOL new_constructor_arg
+	)*;
 
 new_constructor_prefix_no_arg:
 	NEW_SYMBOL type_name LR_BRACKET_SYMBOL;
@@ -1027,8 +1030,9 @@ array_constructor:
 	| array_constructor_prefix RS_BRACKET_SYMBOL;
 
 array_constructor_prefix:
-	array_constructor_prefix_no_expressions expression
-	| array_constructor_prefix COMMA_SYMBOL expression;
+	array_constructor_prefix_no_expressions expression (
+		COMMA_SYMBOL expression
+	)*;
 
 array_constructor_prefix_no_expressions:
 	ARRAY_SYMBOL LS_BRACKET_SYMBOL
@@ -1064,8 +1068,9 @@ opt_type_parameters:
 	 parameters list is not allowed.", nil, nil); };
 
 type_parameters_prefix:
-	LR_BRACKET_SYMBOL type_parameter
-	| type_parameters_prefix COMMA_SYMBOL type_parameter;
+	LR_BRACKET_SYMBOL type_parameter (
+		COMMA_SYMBOL type_parameter
+	)*;
 
 type_parameter:
 	integer_literal
@@ -1096,8 +1101,9 @@ function_type:
 		template_type_close;
 
 function_type_prefix:
-	FUNCTION_SYMBOL template_type_open LR_BRACKET_SYMBOL type
-	| function_type_prefix COMMA_SYMBOL type;
+	FUNCTION_SYMBOL template_type_open LR_BRACKET_SYMBOL type (
+		COMMA_SYMBOL type
+	)*;
 
 type_name: path_expression | INTERVAL_SYMBOL;
 
