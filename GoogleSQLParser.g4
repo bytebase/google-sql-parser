@@ -13,13 +13,7 @@ stmt: query_statement;
 // query_statement: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax
 query_statement: query;
 
-query:
-	query_without_pipe_operators
-	| with_statement? (
-		select
-		| LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL
-	) order_by_clause? limit_clause?
-	| query set_operator query order_by_clause? limit_clause?;
+query: query_without_pipe_operators;
 
 query_without_pipe_operators:
 	with_clause query_primary_or_set_operation order_by_clause? limit_offset_clause?
@@ -30,7 +24,24 @@ query_without_pipe_operators:
                                "main query usually starts with SELECT or "
                                "FROM here", nil, nil)}
 	| query_primary_or_set_operation order_by_clause? limit_offset_clause?
-	| with_clause from_clause?;
+	| with_clause? from_clause
+	// FIXME(zp): Inject the keyword from original input.
+	| with_clause? from_clause bad_keyword_after_from_query {p.NotifyErrorListeners("Syntax error: ", "<KEYWORD>", " not supported after FROM query; "
+            "Consider using pipe operator `|>` ", nil, nil)}
+	| with_clause? from_clause bad_keyword_after_from_query_allows_parens {p.NotifyErrorListeners("Syntax error: ", "<KEYWORD>", " not supported after FROM query; "
+            "Consider using pipe operator `|>` ", nil, nil)};
+
+bad_keyword_after_from_query:
+	WHERE_SYMBOL
+	| SELECT_SYMBOL
+	| GROUP_SYMBOL;
+
+bad_keyword_after_from_query_allows_parens:
+	ORDER_SYMBOL
+	| UNION_SYMBOL
+	| INTERSECT_SYMBOL
+	| EXCEPT_SYMBOL
+	| LIMIT_SYMBOL;
 
 with_clause_with_trailing_comma: with_clause COMMA_SYMBOL;
 
@@ -128,12 +139,49 @@ set_operator:
 	| INTERSECT_SYMBOL DISTINCT_SYMBOL
 	| EXCEPT_SYMBOL DISTINCT_SYMBOL;
 
-select:
-	SELECT_SYMBOL (differential_privacy_clause)? (
-		ALL_SYMBOL
-		| DISTINCT_SYMBOL
-	)? (AS_SYMBOL (STRUCT_SYMBOL | VALUE_SYMBOL))? select_list from_clause? /*TODO(zp): Where ... */
-		;
+select: select_clause from_clause? opt_clauses_following_from;
+
+opt_clauses_following_from:
+	where_clause group_by_clause? having_clause? qualify_clause_nonreserved? window_clause?
+	| opt_clauses_following_where;
+
+opt_clauses_following_where:
+	group_by_clause having_clause? qualify_clause_nonreserved? window_clause?
+	| opt_clauses_following_group_by;
+
+opt_clauses_following_group_by:
+	having_clause? qualify_clause_nonreserved? window_clause?
+	| qualify_clause_nonreserved? window_clause?;
+
+window_clause: window_clause_prefix;
+
+window_clause_prefix:
+	WINDOW_SYMBOL window_definition (
+		COMMA_SYMBOL window_definition
+	)*;
+
+window_definition: identifier AS_SYMBOL window_specification;
+
+where_clause: WHERE_SYMBOL expression;
+
+having_clause: HAVING_SYMBOL expression;
+
+group_by_clause: group_by_all | group_by_clause_prefix;
+
+group_by_all: group_by_preamble ALL_SYMBOL;
+
+select_clause:
+	SELECT_SYMBOL hint? opt_select_with? all_or_distinct? opt_select_as_clause? select_list
+	| SELECT_SYMBOL hint? opt_select_with? all_or_distinct? opt_select_as_clause? FROM_SYMBOL {p.NotifyErrorListeners("Syntax error: SELECT list must not be empty", nil, nil)
+		};
+
+opt_select_as_clause:
+	AS_SYMBOL STRUCT_SYMBOL
+	| AS_SYMBOL path_expression;
+
+opt_select_with:
+	WITH_SYMBOL identifier
+	| WITH_SYMBOL identifier OPTIONS_SYMBOL options_list;
 
 // from_clause: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#from_clause
 from_clause: FROM_SYMBOL from_clause_contents;
@@ -166,19 +214,280 @@ pivot_or_unpivot_clause_and_aliases:
 	| identifier
 	| AS_SYMBOL identifier pivot_clause as_alias?
 	| AS_SYMBOL identifier unpivot_clause as_alias?
-	| AS_SYMBOL identifier qualify_clause_nonreseved {
+	| AS_SYMBOL identifier qualify_clause_nonreserved {
 				 p.NotifyErrorListeners("QUALIFY clause must be used in conjunction with WHERE or GROUP BY " "or HAVING clause", nil, nil); 
 		}
 	| identifier pivot_clause as_alias
 	| identifier unpivot_clause as_alias
-	| identifier qualify_clause_non_reserved {
+	| identifier qualify_clause_nonreserved {
 				 p.NotifyErrorListeners("QUALIFY clause must be used in conjunction with WHERE or GROUP BY " "or HAVING clause", nil, nil); 
 		}
 	| pivot_clause as_alias?
 	| unpivot_clause as_alias?
-	| qualify_clause_non_reserved {
+	| qualify_clause_nonreserved {
 				 p.NotifyErrorListeners("QUALIFY clause must be used in conjunction with WHERE or GROUP BY " "or HAVING clause", nil, nil); 
 		};
+
+sample_clause:
+	TABLESAMPLE_SYMBOL identifier LR_BRACKET_SYMBOL sample_size RR_BRACKET_SYMBOL
+		opt_sample_clause_suffix;
+
+opt_sample_clause_suffix:
+	repeatable_clause
+	| WITH_SYMBOL WEIGHT_SYMBOL repeatable_clause?
+	| WITH_SYMBOL WEIGHT_SYMBOL identifier repeatable_clause?
+	| WITH_SYMBOL WEIGHT_SYMBOL AS_SYMBOL identifier repeatable_clause?;
+
+repeatable_clause:
+	REPEATABLE_SYMBOL LR_BRACKET_SYMBOL possibly_cast_int_literal_or_parameter RR_BRACKET_SYMBOL;
+
+possibly_cast_int_literal_or_parameter:
+	cast_int_literal_or_parameter
+	| int_literal_or_parameter;
+
+cast_int_literal_or_parameter:
+	CAST_SYMBOL LR_BRACKET_SYMBOL int_literal_or_parameter AS_SYMBOL type opt_format?
+		RR_BRACKET_SYMBOL;
+
+sample_size:
+	sample_size_value sample_size_unit partition_by_clause_prefix_no_hint?;
+
+sample_size_value:
+	possibly_cast_int_literal_or_parameter
+	| floating_point_literal;
+
+sample_size_unit: ROWS_SYMBOL | PERCENT_SYMBOL;
+
+partition_by_clause_prefix_no_hint:
+	PARTITION_SYMBOL BY_SYMBOL expression (
+		COMMA_SYMBOL expression
+	)*;
+
+match_recognize_clause:
+	MATCH_RECOGNIZE_SYMBOL LR_BRACKET_SYMBOL partition_by_clause_prefix? order_by_clause
+		MEASURES_SYMBOL select_list_prefix_with_as_aliases PATTERN_SYMBOL LR_BRACKET_SYMBOL
+		row_pattern_expr RR_BRACKET_SYMBOL DEFINE_SYMBOL with_expression_variable_prefix
+		RR_BRACKET_SYMBOL as_alias?;
+
+row_pattern_expr:
+	row_pattern_concatenation
+	| row_pattern_expr STROKE_SYMBOL row_pattern_concatenation;
+
+row_pattern_concatenation:
+	row_pattern_factor
+	| row_pattern_concatenation row_pattern_factor;
+
+row_pattern_factor:
+	identifier
+	| LR_BRACKET_SYMBOL row_pattern_expr RR_BRACKET_SYMBOL;
+
+select_list_prefix_with_as_aliases:
+	select_column_expr_with_as_alias (
+		COMMA_SYMBOL select_column_expr_with_as_alias
+	)*;
+
+select_column_expr_with_as_alias:
+	expression AS_SYMBOL identifier;
+
+table_subquery:
+	parenthesized_query opt_pivot_or_unpivot_clause_and_alias?;
+
+join:
+	join_input opt_natural join_type join_hint? JOIN_SYMBOL hint? table_primary
+		on_or_using_clause_list?;
+
+on_or_using_clause_list: on_or_using_clause+;
+
+on_or_using_clause: on_clause | using_clause;
+
+join_hint: HASH_SYMBOL | LOOKUP_SYMBOL;
+
+join_input: join | table_primary;
+
+table_path_expression:
+	table_path_expression_base hint? opt_pivot_or_unpivot_clause_and_alias?
+		opt_with_offset_and_alias? opt_at_system_time?;
+
+opt_at_system_time:
+	FOR_SYMBOL SYSTEM_SYMBOL TIME_SYMBOL AS_SYMBOL OF_SYMBOL expression
+	| FOR_SYMBOL SYSTEM_TIME_SYMBOL AS_SYMBOL OF_SYMBOL expression;
+
+opt_with_offset_and_alias: WITH_SYMBOL OFFSET_SYMBOL as_alias?;
+
+opt_pivot_or_unpivot_clause_and_alias:
+	AS_SYMBOL identifier
+	| identifier
+	| AS_SYMBOL identifier pivot_clause as_alias?
+	| AS_SYMBOL identifier unpivot_clause as_alias?
+	| AS_SYMBOL identifier qualify_clause_nonreserved {p.NotifyErrorListeners("QUALIFY clause must be used in conjunction with WHERE or GROUP BY "
+        "or HAVING clause", nil, nil)}
+	| identifier pivot_clause as_alias?
+	| identifier unpivot_clause as_alias?
+	| identifier qualify_clause_nonreserved {p.NotifyErrorListeners("QUALIFY clause must be used in conjunction with WHERE or GROUP BY "
+        "or HAVING clause", nil, nil)}
+	| pivot_clause as_alias?
+	| unpivot_clause as_alias?
+	| qualify_clause_nonreserved {p.NotifyErrorListeners("QUALIFY clause must be used in conjunction with WHERE or GROUP BY "
+        "or HAVING clause", nil, nil)};
+
+table_path_expression_base:
+	unnest_expression
+	| maybe_slashed_or_dashed_path_expression
+	| path_expression LS_BRACKET_SYMBOL {p.NotifyErrorListeners("Syntax error: Array element access is not allowed in the FROM "
+            "clause without UNNEST; Use UNNEST(<expression>)",nil,nil)}
+	| path_expression DOT_SYMBOL LR_BRACKET_SYMBOL {p.NotifyErrorListeners("Syntax error: Generalized field access is not allowed in the FROM "
+            "clause without UNNEST; Use UNNEST(<expression>)",nil,nil)}
+	| unnest_expression LS_BRACKET_SYMBOL {p.NotifyErrorListeners("Syntax error: Array element access is not allowed in the FROM "
+            "clause without UNNEST; Use UNNEST(<expression>)",nil,nil)}
+	| unnest_expression DOT_SYMBOL LR_BRACKET_SYMBOL {p.NotifyErrorListeners("Syntax error: Generalized field access is not allowed in the FROM "
+            "clause without UNNEST; Use UNNEST(<expression>)",nil,nil)};
+
+maybe_slashed_or_dashed_path_expression:
+	maybe_dashed_path_expression
+	| slashed_path_expression;
+
+maybe_dashed_path_expression:
+	path_expression
+	| dashed_path_expression;
+
+dashed_path_expression:
+	dashed_identifier
+	| dashed_path_expression DOT_SYMBOL identifier;
+
+dashed_identifier:
+	identifier DASH_SYMBOL identifier
+	| dashed_identifier DASH_SYMBOL dashed_identifier
+	| identifier DASH_SYMBOL INTEGER_LITERAL
+	| dashed_identifier DASH_SYMBOL INTEGER_LITERAL
+	| identifier DASH_SYMBOL floating_point_literal identifier
+	| dashed_identifier DASH_SYMBOL floating_point_literal identifier;
+
+slashed_identifier:
+	SLASH_SYMBOL identifier_or_integer
+	| slashed_identifier slashed_identifier_separator identifier_or_integer
+	| slashed_identifier slashed_identifier_separator floating_point_literal
+		slashed_identifier_separator identifier_or_integer;
+
+identifier_or_integer:
+	identifier
+	| INTEGER_LITERAL; // TODO(zp): SCRIPT_LABEL;
+
+slashed_identifier_separator:
+	DASH_SYMBOL SLASH_SYMBOL COLON_SYMBOL;
+
+slashed_path_expression:
+	slashed_identifier
+	| slashed_identifier slashed_identifier_separator floating_point_literal identifier;
+
+unnest_expression:
+	unnest_expression_prefix opt_array_zip_mode? RR_BRACKET_SYMBOL
+	| UNNEST_SYMBOL LR_BRACKET_SYMBOL SELECT_SYMBOL {p.NotifyErrorListeners("The argument to UNNEST is an expression, not a query; to use a query "
+        "as an expression, the query must be wrapped with additional "
+        "parentheses to make it a scalar subquery expression", nil, nil)};
+
+unnest_expression_prefix:
+	UNNEST_SYMBOL LR_BRACKET_SYMBOL expression_with_opt_alias (
+		COMMA_SYMBOL expression_with_opt_alias
+	)*;
+
+opt_array_zip_mode: COMMA_SYMBOL named_argument;
+
+expression_with_opt_alias:
+	expression opt_as_alias_with_required_as?;
+
+tvf_prefix:
+	tvf_prefix_no_args tvf_argument
+	| tvf_prefix COMMA_SYMBOL tvf_argument;
+
+tvf_argument:
+	expression
+	| descriptor_argument
+	| table_clause
+	| model_clause
+	| connection_clause
+	| named_argument
+	| LR_BRACKET_SYMBOL table_clause RR_BRACKET_SYMBOL {p.NotifyErrorListeners("Syntax error: Table arguments for table-valued function "
+            "calls written as \"TABLE path\" must not be enclosed in "
+            "parentheses. To fix this, replace (TABLE path) with TABLE path",nil,nil)}
+	| LR_BRACKET_SYMBOL model_clause RR_BRACKET_SYMBOL {p.NotifyErrorListeners("Syntax error: Model arguments for table-valued function "
+            "calls written as \"MODEL path\" must not be enclosed in "
+            "parentheses. To fix this, replace (MODEL path) with MODEL path",nil,nil)}
+	| LR_BRACKET_SYMBOL connection_clause RR_BRACKET_SYMBOL {p.NotifyErrorListeners("Syntax error: Connection arguments for table-valued function "
+            "calls written as \"CONNECTION path\" must not be enclosed in "
+            "parentheses. To fix this, replace (CONNECTION path) with "
+            "CONNECTION path",nil,nil)}
+	| LR_BRACKET_SYMBOL named_argument RR_BRACKET_SYMBOL {p.NotifyErrorListeners("Syntax error: Named arguments for table-valued function "
+            "calls written as \"name => value\" must not be enclosed in "
+            "parentheses. To fix this, replace (name => value) with "
+            "name => value",nil,nil)}
+	| SELECT_SYMBOL {p.NotifyErrorListeners("Syntax error: Each subquery argument for table-valued function "
+            "calls must be enclosed in parentheses. To fix this, replace "
+            "SELECT... with (SELECT...)",nil,nil)}
+	| WITH_SYMBOL {p.NotifyErrorListeners("Syntax error: Each subquery argument for table-valued function "
+            "calls must be enclosed in parentheses. To fix this, replace "
+            "WITH... with (WITH...)",nil,nil)};
+
+connection_clause: CONNECTION_SYMBOL path_expression_or_default;
+
+path_expression_or_default: path_expression | DEFAULT_SYMBOL;
+
+descriptor_argument:
+	DESCRIPTOR_SYMBOL LR_BRACKET_SYMBOL descriptor_column_list RR_BRACKET_SYMBOL;
+
+descriptor_column_list:
+	descriptor_column (COMMA_SYMBOL descriptor_column)*;
+
+descriptor_column: identifier;
+
+table_clause:
+	TABLE_SYMBOL tvf_with_suffixes
+	| TABLE_SYMBOL path_expression;
+
+model_clause: MODEL_SYMBOL path_expression;
+
+qualify_clause_nonreserved: QUALIFY_SYMBOL expression;
+
+unpivot_clause:
+	UNPIVOT_SYMBOL unpivot_nulls_filter? LR_BRACKET_SYMBOL path_expression_list_with_opt_parens
+		FOR_SYMBOL path_expression IN_SYMBOL unpivot_in_item_list RR_BRACKET_SYMBOL;
+
+unpivot_in_item_list:
+	unpivot_in_item_list_prefix RR_BRACKET_SYMBOL;
+
+unpivot_in_item_list_prefix:
+	LR_BRACKET_SYMBOL unpivot_in_item
+	| unpivot_in_item_list_prefix COMMA_SYMBOL unpivot_in_item;
+
+unpivot_in_item:
+	path_expression_list_with_opt_parens opt_as_string_or_integer?;
+
+opt_as_string_or_integer:
+	AS_SYMBOL? string_literal
+	| AS_SYMBOL? integer_literal;
+
+path_expression_list_with_opt_parens:
+	LR_BRACKET_SYMBOL path_expression_list RR_BRACKET_SYMBOL
+	| path_expression_list;
+
+path_expression_list:
+	path_expression (COMMA_SYMBOL path_expression)*;
+
+unpivot_nulls_filter:
+	EXCLUDE_SYMBOL NULLS_SYMBOL
+	| INCLUDE_SYMBOL NULLS_SYMBOL;
+
+pivot_clause:
+	PIVOT_SYMBOL LR_BRACKET_SYMBOL pivot_expression_list FOR_SYMBOL expression_higher_prec_than_and
+		IN_SYMBOL LR_BRACKET_SYMBOL pivot_value_list RR_BRACKET_SYMBOL RR_BRACKET_SYMBOL;
+
+pivot_expression_list:
+	pivot_expression (COMMA_SYMBOL pivot_expression)*;
+
+pivot_expression: expression as_alias?;
+
+pivot_value_list: pivot_value (COMMA_SYMBOL pivot_value)*;
+
+pivot_value: expression as_alias?;
 
 tvf_prefix_no_args:
 	path_expression
@@ -352,8 +661,10 @@ recursive_term: query;
 // expression: https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/bison_parser.y#L7712
 expression:
 	expression_higher_prec_than_and
-	| and_expression					# andExpression
-	| expression OR_SYMBOL expression	# orExpression;
+	| and_expression
+	| or_expression;
+
+or_expression: expression OR_SYMBOL expression;
 
 // expression_higher_prec_than_and: https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/bison_parser.y#L7747
 expression_higher_prec_than_and:
@@ -369,8 +680,8 @@ parenthesized_expression_not_a_query:
 expression_maybe_parenthesized_not_a_query:
 	parenthesized_expression_not_a_query
 	| unparenthesized_expression_higher_prec_than_and
-	| and_expression					# andExpression
-	| expression OR_SYMBOL expression	# orExpression;
+	| and_expression
+	| or_expression;
 
 and_expression:
 	and_expression AND_SYMBOL expression_higher_prec_than_and
