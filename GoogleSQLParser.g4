@@ -731,7 +731,7 @@ unparenthesized_expression_higher_prec_than_and:
 
 parenthesized_anysomeall_list_in_rhs:
 	parenthesized_query
-	| LR_BRACKET_SYMBOL expression_maybe_parenthesized_not_a_query RR_BRACKET_SYMBOL
+	| parenthesized_expression_not_a_query
 	| in_list_two_or_more_prefix RR_BRACKET_SYMBOL;
 
 in_list_two_or_more_prefix:
