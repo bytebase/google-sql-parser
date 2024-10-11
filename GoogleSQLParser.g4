@@ -663,9 +663,7 @@ recursive_term: query;
 expression:
 	expression_higher_prec_than_and
 	| and_expression
-	| or_expression;
-
-or_expression: expression OR_SYMBOL expression;
+	| expression OR_SYMBOL expression;
 
 // expression_higher_prec_than_and: https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/bison_parser.y#L7747
 expression_higher_prec_than_and:
@@ -682,7 +680,8 @@ expression_maybe_parenthesized_not_a_query:
 	parenthesized_expression_not_a_query
 	| unparenthesized_expression_higher_prec_than_and
 	| and_expression
-	| or_expression;
+	// Previous or_expression, replace by solving mutually left-recursive.
+	| expression OR_SYMBOL expression;
 
 and_expression:
 	expression_higher_prec_than_and AND_SYMBOL expression_higher_prec_than_and (
