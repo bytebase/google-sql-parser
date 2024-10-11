@@ -778,15 +778,12 @@ function_call_expression:
 	// Empty argument list.
 	function_call_expression_base opt_having_or_group_by_modifier? order_by_clause?
 		limit_offset_clause? RR_BRACKET_SYMBOL
-	| function_call_expression_with_args_prefix opt_null_handling_modifier?
-		opt_having_or_group_by_modifier? clamped_between_modifier? with_report_modifier?
-		order_by_clause? limit_offset_clause? RR_BRACKET_SYMBOL;
-
-function_call_expression_with_args_prefix:
-	function_call_expression_base (
+	// Non empty argument list.
+	| function_call_expression_base (
 		function_call_argument
-		| ASTERISK_SYMBOL
-	) (COMMA_SYMBOL function_call_argument)*;
+		| ASTERISK_SYMBOL (COMMA_SYMBOL function_call_argument)*
+	) opt_null_handling_modifier? opt_having_or_group_by_modifier? clamped_between_modifier?
+		with_report_modifier? order_by_clause? limit_offset_clause? RR_BRACKET_SYMBOL;
 
 function_call_expression_base:
 	expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL
