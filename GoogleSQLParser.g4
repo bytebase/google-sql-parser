@@ -685,10 +685,13 @@ expression_maybe_parenthesized_not_a_query:
 	| or_expression;
 
 and_expression:
-	and_expression AND_SYMBOL expression_higher_prec_than_and
-	| expression_higher_prec_than_and AND_SYMBOL expression_higher_prec_than_and;
+	expression_higher_prec_than_and AND_SYMBOL expression_higher_prec_than_and (
+		AND_SYMBOL expression_higher_prec_than_and
+	)*;
 
-// unparenthesized_expression_higher_prec_than_and: https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/bison_parser.y#L7781
+// unparenthesized_expression_higher_prec_than_and:
+// https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/bison_parser.y#L7781
+// TODO(zp): Implement the rest of the expression.
 unparenthesized_expression_higher_prec_than_and:
 	null_literal
 	| boolean_literal
@@ -713,9 +716,64 @@ unparenthesized_expression_higher_prec_than_and:
 	| extract_expression
 	| with_expression
 	| replace_fields_expression
-	| function_call_expression_with_clause;
+	| function_call_expression_with_clauses
+	| interval_expression
+	| identifier
+	| struct_constructor
+	| expression_subquery_with_keyword
+	| expression_higher_prec_than_and LS_BRACKET_SYMBOL expression RS_BRACKET_SYMBOL
+	| expression_higher_prec_than_and DOT_SYMBOL LR_BRACKET_SYMBOL path_expression RR_BRACKET_SYMBOL
+	| expression_higher_prec_than_and DOT_SYMBOL identifier
+	| NOT_SYMBOL expression_higher_prec_than_and
+	| expression_higher_prec_than_and like_operator any_some_all hint? unnest_expression
+	| expression_higher_prec_than_and like_operator any_some_all hint?
+		parenthesized_anysomeall_list_in_rhs
+	| expression_higher_prec_than_and like_operator expression_higher_prec_than_and;
 
-function_call_expression_with_clause:
+parenthesized_anysomeall_list_in_rhs:
+	parenthesized_query
+	| LR_BRACKET_SYMBOL expression_maybe_parenthesized_not_a_query RR_BRACKET_SYMBOL
+	| in_list_two_or_more_prefix RR_BRACKET_SYMBOL;
+
+in_list_two_or_more_prefix:
+	LR_BRACKET_SYMBOL expression COMMA_SYMBOL expression (
+		COMMA_SYMBOL expression
+	)*;
+
+any_some_all: ANY_SYMBOL | SOME_SYMBOL | ALL_SYMBOL;
+
+like_operator: LIKE_SYMBOL | NOT_SPECIAL_SYMBOL LIKE_SYMBOL;
+
+expression_subquery_with_keyword:
+	ARRAY_SYMBOL parenthesized_query
+	| EXISTS_SYMBOL hint? parenthesized_query;
+
+struct_constructor:
+	struct_constructor_prefix_with_keyword RR_BRACKET_SYMBOL
+	| struct_constructor_prefix_with_keyword_no_arg RR_BRACKET_SYMBOL
+	| struct_constructor_prefix_without_keyword RR_BRACKET_SYMBOL;
+
+struct_constructor_prefix_with_keyword:
+	struct_constructor_prefix_with_keyword_no_arg struct_constructor_arg (
+		COMMA_SYMBOL struct_constructor_arg
+	)*;
+
+struct_constructor_arg:
+	expression opt_as_alias_with_required_as?;
+
+struct_constructor_prefix_without_keyword:
+	LR_BRACKET_SYMBOL expression COMMA_SYMBOL expression (
+		COMMA_SYMBOL expression
+	)*;
+
+struct_constructor_prefix_with_keyword_no_arg:
+	struct_type LR_BRACKET_SYMBOL
+	| STRUCT_SYMBOL LR_BRACKET_SYMBOL;
+
+interval_expression:
+	INTERVAL_SYMBOL expression identifier (TO_SYMBOL identifier)?;
+
+function_call_expression_with_clauses:
 	function_call_expression hint? with_group_rows? over_clause?;
 
 function_call_expression:
