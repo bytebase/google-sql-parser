@@ -786,8 +786,7 @@ function_call_expression:
 		with_report_modifier? order_by_clause? limit_offset_clause? RR_BRACKET_SYMBOL;
 
 function_call_expression_base:
-	expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL
-	| expression_higher_prec_than_and LR_BRACKET_SYMBOL
+	expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
 	| function_name_from_keyword LR_BRACKET_SYMBOL;
 
 over_clause: OVER_SYMBOL window_specification;
