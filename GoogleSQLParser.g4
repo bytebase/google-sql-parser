@@ -782,6 +782,17 @@ function_call_expression:
 		opt_having_or_group_by_modifier? clamped_between_modifier? with_report_modifier?
 		order_by_clause? limit_offset_clause? RR_BRACKET_SYMBOL;
 
+function_call_expression_with_args_prefix:
+	function_call_expression_base (
+		function_call_argument
+		| ASTERISK_SYMBOL
+	) (COMMA_SYMBOL function_call_argument)*;
+
+function_call_expression_base:
+	expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL
+	| expression_higher_prec_than_and LR_BRACKET_SYMBOL
+	| function_name_from_keyword LR_BRACKET_SYMBOL;
+
 over_clause: OVER_SYMBOL window_specification;
 
 window_specification:
@@ -840,15 +851,6 @@ options_assignment_operator:
 opt_null_handling_modifier:
 	IGNORE_SYMBOL NULLS_SYMBOL
 	| RESPECT_SYMBOL NULLS_SYMBOL;
-
-function_call_expression_with_args_prefix:
-	/* TODO(zp): handle mutually left-recursive. */
-	/*
-	 function_call_expression_base function_call_argument | function_call_expression_base
-	 ASTERISK_SYMBOL | function_call_expression_with_args_prefix COMMA_SYMBOL
-	 function_call_argument;
-	 */
-	COMMA_SYMBOL function_call_argument;
 
 function_call_argument:
 	expression opt_as_alias_with_required_as? named_argument
@@ -946,11 +948,6 @@ asc_or_desc: ASC_SYMBOL | DESC_SYMBOL;
 null_order:
 	NULLS_SYMBOL FIRST_SYMBOL
 	| NULLS_SYMBOL LAST_SYMBOL;
-
-function_call_expression_base:
-	expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL
-	| expression_higher_prec_than_and LR_BRACKET_SYMBOL
-	| function_name_from_keyword LR_BRACKET_SYMBOL;
 
 function_name_from_keyword:
 	IF_SYMBOL
