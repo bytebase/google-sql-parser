@@ -674,14 +674,13 @@ expression_higher_prec_than_and:
 parenthesized_query: LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL;
 
 parenthesized_expression_not_a_query:
-	LR_BRACKET_SYMBOL expression_maybe_parenthesized_not_a_query RR_BRACKET_SYMBOL;
-
-expression_maybe_parenthesized_not_a_query:
-	parenthesized_expression_not_a_query
-	| unparenthesized_expression_higher_prec_than_and
-	| and_expression
-	// Previous or_expression, replace by solving mutually left-recursive.
-	| expression OR_SYMBOL expression;
+	LR_BRACKET_SYMBOL (
+		parenthesized_expression_not_a_query
+		| unparenthesized_expression_higher_prec_than_and
+		| and_expression
+		// Previous or_expression, replace by solving mutually left-recursive.
+		| expression OR_SYMBOL expression
+	) RR_BRACKET_SYMBOL;
 
 and_expression:
 	expression_higher_prec_than_and AND_SYMBOL expression_higher_prec_than_and (
