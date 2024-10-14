@@ -490,17 +490,14 @@ type GoogleSQLParserListener interface {
 	// EnterParenthesized_expression_not_a_query is called when entering the parenthesized_expression_not_a_query production.
 	EnterParenthesized_expression_not_a_query(c *Parenthesized_expression_not_a_queryContext)
 
-	// EnterExpression_maybe_parenthesized_not_a_query is called when entering the expression_maybe_parenthesized_not_a_query production.
-	EnterExpression_maybe_parenthesized_not_a_query(c *Expression_maybe_parenthesized_not_a_queryContext)
+	// EnterParenthesized_anysomeall_list_in_rhs is called when entering the parenthesized_anysomeall_list_in_rhs production.
+	EnterParenthesized_anysomeall_list_in_rhs(c *Parenthesized_anysomeall_list_in_rhsContext)
 
 	// EnterAnd_expression is called when entering the and_expression production.
 	EnterAnd_expression(c *And_expressionContext)
 
 	// EnterUnparenthesized_expression_higher_prec_than_and is called when entering the unparenthesized_expression_higher_prec_than_and production.
 	EnterUnparenthesized_expression_higher_prec_than_and(c *Unparenthesized_expression_higher_prec_than_andContext)
-
-	// EnterParenthesized_anysomeall_list_in_rhs is called when entering the parenthesized_anysomeall_list_in_rhs production.
-	EnterParenthesized_anysomeall_list_in_rhs(c *Parenthesized_anysomeall_list_in_rhsContext)
 
 	// EnterIn_list_two_or_more_prefix is called when entering the in_list_two_or_more_prefix production.
 	EnterIn_list_two_or_more_prefix(c *In_list_two_or_more_prefixContext)
@@ -534,9 +531,6 @@ type GoogleSQLParserListener interface {
 
 	// EnterFunction_call_expression_with_clauses is called when entering the function_call_expression_with_clauses production.
 	EnterFunction_call_expression_with_clauses(c *Function_call_expression_with_clausesContext)
-
-	// EnterFunction_call_expression is called when entering the function_call_expression production.
-	EnterFunction_call_expression(c *Function_call_expressionContext)
 
 	// EnterOver_clause is called when entering the over_clause production.
 	EnterOver_clause(c *Over_clauseContext)
@@ -591,9 +585,6 @@ type GoogleSQLParserListener interface {
 
 	// EnterOpt_null_handling_modifier is called when entering the opt_null_handling_modifier production.
 	EnterOpt_null_handling_modifier(c *Opt_null_handling_modifierContext)
-
-	// EnterFunction_call_expression_with_args_prefix is called when entering the function_call_expression_with_args_prefix production.
-	EnterFunction_call_expression_with_args_prefix(c *Function_call_expression_with_args_prefixContext)
 
 	// EnterFunction_call_argument is called when entering the function_call_argument production.
 	EnterFunction_call_argument(c *Function_call_argumentContext)
@@ -672,9 +663,6 @@ type GoogleSQLParserListener interface {
 
 	// EnterNull_order is called when entering the null_order production.
 	EnterNull_order(c *Null_orderContext)
-
-	// EnterFunction_call_expression_base is called when entering the function_call_expression_base production.
-	EnterFunction_call_expression_base(c *Function_call_expression_baseContext)
 
 	// EnterFunction_name_from_keyword is called when entering the function_name_from_keyword production.
 	EnterFunction_name_from_keyword(c *Function_name_from_keywordContext)
@@ -1411,17 +1399,14 @@ type GoogleSQLParserListener interface {
 	// ExitParenthesized_expression_not_a_query is called when exiting the parenthesized_expression_not_a_query production.
 	ExitParenthesized_expression_not_a_query(c *Parenthesized_expression_not_a_queryContext)
 
-	// ExitExpression_maybe_parenthesized_not_a_query is called when exiting the expression_maybe_parenthesized_not_a_query production.
-	ExitExpression_maybe_parenthesized_not_a_query(c *Expression_maybe_parenthesized_not_a_queryContext)
+	// ExitParenthesized_anysomeall_list_in_rhs is called when exiting the parenthesized_anysomeall_list_in_rhs production.
+	ExitParenthesized_anysomeall_list_in_rhs(c *Parenthesized_anysomeall_list_in_rhsContext)
 
 	// ExitAnd_expression is called when exiting the and_expression production.
 	ExitAnd_expression(c *And_expressionContext)
 
 	// ExitUnparenthesized_expression_higher_prec_than_and is called when exiting the unparenthesized_expression_higher_prec_than_and production.
 	ExitUnparenthesized_expression_higher_prec_than_and(c *Unparenthesized_expression_higher_prec_than_andContext)
-
-	// ExitParenthesized_anysomeall_list_in_rhs is called when exiting the parenthesized_anysomeall_list_in_rhs production.
-	ExitParenthesized_anysomeall_list_in_rhs(c *Parenthesized_anysomeall_list_in_rhsContext)
 
 	// ExitIn_list_two_or_more_prefix is called when exiting the in_list_two_or_more_prefix production.
 	ExitIn_list_two_or_more_prefix(c *In_list_two_or_more_prefixContext)
@@ -1455,9 +1440,6 @@ type GoogleSQLParserListener interface {
 
 	// ExitFunction_call_expression_with_clauses is called when exiting the function_call_expression_with_clauses production.
 	ExitFunction_call_expression_with_clauses(c *Function_call_expression_with_clausesContext)
-
-	// ExitFunction_call_expression is called when exiting the function_call_expression production.
-	ExitFunction_call_expression(c *Function_call_expressionContext)
 
 	// ExitOver_clause is called when exiting the over_clause production.
 	ExitOver_clause(c *Over_clauseContext)
@@ -1512,9 +1494,6 @@ type GoogleSQLParserListener interface {
 
 	// ExitOpt_null_handling_modifier is called when exiting the opt_null_handling_modifier production.
 	ExitOpt_null_handling_modifier(c *Opt_null_handling_modifierContext)
-
-	// ExitFunction_call_expression_with_args_prefix is called when exiting the function_call_expression_with_args_prefix production.
-	ExitFunction_call_expression_with_args_prefix(c *Function_call_expression_with_args_prefixContext)
 
 	// ExitFunction_call_argument is called when exiting the function_call_argument production.
 	ExitFunction_call_argument(c *Function_call_argumentContext)
@@ -1593,9 +1572,6 @@ type GoogleSQLParserListener interface {
 
 	// ExitNull_order is called when exiting the null_order production.
 	ExitNull_order(c *Null_orderContext)
-
-	// ExitFunction_call_expression_base is called when exiting the function_call_expression_base production.
-	ExitFunction_call_expression_base(c *Function_call_expression_baseContext)
 
 	// ExitFunction_name_from_keyword is called when exiting the function_name_from_keyword production.
 	ExitFunction_name_from_keyword(c *Function_name_from_keywordContext)
