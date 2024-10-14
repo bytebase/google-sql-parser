@@ -707,6 +707,10 @@ func (v *BaseGoogleSQLParserVisitor) VisitFunction_call_expression_with_clauses(
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitFunction_call_expression_with_clauses_suffix(ctx *Function_call_expression_with_clauses_suffixContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitOver_clause(ctx *Over_clauseContext) interface{} {
 	return v.VisitChildren(ctx)
 }

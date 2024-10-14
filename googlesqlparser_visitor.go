@@ -532,6 +532,9 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#function_call_expression_with_clauses.
 	VisitFunction_call_expression_with_clauses(ctx *Function_call_expression_with_clausesContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#function_call_expression_with_clauses_suffix.
+	VisitFunction_call_expression_with_clauses_suffix(ctx *Function_call_expression_with_clauses_suffixContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#over_clause.
 	VisitOver_clause(ctx *Over_clauseContext) interface{}
 

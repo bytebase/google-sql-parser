@@ -1208,6 +1208,14 @@ func (s *BaseGoogleSQLParserListener) EnterFunction_call_expression_with_clauses
 func (s *BaseGoogleSQLParserListener) ExitFunction_call_expression_with_clauses(ctx *Function_call_expression_with_clausesContext) {
 }
 
+// EnterFunction_call_expression_with_clauses_suffix is called when production function_call_expression_with_clauses_suffix is entered.
+func (s *BaseGoogleSQLParserListener) EnterFunction_call_expression_with_clauses_suffix(ctx *Function_call_expression_with_clauses_suffixContext) {
+}
+
+// ExitFunction_call_expression_with_clauses_suffix is called when production function_call_expression_with_clauses_suffix is exited.
+func (s *BaseGoogleSQLParserListener) ExitFunction_call_expression_with_clauses_suffix(ctx *Function_call_expression_with_clauses_suffixContext) {
+}
+
 // EnterOver_clause is called when production over_clause is entered.
 func (s *BaseGoogleSQLParserListener) EnterOver_clause(ctx *Over_clauseContext) {}
 
