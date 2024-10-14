@@ -490,17 +490,14 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#parenthesized_expression_not_a_query.
 	VisitParenthesized_expression_not_a_query(ctx *Parenthesized_expression_not_a_queryContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#expression_maybe_parenthesized_not_a_query.
-	VisitExpression_maybe_parenthesized_not_a_query(ctx *Expression_maybe_parenthesized_not_a_queryContext) interface{}
+	// Visit a parse tree produced by GoogleSQLParser#parenthesized_anysomeall_list_in_rhs.
+	VisitParenthesized_anysomeall_list_in_rhs(ctx *Parenthesized_anysomeall_list_in_rhsContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#and_expression.
 	VisitAnd_expression(ctx *And_expressionContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#unparenthesized_expression_higher_prec_than_and.
 	VisitUnparenthesized_expression_higher_prec_than_and(ctx *Unparenthesized_expression_higher_prec_than_andContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#parenthesized_anysomeall_list_in_rhs.
-	VisitParenthesized_anysomeall_list_in_rhs(ctx *Parenthesized_anysomeall_list_in_rhsContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#in_list_two_or_more_prefix.
 	VisitIn_list_two_or_more_prefix(ctx *In_list_two_or_more_prefixContext) interface{}
@@ -534,9 +531,6 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#function_call_expression_with_clauses.
 	VisitFunction_call_expression_with_clauses(ctx *Function_call_expression_with_clausesContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#function_call_expression.
-	VisitFunction_call_expression(ctx *Function_call_expressionContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#over_clause.
 	VisitOver_clause(ctx *Over_clauseContext) interface{}
@@ -591,9 +585,6 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#opt_null_handling_modifier.
 	VisitOpt_null_handling_modifier(ctx *Opt_null_handling_modifierContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#function_call_expression_with_args_prefix.
-	VisitFunction_call_expression_with_args_prefix(ctx *Function_call_expression_with_args_prefixContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#function_call_argument.
 	VisitFunction_call_argument(ctx *Function_call_argumentContext) interface{}
@@ -672,9 +663,6 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#null_order.
 	VisitNull_order(ctx *Null_orderContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#function_call_expression_base.
-	VisitFunction_call_expression_base(ctx *Function_call_expression_baseContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#function_name_from_keyword.
 	VisitFunction_name_from_keyword(ctx *Function_name_from_keywordContext) interface{}

@@ -17,7 +17,7 @@ query: query_without_pipe_operators;
 
 query_without_pipe_operators:
 	with_clause query_primary_or_set_operation order_by_clause? limit_offset_clause?
-	| with_clause_with_trailing_comma select_or_from_keyword {p.NotifyErrorListeners("Syntax error: Trailing comma after the WITH " "clause before the main query is not allowed", nil, nil)
+	| with_clause_with_trailing_comma select_or_from_keyword {p.NotifyErrorListeners("Syntax error: Trailing comma after the WITH "+"clause before the main query is not allowed", nil, nil)
 		}
 	| with_clause PIPE_SYMBOL {p.NotifyErrorListeners("Syntax error: A pipe operator cannot follow "
                                "the WITH clause before the main query; The "
@@ -667,7 +667,48 @@ expression:
 
 // expression_higher_prec_than_and: https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/bison_parser.y#L7747
 expression_higher_prec_than_and:
-	unparenthesized_expression_higher_prec_than_and
+	// unparenthesized_expression_higher_prec_than_and scope begin
+	null_literal
+	| boolean_literal
+	| string_literal
+	| bytes_literal
+	| integer_literal
+	| numeric_literal
+	| bignumeric_literal
+	| json_literal
+	| floating_point_literal
+	| date_or_time_literal
+	| range_literal
+	| parameter_expression
+	| system_variable_expression
+	| array_constructor
+	| new_constructor
+	| braced_constructor
+	| braced_new_constructor
+	| struct_braced_constructor
+	| case_expression
+	| cast_expression
+	| extract_expression
+	| with_expression
+	| replace_fields_expression
+	// Inlining function_call_expression scope begin
+	expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
+		function_call_expression_with_clauses_suffix
+	| function_name_from_keyword LR_BRACKET_SYMBOL function_call_expression_with_clauses_suffix
+	// Inlining function_call_expression scope end
+	| interval_expression
+	| identifier
+	| struct_constructor
+	| expression_subquery_with_keyword
+	| expression_higher_prec_than_and LS_BRACKET_SYMBOL expression RS_BRACKET_SYMBOL
+	| expression_higher_prec_than_and DOT_SYMBOL LR_BRACKET_SYMBOL path_expression RR_BRACKET_SYMBOL
+	| expression_higher_prec_than_and DOT_SYMBOL identifier
+	| NOT_SYMBOL expression_higher_prec_than_and
+	| expression_higher_prec_than_and like_operator any_some_all hint? unnest_expression
+	| expression_higher_prec_than_and like_operator any_some_all hint?
+		parenthesized_anysomeall_list_in_rhs
+	| expression_higher_prec_than_and like_operator expression_higher_prec_than_and
+	// unparenthesized_expression_higher_prec_than_and scope begin
 	| parenthesized_expression_not_a_query
 	| parenthesized_query;
 
@@ -676,11 +717,61 @@ parenthesized_query: LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL;
 parenthesized_expression_not_a_query:
 	LR_BRACKET_SYMBOL (
 		parenthesized_expression_not_a_query
-		| unparenthesized_expression_higher_prec_than_and
+		// NOTE: unparenthesized_expression_higher_prec_than_and scope begin
+		(
+			null_literal
+			| boolean_literal
+			| string_literal
+			| bytes_literal
+			| integer_literal
+			| numeric_literal
+			| bignumeric_literal
+			| json_literal
+			| floating_point_literal
+			| date_or_time_literal
+			| range_literal
+			| parameter_expression
+			| system_variable_expression
+			| array_constructor
+			| new_constructor
+			| braced_constructor
+			| braced_new_constructor
+			| struct_braced_constructor
+			| case_expression
+			| cast_expression
+			| extract_expression
+			| with_expression
+			| replace_fields_expression
+			// Inlining function_call_expression scope begin
+			expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
+				function_call_expression_with_clauses_suffix
+			| function_name_from_keyword LR_BRACKET_SYMBOL
+				function_call_expression_with_clauses_suffix
+			// Inlining function_call_expression scope end
+			| interval_expression
+			| identifier
+			| struct_constructor
+			| expression_subquery_with_keyword
+			| expression_higher_prec_than_and LS_BRACKET_SYMBOL expression RS_BRACKET_SYMBOL
+			| expression_higher_prec_than_and DOT_SYMBOL LR_BRACKET_SYMBOL path_expression
+				RR_BRACKET_SYMBOL
+			| expression_higher_prec_than_and DOT_SYMBOL identifier
+			| NOT_SYMBOL expression_higher_prec_than_and
+			| expression_higher_prec_than_and like_operator any_some_all hint? unnest_expression
+			| expression_higher_prec_than_and like_operator any_some_all hint?
+				parenthesized_anysomeall_list_in_rhs
+			| expression_higher_prec_than_and like_operator expression_higher_prec_than_and
+		)
+		//
 		| and_expression
 		// Previous or_expression, replace by solving mutually left-recursive.
 		| expression OR_SYMBOL expression
 	) RR_BRACKET_SYMBOL;
+
+parenthesized_anysomeall_list_in_rhs:
+	parenthesized_query
+	| parenthesized_expression_not_a_query
+	| in_list_two_or_more_prefix RR_BRACKET_SYMBOL;
 
 and_expression:
 	expression_higher_prec_than_and AND_SYMBOL expression_higher_prec_than_and (
@@ -728,11 +819,6 @@ unparenthesized_expression_higher_prec_than_and:
 		parenthesized_anysomeall_list_in_rhs
 	| expression_higher_prec_than_and like_operator expression_higher_prec_than_and;
 
-parenthesized_anysomeall_list_in_rhs:
-	parenthesized_query
-	| parenthesized_expression_not_a_query
-	| in_list_two_or_more_prefix RR_BRACKET_SYMBOL;
-
 in_list_two_or_more_prefix:
 	LR_BRACKET_SYMBOL expression COMMA_SYMBOL expression (
 		COMMA_SYMBOL expression
@@ -772,10 +858,13 @@ interval_expression:
 	INTERVAL_SYMBOL expression identifier (TO_SYMBOL identifier)?;
 
 function_call_expression_with_clauses:
+	// TODO(zp): Inline some checking for providing better error message.
+	expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
+		function_call_expression_with_clauses_suffix
+	| function_name_from_keyword LR_BRACKET_SYMBOL function_call_expression_with_clauses_suffix;
+
+function_call_expression_with_clauses_suffix:
 	(
-		expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
-		| function_name_from_keyword LR_BRACKET_SYMBOL
-	) (
 		// Empty argument list.
 		opt_having_or_group_by_modifier? order_by_clause? limit_offset_clause? RR_BRACKET_SYMBOL
 		// Non empty argument list.

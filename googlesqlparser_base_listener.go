@@ -1106,12 +1106,12 @@ func (s *BaseGoogleSQLParserListener) EnterParenthesized_expression_not_a_query(
 func (s *BaseGoogleSQLParserListener) ExitParenthesized_expression_not_a_query(ctx *Parenthesized_expression_not_a_queryContext) {
 }
 
-// EnterExpression_maybe_parenthesized_not_a_query is called when production expression_maybe_parenthesized_not_a_query is entered.
-func (s *BaseGoogleSQLParserListener) EnterExpression_maybe_parenthesized_not_a_query(ctx *Expression_maybe_parenthesized_not_a_queryContext) {
+// EnterParenthesized_anysomeall_list_in_rhs is called when production parenthesized_anysomeall_list_in_rhs is entered.
+func (s *BaseGoogleSQLParserListener) EnterParenthesized_anysomeall_list_in_rhs(ctx *Parenthesized_anysomeall_list_in_rhsContext) {
 }
 
-// ExitExpression_maybe_parenthesized_not_a_query is called when production expression_maybe_parenthesized_not_a_query is exited.
-func (s *BaseGoogleSQLParserListener) ExitExpression_maybe_parenthesized_not_a_query(ctx *Expression_maybe_parenthesized_not_a_queryContext) {
+// ExitParenthesized_anysomeall_list_in_rhs is called when production parenthesized_anysomeall_list_in_rhs is exited.
+func (s *BaseGoogleSQLParserListener) ExitParenthesized_anysomeall_list_in_rhs(ctx *Parenthesized_anysomeall_list_in_rhsContext) {
 }
 
 // EnterAnd_expression is called when production and_expression is entered.
@@ -1126,14 +1126,6 @@ func (s *BaseGoogleSQLParserListener) EnterUnparenthesized_expression_higher_pre
 
 // ExitUnparenthesized_expression_higher_prec_than_and is called when production unparenthesized_expression_higher_prec_than_and is exited.
 func (s *BaseGoogleSQLParserListener) ExitUnparenthesized_expression_higher_prec_than_and(ctx *Unparenthesized_expression_higher_prec_than_andContext) {
-}
-
-// EnterParenthesized_anysomeall_list_in_rhs is called when production parenthesized_anysomeall_list_in_rhs is entered.
-func (s *BaseGoogleSQLParserListener) EnterParenthesized_anysomeall_list_in_rhs(ctx *Parenthesized_anysomeall_list_in_rhsContext) {
-}
-
-// ExitParenthesized_anysomeall_list_in_rhs is called when production parenthesized_anysomeall_list_in_rhs is exited.
-func (s *BaseGoogleSQLParserListener) ExitParenthesized_anysomeall_list_in_rhs(ctx *Parenthesized_anysomeall_list_in_rhsContext) {
 }
 
 // EnterIn_list_two_or_more_prefix is called when production in_list_two_or_more_prefix is entered.
@@ -1214,14 +1206,6 @@ func (s *BaseGoogleSQLParserListener) EnterFunction_call_expression_with_clauses
 
 // ExitFunction_call_expression_with_clauses is called when production function_call_expression_with_clauses is exited.
 func (s *BaseGoogleSQLParserListener) ExitFunction_call_expression_with_clauses(ctx *Function_call_expression_with_clausesContext) {
-}
-
-// EnterFunction_call_expression is called when production function_call_expression is entered.
-func (s *BaseGoogleSQLParserListener) EnterFunction_call_expression(ctx *Function_call_expressionContext) {
-}
-
-// ExitFunction_call_expression is called when production function_call_expression is exited.
-func (s *BaseGoogleSQLParserListener) ExitFunction_call_expression(ctx *Function_call_expressionContext) {
 }
 
 // EnterOver_clause is called when production over_clause is entered.
@@ -1342,14 +1326,6 @@ func (s *BaseGoogleSQLParserListener) EnterOpt_null_handling_modifier(ctx *Opt_n
 
 // ExitOpt_null_handling_modifier is called when production opt_null_handling_modifier is exited.
 func (s *BaseGoogleSQLParserListener) ExitOpt_null_handling_modifier(ctx *Opt_null_handling_modifierContext) {
-}
-
-// EnterFunction_call_expression_with_args_prefix is called when production function_call_expression_with_args_prefix is entered.
-func (s *BaseGoogleSQLParserListener) EnterFunction_call_expression_with_args_prefix(ctx *Function_call_expression_with_args_prefixContext) {
-}
-
-// ExitFunction_call_expression_with_args_prefix is called when production function_call_expression_with_args_prefix is exited.
-func (s *BaseGoogleSQLParserListener) ExitFunction_call_expression_with_args_prefix(ctx *Function_call_expression_with_args_prefixContext) {
 }
 
 // EnterFunction_call_argument is called when production function_call_argument is entered.
@@ -1521,14 +1497,6 @@ func (s *BaseGoogleSQLParserListener) EnterNull_order(ctx *Null_orderContext) {}
 
 // ExitNull_order is called when production null_order is exited.
 func (s *BaseGoogleSQLParserListener) ExitNull_order(ctx *Null_orderContext) {}
-
-// EnterFunction_call_expression_base is called when production function_call_expression_base is entered.
-func (s *BaseGoogleSQLParserListener) EnterFunction_call_expression_base(ctx *Function_call_expression_baseContext) {
-}
-
-// ExitFunction_call_expression_base is called when production function_call_expression_base is exited.
-func (s *BaseGoogleSQLParserListener) ExitFunction_call_expression_base(ctx *Function_call_expression_baseContext) {
-}
 
 // EnterFunction_name_from_keyword is called when production function_name_from_keyword is entered.
 func (s *BaseGoogleSQLParserListener) EnterFunction_name_from_keyword(ctx *Function_name_from_keywordContext) {

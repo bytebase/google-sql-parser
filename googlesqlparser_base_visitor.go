@@ -651,7 +651,7 @@ func (v *BaseGoogleSQLParserVisitor) VisitParenthesized_expression_not_a_query(c
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitExpression_maybe_parenthesized_not_a_query(ctx *Expression_maybe_parenthesized_not_a_queryContext) interface{} {
+func (v *BaseGoogleSQLParserVisitor) VisitParenthesized_anysomeall_list_in_rhs(ctx *Parenthesized_anysomeall_list_in_rhsContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -660,10 +660,6 @@ func (v *BaseGoogleSQLParserVisitor) VisitAnd_expression(ctx *And_expressionCont
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitUnparenthesized_expression_higher_prec_than_and(ctx *Unparenthesized_expression_higher_prec_than_andContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitParenthesized_anysomeall_list_in_rhs(ctx *Parenthesized_anysomeall_list_in_rhsContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -708,10 +704,6 @@ func (v *BaseGoogleSQLParserVisitor) VisitInterval_expression(ctx *Interval_expr
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitFunction_call_expression_with_clauses(ctx *Function_call_expression_with_clausesContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitFunction_call_expression(ctx *Function_call_expressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -784,10 +776,6 @@ func (v *BaseGoogleSQLParserVisitor) VisitOptions_assignment_operator(ctx *Optio
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitOpt_null_handling_modifier(ctx *Opt_null_handling_modifierContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitFunction_call_expression_with_args_prefix(ctx *Function_call_expression_with_args_prefixContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -892,10 +880,6 @@ func (v *BaseGoogleSQLParserVisitor) VisitAsc_or_desc(ctx *Asc_or_descContext) i
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitNull_order(ctx *Null_orderContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitFunction_call_expression_base(ctx *Function_call_expression_baseContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
