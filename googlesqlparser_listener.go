@@ -532,6 +532,9 @@ type GoogleSQLParserListener interface {
 	// EnterFunction_call_expression_with_clauses is called when entering the function_call_expression_with_clauses production.
 	EnterFunction_call_expression_with_clauses(c *Function_call_expression_with_clausesContext)
 
+	// EnterFunction_call_expression_with_clauses_suffix is called when entering the function_call_expression_with_clauses_suffix production.
+	EnterFunction_call_expression_with_clauses_suffix(c *Function_call_expression_with_clauses_suffixContext)
+
 	// EnterOver_clause is called when entering the over_clause production.
 	EnterOver_clause(c *Over_clauseContext)
 
@@ -1440,6 +1443,9 @@ type GoogleSQLParserListener interface {
 
 	// ExitFunction_call_expression_with_clauses is called when exiting the function_call_expression_with_clauses production.
 	ExitFunction_call_expression_with_clauses(c *Function_call_expression_with_clausesContext)
+
+	// ExitFunction_call_expression_with_clauses_suffix is called when exiting the function_call_expression_with_clauses_suffix production.
+	ExitFunction_call_expression_with_clauses_suffix(c *Function_call_expression_with_clauses_suffixContext)
 
 	// ExitOver_clause is called when exiting the over_clause production.
 	ExitOver_clause(c *Over_clauseContext)
