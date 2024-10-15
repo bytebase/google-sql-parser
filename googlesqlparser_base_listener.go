@@ -968,6 +968,76 @@ func (s *BaseGoogleSQLParserListener) EnterExpression_higher_prec_than_and(ctx *
 func (s *BaseGoogleSQLParserListener) ExitExpression_higher_prec_than_and(ctx *Expression_higher_prec_than_andContext) {
 }
 
+// EnterExpression_maybe_parenthesized_not_a_query is called when production expression_maybe_parenthesized_not_a_query is entered.
+func (s *BaseGoogleSQLParserListener) EnterExpression_maybe_parenthesized_not_a_query(ctx *Expression_maybe_parenthesized_not_a_queryContext) {
+}
+
+// ExitExpression_maybe_parenthesized_not_a_query is called when production expression_maybe_parenthesized_not_a_query is exited.
+func (s *BaseGoogleSQLParserListener) ExitExpression_maybe_parenthesized_not_a_query(ctx *Expression_maybe_parenthesized_not_a_queryContext) {
+}
+
+// EnterParenthesized_in_rhs is called when production parenthesized_in_rhs is entered.
+func (s *BaseGoogleSQLParserListener) EnterParenthesized_in_rhs(ctx *Parenthesized_in_rhsContext) {}
+
+// ExitParenthesized_in_rhs is called when production parenthesized_in_rhs is exited.
+func (s *BaseGoogleSQLParserListener) ExitParenthesized_in_rhs(ctx *Parenthesized_in_rhsContext) {}
+
+// EnterUnary_operator is called when production unary_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterUnary_operator(ctx *Unary_operatorContext) {}
+
+// ExitUnary_operator is called when production unary_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitUnary_operator(ctx *Unary_operatorContext) {}
+
+// EnterComparative_operator is called when production comparative_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterComparative_operator(ctx *Comparative_operatorContext) {}
+
+// ExitComparative_operator is called when production comparative_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitComparative_operator(ctx *Comparative_operatorContext) {}
+
+// EnterShift_operator is called when production shift_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterShift_operator(ctx *Shift_operatorContext) {}
+
+// ExitShift_operator is called when production shift_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitShift_operator(ctx *Shift_operatorContext) {}
+
+// EnterAdditive_operator is called when production additive_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterAdditive_operator(ctx *Additive_operatorContext) {}
+
+// ExitAdditive_operator is called when production additive_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitAdditive_operator(ctx *Additive_operatorContext) {}
+
+// EnterMultiplicative_operator is called when production multiplicative_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterMultiplicative_operator(ctx *Multiplicative_operatorContext) {
+}
+
+// ExitMultiplicative_operator is called when production multiplicative_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitMultiplicative_operator(ctx *Multiplicative_operatorContext) {
+}
+
+// EnterIs_operator is called when production is_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterIs_operator(ctx *Is_operatorContext) {}
+
+// ExitIs_operator is called when production is_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitIs_operator(ctx *Is_operatorContext) {}
+
+// EnterBetween_operator is called when production between_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterBetween_operator(ctx *Between_operatorContext) {}
+
+// ExitBetween_operator is called when production between_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitBetween_operator(ctx *Between_operatorContext) {}
+
+// EnterIn_operator is called when production in_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterIn_operator(ctx *In_operatorContext) {}
+
+// ExitIn_operator is called when production in_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitIn_operator(ctx *In_operatorContext) {}
+
+// EnterDistinct_operator is called when production distinct_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterDistinct_operator(ctx *Distinct_operatorContext) {}
+
+// ExitDistinct_operator is called when production distinct_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitDistinct_operator(ctx *Distinct_operatorContext) {}
+
 // EnterParenthesized_query is called when production parenthesized_query is entered.
 func (s *BaseGoogleSQLParserListener) EnterParenthesized_query(ctx *Parenthesized_queryContext) {}
 

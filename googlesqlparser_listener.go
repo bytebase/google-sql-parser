@@ -427,6 +427,39 @@ type GoogleSQLParserListener interface {
 	// EnterExpression_higher_prec_than_and is called when entering the expression_higher_prec_than_and production.
 	EnterExpression_higher_prec_than_and(c *Expression_higher_prec_than_andContext)
 
+	// EnterExpression_maybe_parenthesized_not_a_query is called when entering the expression_maybe_parenthesized_not_a_query production.
+	EnterExpression_maybe_parenthesized_not_a_query(c *Expression_maybe_parenthesized_not_a_queryContext)
+
+	// EnterParenthesized_in_rhs is called when entering the parenthesized_in_rhs production.
+	EnterParenthesized_in_rhs(c *Parenthesized_in_rhsContext)
+
+	// EnterUnary_operator is called when entering the unary_operator production.
+	EnterUnary_operator(c *Unary_operatorContext)
+
+	// EnterComparative_operator is called when entering the comparative_operator production.
+	EnterComparative_operator(c *Comparative_operatorContext)
+
+	// EnterShift_operator is called when entering the shift_operator production.
+	EnterShift_operator(c *Shift_operatorContext)
+
+	// EnterAdditive_operator is called when entering the additive_operator production.
+	EnterAdditive_operator(c *Additive_operatorContext)
+
+	// EnterMultiplicative_operator is called when entering the multiplicative_operator production.
+	EnterMultiplicative_operator(c *Multiplicative_operatorContext)
+
+	// EnterIs_operator is called when entering the is_operator production.
+	EnterIs_operator(c *Is_operatorContext)
+
+	// EnterBetween_operator is called when entering the between_operator production.
+	EnterBetween_operator(c *Between_operatorContext)
+
+	// EnterIn_operator is called when entering the in_operator production.
+	EnterIn_operator(c *In_operatorContext)
+
+	// EnterDistinct_operator is called when entering the distinct_operator production.
+	EnterDistinct_operator(c *Distinct_operatorContext)
+
 	// EnterParenthesized_query is called when entering the parenthesized_query production.
 	EnterParenthesized_query(c *Parenthesized_queryContext)
 
@@ -1251,6 +1284,39 @@ type GoogleSQLParserListener interface {
 
 	// ExitExpression_higher_prec_than_and is called when exiting the expression_higher_prec_than_and production.
 	ExitExpression_higher_prec_than_and(c *Expression_higher_prec_than_andContext)
+
+	// ExitExpression_maybe_parenthesized_not_a_query is called when exiting the expression_maybe_parenthesized_not_a_query production.
+	ExitExpression_maybe_parenthesized_not_a_query(c *Expression_maybe_parenthesized_not_a_queryContext)
+
+	// ExitParenthesized_in_rhs is called when exiting the parenthesized_in_rhs production.
+	ExitParenthesized_in_rhs(c *Parenthesized_in_rhsContext)
+
+	// ExitUnary_operator is called when exiting the unary_operator production.
+	ExitUnary_operator(c *Unary_operatorContext)
+
+	// ExitComparative_operator is called when exiting the comparative_operator production.
+	ExitComparative_operator(c *Comparative_operatorContext)
+
+	// ExitShift_operator is called when exiting the shift_operator production.
+	ExitShift_operator(c *Shift_operatorContext)
+
+	// ExitAdditive_operator is called when exiting the additive_operator production.
+	ExitAdditive_operator(c *Additive_operatorContext)
+
+	// ExitMultiplicative_operator is called when exiting the multiplicative_operator production.
+	ExitMultiplicative_operator(c *Multiplicative_operatorContext)
+
+	// ExitIs_operator is called when exiting the is_operator production.
+	ExitIs_operator(c *Is_operatorContext)
+
+	// ExitBetween_operator is called when exiting the between_operator production.
+	ExitBetween_operator(c *Between_operatorContext)
+
+	// ExitIn_operator is called when exiting the in_operator production.
+	ExitIn_operator(c *In_operatorContext)
+
+	// ExitDistinct_operator is called when exiting the distinct_operator production.
+	ExitDistinct_operator(c *Distinct_operatorContext)
 
 	// ExitParenthesized_query is called when exiting the parenthesized_query production.
 	ExitParenthesized_query(c *Parenthesized_queryContext)

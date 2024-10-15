@@ -427,6 +427,39 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#expression_higher_prec_than_and.
 	VisitExpression_higher_prec_than_and(ctx *Expression_higher_prec_than_andContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#expression_maybe_parenthesized_not_a_query.
+	VisitExpression_maybe_parenthesized_not_a_query(ctx *Expression_maybe_parenthesized_not_a_queryContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#parenthesized_in_rhs.
+	VisitParenthesized_in_rhs(ctx *Parenthesized_in_rhsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#unary_operator.
+	VisitUnary_operator(ctx *Unary_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#comparative_operator.
+	VisitComparative_operator(ctx *Comparative_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#shift_operator.
+	VisitShift_operator(ctx *Shift_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#additive_operator.
+	VisitAdditive_operator(ctx *Additive_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#multiplicative_operator.
+	VisitMultiplicative_operator(ctx *Multiplicative_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#is_operator.
+	VisitIs_operator(ctx *Is_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#between_operator.
+	VisitBetween_operator(ctx *Between_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#in_operator.
+	VisitIn_operator(ctx *In_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#distinct_operator.
+	VisitDistinct_operator(ctx *Distinct_operatorContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#parenthesized_query.
 	VisitParenthesized_query(ctx *Parenthesized_queryContext) interface{}
 
