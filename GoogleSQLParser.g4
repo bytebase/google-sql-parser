@@ -360,12 +360,12 @@ dashed_path_expression:
 	| dashed_path_expression DOT_SYMBOL identifier;
 
 dashed_identifier:
-	identifier MINUS_SYMBOL identifier
-	| dashed_identifier MINUS_SYMBOL dashed_identifier
-	| identifier MINUS_SYMBOL INTEGER_LITERAL
-	| dashed_identifier MINUS_SYMBOL INTEGER_LITERAL
-	| identifier MINUS_SYMBOL floating_point_literal identifier
-	| dashed_identifier MINUS_SYMBOL floating_point_literal identifier;
+	identifier MINUS_OPERATOR identifier
+	| dashed_identifier MINUS_OPERATOR dashed_identifier
+	| identifier MINUS_OPERATOR INTEGER_LITERAL
+	| dashed_identifier MINUS_OPERATOR INTEGER_LITERAL
+	| identifier MINUS_OPERATOR floating_point_literal identifier
+	| dashed_identifier MINUS_OPERATOR floating_point_literal identifier;
 
 slashed_identifier:
 	SLASH_SYMBOL identifier_or_integer
@@ -378,7 +378,7 @@ identifier_or_integer:
 	| INTEGER_LITERAL; // TODO(zp): SCRIPT_LABEL;
 
 slashed_identifier_separator:
-	MINUS_SYMBOL SLASH_SYMBOL COLON_SYMBOL;
+	MINUS_OPERATOR SLASH_SYMBOL COLON_SYMBOL;
 
 slashed_path_expression:
 	slashed_identifier
@@ -532,8 +532,8 @@ select_list_item:
 	| select_column_star;
 
 select_column_star:
-	ASTERISK_SYMBOL
-	| ASTERISK_SYMBOL star_modifiers;
+	MULTIPLY_OPERATOR
+	| MULTIPLY_OPERATOR star_modifiers;
 
 select_column_expr:
 	expression
@@ -541,8 +541,8 @@ select_column_expr:
 	| expression identifier;
 
 select_column_dot_star:
-	expression_higher_prec_than_and DOT_SYMBOL ASTERISK_SYMBOL
-	| expression_higher_prec_than_and DOT_SYMBOL ASTERISK_SYMBOL star_modifiers;
+	expression_higher_prec_than_and DOT_SYMBOL MULTIPLY_OPERATOR
+	| expression_higher_prec_than_and DOT_SYMBOL MULTIPLY_OPERATOR star_modifiers;
 
 star_modifiers:
 	star_except_list
@@ -620,64 +620,124 @@ expression_higher_prec_than_and:
 	| expression_higher_prec_than_and like_operator any_some_all hint?
 		parenthesized_anysomeall_list_in_rhs
 	| expression_higher_prec_than_and like_operator expression_higher_prec_than_and
-	// unparenthesized_expression_higher_prec_than_and scope begin
+	| expression_higher_prec_than_and distinct_operator expression_higher_prec_than_and
+	| expression_higher_prec_than_and in_operator hint? unnest_expression {
+		if localctx.Hint() != nil {
+			p.NotifyErrorListeners("Syntax error: HINTs cannot be specified on IN clause with UNNEST", nil, nil)
+		}
+	}
+	| expression_higher_prec_than_and in_operator hint? parenthesized_in_rhs
+	| expression_higher_prec_than_and between_operator expression_higher_prec_than_and AND_SYMBOL
+		expression_higher_prec_than_and
+	| expression_higher_prec_than_and between_operator expression_higher_prec_than_and OR_SYMBOL {
+		p.NotifyErrorListeners("Syntax error: Expression in BETWEEN must be parenthesized", nil, nil)
+	}
+	| expression_higher_prec_than_and is_operator UNKNOWN_SYMBOL
+	| expression_higher_prec_than_and is_operator null_literal
+	| expression_higher_prec_than_and is_operator boolean_literal
+	| expression_higher_prec_than_and comparative_operator expression_higher_prec_than_and
+	| expression_higher_prec_than_and STROKE_SYMBOL expression_higher_prec_than_and
+	| expression_higher_prec_than_and CIRCUMFLEX_SYMBOL expression_higher_prec_than_and
+	| expression_higher_prec_than_and BIT_AND_SYMBOL expression_higher_prec_than_and
+	| expression_higher_prec_than_and BOOL_OR_SYMBOL expression_higher_prec_than_and
+	| expression_higher_prec_than_and shift_operator expression_higher_prec_than_and
+	| expression_higher_prec_than_and additive_operator expression_higher_prec_than_and
+	| expression_higher_prec_than_and multiplicative_operator expression_higher_prec_than_and
+	| unary_operator expression_higher_prec_than_and
+	// unparenthesized_expression_higher_prec_than_and scope end
 	| parenthesized_expression_not_a_query
 	| parenthesized_query;
+
+expression_maybe_parenthesized_not_a_query:
+	parenthesized_expression_not_a_query
+	// NOTE: unparenthesized_expression_higher_prec_than_and scope begin
+	(
+		null_literal
+		| boolean_literal
+		| string_literal
+		| bytes_literal
+		| integer_literal
+		| numeric_literal
+		| bignumeric_literal
+		| json_literal
+		| floating_point_literal
+		| date_or_time_literal
+		| range_literal
+		| parameter_expression
+		| system_variable_expression
+		| array_constructor
+		| new_constructor
+		| braced_constructor
+		| braced_new_constructor
+		| struct_braced_constructor
+		| case_expression
+		| cast_expression
+		| extract_expression
+		| with_expression
+		| replace_fields_expression
+		// Inlining function_call_expression scope begin
+		expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
+			function_call_expression_with_clauses_suffix
+		| function_name_from_keyword LR_BRACKET_SYMBOL function_call_expression_with_clauses_suffix
+		// Inlining function_call_expression scope end
+		| interval_expression
+		| identifier
+		| struct_constructor
+		| expression_subquery_with_keyword
+		| expression_higher_prec_than_and LS_BRACKET_SYMBOL expression RS_BRACKET_SYMBOL
+		| expression_higher_prec_than_and DOT_SYMBOL LR_BRACKET_SYMBOL path_expression
+			RR_BRACKET_SYMBOL
+		| expression_higher_prec_than_and DOT_SYMBOL identifier
+		| NOT_SYMBOL expression_higher_prec_than_and
+		| expression_higher_prec_than_and like_operator any_some_all hint? unnest_expression
+		| expression_higher_prec_than_and like_operator any_some_all hint?
+			parenthesized_anysomeall_list_in_rhs
+		| expression_higher_prec_than_and like_operator expression_higher_prec_than_and
+	)
+	//
+	| and_expression
+	// Previous or_expression, replace by solving mutually left-recursive.
+	| expression OR_SYMBOL expression;
+
+parenthesized_in_rhs:
+	parenthesized_query
+	| LR_BRACKET_SYMBOL expression_maybe_parenthesized_not_a_query RR_BRACKET_SYMBOL
+	| in_list_two_or_more_prefix RR_BRACKET_SYMBOL;
+
+unary_operator:
+	PLUS_OPERATOR
+	| MINUS_OPERATOR
+	| BITWISE_NOT_OPERATOR;
+
+comparative_operator:
+	EQUAL_OPERATOR
+	| NOT_EQUAL_OPERATOR
+	| NOT_EQUAL2_OPERATOR
+	| LT_OPERATOR
+	| LE_OPERATOR
+	| GT_OPERATOR
+	| GE_OPERATOR;
+
+shift_operator: KL_OPERATOR | KR_OPERATOR;
+
+additive_operator: PLUS_OPERATOR | MINUS_OPERATOR;
+
+multiplicative_operator: MULTIPLY_OPERATOR | DIVIDE_OPERATOR;
+
+is_operator: IS_SYMBOL NOT_SYMBOL?;
+
+between_operator: NOT_SPECIAL_SYMBOL? BETWEEN_SYMBOL;
+
+in_operator: NOT_SPECIAL_SYMBOL? IN_SYMBOL;
+
+distinct_operator:
+	IS_SYMBOL NOT_SPECIAL_SYMBOL? DISTINCT_SYMBOL FROM_SYMBOL;
 
 parenthesized_query: LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL;
 
 parenthesized_expression_not_a_query:
 	LR_BRACKET_SYMBOL (
-		parenthesized_expression_not_a_query
-		// NOTE: unparenthesized_expression_higher_prec_than_and scope begin
-		(
-			null_literal
-			| boolean_literal
-			| string_literal
-			| bytes_literal
-			| integer_literal
-			| numeric_literal
-			| bignumeric_literal
-			| json_literal
-			| floating_point_literal
-			| date_or_time_literal
-			| range_literal
-			| parameter_expression
-			| system_variable_expression
-			| array_constructor
-			| new_constructor
-			| braced_constructor
-			| braced_new_constructor
-			| struct_braced_constructor
-			| case_expression
-			| cast_expression
-			| extract_expression
-			| with_expression
-			| replace_fields_expression
-			// Inlining function_call_expression scope begin
-			expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
-				function_call_expression_with_clauses_suffix
-			| function_name_from_keyword LR_BRACKET_SYMBOL
-				function_call_expression_with_clauses_suffix
-			// Inlining function_call_expression scope end
-			| interval_expression
-			| identifier
-			| struct_constructor
-			| expression_subquery_with_keyword
-			| expression_higher_prec_than_and LS_BRACKET_SYMBOL expression RS_BRACKET_SYMBOL
-			| expression_higher_prec_than_and DOT_SYMBOL LR_BRACKET_SYMBOL path_expression
-				RR_BRACKET_SYMBOL
-			| expression_higher_prec_than_and DOT_SYMBOL identifier
-			| NOT_SYMBOL expression_higher_prec_than_and
-			| expression_higher_prec_than_and like_operator any_some_all hint? unnest_expression
-			| expression_higher_prec_than_and like_operator any_some_all hint?
-				parenthesized_anysomeall_list_in_rhs
-			| expression_higher_prec_than_and like_operator expression_higher_prec_than_and
-		)
-		//
-		| and_expression
-		// Previous or_expression, replace by solving mutually left-recursive.
-		| expression OR_SYMBOL expression
+		expression_maybe_parenthesized_not_a_query
 	) RR_BRACKET_SYMBOL;
 
 parenthesized_anysomeall_list_in_rhs:
@@ -782,7 +842,7 @@ function_call_expression_with_clauses_suffix:
 		// Non empty argument list.
 		| (
 			function_call_argument
-			| ASTERISK_SYMBOL (
+			| MULTIPLY_OPERATOR (
 				COMMA_SYMBOL function_call_argument
 			)*
 		) opt_null_handling_modifier? opt_having_or_group_by_modifier? clamped_between_modifier?
@@ -840,7 +900,7 @@ options_entry:
 expression_or_proto: PROTO_SYMBOL | expression;
 
 options_assignment_operator:
-	EQUAL_SYMBOL
+	MULTIPLY_OPERATOR
 	| PLUS_EQUAL_SYMBOL
 	| SUB_EQUAL_SYMBOL;
 
@@ -894,8 +954,8 @@ hint_with_body_prefix:
 	)*;
 
 hint_entry:
-	identifier_in_hints EQUAL_SYMBOL expression
-	| identifier_in_hints DOT_SYMBOL identifier_in_hints EQUAL_SYMBOL expression;
+	identifier_in_hints EQUAL_OPERATOR expression
+	| identifier_in_hints DOT_SYMBOL identifier_in_hints EQUAL_OPERATOR expression;
 
 identifier_in_hints:
 	identifier
@@ -1365,9 +1425,9 @@ struct_type:
 array_type:
 	ARRAY_SYMBOL template_type_open type template_type_close;
 
-template_type_open: LT_BRACKET_SYMBOL;
+template_type_open: LT_OPERATOR;
 
-template_type_close: GT_BRACKET_SYMBOL;
+template_type_close: GT_OPERATOR;
 
 date_or_time_literal: date_or_time_literal_kind string_literal;
 
