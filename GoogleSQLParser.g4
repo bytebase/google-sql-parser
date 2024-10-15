@@ -114,8 +114,6 @@ int_literal_or_parameter:
 	| parameter_expression
 	| system_variable_expression;
 
-limit_clause: LIMIT_SYMBOL count (OFFSET_SYMBOL skip_rows);
-
 order_by_clause: order_by_clause_prefix;
 
 order_by_clause_prefix:
@@ -355,12 +353,12 @@ dashed_path_expression:
 	| dashed_path_expression DOT_SYMBOL identifier;
 
 dashed_identifier:
-	identifier DASH_SYMBOL identifier
-	| dashed_identifier DASH_SYMBOL dashed_identifier
-	| identifier DASH_SYMBOL INTEGER_LITERAL
-	| dashed_identifier DASH_SYMBOL INTEGER_LITERAL
-	| identifier DASH_SYMBOL floating_point_literal identifier
-	| dashed_identifier DASH_SYMBOL floating_point_literal identifier;
+	identifier MINUS_SYMBOL identifier
+	| dashed_identifier MINUS_SYMBOL dashed_identifier
+	| identifier MINUS_SYMBOL INTEGER_LITERAL
+	| dashed_identifier MINUS_SYMBOL INTEGER_LITERAL
+	| identifier MINUS_SYMBOL floating_point_literal identifier
+	| dashed_identifier MINUS_SYMBOL floating_point_literal identifier;
 
 slashed_identifier:
 	SLASH_SYMBOL identifier_or_integer
@@ -373,7 +371,7 @@ identifier_or_integer:
 	| INTEGER_LITERAL; // TODO(zp): SCRIPT_LABEL;
 
 slashed_identifier_separator:
-	DASH_SYMBOL SLASH_SYMBOL COLON_SYMBOL;
+	MINUS_SYMBOL SLASH_SYMBOL COLON_SYMBOL;
 
 slashed_path_expression:
 	slashed_identifier
@@ -491,11 +489,6 @@ join_type:
 	| RIGHT_SYMBOL opt_outer?;
 
 opt_natural: NATURAL_SYMBOL;
-
-// tablesample_operator: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#tablesample_operator
-tablesample_operator:
-	TABLESAMPLE_SYMBOL SYSTEM_SYMBOL LR_BRACKET_SYMBOL percent = integer_type PERCENT_SYMBOL
-		RR_BRACKET_SYMBOL;
 
 // unpivot_operator: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#unpivot_operator
 unpivot_operator:
@@ -1454,7 +1447,7 @@ date_or_time_literal_kind:
 	| DATETIME_SYMBOL
 	| TIMESTAMP_SYMBOL;
 
-floating_point_literal: FLOAT;
+floating_point_literal: FLOATING_POINT_LITERAL;
 
 json_literal: JSON_SYMBOL string_literal;
 
@@ -1496,9 +1489,6 @@ string_literal_component: STRING_LITERAL;
 
 bytes_literal_component: BYTES_LITERAL;
 
-count: number;
-skip_rows: number;
-
 /*
  Name can be any ID or string, with optional quotes and parens name : ID | '"' name '"' | LR_BRACKET
  name RR_BRACKET | BACKTICK name BACKTICK | '\'' name '\'';
@@ -1515,7 +1505,3 @@ cte_name: name;
 column_name: name;
 alias_name: name;
 table_name: name;
-
-number: integer_type | float_type;
-integer_type: INT;
-float_type: FLOAT;

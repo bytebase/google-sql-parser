@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -211,12 +211,6 @@ func (s *BaseGoogleSQLParserListener) EnterInt_literal_or_parameter(ctx *Int_lit
 // ExitInt_literal_or_parameter is called when production int_literal_or_parameter is exited.
 func (s *BaseGoogleSQLParserListener) ExitInt_literal_or_parameter(ctx *Int_literal_or_parameterContext) {
 }
-
-// EnterLimit_clause is called when production limit_clause is entered.
-func (s *BaseGoogleSQLParserListener) EnterLimit_clause(ctx *Limit_clauseContext) {}
-
-// ExitLimit_clause is called when production limit_clause is exited.
-func (s *BaseGoogleSQLParserListener) ExitLimit_clause(ctx *Limit_clauseContext) {}
 
 // EnterOrder_by_clause is called when production order_by_clause is entered.
 func (s *BaseGoogleSQLParserListener) EnterOrder_by_clause(ctx *Order_by_clauseContext) {}
@@ -813,12 +807,6 @@ func (s *BaseGoogleSQLParserListener) EnterOpt_natural(ctx *Opt_naturalContext) 
 
 // ExitOpt_natural is called when production opt_natural is exited.
 func (s *BaseGoogleSQLParserListener) ExitOpt_natural(ctx *Opt_naturalContext) {}
-
-// EnterTablesample_operator is called when production tablesample_operator is entered.
-func (s *BaseGoogleSQLParserListener) EnterTablesample_operator(ctx *Tablesample_operatorContext) {}
-
-// ExitTablesample_operator is called when production tablesample_operator is exited.
-func (s *BaseGoogleSQLParserListener) ExitTablesample_operator(ctx *Tablesample_operatorContext) {}
 
 // EnterUnpivot_operator is called when production unpivot_operator is entered.
 func (s *BaseGoogleSQLParserListener) EnterUnpivot_operator(ctx *Unpivot_operatorContext) {}
@@ -2016,18 +2004,6 @@ func (s *BaseGoogleSQLParserListener) EnterBytes_literal_component(ctx *Bytes_li
 func (s *BaseGoogleSQLParserListener) ExitBytes_literal_component(ctx *Bytes_literal_componentContext) {
 }
 
-// EnterCount is called when production count is entered.
-func (s *BaseGoogleSQLParserListener) EnterCount(ctx *CountContext) {}
-
-// ExitCount is called when production count is exited.
-func (s *BaseGoogleSQLParserListener) ExitCount(ctx *CountContext) {}
-
-// EnterSkip_rows is called when production skip_rows is entered.
-func (s *BaseGoogleSQLParserListener) EnterSkip_rows(ctx *Skip_rowsContext) {}
-
-// ExitSkip_rows is called when production skip_rows is exited.
-func (s *BaseGoogleSQLParserListener) ExitSkip_rows(ctx *Skip_rowsContext) {}
-
 // EnterName is called when production name is entered.
 func (s *BaseGoogleSQLParserListener) EnterName(ctx *NameContext) {}
 
@@ -2057,21 +2033,3 @@ func (s *BaseGoogleSQLParserListener) EnterTable_name(ctx *Table_nameContext) {}
 
 // ExitTable_name is called when production table_name is exited.
 func (s *BaseGoogleSQLParserListener) ExitTable_name(ctx *Table_nameContext) {}
-
-// EnterNumber is called when production number is entered.
-func (s *BaseGoogleSQLParserListener) EnterNumber(ctx *NumberContext) {}
-
-// ExitNumber is called when production number is exited.
-func (s *BaseGoogleSQLParserListener) ExitNumber(ctx *NumberContext) {}
-
-// EnterInteger_type is called when production integer_type is entered.
-func (s *BaseGoogleSQLParserListener) EnterInteger_type(ctx *Integer_typeContext) {}
-
-// ExitInteger_type is called when production integer_type is exited.
-func (s *BaseGoogleSQLParserListener) ExitInteger_type(ctx *Integer_typeContext) {}
-
-// EnterFloat_type is called when production float_type is entered.
-func (s *BaseGoogleSQLParserListener) EnterFloat_type(ctx *Float_typeContext) {}
-
-// ExitFloat_type is called when production float_type is exited.
-func (s *BaseGoogleSQLParserListener) ExitFloat_type(ctx *Float_typeContext) {}

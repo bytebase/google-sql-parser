@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -112,10 +112,6 @@ func (v *BaseGoogleSQLParserVisitor) VisitPossibly_unbounded_int_literal_or_para
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitInt_literal_or_parameter(ctx *Int_literal_or_parameterContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitLimit_clause(ctx *Limit_clauseContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -472,10 +468,6 @@ func (v *BaseGoogleSQLParserVisitor) VisitJoin_type(ctx *Join_typeContext) inter
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitOpt_natural(ctx *Opt_naturalContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitTablesample_operator(ctx *Tablesample_operatorContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -1183,14 +1175,6 @@ func (v *BaseGoogleSQLParserVisitor) VisitBytes_literal_component(ctx *Bytes_lit
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitCount(ctx *CountContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitSkip_rows(ctx *Skip_rowsContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseGoogleSQLParserVisitor) VisitName(ctx *NameContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -1208,17 +1192,5 @@ func (v *BaseGoogleSQLParserVisitor) VisitAlias_name(ctx *Alias_nameContext) int
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitTable_name(ctx *Table_nameContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitNumber(ctx *NumberContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitInteger_type(ctx *Integer_typeContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitFloat_type(ctx *Float_typeContext) interface{} {
 	return v.VisitChildren(ctx)
 }

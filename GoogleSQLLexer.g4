@@ -313,6 +313,8 @@ ANY_SYMBOL: 'ANY';
 SOME_SYMBOL: 'SOME';
 LIKE_SYMBOL: 'LIKE';
 
+MINUS_SYMBOL: '-';
+PLUS_SYMBOL: '+';
 ASTERISK_SYMBOL: '*';
 COMMA_SYMBOL: ',';
 DOT_SYMBOL: '.';
@@ -333,7 +335,6 @@ SINGLE_QUOTE_3_SYMBOL: '\'\'\'';
 DOUBLE_QUOTE_SYMBOL: '"';
 DOUBLE_QUOTE_3_SYMBOL: '"""';
 BACKQUOTE_SYMBOL: '`';
-DASH_SYMBOL: '-';
 QUESTION_SYMBOL: '?';
 AT_SYMBOL: '@';
 ATAT_SYMBOL: '@@';
@@ -355,15 +356,6 @@ fragment NO_BACKSLASH_DOUBLE_QUOTE: ~["\\];
 
 QUOTED_ID: BACKQUOTE_SYMBOL (('\\'? .))+ BACKQUOTE_SYMBOL;
 ID: [A-Z_][A-Z0-9_]*;
-
-INT: ('+' | '-')? ('0x')? DECIMAL_DIGITS;
-FLOAT: ('+' | '-')? DECIMAL_DIGITS '.' DECIMAL_DIGITS? (
-		'e' ('+' | '-') DECIMAL_DIGITS
-	)?
-	| DECIMAL_DIGITS? '.' DECIMAL_DIGITS (
-		'e' ('+' | '-') DECIMAL_DIGITS
-	)?
-	| DECIMAL_DIGITS 'e' ('+' | '-')? DECIMAL_DIGITS;
 
 // Strings and bytes, comes from https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/flex_tokenizer.l#L112
 fragment SQTEXT_0:
@@ -427,7 +419,12 @@ UNCLOSED_TRIPLE_QUOTED_RAW_BYTES_LITERAL: (R B | B R) (
 		| DQ3TEXT_0
 	);
 
-INTEGER_LITERAL: DECIMAL_DIGIT | HEX_DIGIT;
+FLOATING_POINT_LITERAL: (
+		(DECIMAL_DIGITS? DOT_SYMBOL)? DECIMAL_DIGITS
+		| DECIMAL_DIGITS DOT_SYMBOL
+	) 'e' (MINUS_SYMBOL | PLUS_SYMBOL)? DECIMAL_DIGITS;
+
+INTEGER_LITERAL: DECIMAL_DIGITS | HEX_DIGITS;
 fragment DECIMAL_DIGIT: [0-9];
 fragment HEX_DIGIT: [0-9a-f];
 fragment DECIMAL_DIGITS: DECIMAL_DIGIT+;
@@ -445,3 +442,13 @@ UNCLOSED_ESCAPED_IDENTIFIER: BQTEXT_0;
 // White space handling
 WHITESPACE:
 	[ \t\f\r\n] -> channel(HIDDEN); // Ignore whitespaces.
+
+// Comments
+fragment BLOCK_COMMENT: ('/**/' | '/*' ~[!] .*? '*/');
+
+fragment DASH_COMMENT: '--' (~[\r\n])* ('\r' | '\n' | '\r\n')?;
+
+fragment POUND_COMMENT: '#' (~[\r\n])* ('\r' | '\n' | '\r\n')?;
+
+COMMENT:
+	(BLOCK_COMMENT | DASH_COMMENT | POUND_COMMENT) -> channel(HIDDEN);
