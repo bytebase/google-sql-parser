@@ -163,6 +163,9 @@ type GoogleSQLParserListener interface {
 	// EnterPivot_or_unpivot_clause_and_aliases is called when entering the pivot_or_unpivot_clause_and_aliases production.
 	EnterPivot_or_unpivot_clause_and_aliases(c *Pivot_or_unpivot_clause_and_aliasesContext)
 
+	// EnterAs_alias is called when entering the as_alias production.
+	EnterAs_alias(c *As_aliasContext)
+
 	// EnterSample_clause is called when entering the sample_clause production.
 	EnterSample_clause(c *Sample_clauseContext)
 
@@ -222,6 +225,9 @@ type GoogleSQLParserListener interface {
 
 	// EnterOn_or_using_clause is called when entering the on_or_using_clause production.
 	EnterOn_or_using_clause(c *On_or_using_clauseContext)
+
+	// EnterUsing_clause is called when entering the using_clause production.
+	EnterUsing_clause(c *Using_clauseContext)
 
 	// EnterJoin_hint is called when entering the join_hint production.
 	EnterJoin_hint(c *Join_hintContext)
@@ -355,44 +361,11 @@ type GoogleSQLParserListener interface {
 	// EnterOpt_natural is called when entering the opt_natural production.
 	EnterOpt_natural(c *Opt_naturalContext)
 
-	// EnterUnpivot_operator is called when entering the unpivot_operator production.
-	EnterUnpivot_operator(c *Unpivot_operatorContext)
-
-	// EnterSingle_column_unpivot is called when entering the single_column_unpivot production.
-	EnterSingle_column_unpivot(c *Single_column_unpivotContext)
-
-	// EnterMulti_column_unpivot is called when entering the multi_column_unpivot production.
-	EnterMulti_column_unpivot(c *Multi_column_unpivotContext)
-
-	// EnterValues_column_set is called when entering the values_column_set production.
-	EnterValues_column_set(c *Values_column_setContext)
-
-	// EnterColumns_to_unpivot_list is called when entering the columns_to_unpivot_list production.
-	EnterColumns_to_unpivot_list(c *Columns_to_unpivot_listContext)
-
-	// EnterColumns_to_unpivot_item is called when entering the columns_to_unpivot_item production.
-	EnterColumns_to_unpivot_item(c *Columns_to_unpivot_itemContext)
-
-	// EnterColumn_sets_to_unpivot is called when entering the column_sets_to_unpivot production.
-	EnterColumn_sets_to_unpivot(c *Column_sets_to_unpivotContext)
-
-	// EnterPivot_operator is called when entering the pivot_operator production.
-	EnterPivot_operator(c *Pivot_operatorContext)
-
-	// EnterPivot_column_as_alias_list is called when entering the pivot_column_as_alias_list production.
-	EnterPivot_column_as_alias_list(c *Pivot_column_as_alias_listContext)
-
-	// EnterPivot_column_as_alias_list_item is called when entering the pivot_column_as_alias_list_item production.
-	EnterPivot_column_as_alias_list_item(c *Pivot_column_as_alias_list_itemContext)
-
 	// EnterAggregate_function_call_as_alias_list is called when entering the aggregate_function_call_as_alias_list production.
 	EnterAggregate_function_call_as_alias_list(c *Aggregate_function_call_as_alias_listContext)
 
 	// EnterAggregate_function_call_as_alias_list_item is called when entering the aggregate_function_call_as_alias_list_item production.
 	EnterAggregate_function_call_as_alias_list_item(c *Aggregate_function_call_as_alias_list_itemContext)
-
-	// EnterFrom_item is called when entering the from_item production.
-	EnterFrom_item(c *From_itemContext)
 
 	// EnterUnnest_operator is called when entering the unnest_operator production.
 	EnterUnnest_operator(c *Unnest_operatorContext)
@@ -403,14 +376,8 @@ type GoogleSQLParserListener interface {
 	// EnterConditional_join_operator is called when entering the conditional_join_operator production.
 	EnterConditional_join_operator(c *Conditional_join_operatorContext)
 
-	// EnterJoin_condition is called when entering the join_condition production.
-	EnterJoin_condition(c *Join_conditionContext)
-
 	// EnterOn_clause is called when entering the on_clause production.
 	EnterOn_clause(c *On_clauseContext)
-
-	// EnterUsing_clause is called when entering the using_clause production.
-	EnterUsing_clause(c *Using_clauseContext)
 
 	// EnterSelect_list is called when entering the select_list production.
 	EnterSelect_list(c *Select_listContext)
@@ -418,47 +385,29 @@ type GoogleSQLParserListener interface {
 	// EnterSelect_list_item is called when entering the select_list_item production.
 	EnterSelect_list_item(c *Select_list_itemContext)
 
-	// EnterSelect_expression is called when entering the select_expression production.
-	EnterSelect_expression(c *Select_expressionContext)
+	// EnterSelect_column_star is called when entering the select_column_star production.
+	EnterSelect_column_star(c *Select_column_starContext)
 
-	// EnterSelect_all is called when entering the select_all production.
-	EnterSelect_all(c *Select_allContext)
+	// EnterSelect_column_expr is called when entering the select_column_expr production.
+	EnterSelect_column_expr(c *Select_column_exprContext)
 
-	// EnterSelect_all_except_clause is called when entering the select_all_except_clause production.
-	EnterSelect_all_except_clause(c *Select_all_except_clauseContext)
+	// EnterSelect_column_dot_star is called when entering the select_column_dot_star production.
+	EnterSelect_column_dot_star(c *Select_column_dot_starContext)
 
-	// EnterSelect_all_replace_clause is called when entering the select_all_replace_clause production.
-	EnterSelect_all_replace_clause(c *Select_all_replace_clauseContext)
+	// EnterStar_modifiers is called when entering the star_modifiers production.
+	EnterStar_modifiers(c *Star_modifiersContext)
 
-	// EnterColumn_name_list is called when entering the column_name_list production.
-	EnterColumn_name_list(c *Column_name_listContext)
+	// EnterStar_except_list is called when entering the star_except_list production.
+	EnterStar_except_list(c *Star_except_listContext)
 
-	// EnterExpr_as_alias_list is called when entering the expr_as_alias_list production.
-	EnterExpr_as_alias_list(c *Expr_as_alias_listContext)
+	// EnterStar_except_list_prefix is called when entering the star_except_list_prefix production.
+	EnterStar_except_list_prefix(c *Star_except_list_prefixContext)
 
-	// EnterExpr_as_alias_item is called when entering the expr_as_alias_item production.
-	EnterExpr_as_alias_item(c *Expr_as_alias_itemContext)
+	// EnterStar_modifiers_with_replace_prefix is called when entering the star_modifiers_with_replace_prefix production.
+	EnterStar_modifiers_with_replace_prefix(c *Star_modifiers_with_replace_prefixContext)
 
-	// EnterAs_alias is called when entering the as_alias production.
-	EnterAs_alias(c *As_aliasContext)
-
-	// EnterDifferential_privacy_clause is called when entering the differential_privacy_clause production.
-	EnterDifferential_privacy_clause(c *Differential_privacy_clauseContext)
-
-	// EnterPrivacy_parameters is called when entering the privacy_parameters production.
-	EnterPrivacy_parameters(c *Privacy_parametersContext)
-
-	// EnterWith_statement is called when entering the with_statement production.
-	EnterWith_statement(c *With_statementContext)
-
-	// EnterCte is called when entering the cte production.
-	EnterCte(c *CteContext)
-
-	// EnterNon_recursive_cte is called when entering the non_recursive_cte production.
-	EnterNon_recursive_cte(c *Non_recursive_cteContext)
-
-	// EnterRecursive_cte is called when entering the recursive_cte production.
-	EnterRecursive_cte(c *Recursive_cteContext)
+	// EnterStar_replace_item is called when entering the star_replace_item production.
+	EnterStar_replace_item(c *Star_replace_itemContext)
 
 	// EnterRecursive_union_operation is called when entering the recursive_union_operation production.
 	EnterRecursive_union_operation(c *Recursive_union_operationContext)
@@ -883,21 +832,6 @@ type GoogleSQLParserListener interface {
 	// EnterBytes_literal_component is called when entering the bytes_literal_component production.
 	EnterBytes_literal_component(c *Bytes_literal_componentContext)
 
-	// EnterName is called when entering the name production.
-	EnterName(c *NameContext)
-
-	// EnterCte_name is called when entering the cte_name production.
-	EnterCte_name(c *Cte_nameContext)
-
-	// EnterColumn_name is called when entering the column_name production.
-	EnterColumn_name(c *Column_nameContext)
-
-	// EnterAlias_name is called when entering the alias_name production.
-	EnterAlias_name(c *Alias_nameContext)
-
-	// EnterTable_name is called when entering the table_name production.
-	EnterTable_name(c *Table_nameContext)
-
 	// ExitRoot is called when exiting the root production.
 	ExitRoot(c *RootContext)
 
@@ -1054,6 +988,9 @@ type GoogleSQLParserListener interface {
 	// ExitPivot_or_unpivot_clause_and_aliases is called when exiting the pivot_or_unpivot_clause_and_aliases production.
 	ExitPivot_or_unpivot_clause_and_aliases(c *Pivot_or_unpivot_clause_and_aliasesContext)
 
+	// ExitAs_alias is called when exiting the as_alias production.
+	ExitAs_alias(c *As_aliasContext)
+
 	// ExitSample_clause is called when exiting the sample_clause production.
 	ExitSample_clause(c *Sample_clauseContext)
 
@@ -1113,6 +1050,9 @@ type GoogleSQLParserListener interface {
 
 	// ExitOn_or_using_clause is called when exiting the on_or_using_clause production.
 	ExitOn_or_using_clause(c *On_or_using_clauseContext)
+
+	// ExitUsing_clause is called when exiting the using_clause production.
+	ExitUsing_clause(c *Using_clauseContext)
 
 	// ExitJoin_hint is called when exiting the join_hint production.
 	ExitJoin_hint(c *Join_hintContext)
@@ -1246,44 +1186,11 @@ type GoogleSQLParserListener interface {
 	// ExitOpt_natural is called when exiting the opt_natural production.
 	ExitOpt_natural(c *Opt_naturalContext)
 
-	// ExitUnpivot_operator is called when exiting the unpivot_operator production.
-	ExitUnpivot_operator(c *Unpivot_operatorContext)
-
-	// ExitSingle_column_unpivot is called when exiting the single_column_unpivot production.
-	ExitSingle_column_unpivot(c *Single_column_unpivotContext)
-
-	// ExitMulti_column_unpivot is called when exiting the multi_column_unpivot production.
-	ExitMulti_column_unpivot(c *Multi_column_unpivotContext)
-
-	// ExitValues_column_set is called when exiting the values_column_set production.
-	ExitValues_column_set(c *Values_column_setContext)
-
-	// ExitColumns_to_unpivot_list is called when exiting the columns_to_unpivot_list production.
-	ExitColumns_to_unpivot_list(c *Columns_to_unpivot_listContext)
-
-	// ExitColumns_to_unpivot_item is called when exiting the columns_to_unpivot_item production.
-	ExitColumns_to_unpivot_item(c *Columns_to_unpivot_itemContext)
-
-	// ExitColumn_sets_to_unpivot is called when exiting the column_sets_to_unpivot production.
-	ExitColumn_sets_to_unpivot(c *Column_sets_to_unpivotContext)
-
-	// ExitPivot_operator is called when exiting the pivot_operator production.
-	ExitPivot_operator(c *Pivot_operatorContext)
-
-	// ExitPivot_column_as_alias_list is called when exiting the pivot_column_as_alias_list production.
-	ExitPivot_column_as_alias_list(c *Pivot_column_as_alias_listContext)
-
-	// ExitPivot_column_as_alias_list_item is called when exiting the pivot_column_as_alias_list_item production.
-	ExitPivot_column_as_alias_list_item(c *Pivot_column_as_alias_list_itemContext)
-
 	// ExitAggregate_function_call_as_alias_list is called when exiting the aggregate_function_call_as_alias_list production.
 	ExitAggregate_function_call_as_alias_list(c *Aggregate_function_call_as_alias_listContext)
 
 	// ExitAggregate_function_call_as_alias_list_item is called when exiting the aggregate_function_call_as_alias_list_item production.
 	ExitAggregate_function_call_as_alias_list_item(c *Aggregate_function_call_as_alias_list_itemContext)
-
-	// ExitFrom_item is called when exiting the from_item production.
-	ExitFrom_item(c *From_itemContext)
 
 	// ExitUnnest_operator is called when exiting the unnest_operator production.
 	ExitUnnest_operator(c *Unnest_operatorContext)
@@ -1294,14 +1201,8 @@ type GoogleSQLParserListener interface {
 	// ExitConditional_join_operator is called when exiting the conditional_join_operator production.
 	ExitConditional_join_operator(c *Conditional_join_operatorContext)
 
-	// ExitJoin_condition is called when exiting the join_condition production.
-	ExitJoin_condition(c *Join_conditionContext)
-
 	// ExitOn_clause is called when exiting the on_clause production.
 	ExitOn_clause(c *On_clauseContext)
-
-	// ExitUsing_clause is called when exiting the using_clause production.
-	ExitUsing_clause(c *Using_clauseContext)
 
 	// ExitSelect_list is called when exiting the select_list production.
 	ExitSelect_list(c *Select_listContext)
@@ -1309,47 +1210,29 @@ type GoogleSQLParserListener interface {
 	// ExitSelect_list_item is called when exiting the select_list_item production.
 	ExitSelect_list_item(c *Select_list_itemContext)
 
-	// ExitSelect_expression is called when exiting the select_expression production.
-	ExitSelect_expression(c *Select_expressionContext)
+	// ExitSelect_column_star is called when exiting the select_column_star production.
+	ExitSelect_column_star(c *Select_column_starContext)
 
-	// ExitSelect_all is called when exiting the select_all production.
-	ExitSelect_all(c *Select_allContext)
+	// ExitSelect_column_expr is called when exiting the select_column_expr production.
+	ExitSelect_column_expr(c *Select_column_exprContext)
 
-	// ExitSelect_all_except_clause is called when exiting the select_all_except_clause production.
-	ExitSelect_all_except_clause(c *Select_all_except_clauseContext)
+	// ExitSelect_column_dot_star is called when exiting the select_column_dot_star production.
+	ExitSelect_column_dot_star(c *Select_column_dot_starContext)
 
-	// ExitSelect_all_replace_clause is called when exiting the select_all_replace_clause production.
-	ExitSelect_all_replace_clause(c *Select_all_replace_clauseContext)
+	// ExitStar_modifiers is called when exiting the star_modifiers production.
+	ExitStar_modifiers(c *Star_modifiersContext)
 
-	// ExitColumn_name_list is called when exiting the column_name_list production.
-	ExitColumn_name_list(c *Column_name_listContext)
+	// ExitStar_except_list is called when exiting the star_except_list production.
+	ExitStar_except_list(c *Star_except_listContext)
 
-	// ExitExpr_as_alias_list is called when exiting the expr_as_alias_list production.
-	ExitExpr_as_alias_list(c *Expr_as_alias_listContext)
+	// ExitStar_except_list_prefix is called when exiting the star_except_list_prefix production.
+	ExitStar_except_list_prefix(c *Star_except_list_prefixContext)
 
-	// ExitExpr_as_alias_item is called when exiting the expr_as_alias_item production.
-	ExitExpr_as_alias_item(c *Expr_as_alias_itemContext)
+	// ExitStar_modifiers_with_replace_prefix is called when exiting the star_modifiers_with_replace_prefix production.
+	ExitStar_modifiers_with_replace_prefix(c *Star_modifiers_with_replace_prefixContext)
 
-	// ExitAs_alias is called when exiting the as_alias production.
-	ExitAs_alias(c *As_aliasContext)
-
-	// ExitDifferential_privacy_clause is called when exiting the differential_privacy_clause production.
-	ExitDifferential_privacy_clause(c *Differential_privacy_clauseContext)
-
-	// ExitPrivacy_parameters is called when exiting the privacy_parameters production.
-	ExitPrivacy_parameters(c *Privacy_parametersContext)
-
-	// ExitWith_statement is called when exiting the with_statement production.
-	ExitWith_statement(c *With_statementContext)
-
-	// ExitCte is called when exiting the cte production.
-	ExitCte(c *CteContext)
-
-	// ExitNon_recursive_cte is called when exiting the non_recursive_cte production.
-	ExitNon_recursive_cte(c *Non_recursive_cteContext)
-
-	// ExitRecursive_cte is called when exiting the recursive_cte production.
-	ExitRecursive_cte(c *Recursive_cteContext)
+	// ExitStar_replace_item is called when exiting the star_replace_item production.
+	ExitStar_replace_item(c *Star_replace_itemContext)
 
 	// ExitRecursive_union_operation is called when exiting the recursive_union_operation production.
 	ExitRecursive_union_operation(c *Recursive_union_operationContext)
@@ -1773,19 +1656,4 @@ type GoogleSQLParserListener interface {
 
 	// ExitBytes_literal_component is called when exiting the bytes_literal_component production.
 	ExitBytes_literal_component(c *Bytes_literal_componentContext)
-
-	// ExitName is called when exiting the name production.
-	ExitName(c *NameContext)
-
-	// ExitCte_name is called when exiting the cte_name production.
-	ExitCte_name(c *Cte_nameContext)
-
-	// ExitColumn_name is called when exiting the column_name production.
-	ExitColumn_name(c *Column_nameContext)
-
-	// ExitAlias_name is called when exiting the alias_name production.
-	ExitAlias_name(c *Alias_nameContext)
-
-	// ExitTable_name is called when exiting the table_name production.
-	ExitTable_name(c *Table_nameContext)
 }

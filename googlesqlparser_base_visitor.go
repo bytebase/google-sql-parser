@@ -215,6 +215,10 @@ func (v *BaseGoogleSQLParserVisitor) VisitPivot_or_unpivot_clause_and_aliases(ct
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitAs_alias(ctx *As_aliasContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitSample_clause(ctx *Sample_clauseContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -292,6 +296,10 @@ func (v *BaseGoogleSQLParserVisitor) VisitOn_or_using_clause_list(ctx *On_or_usi
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitOn_or_using_clause(ctx *On_or_using_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitUsing_clause(ctx *Using_clauseContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -471,55 +479,11 @@ func (v *BaseGoogleSQLParserVisitor) VisitOpt_natural(ctx *Opt_naturalContext) i
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitUnpivot_operator(ctx *Unpivot_operatorContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitSingle_column_unpivot(ctx *Single_column_unpivotContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitMulti_column_unpivot(ctx *Multi_column_unpivotContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitValues_column_set(ctx *Values_column_setContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitColumns_to_unpivot_list(ctx *Columns_to_unpivot_listContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitColumns_to_unpivot_item(ctx *Columns_to_unpivot_itemContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitColumn_sets_to_unpivot(ctx *Column_sets_to_unpivotContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitPivot_operator(ctx *Pivot_operatorContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitPivot_column_as_alias_list(ctx *Pivot_column_as_alias_listContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitPivot_column_as_alias_list_item(ctx *Pivot_column_as_alias_list_itemContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseGoogleSQLParserVisitor) VisitAggregate_function_call_as_alias_list(ctx *Aggregate_function_call_as_alias_listContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitAggregate_function_call_as_alias_list_item(ctx *Aggregate_function_call_as_alias_list_itemContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitFrom_item(ctx *From_itemContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -535,15 +499,7 @@ func (v *BaseGoogleSQLParserVisitor) VisitConditional_join_operator(ctx *Conditi
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitJoin_condition(ctx *Join_conditionContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseGoogleSQLParserVisitor) VisitOn_clause(ctx *On_clauseContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitUsing_clause(ctx *Using_clauseContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -555,59 +511,35 @@ func (v *BaseGoogleSQLParserVisitor) VisitSelect_list_item(ctx *Select_list_item
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitSelect_expression(ctx *Select_expressionContext) interface{} {
+func (v *BaseGoogleSQLParserVisitor) VisitSelect_column_star(ctx *Select_column_starContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitSelect_all(ctx *Select_allContext) interface{} {
+func (v *BaseGoogleSQLParserVisitor) VisitSelect_column_expr(ctx *Select_column_exprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitSelect_all_except_clause(ctx *Select_all_except_clauseContext) interface{} {
+func (v *BaseGoogleSQLParserVisitor) VisitSelect_column_dot_star(ctx *Select_column_dot_starContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitSelect_all_replace_clause(ctx *Select_all_replace_clauseContext) interface{} {
+func (v *BaseGoogleSQLParserVisitor) VisitStar_modifiers(ctx *Star_modifiersContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitColumn_name_list(ctx *Column_name_listContext) interface{} {
+func (v *BaseGoogleSQLParserVisitor) VisitStar_except_list(ctx *Star_except_listContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitExpr_as_alias_list(ctx *Expr_as_alias_listContext) interface{} {
+func (v *BaseGoogleSQLParserVisitor) VisitStar_except_list_prefix(ctx *Star_except_list_prefixContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitExpr_as_alias_item(ctx *Expr_as_alias_itemContext) interface{} {
+func (v *BaseGoogleSQLParserVisitor) VisitStar_modifiers_with_replace_prefix(ctx *Star_modifiers_with_replace_prefixContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitAs_alias(ctx *As_aliasContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitDifferential_privacy_clause(ctx *Differential_privacy_clauseContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitPrivacy_parameters(ctx *Privacy_parametersContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitWith_statement(ctx *With_statementContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitCte(ctx *CteContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitNon_recursive_cte(ctx *Non_recursive_cteContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitRecursive_cte(ctx *Recursive_cteContext) interface{} {
+func (v *BaseGoogleSQLParserVisitor) VisitStar_replace_item(ctx *Star_replace_itemContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -1172,25 +1104,5 @@ func (v *BaseGoogleSQLParserVisitor) VisitString_literal_component(ctx *String_l
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitBytes_literal_component(ctx *Bytes_literal_componentContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitName(ctx *NameContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitCte_name(ctx *Cte_nameContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitColumn_name(ctx *Column_nameContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitAlias_name(ctx *Alias_nameContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitTable_name(ctx *Table_nameContext) interface{} {
 	return v.VisitChildren(ctx)
 }

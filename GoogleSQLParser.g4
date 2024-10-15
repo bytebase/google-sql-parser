@@ -225,6 +225,8 @@ pivot_or_unpivot_clause_and_aliases:
 				 p.NotifyErrorListeners("QUALIFY clause must be used in conjunction with WHERE or GROUP BY or HAVING clause", nil, nil); 
 		};
 
+as_alias: AS_SYMBOL? identifier;
+
 sample_clause:
 	TABLESAMPLE_SYMBOL identifier LR_BRACKET_SYMBOL sample_size RR_BRACKET_SYMBOL
 		opt_sample_clause_suffix;
@@ -299,6 +301,11 @@ join_item:
 on_or_using_clause_list: on_or_using_clause+;
 
 on_or_using_clause: on_clause | using_clause;
+
+using_clause:
+	USING_SYMBOL LR_BRACKET_SYMBOL identifier (
+		DOT_SYMBOL identifier
+	)* RR_BRACKET_SYMBOL;
 
 join_hint: HASH_SYMBOL | LOOKUP_SYMBOL;
 
@@ -490,54 +497,6 @@ join_type:
 
 opt_natural: NATURAL_SYMBOL;
 
-// unpivot_operator: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#unpivot_operator
-unpivot_operator:
-	UNPIVOT_SYMBOL (
-		INCLUDE_SYMBOL NULLS_SYMBOL
-		| EXCLUDE_SYMBOL NULLS_SYMBOL
-	)? LR_BRACKET_SYMBOL (
-		single_column_unpivot
-		| multi_column_unpivot
-	) unpivot_alias = as_alias?;
-
-single_column_unpivot:
-	values_column = column_name FOR_SYMBOL name_column = column_name IN_SYMBOL LR_BRACKET_SYMBOL
-		columns_to_unpivot_list RR_BRACKET_SYMBOL;
-
-multi_column_unpivot:
-	values_column_set FOR_SYMBOL name_column = column_name IN_SYMBOL LR_BRACKET_SYMBOL
-		column_sets_to_unpivot RR_BRACKET_SYMBOL;
-
-values_column_set:
-	values_column = column_name (
-		COMMA_SYMBOL values_column = column_name
-	)*;
-
-columns_to_unpivot_list:
-	columns_to_unpivot_item (
-		COMMA_SYMBOL columns_to_unpivot_item
-	)*;
-
-columns_to_unpivot_item:
-	unpivot_column = column_name row_value_alias = as_alias?;
-
-column_sets_to_unpivot:
-	LR_BRACKET_SYMBOL columns_to_unpivot_list RR_BRACKET_SYMBOL;
-
-// pivot_operator: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#pivot_operator
-pivot_operator:
-	PIVOT_SYMBOL LR_BRACKET_SYMBOL aggregate_function_call_as_alias_list FOR_SYMBOL input_column =
-		column_name IN_SYMBOL LR_BRACKET_SYMBOL pivot_column_as_alias_list RR_BRACKET_SYMBOL
-		RR_BRACKET_SYMBOL as_alias?;
-
-pivot_column_as_alias_list:
-	pivot_column_as_alias_list_item (
-		COMMA_SYMBOL pivot_column_as_alias_list_item
-	)*;
-
-pivot_column_as_alias_list_item:
-	pivot_column = column_name as_alias?;
-
 aggregate_function_call_as_alias_list:
 	aggregate_function_call_as_alias_list_item (
 		COMMA_SYMBOL aggregate_function_call_as_alias_list_item
@@ -545,21 +504,6 @@ aggregate_function_call_as_alias_list:
 
 aggregate_function_call_as_alias_list_item:
 	/*aggregate_function_call*/ as_alias?;
-
-from_item:
-	table_name as_alias? (
-		FOR_SYMBOL SYSTEM_TIME_SYMBOL AS_SYMBOL OF_SYMBOL expression /* Actully, this should be timestamp_expression, but no syntax detail found. */
-	)?
-	| from_item cross_join_operator from_item
-	| from_item conditional_join_operator from_item join_condition
-	| LR_BRACKET_SYMBOL (
-		from_item cross_join_operator from_item
-		| from_item conditional_join_operator from_item join_condition
-	) RR_BRACKET_SYMBOL
-	| LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL as_alias?
-	// | field_path
-	| unnest_operator
-	| cte_name as_alias?;
 
 // unnest_operator: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#unnest_operator.
 unnest_operator:
@@ -576,61 +520,47 @@ conditional_join_operator:
 	| LEFT_SYMBOL OUTER_SYMBOL? JOIN_SYMBOL
 	| RIGHT_SYMBOL OUTER_SYMBOL? JOIN_SYMBOL;
 
-join_condition: on_clause | using_clause;
-
 on_clause:
 	ON_SYMBOL expression /* Actullay, this should be bool_expression */;
 
-using_clause:
-	USING_SYMBOL LR_BRACKET_SYMBOL column_name_list RR_BRACKET_SYMBOL;
+select_list:
+	select_list_item (COMMA_SYMBOL select_list_item)* COMMA_SYMBOL?;
 
-select_list: select_list_item (COMMA_SYMBOL select_list_item)*;
+select_list_item:
+	select_column_expr
+	| select_column_dot_star
+	| select_column_star;
 
-select_list_item: select_all | select_expression;
+select_column_star:
+	ASTERISK_SYMBOL
+	| ASTERISK_SYMBOL star_modifiers;
 
-select_expression: expression as_alias?;
+select_column_expr:
+	expression
+	| select_column_expr_with_as_alias
+	| expression identifier;
 
-select_all: (expression DOT_SYMBOL)? ASTERISK_SYMBOL select_all_except_clause?
-		select_all_replace_clause?;
+select_column_dot_star:
+	expression_higher_prec_than_and DOT_SYMBOL ASTERISK_SYMBOL
+	| expression_higher_prec_than_and DOT_SYMBOL ASTERISK_SYMBOL star_modifiers;
 
-select_all_except_clause:
-	EXCEPT_SYMBOL LR_BRACKET_SYMBOL column_name_list RR_BRACKET_SYMBOL;
+star_modifiers:
+	star_except_list
+	| star_modifiers_with_replace_prefix;
 
-select_all_replace_clause:
-	REPLACE_SYMBOL LR_BRACKET_SYMBOL expr_as_alias_list RR_BRACKET_SYMBOL;
+star_except_list: star_except_list_prefix RR_BRACKET_SYMBOL;
 
-column_name_list: column_name (COMMA_SYMBOL column_name)*;
+star_except_list_prefix:
+	EXCEPT_SYMBOL LR_BRACKET_SYMBOL identifier (
+		DOT_SYMBOL identifier
+	)*;
 
-expr_as_alias_list:
-	expr_as_alias_item (COMMA_SYMBOL expr_as_alias_item)*;
+star_modifiers_with_replace_prefix:
+	star_except_list REPLACE_SYMBOL LR_BRACKET_SYMBOL star_replace_item
+	| REPLACE_SYMBOL star_replace_item
+	| star_modifiers_with_replace_prefix COMMA_SYMBOL star_replace_item;
 
-expr_as_alias_item: expression AS_SYMBOL? column_name;
-
-as_alias: AS_SYMBOL? alias_name;
-
-// differential_privacy_clause: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#dp_clause
-differential_privacy_clause:
-	WITH_SYMBOL DIFFERENTIAL_PRIVACY_SYMBOL OPTIONS_SYMBOL LR_BRACKET_SYMBOL privacy_parameters
-		RR_BRACKET_SYMBOL;
-
-privacy_parameters:
-	EPSILON_SYMBOL EQUAL_SYMBOL expression COMMA_SYMBOL DELTA_SYMBOL EQUAL_SYMBOL expression
-		COMMA_SYMBOL (
-		MAX_GROUPS_CONTRIBUTED_SYMBOL EQUAL_SYMBOL expression COMMA_SYMBOL
-	)? PRIVACY_UNIT_COLUMN_SYMBOL EQUAL_SYMBOL expression;
-
-with_statement:
-	WITH_SYMBOL RECURSIVE_SYMBOL? cte (COMMA_SYMBOL cte)*;
-
-cte: non_recursive_cte | recursive_cte;
-
-// non_recursive_cte: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#simple_cte
-non_recursive_cte:
-	cte_name AS_SYMBOL LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL;
-
-// recursive_cte: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#recursive_cte
-recursive_cte:
-	cte_name AS_SYMBOL LR_BRACKET_SYMBOL recursive_union_operation RR_BRACKET_SYMBOL;
+star_replace_item: expression AS_SYMBOL identifier;
 
 recursive_union_operation:
 	base_term union_operator recursive_term;
@@ -1488,20 +1418,3 @@ string_literal:
 string_literal_component: STRING_LITERAL;
 
 bytes_literal_component: BYTES_LITERAL;
-
-/*
- Name can be any ID or string, with optional quotes and parens name : ID | '"' name '"' | LR_BRACKET
- name RR_BRACKET | BACKTICK name BACKTICK | '\'' name '\'';
- */
-name: ID | QUOTED_ID;
-
-// Name rules
-
-/* Each specific type of name just expands to the parent name rule. This lets us assign handlers to
- only a specific type of name. (i.e. we care about cte_names and column_names, but not about
- datatype_names)
- */
-cte_name: name;
-column_name: name;
-alias_name: name;
-table_name: name;

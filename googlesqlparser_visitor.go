@@ -163,6 +163,9 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#pivot_or_unpivot_clause_and_aliases.
 	VisitPivot_or_unpivot_clause_and_aliases(ctx *Pivot_or_unpivot_clause_and_aliasesContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#as_alias.
+	VisitAs_alias(ctx *As_aliasContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#sample_clause.
 	VisitSample_clause(ctx *Sample_clauseContext) interface{}
 
@@ -222,6 +225,9 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#on_or_using_clause.
 	VisitOn_or_using_clause(ctx *On_or_using_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#using_clause.
+	VisitUsing_clause(ctx *Using_clauseContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#join_hint.
 	VisitJoin_hint(ctx *Join_hintContext) interface{}
@@ -355,44 +361,11 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#opt_natural.
 	VisitOpt_natural(ctx *Opt_naturalContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#unpivot_operator.
-	VisitUnpivot_operator(ctx *Unpivot_operatorContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#single_column_unpivot.
-	VisitSingle_column_unpivot(ctx *Single_column_unpivotContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#multi_column_unpivot.
-	VisitMulti_column_unpivot(ctx *Multi_column_unpivotContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#values_column_set.
-	VisitValues_column_set(ctx *Values_column_setContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#columns_to_unpivot_list.
-	VisitColumns_to_unpivot_list(ctx *Columns_to_unpivot_listContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#columns_to_unpivot_item.
-	VisitColumns_to_unpivot_item(ctx *Columns_to_unpivot_itemContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#column_sets_to_unpivot.
-	VisitColumn_sets_to_unpivot(ctx *Column_sets_to_unpivotContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#pivot_operator.
-	VisitPivot_operator(ctx *Pivot_operatorContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#pivot_column_as_alias_list.
-	VisitPivot_column_as_alias_list(ctx *Pivot_column_as_alias_listContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#pivot_column_as_alias_list_item.
-	VisitPivot_column_as_alias_list_item(ctx *Pivot_column_as_alias_list_itemContext) interface{}
-
 	// Visit a parse tree produced by GoogleSQLParser#aggregate_function_call_as_alias_list.
 	VisitAggregate_function_call_as_alias_list(ctx *Aggregate_function_call_as_alias_listContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#aggregate_function_call_as_alias_list_item.
 	VisitAggregate_function_call_as_alias_list_item(ctx *Aggregate_function_call_as_alias_list_itemContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#from_item.
-	VisitFrom_item(ctx *From_itemContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#unnest_operator.
 	VisitUnnest_operator(ctx *Unnest_operatorContext) interface{}
@@ -403,14 +376,8 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#conditional_join_operator.
 	VisitConditional_join_operator(ctx *Conditional_join_operatorContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#join_condition.
-	VisitJoin_condition(ctx *Join_conditionContext) interface{}
-
 	// Visit a parse tree produced by GoogleSQLParser#on_clause.
 	VisitOn_clause(ctx *On_clauseContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#using_clause.
-	VisitUsing_clause(ctx *Using_clauseContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#select_list.
 	VisitSelect_list(ctx *Select_listContext) interface{}
@@ -418,47 +385,29 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#select_list_item.
 	VisitSelect_list_item(ctx *Select_list_itemContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#select_expression.
-	VisitSelect_expression(ctx *Select_expressionContext) interface{}
+	// Visit a parse tree produced by GoogleSQLParser#select_column_star.
+	VisitSelect_column_star(ctx *Select_column_starContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#select_all.
-	VisitSelect_all(ctx *Select_allContext) interface{}
+	// Visit a parse tree produced by GoogleSQLParser#select_column_expr.
+	VisitSelect_column_expr(ctx *Select_column_exprContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#select_all_except_clause.
-	VisitSelect_all_except_clause(ctx *Select_all_except_clauseContext) interface{}
+	// Visit a parse tree produced by GoogleSQLParser#select_column_dot_star.
+	VisitSelect_column_dot_star(ctx *Select_column_dot_starContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#select_all_replace_clause.
-	VisitSelect_all_replace_clause(ctx *Select_all_replace_clauseContext) interface{}
+	// Visit a parse tree produced by GoogleSQLParser#star_modifiers.
+	VisitStar_modifiers(ctx *Star_modifiersContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#column_name_list.
-	VisitColumn_name_list(ctx *Column_name_listContext) interface{}
+	// Visit a parse tree produced by GoogleSQLParser#star_except_list.
+	VisitStar_except_list(ctx *Star_except_listContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#expr_as_alias_list.
-	VisitExpr_as_alias_list(ctx *Expr_as_alias_listContext) interface{}
+	// Visit a parse tree produced by GoogleSQLParser#star_except_list_prefix.
+	VisitStar_except_list_prefix(ctx *Star_except_list_prefixContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#expr_as_alias_item.
-	VisitExpr_as_alias_item(ctx *Expr_as_alias_itemContext) interface{}
+	// Visit a parse tree produced by GoogleSQLParser#star_modifiers_with_replace_prefix.
+	VisitStar_modifiers_with_replace_prefix(ctx *Star_modifiers_with_replace_prefixContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#as_alias.
-	VisitAs_alias(ctx *As_aliasContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#differential_privacy_clause.
-	VisitDifferential_privacy_clause(ctx *Differential_privacy_clauseContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#privacy_parameters.
-	VisitPrivacy_parameters(ctx *Privacy_parametersContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#with_statement.
-	VisitWith_statement(ctx *With_statementContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#cte.
-	VisitCte(ctx *CteContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#non_recursive_cte.
-	VisitNon_recursive_cte(ctx *Non_recursive_cteContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#recursive_cte.
-	VisitRecursive_cte(ctx *Recursive_cteContext) interface{}
+	// Visit a parse tree produced by GoogleSQLParser#star_replace_item.
+	VisitStar_replace_item(ctx *Star_replace_itemContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#recursive_union_operation.
 	VisitRecursive_union_operation(ctx *Recursive_union_operationContext) interface{}
@@ -882,19 +831,4 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#bytes_literal_component.
 	VisitBytes_literal_component(ctx *Bytes_literal_componentContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#name.
-	VisitName(ctx *NameContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#cte_name.
-	VisitCte_name(ctx *Cte_nameContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#column_name.
-	VisitColumn_name(ctx *Column_nameContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#alias_name.
-	VisitAlias_name(ctx *Alias_nameContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#table_name.
-	VisitTable_name(ctx *Table_nameContext) interface{}
 }
