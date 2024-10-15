@@ -354,8 +354,6 @@ fragment NO_BACKSLASH_DOUBLE_QUOTE_NEWLINE: ~["\n\r\\];
 fragment NO_BACKSLASH_SINGLE_QUOTE: ~['\\];
 fragment NO_BACKSLASH_DOUBLE_QUOTE: ~["\\];
 
-QUOTED_ID: BACKQUOTE_SYMBOL (('\\'? .))+ BACKQUOTE_SYMBOL;
-
 // Strings and bytes, comes from https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/flex_tokenizer.l#L112
 fragment SQTEXT_0:
 	SINGLE_QUOTE_SYMBOL (
