@@ -157,7 +157,7 @@ func googlesqlparserParserInit() {
 		"SEMI_SYMBOL", "SINGLE_QUOTE_SYMBOL", "SINGLE_QUOTE_3_SYMBOL", "DOUBLE_QUOTE_SYMBOL",
 		"DOUBLE_QUOTE_3_SYMBOL", "BACKQUOTE_SYMBOL", "QUESTION_SYMBOL", "AT_SYMBOL",
 		"ATAT_SYMBOL", "EQUAL_GT_BRACKET_SYMBOL", "SUB_GT_BRACKET_SYMBOL", "PLUS_EQUAL_SYMBOL",
-		"SUB_EQUAL_SYMBOL", "PIPE_SYMBOL", "QUOTED_ID", "STRING_LITERAL", "BYTES_LITERAL",
+		"SUB_EQUAL_SYMBOL", "PIPE_SYMBOL", "STRING_LITERAL", "BYTES_LITERAL",
 		"UNCLOSED_STRING_LITERAL", "UNCLOSED_TRIPLE_QUOTED_STRING_LITERAL",
 		"UNCLOSED_RAW_STRING_LITERAL", "UNCLOSED_TRIPLE_QUOTED_RAW_STRING_LITERAL",
 		"UNCLOSED_BYTES_LITERAL", "UNCLOSED_TRIPLE_QUOTED_BYTES_LITERAL", "UNCLOSED_RAW_BYTES_LITERAL",
@@ -251,7 +251,7 @@ func googlesqlparserParserInit() {
 	}
 	staticData.PredictionContextCache = antlr.NewPredictionContextCache()
 	staticData.serializedATN = []int32{
-		4, 1, 327, 2983, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4,
+		4, 1, 326, 2983, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4,
 		7, 4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 2, 8, 7, 8, 2, 9, 7, 9, 2, 10,
 		7, 10, 2, 11, 7, 11, 2, 12, 7, 12, 2, 13, 7, 13, 2, 14, 7, 14, 2, 15, 7,
 		15, 2, 16, 7, 16, 2, 17, 7, 17, 2, 18, 7, 18, 2, 19, 7, 19, 2, 20, 7, 20,
@@ -1016,12 +1016,12 @@ func googlesqlparserParserInit() {
 		1330, 1, 0, 0, 0, 1333, 1334, 6, 83, -1, 0, 1334, 1335, 3, 504, 252, 0,
 		1335, 1336, 5, 281, 0, 0, 1336, 1337, 3, 504, 252, 0, 1337, 1348, 1, 0,
 		0, 0, 1338, 1339, 3, 504, 252, 0, 1339, 1340, 5, 281, 0, 0, 1340, 1341,
-		5, 323, 0, 0, 1341, 1348, 1, 0, 0, 0, 1342, 1343, 3, 504, 252, 0, 1343,
+		5, 322, 0, 0, 1341, 1348, 1, 0, 0, 0, 1342, 1343, 3, 504, 252, 0, 1343,
 		1344, 5, 281, 0, 0, 1344, 1345, 3, 524, 262, 0, 1345, 1346, 3, 504, 252,
 		0, 1346, 1348, 1, 0, 0, 0, 1347, 1333, 1, 0, 0, 0, 1347, 1338, 1, 0, 0,
 		0, 1347, 1342, 1, 0, 0, 0, 1348, 1362, 1, 0, 0, 0, 1349, 1350, 10, 5, 0,
 		0, 1350, 1351, 5, 281, 0, 0, 1351, 1361, 3, 166, 83, 6, 1352, 1353, 10,
-		3, 0, 0, 1353, 1354, 5, 281, 0, 0, 1354, 1361, 5, 323, 0, 0, 1355, 1356,
+		3, 0, 0, 1353, 1354, 5, 281, 0, 0, 1354, 1361, 5, 322, 0, 0, 1355, 1356,
 		10, 1, 0, 0, 1356, 1357, 5, 281, 0, 0, 1357, 1358, 3, 524, 262, 0, 1358,
 		1359, 3, 504, 252, 0, 1359, 1361, 1, 0, 0, 0, 1360, 1349, 1, 0, 0, 0, 1360,
 		1352, 1, 0, 0, 0, 1360, 1355, 1, 0, 0, 0, 1361, 1364, 1, 0, 0, 0, 1362,
@@ -1034,7 +1034,7 @@ func googlesqlparserParserInit() {
 		1, 0, 0, 0, 1379, 1369, 1, 0, 0, 0, 1379, 1373, 1, 0, 0, 0, 1380, 1383,
 		1, 0, 0, 0, 1381, 1379, 1, 0, 0, 0, 1381, 1382, 1, 0, 0, 0, 1382, 169,
 		1, 0, 0, 0, 1383, 1381, 1, 0, 0, 0, 1384, 1387, 3, 504, 252, 0, 1385, 1387,
-		5, 323, 0, 0, 1386, 1384, 1, 0, 0, 0, 1386, 1385, 1, 0, 0, 0, 1387, 171,
+		5, 322, 0, 0, 1386, 1384, 1, 0, 0, 0, 1386, 1385, 1, 0, 0, 0, 1387, 171,
 		1, 0, 0, 0, 1388, 1389, 5, 281, 0, 0, 1389, 1390, 5, 269, 0, 0, 1390, 1391,
 		5, 296, 0, 0, 1391, 173, 1, 0, 0, 0, 1392, 1399, 3, 168, 84, 0, 1393, 1394,
 		3, 168, 84, 0, 1394, 1395, 3, 172, 86, 0, 1395, 1396, 3, 524, 262, 0, 1396,
@@ -1676,19 +1676,19 @@ func googlesqlparserParserInit() {
 		2895, 1, 0, 0, 0, 2897, 2896, 1, 0, 0, 0, 2898, 505, 1, 0, 0, 0, 2899,
 		2902, 3, 508, 254, 0, 2900, 2902, 5, 66, 0, 0, 2901, 2899, 1, 0, 0, 0,
 		2901, 2900, 1, 0, 0, 0, 2902, 507, 1, 0, 0, 0, 2903, 2904, 7, 14, 0, 0,
-		2904, 509, 1, 0, 0, 0, 2905, 2906, 5, 324, 0, 0, 2906, 511, 1, 0, 0, 0,
+		2904, 509, 1, 0, 0, 0, 2905, 2906, 5, 323, 0, 0, 2906, 511, 1, 0, 0, 0,
 		2907, 2908, 5, 41, 0, 0, 2908, 2909, 3, 516, 258, 0, 2909, 2910, 3, 518,
 		259, 0, 2910, 513, 1, 0, 0, 0, 2911, 2912, 5, 1, 0, 0, 2912, 2913, 3, 516,
 		258, 0, 2913, 2914, 3, 474, 237, 0, 2914, 2915, 3, 518, 259, 0, 2915, 515,
 		1, 0, 0, 0, 2916, 2917, 5, 289, 0, 0, 2917, 517, 1, 0, 0, 0, 2918, 2919,
 		5, 290, 0, 0, 2919, 519, 1, 0, 0, 0, 2920, 2921, 3, 522, 261, 0, 2921,
 		2922, 3, 544, 272, 0, 2922, 521, 1, 0, 0, 0, 2923, 2924, 7, 15, 0, 0, 2924,
-		523, 1, 0, 0, 0, 2925, 2926, 5, 322, 0, 0, 2926, 525, 1, 0, 0, 0, 2927,
+		523, 1, 0, 0, 0, 2925, 2926, 5, 321, 0, 0, 2926, 525, 1, 0, 0, 0, 2927,
 		2928, 5, 59, 0, 0, 2928, 2929, 3, 544, 272, 0, 2929, 527, 1, 0, 0, 0, 2930,
 		2931, 3, 530, 265, 0, 2931, 2932, 3, 544, 272, 0, 2932, 529, 1, 0, 0, 0,
 		2933, 2934, 7, 16, 0, 0, 2934, 531, 1, 0, 0, 0, 2935, 2936, 3, 534, 267,
 		0, 2936, 2937, 3, 544, 272, 0, 2937, 533, 1, 0, 0, 0, 2938, 2939, 7, 17,
-		0, 0, 2939, 535, 1, 0, 0, 0, 2940, 2941, 5, 323, 0, 0, 2941, 537, 1, 0,
+		0, 0, 2939, 535, 1, 0, 0, 0, 2940, 2941, 5, 322, 0, 0, 2941, 537, 1, 0,
 		0, 0, 2942, 2943, 6, 269, -1, 0, 2943, 2944, 3, 548, 274, 0, 2944, 2955,
 		1, 0, 0, 0, 2945, 2946, 10, 2, 0, 0, 2946, 2947, 3, 548, 274, 0, 2947,
 		2948, 6, 269, -1, 0, 2948, 2954, 1, 0, 0, 0, 2949, 2950, 10, 1, 0, 0, 2950,
@@ -1703,7 +1703,7 @@ func googlesqlparserParserInit() {
 		2972, 6, 272, -1, 0, 2972, 2974, 1, 0, 0, 0, 2973, 2965, 1, 0, 0, 0, 2973,
 		2969, 1, 0, 0, 0, 2974, 2977, 1, 0, 0, 0, 2975, 2973, 1, 0, 0, 0, 2975,
 		2976, 1, 0, 0, 0, 2976, 545, 1, 0, 0, 0, 2977, 2975, 1, 0, 0, 0, 2978,
-		2979, 5, 312, 0, 0, 2979, 547, 1, 0, 0, 0, 2980, 2981, 5, 313, 0, 0, 2981,
+		2979, 5, 311, 0, 0, 2979, 547, 1, 0, 0, 0, 2980, 2981, 5, 312, 0, 0, 2981,
 		549, 1, 0, 0, 0, 310, 558, 562, 573, 576, 588, 591, 594, 598, 605, 611,
 		624, 638, 649, 651, 658, 661, 665, 669, 672, 677, 687, 692, 694, 704, 711,
 		718, 725, 741, 745, 750, 756, 764, 769, 772, 775, 782, 787, 795, 799, 805,
@@ -2077,23 +2077,22 @@ const (
 	GoogleSQLParserPLUS_EQUAL_SYMBOL                         = 308
 	GoogleSQLParserSUB_EQUAL_SYMBOL                          = 309
 	GoogleSQLParserPIPE_SYMBOL                               = 310
-	GoogleSQLParserQUOTED_ID                                 = 311
-	GoogleSQLParserSTRING_LITERAL                            = 312
-	GoogleSQLParserBYTES_LITERAL                             = 313
-	GoogleSQLParserUNCLOSED_STRING_LITERAL                   = 314
-	GoogleSQLParserUNCLOSED_TRIPLE_QUOTED_STRING_LITERAL     = 315
-	GoogleSQLParserUNCLOSED_RAW_STRING_LITERAL               = 316
-	GoogleSQLParserUNCLOSED_TRIPLE_QUOTED_RAW_STRING_LITERAL = 317
-	GoogleSQLParserUNCLOSED_BYTES_LITERAL                    = 318
-	GoogleSQLParserUNCLOSED_TRIPLE_QUOTED_BYTES_LITERAL      = 319
-	GoogleSQLParserUNCLOSED_RAW_BYTES_LITERAL                = 320
-	GoogleSQLParserUNCLOSED_TRIPLE_QUOTED_RAW_BYTES_LITERAL  = 321
-	GoogleSQLParserFLOATING_POINT_LITERAL                    = 322
-	GoogleSQLParserINTEGER_LITERAL                           = 323
-	GoogleSQLParserIDENTIFIER                                = 324
-	GoogleSQLParserUNCLOSED_ESCAPED_IDENTIFIER               = 325
-	GoogleSQLParserWHITESPACE                                = 326
-	GoogleSQLParserCOMMENT                                   = 327
+	GoogleSQLParserSTRING_LITERAL                            = 311
+	GoogleSQLParserBYTES_LITERAL                             = 312
+	GoogleSQLParserUNCLOSED_STRING_LITERAL                   = 313
+	GoogleSQLParserUNCLOSED_TRIPLE_QUOTED_STRING_LITERAL     = 314
+	GoogleSQLParserUNCLOSED_RAW_STRING_LITERAL               = 315
+	GoogleSQLParserUNCLOSED_TRIPLE_QUOTED_RAW_STRING_LITERAL = 316
+	GoogleSQLParserUNCLOSED_BYTES_LITERAL                    = 317
+	GoogleSQLParserUNCLOSED_TRIPLE_QUOTED_BYTES_LITERAL      = 318
+	GoogleSQLParserUNCLOSED_RAW_BYTES_LITERAL                = 319
+	GoogleSQLParserUNCLOSED_TRIPLE_QUOTED_RAW_BYTES_LITERAL  = 320
+	GoogleSQLParserFLOATING_POINT_LITERAL                    = 321
+	GoogleSQLParserINTEGER_LITERAL                           = 322
+	GoogleSQLParserIDENTIFIER                                = 323
+	GoogleSQLParserUNCLOSED_ESCAPED_IDENTIFIER               = 324
+	GoogleSQLParserWHITESPACE                                = 325
+	GoogleSQLParserCOMMENT                                   = 326
 )
 
 // GoogleSQLParser rules.
