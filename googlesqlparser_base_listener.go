@@ -374,6 +374,12 @@ func (s *BaseGoogleSQLParserListener) EnterPivot_or_unpivot_clause_and_aliases(c
 func (s *BaseGoogleSQLParserListener) ExitPivot_or_unpivot_clause_and_aliases(ctx *Pivot_or_unpivot_clause_and_aliasesContext) {
 }
 
+// EnterAs_alias is called when production as_alias is entered.
+func (s *BaseGoogleSQLParserListener) EnterAs_alias(ctx *As_aliasContext) {}
+
+// ExitAs_alias is called when production as_alias is exited.
+func (s *BaseGoogleSQLParserListener) ExitAs_alias(ctx *As_aliasContext) {}
+
 // EnterSample_clause is called when production sample_clause is entered.
 func (s *BaseGoogleSQLParserListener) EnterSample_clause(ctx *Sample_clauseContext) {}
 
@@ -511,6 +517,12 @@ func (s *BaseGoogleSQLParserListener) EnterOn_or_using_clause(ctx *On_or_using_c
 
 // ExitOn_or_using_clause is called when production on_or_using_clause is exited.
 func (s *BaseGoogleSQLParserListener) ExitOn_or_using_clause(ctx *On_or_using_clauseContext) {}
+
+// EnterUsing_clause is called when production using_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterUsing_clause(ctx *Using_clauseContext) {}
+
+// ExitUsing_clause is called when production using_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitUsing_clause(ctx *Using_clauseContext) {}
 
 // EnterJoin_hint is called when production join_hint is entered.
 func (s *BaseGoogleSQLParserListener) EnterJoin_hint(ctx *Join_hintContext) {}
@@ -808,76 +820,6 @@ func (s *BaseGoogleSQLParserListener) EnterOpt_natural(ctx *Opt_naturalContext) 
 // ExitOpt_natural is called when production opt_natural is exited.
 func (s *BaseGoogleSQLParserListener) ExitOpt_natural(ctx *Opt_naturalContext) {}
 
-// EnterUnpivot_operator is called when production unpivot_operator is entered.
-func (s *BaseGoogleSQLParserListener) EnterUnpivot_operator(ctx *Unpivot_operatorContext) {}
-
-// ExitUnpivot_operator is called when production unpivot_operator is exited.
-func (s *BaseGoogleSQLParserListener) ExitUnpivot_operator(ctx *Unpivot_operatorContext) {}
-
-// EnterSingle_column_unpivot is called when production single_column_unpivot is entered.
-func (s *BaseGoogleSQLParserListener) EnterSingle_column_unpivot(ctx *Single_column_unpivotContext) {}
-
-// ExitSingle_column_unpivot is called when production single_column_unpivot is exited.
-func (s *BaseGoogleSQLParserListener) ExitSingle_column_unpivot(ctx *Single_column_unpivotContext) {}
-
-// EnterMulti_column_unpivot is called when production multi_column_unpivot is entered.
-func (s *BaseGoogleSQLParserListener) EnterMulti_column_unpivot(ctx *Multi_column_unpivotContext) {}
-
-// ExitMulti_column_unpivot is called when production multi_column_unpivot is exited.
-func (s *BaseGoogleSQLParserListener) ExitMulti_column_unpivot(ctx *Multi_column_unpivotContext) {}
-
-// EnterValues_column_set is called when production values_column_set is entered.
-func (s *BaseGoogleSQLParserListener) EnterValues_column_set(ctx *Values_column_setContext) {}
-
-// ExitValues_column_set is called when production values_column_set is exited.
-func (s *BaseGoogleSQLParserListener) ExitValues_column_set(ctx *Values_column_setContext) {}
-
-// EnterColumns_to_unpivot_list is called when production columns_to_unpivot_list is entered.
-func (s *BaseGoogleSQLParserListener) EnterColumns_to_unpivot_list(ctx *Columns_to_unpivot_listContext) {
-}
-
-// ExitColumns_to_unpivot_list is called when production columns_to_unpivot_list is exited.
-func (s *BaseGoogleSQLParserListener) ExitColumns_to_unpivot_list(ctx *Columns_to_unpivot_listContext) {
-}
-
-// EnterColumns_to_unpivot_item is called when production columns_to_unpivot_item is entered.
-func (s *BaseGoogleSQLParserListener) EnterColumns_to_unpivot_item(ctx *Columns_to_unpivot_itemContext) {
-}
-
-// ExitColumns_to_unpivot_item is called when production columns_to_unpivot_item is exited.
-func (s *BaseGoogleSQLParserListener) ExitColumns_to_unpivot_item(ctx *Columns_to_unpivot_itemContext) {
-}
-
-// EnterColumn_sets_to_unpivot is called when production column_sets_to_unpivot is entered.
-func (s *BaseGoogleSQLParserListener) EnterColumn_sets_to_unpivot(ctx *Column_sets_to_unpivotContext) {
-}
-
-// ExitColumn_sets_to_unpivot is called when production column_sets_to_unpivot is exited.
-func (s *BaseGoogleSQLParserListener) ExitColumn_sets_to_unpivot(ctx *Column_sets_to_unpivotContext) {
-}
-
-// EnterPivot_operator is called when production pivot_operator is entered.
-func (s *BaseGoogleSQLParserListener) EnterPivot_operator(ctx *Pivot_operatorContext) {}
-
-// ExitPivot_operator is called when production pivot_operator is exited.
-func (s *BaseGoogleSQLParserListener) ExitPivot_operator(ctx *Pivot_operatorContext) {}
-
-// EnterPivot_column_as_alias_list is called when production pivot_column_as_alias_list is entered.
-func (s *BaseGoogleSQLParserListener) EnterPivot_column_as_alias_list(ctx *Pivot_column_as_alias_listContext) {
-}
-
-// ExitPivot_column_as_alias_list is called when production pivot_column_as_alias_list is exited.
-func (s *BaseGoogleSQLParserListener) ExitPivot_column_as_alias_list(ctx *Pivot_column_as_alias_listContext) {
-}
-
-// EnterPivot_column_as_alias_list_item is called when production pivot_column_as_alias_list_item is entered.
-func (s *BaseGoogleSQLParserListener) EnterPivot_column_as_alias_list_item(ctx *Pivot_column_as_alias_list_itemContext) {
-}
-
-// ExitPivot_column_as_alias_list_item is called when production pivot_column_as_alias_list_item is exited.
-func (s *BaseGoogleSQLParserListener) ExitPivot_column_as_alias_list_item(ctx *Pivot_column_as_alias_list_itemContext) {
-}
-
 // EnterAggregate_function_call_as_alias_list is called when production aggregate_function_call_as_alias_list is entered.
 func (s *BaseGoogleSQLParserListener) EnterAggregate_function_call_as_alias_list(ctx *Aggregate_function_call_as_alias_listContext) {
 }
@@ -893,12 +835,6 @@ func (s *BaseGoogleSQLParserListener) EnterAggregate_function_call_as_alias_list
 // ExitAggregate_function_call_as_alias_list_item is called when production aggregate_function_call_as_alias_list_item is exited.
 func (s *BaseGoogleSQLParserListener) ExitAggregate_function_call_as_alias_list_item(ctx *Aggregate_function_call_as_alias_list_itemContext) {
 }
-
-// EnterFrom_item is called when production from_item is entered.
-func (s *BaseGoogleSQLParserListener) EnterFrom_item(ctx *From_itemContext) {}
-
-// ExitFrom_item is called when production from_item is exited.
-func (s *BaseGoogleSQLParserListener) ExitFrom_item(ctx *From_itemContext) {}
 
 // EnterUnnest_operator is called when production unnest_operator is entered.
 func (s *BaseGoogleSQLParserListener) EnterUnnest_operator(ctx *Unnest_operatorContext) {}
@@ -920,23 +856,11 @@ func (s *BaseGoogleSQLParserListener) EnterConditional_join_operator(ctx *Condit
 func (s *BaseGoogleSQLParserListener) ExitConditional_join_operator(ctx *Conditional_join_operatorContext) {
 }
 
-// EnterJoin_condition is called when production join_condition is entered.
-func (s *BaseGoogleSQLParserListener) EnterJoin_condition(ctx *Join_conditionContext) {}
-
-// ExitJoin_condition is called when production join_condition is exited.
-func (s *BaseGoogleSQLParserListener) ExitJoin_condition(ctx *Join_conditionContext) {}
-
 // EnterOn_clause is called when production on_clause is entered.
 func (s *BaseGoogleSQLParserListener) EnterOn_clause(ctx *On_clauseContext) {}
 
 // ExitOn_clause is called when production on_clause is exited.
 func (s *BaseGoogleSQLParserListener) ExitOn_clause(ctx *On_clauseContext) {}
-
-// EnterUsing_clause is called when production using_clause is entered.
-func (s *BaseGoogleSQLParserListener) EnterUsing_clause(ctx *Using_clauseContext) {}
-
-// ExitUsing_clause is called when production using_clause is exited.
-func (s *BaseGoogleSQLParserListener) ExitUsing_clause(ctx *Using_clauseContext) {}
 
 // EnterSelect_list is called when production select_list is entered.
 func (s *BaseGoogleSQLParserListener) EnterSelect_list(ctx *Select_listContext) {}
@@ -950,95 +874,59 @@ func (s *BaseGoogleSQLParserListener) EnterSelect_list_item(ctx *Select_list_ite
 // ExitSelect_list_item is called when production select_list_item is exited.
 func (s *BaseGoogleSQLParserListener) ExitSelect_list_item(ctx *Select_list_itemContext) {}
 
-// EnterSelect_expression is called when production select_expression is entered.
-func (s *BaseGoogleSQLParserListener) EnterSelect_expression(ctx *Select_expressionContext) {}
+// EnterSelect_column_star is called when production select_column_star is entered.
+func (s *BaseGoogleSQLParserListener) EnterSelect_column_star(ctx *Select_column_starContext) {}
 
-// ExitSelect_expression is called when production select_expression is exited.
-func (s *BaseGoogleSQLParserListener) ExitSelect_expression(ctx *Select_expressionContext) {}
+// ExitSelect_column_star is called when production select_column_star is exited.
+func (s *BaseGoogleSQLParserListener) ExitSelect_column_star(ctx *Select_column_starContext) {}
 
-// EnterSelect_all is called when production select_all is entered.
-func (s *BaseGoogleSQLParserListener) EnterSelect_all(ctx *Select_allContext) {}
+// EnterSelect_column_expr is called when production select_column_expr is entered.
+func (s *BaseGoogleSQLParserListener) EnterSelect_column_expr(ctx *Select_column_exprContext) {}
 
-// ExitSelect_all is called when production select_all is exited.
-func (s *BaseGoogleSQLParserListener) ExitSelect_all(ctx *Select_allContext) {}
+// ExitSelect_column_expr is called when production select_column_expr is exited.
+func (s *BaseGoogleSQLParserListener) ExitSelect_column_expr(ctx *Select_column_exprContext) {}
 
-// EnterSelect_all_except_clause is called when production select_all_except_clause is entered.
-func (s *BaseGoogleSQLParserListener) EnterSelect_all_except_clause(ctx *Select_all_except_clauseContext) {
+// EnterSelect_column_dot_star is called when production select_column_dot_star is entered.
+func (s *BaseGoogleSQLParserListener) EnterSelect_column_dot_star(ctx *Select_column_dot_starContext) {
 }
 
-// ExitSelect_all_except_clause is called when production select_all_except_clause is exited.
-func (s *BaseGoogleSQLParserListener) ExitSelect_all_except_clause(ctx *Select_all_except_clauseContext) {
+// ExitSelect_column_dot_star is called when production select_column_dot_star is exited.
+func (s *BaseGoogleSQLParserListener) ExitSelect_column_dot_star(ctx *Select_column_dot_starContext) {
 }
 
-// EnterSelect_all_replace_clause is called when production select_all_replace_clause is entered.
-func (s *BaseGoogleSQLParserListener) EnterSelect_all_replace_clause(ctx *Select_all_replace_clauseContext) {
+// EnterStar_modifiers is called when production star_modifiers is entered.
+func (s *BaseGoogleSQLParserListener) EnterStar_modifiers(ctx *Star_modifiersContext) {}
+
+// ExitStar_modifiers is called when production star_modifiers is exited.
+func (s *BaseGoogleSQLParserListener) ExitStar_modifiers(ctx *Star_modifiersContext) {}
+
+// EnterStar_except_list is called when production star_except_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterStar_except_list(ctx *Star_except_listContext) {}
+
+// ExitStar_except_list is called when production star_except_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitStar_except_list(ctx *Star_except_listContext) {}
+
+// EnterStar_except_list_prefix is called when production star_except_list_prefix is entered.
+func (s *BaseGoogleSQLParserListener) EnterStar_except_list_prefix(ctx *Star_except_list_prefixContext) {
 }
 
-// ExitSelect_all_replace_clause is called when production select_all_replace_clause is exited.
-func (s *BaseGoogleSQLParserListener) ExitSelect_all_replace_clause(ctx *Select_all_replace_clauseContext) {
+// ExitStar_except_list_prefix is called when production star_except_list_prefix is exited.
+func (s *BaseGoogleSQLParserListener) ExitStar_except_list_prefix(ctx *Star_except_list_prefixContext) {
 }
 
-// EnterColumn_name_list is called when production column_name_list is entered.
-func (s *BaseGoogleSQLParserListener) EnterColumn_name_list(ctx *Column_name_listContext) {}
-
-// ExitColumn_name_list is called when production column_name_list is exited.
-func (s *BaseGoogleSQLParserListener) ExitColumn_name_list(ctx *Column_name_listContext) {}
-
-// EnterExpr_as_alias_list is called when production expr_as_alias_list is entered.
-func (s *BaseGoogleSQLParserListener) EnterExpr_as_alias_list(ctx *Expr_as_alias_listContext) {}
-
-// ExitExpr_as_alias_list is called when production expr_as_alias_list is exited.
-func (s *BaseGoogleSQLParserListener) ExitExpr_as_alias_list(ctx *Expr_as_alias_listContext) {}
-
-// EnterExpr_as_alias_item is called when production expr_as_alias_item is entered.
-func (s *BaseGoogleSQLParserListener) EnterExpr_as_alias_item(ctx *Expr_as_alias_itemContext) {}
-
-// ExitExpr_as_alias_item is called when production expr_as_alias_item is exited.
-func (s *BaseGoogleSQLParserListener) ExitExpr_as_alias_item(ctx *Expr_as_alias_itemContext) {}
-
-// EnterAs_alias is called when production as_alias is entered.
-func (s *BaseGoogleSQLParserListener) EnterAs_alias(ctx *As_aliasContext) {}
-
-// ExitAs_alias is called when production as_alias is exited.
-func (s *BaseGoogleSQLParserListener) ExitAs_alias(ctx *As_aliasContext) {}
-
-// EnterDifferential_privacy_clause is called when production differential_privacy_clause is entered.
-func (s *BaseGoogleSQLParserListener) EnterDifferential_privacy_clause(ctx *Differential_privacy_clauseContext) {
+// EnterStar_modifiers_with_replace_prefix is called when production star_modifiers_with_replace_prefix is entered.
+func (s *BaseGoogleSQLParserListener) EnterStar_modifiers_with_replace_prefix(ctx *Star_modifiers_with_replace_prefixContext) {
 }
 
-// ExitDifferential_privacy_clause is called when production differential_privacy_clause is exited.
-func (s *BaseGoogleSQLParserListener) ExitDifferential_privacy_clause(ctx *Differential_privacy_clauseContext) {
+// ExitStar_modifiers_with_replace_prefix is called when production star_modifiers_with_replace_prefix is exited.
+func (s *BaseGoogleSQLParserListener) ExitStar_modifiers_with_replace_prefix(ctx *Star_modifiers_with_replace_prefixContext) {
 }
 
-// EnterPrivacy_parameters is called when production privacy_parameters is entered.
-func (s *BaseGoogleSQLParserListener) EnterPrivacy_parameters(ctx *Privacy_parametersContext) {}
+// EnterStar_replace_item is called when production star_replace_item is entered.
+func (s *BaseGoogleSQLParserListener) EnterStar_replace_item(ctx *Star_replace_itemContext) {}
 
-// ExitPrivacy_parameters is called when production privacy_parameters is exited.
-func (s *BaseGoogleSQLParserListener) ExitPrivacy_parameters(ctx *Privacy_parametersContext) {}
-
-// EnterWith_statement is called when production with_statement is entered.
-func (s *BaseGoogleSQLParserListener) EnterWith_statement(ctx *With_statementContext) {}
-
-// ExitWith_statement is called when production with_statement is exited.
-func (s *BaseGoogleSQLParserListener) ExitWith_statement(ctx *With_statementContext) {}
-
-// EnterCte is called when production cte is entered.
-func (s *BaseGoogleSQLParserListener) EnterCte(ctx *CteContext) {}
-
-// ExitCte is called when production cte is exited.
-func (s *BaseGoogleSQLParserListener) ExitCte(ctx *CteContext) {}
-
-// EnterNon_recursive_cte is called when production non_recursive_cte is entered.
-func (s *BaseGoogleSQLParserListener) EnterNon_recursive_cte(ctx *Non_recursive_cteContext) {}
-
-// ExitNon_recursive_cte is called when production non_recursive_cte is exited.
-func (s *BaseGoogleSQLParserListener) ExitNon_recursive_cte(ctx *Non_recursive_cteContext) {}
-
-// EnterRecursive_cte is called when production recursive_cte is entered.
-func (s *BaseGoogleSQLParserListener) EnterRecursive_cte(ctx *Recursive_cteContext) {}
-
-// ExitRecursive_cte is called when production recursive_cte is exited.
-func (s *BaseGoogleSQLParserListener) ExitRecursive_cte(ctx *Recursive_cteContext) {}
+// ExitStar_replace_item is called when production star_replace_item is exited.
+func (s *BaseGoogleSQLParserListener) ExitStar_replace_item(ctx *Star_replace_itemContext) {}
 
 // EnterRecursive_union_operation is called when production recursive_union_operation is entered.
 func (s *BaseGoogleSQLParserListener) EnterRecursive_union_operation(ctx *Recursive_union_operationContext) {
@@ -2003,33 +1891,3 @@ func (s *BaseGoogleSQLParserListener) EnterBytes_literal_component(ctx *Bytes_li
 // ExitBytes_literal_component is called when production bytes_literal_component is exited.
 func (s *BaseGoogleSQLParserListener) ExitBytes_literal_component(ctx *Bytes_literal_componentContext) {
 }
-
-// EnterName is called when production name is entered.
-func (s *BaseGoogleSQLParserListener) EnterName(ctx *NameContext) {}
-
-// ExitName is called when production name is exited.
-func (s *BaseGoogleSQLParserListener) ExitName(ctx *NameContext) {}
-
-// EnterCte_name is called when production cte_name is entered.
-func (s *BaseGoogleSQLParserListener) EnterCte_name(ctx *Cte_nameContext) {}
-
-// ExitCte_name is called when production cte_name is exited.
-func (s *BaseGoogleSQLParserListener) ExitCte_name(ctx *Cte_nameContext) {}
-
-// EnterColumn_name is called when production column_name is entered.
-func (s *BaseGoogleSQLParserListener) EnterColumn_name(ctx *Column_nameContext) {}
-
-// ExitColumn_name is called when production column_name is exited.
-func (s *BaseGoogleSQLParserListener) ExitColumn_name(ctx *Column_nameContext) {}
-
-// EnterAlias_name is called when production alias_name is entered.
-func (s *BaseGoogleSQLParserListener) EnterAlias_name(ctx *Alias_nameContext) {}
-
-// ExitAlias_name is called when production alias_name is exited.
-func (s *BaseGoogleSQLParserListener) ExitAlias_name(ctx *Alias_nameContext) {}
-
-// EnterTable_name is called when production table_name is entered.
-func (s *BaseGoogleSQLParserListener) EnterTable_name(ctx *Table_nameContext) {}
-
-// ExitTable_name is called when production table_name is exited.
-func (s *BaseGoogleSQLParserListener) ExitTable_name(ctx *Table_nameContext) {}
