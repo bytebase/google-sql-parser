@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -87,9 +87,6 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#int_literal_or_parameter.
 	VisitInt_literal_or_parameter(ctx *Int_literal_or_parameterContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#limit_clause.
-	VisitLimit_clause(ctx *Limit_clauseContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#order_by_clause.
 	VisitOrder_by_clause(ctx *Order_by_clauseContext) interface{}
@@ -357,9 +354,6 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#opt_natural.
 	VisitOpt_natural(ctx *Opt_naturalContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#tablesample_operator.
-	VisitTablesample_operator(ctx *Tablesample_operatorContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#unpivot_operator.
 	VisitUnpivot_operator(ctx *Unpivot_operatorContext) interface{}
@@ -889,12 +883,6 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#bytes_literal_component.
 	VisitBytes_literal_component(ctx *Bytes_literal_componentContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#count.
-	VisitCount(ctx *CountContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#skip_rows.
-	VisitSkip_rows(ctx *Skip_rowsContext) interface{}
-
 	// Visit a parse tree produced by GoogleSQLParser#name.
 	VisitName(ctx *NameContext) interface{}
 
@@ -909,13 +897,4 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#table_name.
 	VisitTable_name(ctx *Table_nameContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#number.
-	VisitNumber(ctx *NumberContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#integer_type.
-	VisitInteger_type(ctx *Integer_typeContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#float_type.
-	VisitFloat_type(ctx *Float_typeContext) interface{}
 }

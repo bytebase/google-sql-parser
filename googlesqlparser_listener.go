@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -87,9 +87,6 @@ type GoogleSQLParserListener interface {
 
 	// EnterInt_literal_or_parameter is called when entering the int_literal_or_parameter production.
 	EnterInt_literal_or_parameter(c *Int_literal_or_parameterContext)
-
-	// EnterLimit_clause is called when entering the limit_clause production.
-	EnterLimit_clause(c *Limit_clauseContext)
 
 	// EnterOrder_by_clause is called when entering the order_by_clause production.
 	EnterOrder_by_clause(c *Order_by_clauseContext)
@@ -357,9 +354,6 @@ type GoogleSQLParserListener interface {
 
 	// EnterOpt_natural is called when entering the opt_natural production.
 	EnterOpt_natural(c *Opt_naturalContext)
-
-	// EnterTablesample_operator is called when entering the tablesample_operator production.
-	EnterTablesample_operator(c *Tablesample_operatorContext)
 
 	// EnterUnpivot_operator is called when entering the unpivot_operator production.
 	EnterUnpivot_operator(c *Unpivot_operatorContext)
@@ -889,12 +883,6 @@ type GoogleSQLParserListener interface {
 	// EnterBytes_literal_component is called when entering the bytes_literal_component production.
 	EnterBytes_literal_component(c *Bytes_literal_componentContext)
 
-	// EnterCount is called when entering the count production.
-	EnterCount(c *CountContext)
-
-	// EnterSkip_rows is called when entering the skip_rows production.
-	EnterSkip_rows(c *Skip_rowsContext)
-
 	// EnterName is called when entering the name production.
 	EnterName(c *NameContext)
 
@@ -909,15 +897,6 @@ type GoogleSQLParserListener interface {
 
 	// EnterTable_name is called when entering the table_name production.
 	EnterTable_name(c *Table_nameContext)
-
-	// EnterNumber is called when entering the number production.
-	EnterNumber(c *NumberContext)
-
-	// EnterInteger_type is called when entering the integer_type production.
-	EnterInteger_type(c *Integer_typeContext)
-
-	// EnterFloat_type is called when entering the float_type production.
-	EnterFloat_type(c *Float_typeContext)
 
 	// ExitRoot is called when exiting the root production.
 	ExitRoot(c *RootContext)
@@ -999,9 +978,6 @@ type GoogleSQLParserListener interface {
 
 	// ExitInt_literal_or_parameter is called when exiting the int_literal_or_parameter production.
 	ExitInt_literal_or_parameter(c *Int_literal_or_parameterContext)
-
-	// ExitLimit_clause is called when exiting the limit_clause production.
-	ExitLimit_clause(c *Limit_clauseContext)
 
 	// ExitOrder_by_clause is called when exiting the order_by_clause production.
 	ExitOrder_by_clause(c *Order_by_clauseContext)
@@ -1269,9 +1245,6 @@ type GoogleSQLParserListener interface {
 
 	// ExitOpt_natural is called when exiting the opt_natural production.
 	ExitOpt_natural(c *Opt_naturalContext)
-
-	// ExitTablesample_operator is called when exiting the tablesample_operator production.
-	ExitTablesample_operator(c *Tablesample_operatorContext)
 
 	// ExitUnpivot_operator is called when exiting the unpivot_operator production.
 	ExitUnpivot_operator(c *Unpivot_operatorContext)
@@ -1801,12 +1774,6 @@ type GoogleSQLParserListener interface {
 	// ExitBytes_literal_component is called when exiting the bytes_literal_component production.
 	ExitBytes_literal_component(c *Bytes_literal_componentContext)
 
-	// ExitCount is called when exiting the count production.
-	ExitCount(c *CountContext)
-
-	// ExitSkip_rows is called when exiting the skip_rows production.
-	ExitSkip_rows(c *Skip_rowsContext)
-
 	// ExitName is called when exiting the name production.
 	ExitName(c *NameContext)
 
@@ -1821,13 +1788,4 @@ type GoogleSQLParserListener interface {
 
 	// ExitTable_name is called when exiting the table_name production.
 	ExitTable_name(c *Table_nameContext)
-
-	// ExitNumber is called when exiting the number production.
-	ExitNumber(c *NumberContext)
-
-	// ExitInteger_type is called when exiting the integer_type production.
-	ExitInteger_type(c *Integer_typeContext)
-
-	// ExitFloat_type is called when exiting the float_type production.
-	ExitFloat_type(c *Float_typeContext)
 }
