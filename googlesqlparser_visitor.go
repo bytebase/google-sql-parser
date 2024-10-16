@@ -811,6 +811,12 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#struct_type.
 	VisitStruct_type(ctx *Struct_typeContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#struct_type_prefix.
+	VisitStruct_type_prefix(ctx *Struct_type_prefixContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#struct_field.
+	VisitStruct_field(ctx *Struct_fieldContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#array_type.
 	VisitArray_type(ctx *Array_typeContext) interface{}
 

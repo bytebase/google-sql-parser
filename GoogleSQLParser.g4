@@ -186,7 +186,8 @@ from_clause: FROM_SYMBOL from_clause_contents;
 from_clause_contents:
 	table_primary
 	| from_clause_contents COMMA_SYMBOL table_primary
-	| from_clause_contents opt_natural? join_type? join_hint
+	| from_clause_contents opt_natural? join_type? join_hint JOIN_SYMBOL hint? table_primary
+		on_or_using_clause_list?
 	| AT_SYMBOL {p.NotifyErrorListeners("Query parameters cannot be used in place of table names",nil,nil)
 		}
 	| QUESTION_SYMBOL {p.NotifyErrorListeners("Query parameters cannot be used in place of table names",nil,nil)
@@ -546,7 +547,7 @@ select_column_dot_star:
 
 star_modifiers:
 	star_except_list
-	| star_modifiers_with_replace_prefix;
+	| star_modifiers_with_replace_prefix RR_BRACKET_SYMBOL;
 
 star_except_list: star_except_list_prefix RR_BRACKET_SYMBOL;
 
@@ -557,7 +558,7 @@ star_except_list_prefix:
 
 star_modifiers_with_replace_prefix:
 	star_except_list REPLACE_SYMBOL LR_BRACKET_SYMBOL star_replace_item
-	| REPLACE_SYMBOL star_replace_item
+	| REPLACE_SYMBOL LR_BRACKET_SYMBOL star_replace_item
 	| star_modifiers_with_replace_prefix COMMA_SYMBOL star_replace_item;
 
 star_replace_item: expression AS_SYMBOL identifier;
@@ -1144,7 +1145,7 @@ array_constructor_prefix:
 array_constructor_prefix_no_expressions:
 	ARRAY_SYMBOL LS_BRACKET_SYMBOL
 	| LS_BRACKET_SYMBOL
-	| array_type;
+	| array_type LS_BRACKET_SYMBOL;
 
 range_literal: range_type string_literal;
 
@@ -1420,7 +1421,15 @@ common_keyword_as_identifier:
 token_identifier: IDENTIFIER;
 
 struct_type:
-	STRUCT_SYMBOL template_type_open template_type_close;
+	STRUCT_SYMBOL template_type_open template_type_close
+	| struct_type_prefix template_type_close;
+
+struct_type_prefix:
+	STRUCT_SYMBOL template_type_open struct_field (
+		COMMA_SYMBOL struct_field
+	)*;
+
+struct_field: identifier type | type;
 
 array_type:
 	ARRAY_SYMBOL template_type_open type template_type_close;

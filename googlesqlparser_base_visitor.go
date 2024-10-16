@@ -1079,6 +1079,14 @@ func (v *BaseGoogleSQLParserVisitor) VisitStruct_type(ctx *Struct_typeContext) i
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitStruct_type_prefix(ctx *Struct_type_prefixContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitStruct_field(ctx *Struct_fieldContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitArray_type(ctx *Array_typeContext) interface{} {
 	return v.VisitChildren(ctx)
 }

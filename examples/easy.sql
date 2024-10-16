@@ -63,3 +63,37 @@ SELECT
     * REPLACE (quantity / 2 AS quantity)
 FROM
     orders;
+
+SELECT
+    *
+FROM
+    UNNEST(
+        ARRAY < STRUCT < x INT64,
+        y STRING,
+        z STRUCT < a INT64,
+        b INT64 > > > [
+        (1, 'foo', (10, 11)),
+        (3, 'bar', (20, 21))]
+    );
+
+WITH Coordinates AS (
+    SELECT
+        [1,2] AS position
+)
+SELECT
+    results
+FROM
+    Coordinates,
+    UNNEST(Coordinates.position) AS results;
+
+select
+    1;
+
+SELECT
+    *
+FROM
+    (
+        SELECT
+            "apple" AS fruit,
+            "carrot" AS vegetable
+    );
