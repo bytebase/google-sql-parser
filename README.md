@@ -2,6 +2,20 @@
 
 Google SQL parser based on ANTLR4.
 
+## Usage
+
+### Build
+
+```shell
+make build
+```
+
+### Test
+
+```shell
+make test
+```
+
 ## References
 
 - [Query Syntax](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax), is the reference for the query(SELECT) syntax.
