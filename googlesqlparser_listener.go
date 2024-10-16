@@ -811,6 +811,12 @@ type GoogleSQLParserListener interface {
 	// EnterStruct_type is called when entering the struct_type production.
 	EnterStruct_type(c *Struct_typeContext)
 
+	// EnterStruct_type_prefix is called when entering the struct_type_prefix production.
+	EnterStruct_type_prefix(c *Struct_type_prefixContext)
+
+	// EnterStruct_field is called when entering the struct_field production.
+	EnterStruct_field(c *Struct_fieldContext)
+
 	// EnterArray_type is called when entering the array_type production.
 	EnterArray_type(c *Array_typeContext)
 
@@ -1668,6 +1674,12 @@ type GoogleSQLParserListener interface {
 
 	// ExitStruct_type is called when exiting the struct_type production.
 	ExitStruct_type(c *Struct_typeContext)
+
+	// ExitStruct_type_prefix is called when exiting the struct_type_prefix production.
+	ExitStruct_type_prefix(c *Struct_type_prefixContext)
+
+	// ExitStruct_field is called when exiting the struct_field production.
+	ExitStruct_field(c *Struct_fieldContext)
 
 	// ExitArray_type is called when exiting the array_type production.
 	ExitArray_type(c *Array_typeContext)

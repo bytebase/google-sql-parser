@@ -1842,6 +1842,18 @@ func (s *BaseGoogleSQLParserListener) EnterStruct_type(ctx *Struct_typeContext) 
 // ExitStruct_type is called when production struct_type is exited.
 func (s *BaseGoogleSQLParserListener) ExitStruct_type(ctx *Struct_typeContext) {}
 
+// EnterStruct_type_prefix is called when production struct_type_prefix is entered.
+func (s *BaseGoogleSQLParserListener) EnterStruct_type_prefix(ctx *Struct_type_prefixContext) {}
+
+// ExitStruct_type_prefix is called when production struct_type_prefix is exited.
+func (s *BaseGoogleSQLParserListener) ExitStruct_type_prefix(ctx *Struct_type_prefixContext) {}
+
+// EnterStruct_field is called when production struct_field is entered.
+func (s *BaseGoogleSQLParserListener) EnterStruct_field(ctx *Struct_fieldContext) {}
+
+// ExitStruct_field is called when production struct_field is exited.
+func (s *BaseGoogleSQLParserListener) ExitStruct_field(ctx *Struct_fieldContext) {}
+
 // EnterArray_type is called when production array_type is entered.
 func (s *BaseGoogleSQLParserListener) EnterArray_type(ctx *Array_typeContext) {}
 
