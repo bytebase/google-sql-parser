@@ -3,6 +3,7 @@ package parser_test
 import (
 	"os"
 	"path"
+	"sort"
 	"testing"
 
 	"github.com/antlr4-go/antlr/v4"
@@ -36,14 +37,12 @@ func (l *CustomErrorListener) ReportContextSensitivity(recognizer antlr.Parser, 
 }
 
 func TestGoogleSQLParser(t *testing.T) {
-	examples, err := os.ReadDir("examples")
-	require.NoError(t, err)
+	testFilePaths := scanSQLFileInDirRecursive(t, "examples")
+	sort.StringSlice(testFilePaths).Sort()
 
-	for _, file := range examples {
-		filePath := path.Join("examples", file.Name())
-		t.Run(filePath, func(t *testing.T) {
-			t.Parallel()
-			input, err := antlr.NewFileStream(filePath)
+	for _, fp := range testFilePaths {
+		t.Run(fp, func(t *testing.T) {
+			input, err := antlr.NewFileStream(fp)
 			require.NoError(t, err)
 
 			lexer := googlesqlparser.NewGoogleSQLLexer(input)
@@ -63,8 +62,26 @@ func TestGoogleSQLParser(t *testing.T) {
 
 			_ = p.Root()
 
-			require.Equal(t, 0, lexerErrors.errors)
-			require.Equal(t, 0, parserErrors.errors)
+			require.Equal(t, 0, lexerErrors.errors, "file: %s", fp)
+			require.Equal(t, 0, parserErrors.errors, "file: %s", fp)
 		})
 	}
+}
+
+func scanSQLFileInDirRecursive(t *testing.T, dir string) []string {
+	var fps []string
+
+	files, err := os.ReadDir(dir)
+	require.NoError(t, err)
+
+	for _, file := range files {
+		if file.IsDir() {
+			rfps := scanSQLFileInDirRecursive(t, path.Join(dir, file.Name()))
+			fps = append(fps, rfps...)
+		} else {
+			fps = append(fps, path.Join(dir, file.Name()))
+		}
+	}
+
+	return fps
 }

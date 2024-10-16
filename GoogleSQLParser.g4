@@ -136,7 +136,7 @@ set_operator:
 	| INTERSECT_SYMBOL DISTINCT_SYMBOL
 	| EXCEPT_SYMBOL DISTINCT_SYMBOL;
 
-select: select_clause from_clause? opt_clauses_following_from;
+select: select_clause from_clause? opt_clauses_following_from?;
 
 opt_clauses_following_from:
 	where_clause group_by_clause? having_clause? qualify_clause_nonreserved? window_clause?
@@ -147,8 +147,9 @@ opt_clauses_following_where:
 	| opt_clauses_following_group_by;
 
 opt_clauses_following_group_by:
-	having_clause? qualify_clause_nonreserved? window_clause?
-	| qualify_clause_nonreserved? window_clause?;
+	having_clause qualify_clause_nonreserved? window_clause?
+	| qualify_clause_nonreserved window_clause?
+	| window_clause;
 
 window_clause: window_clause_prefix;
 
@@ -186,7 +187,7 @@ from_clause: FROM_SYMBOL from_clause_contents;
 from_clause_contents:
 	table_primary
 	| from_clause_contents COMMA_SYMBOL table_primary
-	| from_clause_contents opt_natural? join_type? join_hint JOIN_SYMBOL hint? table_primary
+	| from_clause_contents opt_natural? join_type? join_hint? JOIN_SYMBOL hint? table_primary
 		on_or_using_clause_list?
 	| AT_SYMBOL {p.NotifyErrorListeners("Query parameters cannot be used in place of table names",nil,nil)
 		}
@@ -605,7 +606,7 @@ expression_higher_prec_than_and:
 	| with_expression
 	| replace_fields_expression
 	// Inlining function_call_expression scope begin
-	expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
+	| expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
 		function_call_expression_with_clauses_suffix
 	| function_name_from_keyword LR_BRACKET_SYMBOL function_call_expression_with_clauses_suffix
 	// Inlining function_call_expression scope end
@@ -676,9 +677,7 @@ expression_maybe_parenthesized_not_a_query:
 	| with_expression
 	| replace_fields_expression
 	// Inlining function_call_expression scope begin
-	expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
-		function_call_expression_with_clauses_suffix
-	| function_name_from_keyword LR_BRACKET_SYMBOL function_call_expression_with_clauses_suffix
+	| function_call_expression_with_clauses
 	// Inlining function_call_expression scope end
 	| interval_expression
 	| identifier
@@ -748,12 +747,12 @@ multiplicative_operator: MULTIPLY_OPERATOR | DIVIDE_OPERATOR;
 
 is_operator: IS_SYMBOL NOT_SYMBOL?;
 
-between_operator: NOT_SPECIAL_SYMBOL? BETWEEN_SYMBOL;
+between_operator: NOT_SYMBOL? BETWEEN_SYMBOL;
 
-in_operator: NOT_SPECIAL_SYMBOL? IN_SYMBOL;
+in_operator: NOT_SYMBOL? IN_SYMBOL;
 
 distinct_operator:
-	IS_SYMBOL NOT_SPECIAL_SYMBOL? DISTINCT_SYMBOL FROM_SYMBOL;
+	IS_SYMBOL NOT_SYMBOL? DISTINCT_SYMBOL FROM_SYMBOL;
 
 parenthesized_query: LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL;
 
@@ -820,7 +819,7 @@ in_list_two_or_more_prefix:
 
 any_some_all: ANY_SYMBOL | SOME_SYMBOL | ALL_SYMBOL;
 
-like_operator: LIKE_SYMBOL | NOT_SPECIAL_SYMBOL LIKE_SYMBOL;
+like_operator: LIKE_SYMBOL | NOT_SYMBOL LIKE_SYMBOL;
 
 expression_subquery_with_keyword:
 	ARRAY_SYMBOL parenthesized_query
@@ -863,8 +862,7 @@ function_call_expression_with_clauses_suffix:
 		opt_having_or_group_by_modifier? order_by_clause? limit_offset_clause? RR_BRACKET_SYMBOL
 		// Non empty argument list.
 		| (
-			function_call_argument
-			| MULTIPLY_OPERATOR (
+			(function_call_argument | MULTIPLY_OPERATOR) (
 				COMMA_SYMBOL function_call_argument
 			)*
 		) opt_null_handling_modifier? opt_having_or_group_by_modifier? clamped_between_modifier?
@@ -931,7 +929,8 @@ opt_null_handling_modifier:
 	| RESPECT_SYMBOL NULLS_SYMBOL;
 
 function_call_argument:
-	expression opt_as_alias_with_required_as? named_argument
+	expression opt_as_alias_with_required_as?
+	| named_argument
 	| lambda_argument
 	| sequence_arg
 	| SELECT_SYMBOL { p.NotifyErrorListeners("Each function argument is an expression, not a query; to use a query as an expression, the query must be wrapped with additional parentheses to make it a scalar subquery expression", nil, nil); 
@@ -1236,8 +1235,7 @@ function_type_prefix:
 
 type_name: path_expression | INTERVAL_SYMBOL;
 
-path_expression:
-	identifier (DOT_SYMBOL identifier)*;
+path_expression: identifier (DOT_SYMBOL identifier)*;
 
 identifier: token_identifier | keyword_as_identifier;
 
