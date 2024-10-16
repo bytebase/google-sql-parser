@@ -97,3 +97,6 @@ FROM
             "apple" AS fruit,
             "carrot" AS vegetable
     );
+
+select
+    -123;

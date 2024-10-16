@@ -1237,8 +1237,7 @@ function_type_prefix:
 type_name: path_expression | INTERVAL_SYMBOL;
 
 path_expression:
-	identifier
-	| path_expression DOT_SYMBOL identifier;
+	identifier (DOT_SYMBOL identifier)*;
 
 identifier: token_identifier | keyword_as_identifier;
 
