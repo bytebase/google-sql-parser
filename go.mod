@@ -1,4 +1,4 @@
-module github.com/bytebase/googlesql-parser
+module github.com/bytebase/google-sql-parser
 
 go 1.22.2
 
