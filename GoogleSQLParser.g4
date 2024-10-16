@@ -651,51 +651,72 @@ expression_higher_prec_than_and:
 
 expression_maybe_parenthesized_not_a_query:
 	parenthesized_expression_not_a_query
-	// NOTE: unparenthesized_expression_higher_prec_than_and scope begin
-	(
-		null_literal
-		| boolean_literal
-		| string_literal
-		| bytes_literal
-		| integer_literal
-		| numeric_literal
-		| bignumeric_literal
-		| json_literal
-		| floating_point_literal
-		| date_or_time_literal
-		| range_literal
-		| parameter_expression
-		| system_variable_expression
-		| array_constructor
-		| new_constructor
-		| braced_constructor
-		| braced_new_constructor
-		| struct_braced_constructor
-		| case_expression
-		| cast_expression
-		| extract_expression
-		| with_expression
-		| replace_fields_expression
-		// Inlining function_call_expression scope begin
-		expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
-			function_call_expression_with_clauses_suffix
-		| function_name_from_keyword LR_BRACKET_SYMBOL function_call_expression_with_clauses_suffix
-		// Inlining function_call_expression scope end
-		| interval_expression
-		| identifier
-		| struct_constructor
-		| expression_subquery_with_keyword
-		| expression_higher_prec_than_and LS_BRACKET_SYMBOL expression RS_BRACKET_SYMBOL
-		| expression_higher_prec_than_and DOT_SYMBOL LR_BRACKET_SYMBOL path_expression
-			RR_BRACKET_SYMBOL
-		| expression_higher_prec_than_and DOT_SYMBOL identifier
-		| NOT_SYMBOL expression_higher_prec_than_and
-		| expression_higher_prec_than_and like_operator any_some_all hint? unnest_expression
-		| expression_higher_prec_than_and like_operator any_some_all hint?
-			parenthesized_anysomeall_list_in_rhs
-		| expression_higher_prec_than_and like_operator expression_higher_prec_than_and
-	)
-	//
+	// unparenthesized_expression_higher_prec_than_and scope begin
+	| null_literal
+	| boolean_literal
+	| string_literal
+	| bytes_literal
+	| integer_literal
+	| numeric_literal
+	| bignumeric_literal
+	| json_literal
+	| floating_point_literal
+	| date_or_time_literal
+	| range_literal
+	| parameter_expression
+	| system_variable_expression
+	| array_constructor
+	| new_constructor
+	| braced_constructor
+	| braced_new_constructor
+	| struct_braced_constructor
+	| case_expression
+	| cast_expression
+	| extract_expression
+	| with_expression
+	| replace_fields_expression
+	// Inlining function_call_expression scope begin
+	expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
+		function_call_expression_with_clauses_suffix
+	| function_name_from_keyword LR_BRACKET_SYMBOL function_call_expression_with_clauses_suffix
+	// Inlining function_call_expression scope end
+	| interval_expression
+	| identifier
+	| struct_constructor
+	| expression_subquery_with_keyword
+	| expression_higher_prec_than_and LS_BRACKET_SYMBOL expression RS_BRACKET_SYMBOL
+	| expression_higher_prec_than_and DOT_SYMBOL LR_BRACKET_SYMBOL path_expression RR_BRACKET_SYMBOL
+	| expression_higher_prec_than_and DOT_SYMBOL identifier
+	| NOT_SYMBOL expression_higher_prec_than_and
+	| expression_higher_prec_than_and like_operator any_some_all hint? unnest_expression
+	| expression_higher_prec_than_and like_operator any_some_all hint?
+		parenthesized_anysomeall_list_in_rhs
+	| expression_higher_prec_than_and like_operator expression_higher_prec_than_and
+	| expression_higher_prec_than_and distinct_operator expression_higher_prec_than_and
+	| expression_higher_prec_than_and in_operator hint? unnest_expression {
+		if localctx.Hint() != nil {
+			p.NotifyErrorListeners("Syntax error: HINTs cannot be specified on IN clause with UNNEST", nil, nil)
+		}
+	}
+	| expression_higher_prec_than_and in_operator hint? parenthesized_in_rhs
+	| expression_higher_prec_than_and between_operator expression_higher_prec_than_and AND_SYMBOL
+		expression_higher_prec_than_and
+	| expression_higher_prec_than_and between_operator expression_higher_prec_than_and OR_SYMBOL {
+		p.NotifyErrorListeners("Syntax error: Expression in BETWEEN must be parenthesized", nil, nil)
+	}
+	| expression_higher_prec_than_and is_operator UNKNOWN_SYMBOL
+	| expression_higher_prec_than_and is_operator null_literal
+	| expression_higher_prec_than_and is_operator boolean_literal
+	| expression_higher_prec_than_and comparative_operator expression_higher_prec_than_and
+	| expression_higher_prec_than_and STROKE_SYMBOL expression_higher_prec_than_and
+	| expression_higher_prec_than_and CIRCUMFLEX_SYMBOL expression_higher_prec_than_and
+	| expression_higher_prec_than_and BIT_AND_SYMBOL expression_higher_prec_than_and
+	| expression_higher_prec_than_and BOOL_OR_SYMBOL expression_higher_prec_than_and
+	| expression_higher_prec_than_and shift_operator expression_higher_prec_than_and
+	| expression_higher_prec_than_and additive_operator expression_higher_prec_than_and
+	| expression_higher_prec_than_and multiplicative_operator expression_higher_prec_than_and
+	| unary_operator expression_higher_prec_than_and
+	// unparenthesized_expression_higher_prec_than_and scope end
 	| and_expression
 	// Previous or_expression, replace by solving mutually left-recursive.
 	| expression OR_SYMBOL expression;
