@@ -22,7 +22,7 @@ query_without_pipe_operators:
 	| with_clause PIPE_SYMBOL {p.NotifyErrorListeners("Syntax error: A pipe operator cannot follow the WITH clause before the main query; The main query usually starts with SELECT or FROM here", nil, nil)
 		}
 	| query_primary_or_set_operation order_by_clause? limit_offset_clause?
-	| with_clause? from_clause
+	| with_clause? from_clause {p.NotifyErrorListeners("Syntax error: Unexpected FROM", nil, nil)}
 	// FIXME(zp): Inject the keyword from original input.
 	| with_clause? from_clause bad_keyword_after_from_query {p.NotifyErrorListeners("Syntax error: <KEYWORD> not supported after FROM query; Consider using pipe operator `|>` ", nil, nil)
 		}
@@ -52,8 +52,7 @@ query_primary_or_set_operation:
 query_set_operation: query_set_operation_prefix;
 
 query_set_operation_prefix:
-	query_primary set_operation_metadata query_primary
-	| query_set_operation_prefix set_operation_metadata query_primary
+	query_primary (set_operation_metadata query_primary)+
 	| query_primary set_operation_metadata FROM_SYMBOL { p.NotifyErrorListeners("Syntax error: Unexpected FROM;FROM queries following a set operation must be parenthesized", nil, nil); 
 		}
 	| query_set_operation_prefix set_operation_metadata FROM_SYMBOL { p.NotifyErrorListeners("Syntax error: Unexpected FROM;FROM queries following a set operation must be parenthesized", nil, nil); 
