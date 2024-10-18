@@ -354,6 +354,14 @@ func (s *BaseGoogleSQLParserListener) EnterFrom_clause_contents(ctx *From_clause
 // ExitFrom_clause_contents is called when production from_clause_contents is exited.
 func (s *BaseGoogleSQLParserListener) ExitFrom_clause_contents(ctx *From_clause_contentsContext) {}
 
+// EnterFrom_clause_contents_suffix is called when production from_clause_contents_suffix is entered.
+func (s *BaseGoogleSQLParserListener) EnterFrom_clause_contents_suffix(ctx *From_clause_contents_suffixContext) {
+}
+
+// ExitFrom_clause_contents_suffix is called when production from_clause_contents_suffix is exited.
+func (s *BaseGoogleSQLParserListener) ExitFrom_clause_contents_suffix(ctx *From_clause_contents_suffixContext) {
+}
+
 // EnterTable_primary is called when production table_primary is entered.
 func (s *BaseGoogleSQLParserListener) EnterTable_primary(ctx *Table_primaryContext) {}
 

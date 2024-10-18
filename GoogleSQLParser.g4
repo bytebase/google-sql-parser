@@ -184,16 +184,17 @@ opt_select_with:
 from_clause: FROM_SYMBOL from_clause_contents;
 
 from_clause_contents:
-	table_primary
-	| from_clause_contents COMMA_SYMBOL table_primary
-	| from_clause_contents opt_natural? join_type? join_hint? JOIN_SYMBOL hint? table_primary
-		on_or_using_clause_list?
+	table_primary from_clause_contents_suffix*
 	| AT_SYMBOL {p.NotifyErrorListeners("Query parameters cannot be used in place of table names",nil,nil)
 		}
 	| QUESTION_SYMBOL {p.NotifyErrorListeners("Query parameters cannot be used in place of table names",nil,nil)
 		}
 	| ATAT_SYMBOL {p.NotifyErrorListeners("System variables cannot be used in place of table names",nil,nil)
 		};
+
+from_clause_contents_suffix:
+	COMMA_SYMBOL table_primary
+	| opt_natural? join_type? join_hint? JOIN_SYMBOL hint? table_primary on_or_using_clause_list?;
 
 table_primary:
 	tvf_with_suffixes

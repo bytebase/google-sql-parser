@@ -154,6 +154,9 @@ type GoogleSQLParserListener interface {
 	// EnterFrom_clause_contents is called when entering the from_clause_contents production.
 	EnterFrom_clause_contents(c *From_clause_contentsContext)
 
+	// EnterFrom_clause_contents_suffix is called when entering the from_clause_contents_suffix production.
+	EnterFrom_clause_contents_suffix(c *From_clause_contents_suffixContext)
+
 	// EnterTable_primary is called when entering the table_primary production.
 	EnterTable_primary(c *Table_primaryContext)
 
@@ -1017,6 +1020,9 @@ type GoogleSQLParserListener interface {
 
 	// ExitFrom_clause_contents is called when exiting the from_clause_contents production.
 	ExitFrom_clause_contents(c *From_clause_contentsContext)
+
+	// ExitFrom_clause_contents_suffix is called when exiting the from_clause_contents_suffix production.
+	ExitFrom_clause_contents_suffix(c *From_clause_contents_suffixContext)
 
 	// ExitTable_primary is called when exiting the table_primary production.
 	ExitTable_primary(c *Table_primaryContext)

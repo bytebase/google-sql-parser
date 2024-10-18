@@ -203,6 +203,10 @@ func (v *BaseGoogleSQLParserVisitor) VisitFrom_clause_contents(ctx *From_clause_
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitFrom_clause_contents_suffix(ctx *From_clause_contents_suffixContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitTable_primary(ctx *Table_primaryContext) interface{} {
 	return v.VisitChildren(ctx)
 }

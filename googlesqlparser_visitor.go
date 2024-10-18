@@ -154,6 +154,9 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#from_clause_contents.
 	VisitFrom_clause_contents(ctx *From_clause_contentsContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#from_clause_contents_suffix.
+	VisitFrom_clause_contents_suffix(ctx *From_clause_contents_suffixContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#table_primary.
 	VisitTable_primary(ctx *Table_primaryContext) interface{}
 
