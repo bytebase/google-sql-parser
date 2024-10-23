@@ -87,9 +87,9 @@ opt_corresponding_outer_mode:
 opt_outer: OUTER_SYMBOL;
 
 with_clause:
-	WITH_SYMBOL aliased_query
-	| WITH_SYMBOL RECURSIVE_SYMBOL aliased_query
-	| with_clause COMMA_SYMBOL aliased_query;
+	WITH_SYMBOL RECURSIVE_SYMBOL? aliased_query (
+		COMMA_SYMBOL aliased_query
+	)*;
 
 aliased_query:
 	identifier AS_SYMBOL parenthesized_query opt_aliased_query_modifiers?;
@@ -845,8 +845,8 @@ interval_expression:
 	INTERVAL_SYMBOL expression identifier (TO_SYMBOL identifier)?;
 
 function_call_expression_with_clauses:
-	// NOTE: zetasql bison.y is LALR(1) parser, it checks the first rule should be path_expression in action
-	// code instead of use expression directly to avoid parser ambiguous.
+	// NOTE: zetasql bison.y is LALR(1) parser, it checks the first rule should be path_expression
+	// in action code instead of use expression directly to avoid parser ambiguous.
 	path_expression LR_BRACKET_SYMBOL DISTINCT_SYMBOL? function_call_expression_with_clauses_suffix
 	| function_name_from_keyword LR_BRACKET_SYMBOL function_call_expression_with_clauses_suffix;
 
