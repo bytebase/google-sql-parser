@@ -605,11 +605,7 @@ expression_higher_prec_than_and:
 	| extract_expression
 	| with_expression
 	| replace_fields_expression
-	// Inlining function_call_expression scope begin
-	| expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
-		function_call_expression_with_clauses_suffix
-	| function_name_from_keyword LR_BRACKET_SYMBOL function_call_expression_with_clauses_suffix
-	// Inlining function_call_expression scope end
+	| function_call_expression_with_clauses
 	| interval_expression
 	| identifier
 	| struct_constructor
@@ -676,9 +672,7 @@ expression_maybe_parenthesized_not_a_query:
 	| extract_expression
 	| with_expression
 	| replace_fields_expression
-	// Inlining function_call_expression scope begin
 	| function_call_expression_with_clauses
-	// Inlining function_call_expression scope end
 	| interval_expression
 	| identifier
 	| struct_constructor
@@ -851,9 +845,9 @@ interval_expression:
 	INTERVAL_SYMBOL expression identifier (TO_SYMBOL identifier)?;
 
 function_call_expression_with_clauses:
-	// TODO(zp): Inline some checking for providing better error message.
-	expression_higher_prec_than_and LR_BRACKET_SYMBOL DISTINCT_SYMBOL?
-		function_call_expression_with_clauses_suffix
+	// NOTE: zetasql bison.y is LALR(1) parser, it checks the first rule should be path_expression in action
+	// code instead of use expression directly to avoid parser ambiguous.
+	path_expression LR_BRACKET_SYMBOL DISTINCT_SYMBOL? function_call_expression_with_clauses_suffix
 	| function_name_from_keyword LR_BRACKET_SYMBOL function_call_expression_with_clauses_suffix;
 
 function_call_expression_with_clauses_suffix:
