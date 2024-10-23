@@ -46,6 +46,9 @@ type GoogleSQLParserListener interface {
 	// EnterQuery_set_operation_prefix is called when entering the query_set_operation_prefix production.
 	EnterQuery_set_operation_prefix(c *Query_set_operation_prefixContext)
 
+	// EnterQuery_set_operation_item is called when entering the query_set_operation_item production.
+	EnterQuery_set_operation_item(c *Query_set_operation_itemContext)
+
 	// EnterQuery_primary is called when entering the query_primary production.
 	EnterQuery_primary(c *Query_primaryContext)
 
@@ -912,6 +915,9 @@ type GoogleSQLParserListener interface {
 
 	// ExitQuery_set_operation_prefix is called when exiting the query_set_operation_prefix production.
 	ExitQuery_set_operation_prefix(c *Query_set_operation_prefixContext)
+
+	// ExitQuery_set_operation_item is called when exiting the query_set_operation_item production.
+	ExitQuery_set_operation_item(c *Query_set_operation_itemContext)
 
 	// ExitQuery_primary is called when exiting the query_primary production.
 	ExitQuery_primary(c *Query_primaryContext)

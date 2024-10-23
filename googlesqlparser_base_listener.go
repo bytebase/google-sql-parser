@@ -112,6 +112,14 @@ func (s *BaseGoogleSQLParserListener) EnterQuery_set_operation_prefix(ctx *Query
 func (s *BaseGoogleSQLParserListener) ExitQuery_set_operation_prefix(ctx *Query_set_operation_prefixContext) {
 }
 
+// EnterQuery_set_operation_item is called when production query_set_operation_item is entered.
+func (s *BaseGoogleSQLParserListener) EnterQuery_set_operation_item(ctx *Query_set_operation_itemContext) {
+}
+
+// ExitQuery_set_operation_item is called when production query_set_operation_item is exited.
+func (s *BaseGoogleSQLParserListener) ExitQuery_set_operation_item(ctx *Query_set_operation_itemContext) {
+}
+
 // EnterQuery_primary is called when production query_primary is entered.
 func (s *BaseGoogleSQLParserListener) EnterQuery_primary(ctx *Query_primaryContext) {}
 

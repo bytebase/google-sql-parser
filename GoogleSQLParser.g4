@@ -52,11 +52,13 @@ query_primary_or_set_operation:
 query_set_operation: query_set_operation_prefix;
 
 query_set_operation_prefix:
-	query_primary (set_operation_metadata query_primary)+
+	query_primary query_set_operation_item+
 	| query_primary set_operation_metadata FROM_SYMBOL { p.NotifyErrorListeners("Syntax error: Unexpected FROM;FROM queries following a set operation must be parenthesized", nil, nil); 
 		}
 	| query_set_operation_prefix set_operation_metadata FROM_SYMBOL { p.NotifyErrorListeners("Syntax error: Unexpected FROM;FROM queries following a set operation must be parenthesized", nil, nil); 
 		};
+
+query_set_operation_item: set_operation_metadata query_primary;
 
 query_primary:
 	select

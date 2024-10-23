@@ -59,6 +59,10 @@ func (v *BaseGoogleSQLParserVisitor) VisitQuery_set_operation_prefix(ctx *Query_
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitQuery_set_operation_item(ctx *Query_set_operation_itemContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitQuery_primary(ctx *Query_primaryContext) interface{} {
 	return v.VisitChildren(ctx)
 }

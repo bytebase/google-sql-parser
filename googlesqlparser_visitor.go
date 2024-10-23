@@ -46,6 +46,9 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#query_set_operation_prefix.
 	VisitQuery_set_operation_prefix(ctx *Query_set_operation_prefixContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#query_set_operation_item.
+	VisitQuery_set_operation_item(ctx *Query_set_operation_itemContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#query_primary.
 	VisitQuery_primary(ctx *Query_primaryContext) interface{}
 
