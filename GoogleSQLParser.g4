@@ -60,7 +60,7 @@ query_set_operation_prefix:
 
 query_primary:
 	select
-	| parenthesized_query opt_as_alias_with_required_as;
+	| parenthesized_query opt_as_alias_with_required_as?;
 
 set_operation_metadata:
 	opt_corresponding_outer_mode? query_set_operation_type hint? all_or_distinct opt_strict?
@@ -98,10 +98,10 @@ opt_aliased_query_modifiers: recursion_depth_modifier;
 
 recursion_depth_modifier:
 	WITH_SYMBOL DEPTH_SYMBOL opt_as_alias_with_required_as?
-	| WITH_SYMBOL DEPTH_SYMBOL opt_as_alias_with_required_as BETWEEN_SYMBOL
+	| WITH_SYMBOL DEPTH_SYMBOL opt_as_alias_with_required_as? BETWEEN_SYMBOL
 		possibly_unbounded_int_literal_or_parameter AND_SYMBOL
 		possibly_unbounded_int_literal_or_parameter
-	| WITH_SYMBOL DEPTH_SYMBOL opt_as_alias_with_required_as MAX_SYMBOL
+	| WITH_SYMBOL DEPTH_SYMBOL opt_as_alias_with_required_as? MAX_SYMBOL
 		possibly_unbounded_int_literal_or_parameter;
 
 possibly_unbounded_int_literal_or_parameter:
