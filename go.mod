@@ -1,6 +1,6 @@
 module github.com/bytebase/google-sql-parser
 
-go 1.22.2
+go 1.22.5
 
 require github.com/antlr4-go/antlr/v4 v4.13.1
 
