@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -128,18 +128,6 @@ func (v *BaseGoogleSQLParserVisitor) VisitOrder_by_clause_prefix(ctx *Order_by_c
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitOrdering_expression(ctx *Ordering_expressionContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitOrder_by_expr_list(ctx *Order_by_expr_listContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitOrder_by_expr_list_item(ctx *Order_by_expr_list_itemContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitSet_operator(ctx *Set_operatorContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -487,26 +475,6 @@ func (v *BaseGoogleSQLParserVisitor) VisitOpt_natural(ctx *Opt_naturalContext) i
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitAggregate_function_call_as_alias_list(ctx *Aggregate_function_call_as_alias_listContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitAggregate_function_call_as_alias_list_item(ctx *Aggregate_function_call_as_alias_list_itemContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitUnnest_operator(ctx *Unnest_operatorContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitCross_join_operator(ctx *Cross_join_operatorContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitConditional_join_operator(ctx *Conditional_join_operatorContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseGoogleSQLParserVisitor) VisitOn_clause(ctx *On_clauseContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -548,22 +516,6 @@ func (v *BaseGoogleSQLParserVisitor) VisitStar_modifiers_with_replace_prefix(ctx
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitStar_replace_item(ctx *Star_replace_itemContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitRecursive_union_operation(ctx *Recursive_union_operationContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitBase_term(ctx *Base_termContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitUnion_operator(ctx *Union_operatorContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitRecursive_term(ctx *Recursive_termContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -632,10 +584,6 @@ func (v *BaseGoogleSQLParserVisitor) VisitParenthesized_anysomeall_list_in_rhs(c
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitAnd_expression(ctx *And_expressionContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitUnparenthesized_expression_higher_prec_than_and(ctx *Unparenthesized_expression_higher_prec_than_andContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

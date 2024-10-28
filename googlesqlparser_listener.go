@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -99,15 +99,6 @@ type GoogleSQLParserListener interface {
 
 	// EnterOrdering_expression is called when entering the ordering_expression production.
 	EnterOrdering_expression(c *Ordering_expressionContext)
-
-	// EnterOrder_by_expr_list is called when entering the order_by_expr_list production.
-	EnterOrder_by_expr_list(c *Order_by_expr_listContext)
-
-	// EnterOrder_by_expr_list_item is called when entering the order_by_expr_list_item production.
-	EnterOrder_by_expr_list_item(c *Order_by_expr_list_itemContext)
-
-	// EnterSet_operator is called when entering the set_operator production.
-	EnterSet_operator(c *Set_operatorContext)
 
 	// EnterSelect is called when entering the select production.
 	EnterSelect(c *SelectContext)
@@ -367,21 +358,6 @@ type GoogleSQLParserListener interface {
 	// EnterOpt_natural is called when entering the opt_natural production.
 	EnterOpt_natural(c *Opt_naturalContext)
 
-	// EnterAggregate_function_call_as_alias_list is called when entering the aggregate_function_call_as_alias_list production.
-	EnterAggregate_function_call_as_alias_list(c *Aggregate_function_call_as_alias_listContext)
-
-	// EnterAggregate_function_call_as_alias_list_item is called when entering the aggregate_function_call_as_alias_list_item production.
-	EnterAggregate_function_call_as_alias_list_item(c *Aggregate_function_call_as_alias_list_itemContext)
-
-	// EnterUnnest_operator is called when entering the unnest_operator production.
-	EnterUnnest_operator(c *Unnest_operatorContext)
-
-	// EnterCross_join_operator is called when entering the cross_join_operator production.
-	EnterCross_join_operator(c *Cross_join_operatorContext)
-
-	// EnterConditional_join_operator is called when entering the conditional_join_operator production.
-	EnterConditional_join_operator(c *Conditional_join_operatorContext)
-
 	// EnterOn_clause is called when entering the on_clause production.
 	EnterOn_clause(c *On_clauseContext)
 
@@ -414,18 +390,6 @@ type GoogleSQLParserListener interface {
 
 	// EnterStar_replace_item is called when entering the star_replace_item production.
 	EnterStar_replace_item(c *Star_replace_itemContext)
-
-	// EnterRecursive_union_operation is called when entering the recursive_union_operation production.
-	EnterRecursive_union_operation(c *Recursive_union_operationContext)
-
-	// EnterBase_term is called when entering the base_term production.
-	EnterBase_term(c *Base_termContext)
-
-	// EnterUnion_operator is called when entering the union_operator production.
-	EnterUnion_operator(c *Union_operatorContext)
-
-	// EnterRecursive_term is called when entering the recursive_term production.
-	EnterRecursive_term(c *Recursive_termContext)
 
 	// EnterExpression is called when entering the expression production.
 	EnterExpression(c *ExpressionContext)
@@ -477,9 +441,6 @@ type GoogleSQLParserListener interface {
 
 	// EnterAnd_expression is called when entering the and_expression production.
 	EnterAnd_expression(c *And_expressionContext)
-
-	// EnterUnparenthesized_expression_higher_prec_than_and is called when entering the unparenthesized_expression_higher_prec_than_and production.
-	EnterUnparenthesized_expression_higher_prec_than_and(c *Unparenthesized_expression_higher_prec_than_andContext)
 
 	// EnterIn_list_two_or_more_prefix is called when entering the in_list_two_or_more_prefix production.
 	EnterIn_list_two_or_more_prefix(c *In_list_two_or_more_prefixContext)
@@ -970,15 +931,6 @@ type GoogleSQLParserListener interface {
 	// ExitOrdering_expression is called when exiting the ordering_expression production.
 	ExitOrdering_expression(c *Ordering_expressionContext)
 
-	// ExitOrder_by_expr_list is called when exiting the order_by_expr_list production.
-	ExitOrder_by_expr_list(c *Order_by_expr_listContext)
-
-	// ExitOrder_by_expr_list_item is called when exiting the order_by_expr_list_item production.
-	ExitOrder_by_expr_list_item(c *Order_by_expr_list_itemContext)
-
-	// ExitSet_operator is called when exiting the set_operator production.
-	ExitSet_operator(c *Set_operatorContext)
-
 	// ExitSelect is called when exiting the select production.
 	ExitSelect(c *SelectContext)
 
@@ -1237,21 +1189,6 @@ type GoogleSQLParserListener interface {
 	// ExitOpt_natural is called when exiting the opt_natural production.
 	ExitOpt_natural(c *Opt_naturalContext)
 
-	// ExitAggregate_function_call_as_alias_list is called when exiting the aggregate_function_call_as_alias_list production.
-	ExitAggregate_function_call_as_alias_list(c *Aggregate_function_call_as_alias_listContext)
-
-	// ExitAggregate_function_call_as_alias_list_item is called when exiting the aggregate_function_call_as_alias_list_item production.
-	ExitAggregate_function_call_as_alias_list_item(c *Aggregate_function_call_as_alias_list_itemContext)
-
-	// ExitUnnest_operator is called when exiting the unnest_operator production.
-	ExitUnnest_operator(c *Unnest_operatorContext)
-
-	// ExitCross_join_operator is called when exiting the cross_join_operator production.
-	ExitCross_join_operator(c *Cross_join_operatorContext)
-
-	// ExitConditional_join_operator is called when exiting the conditional_join_operator production.
-	ExitConditional_join_operator(c *Conditional_join_operatorContext)
-
 	// ExitOn_clause is called when exiting the on_clause production.
 	ExitOn_clause(c *On_clauseContext)
 
@@ -1284,18 +1221,6 @@ type GoogleSQLParserListener interface {
 
 	// ExitStar_replace_item is called when exiting the star_replace_item production.
 	ExitStar_replace_item(c *Star_replace_itemContext)
-
-	// ExitRecursive_union_operation is called when exiting the recursive_union_operation production.
-	ExitRecursive_union_operation(c *Recursive_union_operationContext)
-
-	// ExitBase_term is called when exiting the base_term production.
-	ExitBase_term(c *Base_termContext)
-
-	// ExitUnion_operator is called when exiting the union_operator production.
-	ExitUnion_operator(c *Union_operatorContext)
-
-	// ExitRecursive_term is called when exiting the recursive_term production.
-	ExitRecursive_term(c *Recursive_termContext)
 
 	// ExitExpression is called when exiting the expression production.
 	ExitExpression(c *ExpressionContext)
@@ -1347,9 +1272,6 @@ type GoogleSQLParserListener interface {
 
 	// ExitAnd_expression is called when exiting the and_expression production.
 	ExitAnd_expression(c *And_expressionContext)
-
-	// ExitUnparenthesized_expression_higher_prec_than_and is called when exiting the unparenthesized_expression_higher_prec_than_and production.
-	ExitUnparenthesized_expression_higher_prec_than_and(c *Unparenthesized_expression_higher_prec_than_andContext)
 
 	// ExitIn_list_two_or_more_prefix is called when exiting the in_list_two_or_more_prefix production.
 	ExitIn_list_two_or_more_prefix(c *In_list_two_or_more_prefixContext)

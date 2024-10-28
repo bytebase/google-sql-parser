@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -239,26 +239,6 @@ func (s *BaseGoogleSQLParserListener) EnterOrdering_expression(ctx *Ordering_exp
 
 // ExitOrdering_expression is called when production ordering_expression is exited.
 func (s *BaseGoogleSQLParserListener) ExitOrdering_expression(ctx *Ordering_expressionContext) {}
-
-// EnterOrder_by_expr_list is called when production order_by_expr_list is entered.
-func (s *BaseGoogleSQLParserListener) EnterOrder_by_expr_list(ctx *Order_by_expr_listContext) {}
-
-// ExitOrder_by_expr_list is called when production order_by_expr_list is exited.
-func (s *BaseGoogleSQLParserListener) ExitOrder_by_expr_list(ctx *Order_by_expr_listContext) {}
-
-// EnterOrder_by_expr_list_item is called when production order_by_expr_list_item is entered.
-func (s *BaseGoogleSQLParserListener) EnterOrder_by_expr_list_item(ctx *Order_by_expr_list_itemContext) {
-}
-
-// ExitOrder_by_expr_list_item is called when production order_by_expr_list_item is exited.
-func (s *BaseGoogleSQLParserListener) ExitOrder_by_expr_list_item(ctx *Order_by_expr_list_itemContext) {
-}
-
-// EnterSet_operator is called when production set_operator is entered.
-func (s *BaseGoogleSQLParserListener) EnterSet_operator(ctx *Set_operatorContext) {}
-
-// ExitSet_operator is called when production set_operator is exited.
-func (s *BaseGoogleSQLParserListener) ExitSet_operator(ctx *Set_operatorContext) {}
 
 // EnterSelect is called when production select is entered.
 func (s *BaseGoogleSQLParserListener) EnterSelect(ctx *SelectContext) {}
@@ -836,42 +816,6 @@ func (s *BaseGoogleSQLParserListener) EnterOpt_natural(ctx *Opt_naturalContext) 
 // ExitOpt_natural is called when production opt_natural is exited.
 func (s *BaseGoogleSQLParserListener) ExitOpt_natural(ctx *Opt_naturalContext) {}
 
-// EnterAggregate_function_call_as_alias_list is called when production aggregate_function_call_as_alias_list is entered.
-func (s *BaseGoogleSQLParserListener) EnterAggregate_function_call_as_alias_list(ctx *Aggregate_function_call_as_alias_listContext) {
-}
-
-// ExitAggregate_function_call_as_alias_list is called when production aggregate_function_call_as_alias_list is exited.
-func (s *BaseGoogleSQLParserListener) ExitAggregate_function_call_as_alias_list(ctx *Aggregate_function_call_as_alias_listContext) {
-}
-
-// EnterAggregate_function_call_as_alias_list_item is called when production aggregate_function_call_as_alias_list_item is entered.
-func (s *BaseGoogleSQLParserListener) EnterAggregate_function_call_as_alias_list_item(ctx *Aggregate_function_call_as_alias_list_itemContext) {
-}
-
-// ExitAggregate_function_call_as_alias_list_item is called when production aggregate_function_call_as_alias_list_item is exited.
-func (s *BaseGoogleSQLParserListener) ExitAggregate_function_call_as_alias_list_item(ctx *Aggregate_function_call_as_alias_list_itemContext) {
-}
-
-// EnterUnnest_operator is called when production unnest_operator is entered.
-func (s *BaseGoogleSQLParserListener) EnterUnnest_operator(ctx *Unnest_operatorContext) {}
-
-// ExitUnnest_operator is called when production unnest_operator is exited.
-func (s *BaseGoogleSQLParserListener) ExitUnnest_operator(ctx *Unnest_operatorContext) {}
-
-// EnterCross_join_operator is called when production cross_join_operator is entered.
-func (s *BaseGoogleSQLParserListener) EnterCross_join_operator(ctx *Cross_join_operatorContext) {}
-
-// ExitCross_join_operator is called when production cross_join_operator is exited.
-func (s *BaseGoogleSQLParserListener) ExitCross_join_operator(ctx *Cross_join_operatorContext) {}
-
-// EnterConditional_join_operator is called when production conditional_join_operator is entered.
-func (s *BaseGoogleSQLParserListener) EnterConditional_join_operator(ctx *Conditional_join_operatorContext) {
-}
-
-// ExitConditional_join_operator is called when production conditional_join_operator is exited.
-func (s *BaseGoogleSQLParserListener) ExitConditional_join_operator(ctx *Conditional_join_operatorContext) {
-}
-
 // EnterOn_clause is called when production on_clause is entered.
 func (s *BaseGoogleSQLParserListener) EnterOn_clause(ctx *On_clauseContext) {}
 
@@ -943,32 +887,6 @@ func (s *BaseGoogleSQLParserListener) EnterStar_replace_item(ctx *Star_replace_i
 
 // ExitStar_replace_item is called when production star_replace_item is exited.
 func (s *BaseGoogleSQLParserListener) ExitStar_replace_item(ctx *Star_replace_itemContext) {}
-
-// EnterRecursive_union_operation is called when production recursive_union_operation is entered.
-func (s *BaseGoogleSQLParserListener) EnterRecursive_union_operation(ctx *Recursive_union_operationContext) {
-}
-
-// ExitRecursive_union_operation is called when production recursive_union_operation is exited.
-func (s *BaseGoogleSQLParserListener) ExitRecursive_union_operation(ctx *Recursive_union_operationContext) {
-}
-
-// EnterBase_term is called when production base_term is entered.
-func (s *BaseGoogleSQLParserListener) EnterBase_term(ctx *Base_termContext) {}
-
-// ExitBase_term is called when production base_term is exited.
-func (s *BaseGoogleSQLParserListener) ExitBase_term(ctx *Base_termContext) {}
-
-// EnterUnion_operator is called when production union_operator is entered.
-func (s *BaseGoogleSQLParserListener) EnterUnion_operator(ctx *Union_operatorContext) {}
-
-// ExitUnion_operator is called when production union_operator is exited.
-func (s *BaseGoogleSQLParserListener) ExitUnion_operator(ctx *Union_operatorContext) {}
-
-// EnterRecursive_term is called when production recursive_term is entered.
-func (s *BaseGoogleSQLParserListener) EnterRecursive_term(ctx *Recursive_termContext) {}
-
-// ExitRecursive_term is called when production recursive_term is exited.
-func (s *BaseGoogleSQLParserListener) ExitRecursive_term(ctx *Recursive_termContext) {}
 
 // EnterExpression is called when production expression is entered.
 func (s *BaseGoogleSQLParserListener) EnterExpression(ctx *ExpressionContext) {}
@@ -1081,14 +999,6 @@ func (s *BaseGoogleSQLParserListener) EnterAnd_expression(ctx *And_expressionCon
 
 // ExitAnd_expression is called when production and_expression is exited.
 func (s *BaseGoogleSQLParserListener) ExitAnd_expression(ctx *And_expressionContext) {}
-
-// EnterUnparenthesized_expression_higher_prec_than_and is called when production unparenthesized_expression_higher_prec_than_and is entered.
-func (s *BaseGoogleSQLParserListener) EnterUnparenthesized_expression_higher_prec_than_and(ctx *Unparenthesized_expression_higher_prec_than_andContext) {
-}
-
-// ExitUnparenthesized_expression_higher_prec_than_and is called when production unparenthesized_expression_higher_prec_than_and is exited.
-func (s *BaseGoogleSQLParserListener) ExitUnparenthesized_expression_higher_prec_than_and(ctx *Unparenthesized_expression_higher_prec_than_andContext) {
-}
 
 // EnterIn_list_two_or_more_prefix is called when production in_list_two_or_more_prefix is entered.
 func (s *BaseGoogleSQLParserListener) EnterIn_list_two_or_more_prefix(ctx *In_list_two_or_more_prefixContext) {

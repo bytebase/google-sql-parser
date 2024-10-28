@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -99,15 +99,6 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#ordering_expression.
 	VisitOrdering_expression(ctx *Ordering_expressionContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#order_by_expr_list.
-	VisitOrder_by_expr_list(ctx *Order_by_expr_listContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#order_by_expr_list_item.
-	VisitOrder_by_expr_list_item(ctx *Order_by_expr_list_itemContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#set_operator.
-	VisitSet_operator(ctx *Set_operatorContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#select.
 	VisitSelect(ctx *SelectContext) interface{}
@@ -367,21 +358,6 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#opt_natural.
 	VisitOpt_natural(ctx *Opt_naturalContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#aggregate_function_call_as_alias_list.
-	VisitAggregate_function_call_as_alias_list(ctx *Aggregate_function_call_as_alias_listContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#aggregate_function_call_as_alias_list_item.
-	VisitAggregate_function_call_as_alias_list_item(ctx *Aggregate_function_call_as_alias_list_itemContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#unnest_operator.
-	VisitUnnest_operator(ctx *Unnest_operatorContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#cross_join_operator.
-	VisitCross_join_operator(ctx *Cross_join_operatorContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#conditional_join_operator.
-	VisitConditional_join_operator(ctx *Conditional_join_operatorContext) interface{}
-
 	// Visit a parse tree produced by GoogleSQLParser#on_clause.
 	VisitOn_clause(ctx *On_clauseContext) interface{}
 
@@ -414,18 +390,6 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#star_replace_item.
 	VisitStar_replace_item(ctx *Star_replace_itemContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#recursive_union_operation.
-	VisitRecursive_union_operation(ctx *Recursive_union_operationContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#base_term.
-	VisitBase_term(ctx *Base_termContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#union_operator.
-	VisitUnion_operator(ctx *Union_operatorContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#recursive_term.
-	VisitRecursive_term(ctx *Recursive_termContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#expression.
 	VisitExpression(ctx *ExpressionContext) interface{}
@@ -477,9 +441,6 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#and_expression.
 	VisitAnd_expression(ctx *And_expressionContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#unparenthesized_expression_higher_prec_than_and.
-	VisitUnparenthesized_expression_higher_prec_than_and(ctx *Unparenthesized_expression_higher_prec_than_andContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#in_list_two_or_more_prefix.
 	VisitIn_list_two_or_more_prefix(ctx *In_list_two_or_more_prefixContext) interface{}

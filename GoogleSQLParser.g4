@@ -125,18 +125,6 @@ order_by_clause_prefix:
 ordering_expression:
 	expression collate_clause? asc_or_desc? null_order?;
 
-order_by_expr_list:
-	order_by_expr_list_item (
-		COMMA_SYMBOL order_by_expr_list_item
-	)*;
-
-order_by_expr_list_item: expression (ASC_SYMBOL | DESC_SYMBOL)?;
-
-set_operator:
-	UNION_SYMBOL (ALL_SYMBOL | DISTINCT_SYMBOL)
-	| INTERSECT_SYMBOL DISTINCT_SYMBOL
-	| EXCEPT_SYMBOL DISTINCT_SYMBOL;
-
 select: select_clause from_clause? opt_clauses_following_from?;
 
 opt_clauses_following_from:
@@ -300,7 +288,7 @@ join: table_primary join_item*;
 // join_item resolves the mutually left-recursive for [join, join_input]. join_input: join |
 // table_primary;
 join_item:
-	opt_natural? join_type join_hint? JOIN_SYMBOL hint? table_primary on_or_using_clause_list?;
+	opt_natural? join_type? join_hint? JOIN_SYMBOL hint? table_primary on_or_using_clause_list?;
 
 on_or_using_clause_list: on_or_using_clause+;
 
@@ -501,29 +489,6 @@ join_type:
 
 opt_natural: NATURAL_SYMBOL;
 
-aggregate_function_call_as_alias_list:
-	aggregate_function_call_as_alias_list_item (
-		COMMA_SYMBOL aggregate_function_call_as_alias_list_item
-	)*;
-
-aggregate_function_call_as_alias_list_item:
-	/*aggregate_function_call*/ as_alias?;
-
-// unnest_operator: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#unnest_operator.
-unnest_operator:
-	(
-		UNNEST_SYMBOL LR_BRACKET_SYMBOL /*array*/ RR_BRACKET_SYMBOL as_alias?
-		| /*array_path*/ as_alias
-	) (WITH_SYMBOL OFFSET_SYMBOL as_alias?)?;
-
-cross_join_operator: (CROSS_SYMBOL JOIN_SYMBOL) | COMMA_SYMBOL;
-
-conditional_join_operator:
-	INNER_SYMBOL? JOIN_SYMBOL
-	| FULL_SYMBOL OUTER_SYMBOL? JOIN_SYMBOL
-	| LEFT_SYMBOL OUTER_SYMBOL? JOIN_SYMBOL
-	| RIGHT_SYMBOL OUTER_SYMBOL? JOIN_SYMBOL;
-
 on_clause:
 	ON_SYMBOL expression /* Actullay, this should be bool_expression */;
 
@@ -565,15 +530,6 @@ star_modifiers_with_replace_prefix:
 	| star_modifiers_with_replace_prefix COMMA_SYMBOL star_replace_item;
 
 star_replace_item: expression AS_SYMBOL identifier;
-
-recursive_union_operation:
-	base_term union_operator recursive_term;
-
-base_term: query;
-
-union_operator: UNION_SYMBOL ALL_SYMBOL;
-
-recursive_term: query;
 
 // expression: https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/bison_parser.y#L7712
 expression:
@@ -766,47 +722,6 @@ and_expression:
 	expression_higher_prec_than_and AND_SYMBOL expression_higher_prec_than_and (
 		AND_SYMBOL expression_higher_prec_than_and
 	)*;
-
-// unparenthesized_expression_higher_prec_than_and:
-// https://github.com/google/zetasql/blob/194cd32b5d766d60e3ca442651d792c7fe54ea74/zetasql/parser/bison_parser.y#L7781
-// TODO(zp): Implement the rest of the expression.
-unparenthesized_expression_higher_prec_than_and:
-	null_literal
-	| boolean_literal
-	| string_literal
-	| bytes_literal
-	| integer_literal
-	| numeric_literal
-	| bignumeric_literal
-	| json_literal
-	| floating_point_literal
-	| date_or_time_literal
-	| range_literal
-	| parameter_expression
-	| system_variable_expression
-	| array_constructor
-	| new_constructor
-	| braced_constructor
-	| braced_new_constructor
-	| struct_braced_constructor
-	| case_expression
-	| cast_expression
-	| extract_expression
-	| with_expression
-	| replace_fields_expression
-	| function_call_expression_with_clauses
-	| interval_expression
-	| identifier
-	| struct_constructor
-	| expression_subquery_with_keyword
-	| expression_higher_prec_than_and LS_BRACKET_SYMBOL expression RS_BRACKET_SYMBOL
-	| expression_higher_prec_than_and DOT_SYMBOL LR_BRACKET_SYMBOL path_expression RR_BRACKET_SYMBOL
-	| expression_higher_prec_than_and DOT_SYMBOL identifier
-	| NOT_SYMBOL expression_higher_prec_than_and
-	| expression_higher_prec_than_and like_operator any_some_all hint? unnest_expression
-	| expression_higher_prec_than_and like_operator any_some_all hint?
-		parenthesized_anysomeall_list_in_rhs
-	| expression_higher_prec_than_and like_operator expression_higher_prec_than_and;
 
 in_list_two_or_more_prefix:
 	LR_BRACKET_SYMBOL expression COMMA_SYMBOL expression (
