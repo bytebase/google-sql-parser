@@ -507,7 +507,7 @@ func (v *BaseGoogleSQLParserVisitor) VisitStar_except_list(ctx *Star_except_list
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitStar_modifiers_with_replace_prefix(ctx *Star_modifiers_with_replace_prefixContext) interface{} {
+func (v *BaseGoogleSQLParserVisitor) VisitStar_modifiers_with_replace(ctx *Star_modifiers_with_replaceContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
