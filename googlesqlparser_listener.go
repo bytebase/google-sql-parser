@@ -382,9 +382,6 @@ type GoogleSQLParserListener interface {
 	// EnterStar_except_list is called when entering the star_except_list production.
 	EnterStar_except_list(c *Star_except_listContext)
 
-	// EnterStar_except_list_prefix is called when entering the star_except_list_prefix production.
-	EnterStar_except_list_prefix(c *Star_except_list_prefixContext)
-
 	// EnterStar_modifiers_with_replace_prefix is called when entering the star_modifiers_with_replace_prefix production.
 	EnterStar_modifiers_with_replace_prefix(c *Star_modifiers_with_replace_prefixContext)
 
@@ -1212,9 +1209,6 @@ type GoogleSQLParserListener interface {
 
 	// ExitStar_except_list is called when exiting the star_except_list production.
 	ExitStar_except_list(c *Star_except_listContext)
-
-	// ExitStar_except_list_prefix is called when exiting the star_except_list_prefix production.
-	ExitStar_except_list_prefix(c *Star_except_list_prefixContext)
 
 	// ExitStar_modifiers_with_replace_prefix is called when exiting the star_modifiers_with_replace_prefix production.
 	ExitStar_modifiers_with_replace_prefix(c *Star_modifiers_with_replace_prefixContext)

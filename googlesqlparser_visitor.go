@@ -382,9 +382,6 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#star_except_list.
 	VisitStar_except_list(ctx *Star_except_listContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#star_except_list_prefix.
-	VisitStar_except_list_prefix(ctx *Star_except_list_prefixContext) interface{}
-
 	// Visit a parse tree produced by GoogleSQLParser#star_modifiers_with_replace_prefix.
 	VisitStar_modifiers_with_replace_prefix(ctx *Star_modifiers_with_replace_prefixContext) interface{}
 

@@ -517,12 +517,10 @@ star_modifiers:
 	star_except_list
 	| star_modifiers_with_replace_prefix RR_BRACKET_SYMBOL;
 
-star_except_list: star_except_list_prefix RR_BRACKET_SYMBOL;
-
-star_except_list_prefix:
+star_except_list:
 	EXCEPT_SYMBOL LR_BRACKET_SYMBOL identifier (
 		DOT_SYMBOL identifier
-	)*;
+	)* RR_BRACKET_SYMBOL;
 
 star_modifiers_with_replace_prefix:
 	star_except_list REPLACE_SYMBOL LR_BRACKET_SYMBOL star_replace_item

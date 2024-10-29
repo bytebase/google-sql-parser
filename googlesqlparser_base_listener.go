@@ -866,14 +866,6 @@ func (s *BaseGoogleSQLParserListener) EnterStar_except_list(ctx *Star_except_lis
 // ExitStar_except_list is called when production star_except_list is exited.
 func (s *BaseGoogleSQLParserListener) ExitStar_except_list(ctx *Star_except_listContext) {}
 
-// EnterStar_except_list_prefix is called when production star_except_list_prefix is entered.
-func (s *BaseGoogleSQLParserListener) EnterStar_except_list_prefix(ctx *Star_except_list_prefixContext) {
-}
-
-// ExitStar_except_list_prefix is called when production star_except_list_prefix is exited.
-func (s *BaseGoogleSQLParserListener) ExitStar_except_list_prefix(ctx *Star_except_list_prefixContext) {
-}
-
 // EnterStar_modifiers_with_replace_prefix is called when production star_modifiers_with_replace_prefix is entered.
 func (s *BaseGoogleSQLParserListener) EnterStar_modifiers_with_replace_prefix(ctx *Star_modifiers_with_replace_prefixContext) {
 }
