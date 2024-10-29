@@ -523,9 +523,9 @@ star_except_list:
 	)* RR_BRACKET_SYMBOL;
 
 star_modifiers_with_replace_prefix:
-	star_except_list REPLACE_SYMBOL LR_BRACKET_SYMBOL star_replace_item
-	| REPLACE_SYMBOL LR_BRACKET_SYMBOL star_replace_item
-	| star_modifiers_with_replace_prefix COMMA_SYMBOL star_replace_item;
+	star_except_list? REPLACE_SYMBOL LR_BRACKET_SYMBOL star_replace_item (
+		COMMA_SYMBOL star_replace_item
+	)*;
 
 star_replace_item: expression AS_SYMBOL identifier;
 
