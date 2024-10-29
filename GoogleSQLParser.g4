@@ -513,15 +513,17 @@ select_column_dot_star:
 	expression_higher_prec_than_and DOT_SYMBOL MULTIPLY_OPERATOR
 	| expression_higher_prec_than_and DOT_SYMBOL MULTIPLY_OPERATOR star_modifiers;
 
-star_modifiers: star_except_list | star_modifiers_with_replace;
+star_modifiers:
+	star_except_list
+	| star_except_list? star_replace_list;
 
 star_except_list:
 	EXCEPT_SYMBOL LR_BRACKET_SYMBOL identifier (
 		DOT_SYMBOL identifier
 	)* RR_BRACKET_SYMBOL;
 
-star_modifiers_with_replace:
-	star_except_list? REPLACE_SYMBOL LR_BRACKET_SYMBOL star_replace_item (
+star_replace_list:
+	REPLACE_SYMBOL LR_BRACKET_SYMBOL star_replace_item (
 		COMMA_SYMBOL star_replace_item
 	)* RR_BRACKET_SYMBOL;
 

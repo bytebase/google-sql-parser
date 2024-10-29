@@ -205,7 +205,7 @@ func googlesqlparserParserInit() {
 		"pivot_clause", "pivot_expression_list", "pivot_expression", "pivot_value_list",
 		"pivot_value", "tvf_prefix_no_args", "join_type", "opt_natural", "on_clause",
 		"select_list", "select_list_item", "select_column_star", "select_column_expr",
-		"select_column_dot_star", "star_modifiers", "star_except_list", "star_modifiers_with_replace",
+		"select_column_dot_star", "star_modifiers", "star_except_list", "star_replace_list",
 		"star_replace_item", "expression", "expression_higher_prec_than_and",
 		"expression_maybe_parenthesized_not_a_query", "parenthesized_in_rhs",
 		"unary_operator", "comparative_operator", "shift_operator", "additive_operator",
@@ -436,8 +436,8 @@ func googlesqlparserParserInit() {
 		120, 1, 120, 3, 120, 1642, 8, 120, 1, 121, 1, 121, 1, 121, 1, 121, 1, 121,
 		3, 121, 1649, 8, 121, 1, 122, 1, 122, 1, 122, 1, 122, 1, 122, 1, 122, 1,
 		122, 1, 122, 1, 122, 3, 122, 1660, 8, 122, 1, 123, 1, 123, 3, 123, 1664,
-		8, 123, 1, 124, 1, 124, 1, 124, 1, 124, 1, 124, 5, 124, 1671, 8, 124, 10,
-		124, 12, 124, 1674, 9, 124, 1, 124, 1, 124, 1, 125, 3, 125, 1679, 8, 125,
+		8, 123, 1, 123, 3, 123, 1667, 8, 123, 1, 124, 1, 124, 1, 124, 1, 124, 1,
+		124, 5, 124, 1674, 8, 124, 10, 124, 12, 124, 1677, 9, 124, 1, 124, 1, 124,
 		1, 125, 1, 125, 1, 125, 1, 125, 1, 125, 5, 125, 1686, 8, 125, 10, 125,
 		12, 125, 1689, 9, 125, 1, 125, 1, 125, 1, 126, 1, 126, 1, 126, 1, 126,
 		1, 127, 1, 127, 1, 127, 3, 127, 1700, 8, 127, 1, 127, 1, 127, 1, 127, 5,
@@ -664,8 +664,8 @@ func googlesqlparserParserInit() {
 		1, 0, 0, 0, 224, 1584, 1, 0, 0, 0, 226, 1592, 1, 0, 0, 0, 228, 1599, 1,
 		0, 0, 0, 230, 1615, 1, 0, 0, 0, 232, 1617, 1, 0, 0, 0, 234, 1619, 1, 0,
 		0, 0, 236, 1622, 1, 0, 0, 0, 238, 1636, 1, 0, 0, 0, 240, 1641, 1, 0, 0,
-		0, 242, 1648, 1, 0, 0, 0, 244, 1659, 1, 0, 0, 0, 246, 1663, 1, 0, 0, 0,
-		248, 1665, 1, 0, 0, 0, 250, 1678, 1, 0, 0, 0, 252, 1692, 1, 0, 0, 0, 254,
+		0, 242, 1648, 1, 0, 0, 0, 244, 1659, 1, 0, 0, 0, 246, 1666, 1, 0, 0, 0,
+		248, 1668, 1, 0, 0, 0, 250, 1680, 1, 0, 0, 0, 252, 1692, 1, 0, 0, 0, 254,
 		1699, 1, 0, 0, 0, 256, 1745, 1, 0, 0, 0, 258, 2006, 1, 0, 0, 0, 260, 2016,
 		1, 0, 0, 0, 262, 2018, 1, 0, 0, 0, 264, 2020, 1, 0, 0, 0, 266, 2022, 1,
 		0, 0, 0, 268, 2024, 1, 0, 0, 0, 270, 2026, 1, 0, 0, 0, 272, 2028, 1, 0,
@@ -1157,82 +1157,82 @@ func googlesqlparserParserInit() {
 		0, 0, 1654, 1655, 3, 256, 128, 0, 1655, 1656, 5, 16, 0, 0, 1656, 1657,
 		5, 12, 0, 0, 1657, 1658, 3, 246, 123, 0, 1658, 1660, 1, 0, 0, 0, 1659,
 		1650, 1, 0, 0, 0, 1659, 1654, 1, 0, 0, 0, 1660, 245, 1, 0, 0, 0, 1661,
-		1664, 3, 248, 124, 0, 1662, 1664, 3, 250, 125, 0, 1663, 1661, 1, 0, 0,
-		0, 1663, 1662, 1, 0, 0, 0, 1664, 247, 1, 0, 0, 0, 1665, 1666, 5, 66, 0,
-		0, 1666, 1667, 5, 19, 0, 0, 1667, 1672, 3, 502, 251, 0, 1668, 1669, 5,
-		16, 0, 0, 1669, 1671, 3, 502, 251, 0, 1670, 1668, 1, 0, 0, 0, 1671, 1674,
-		1, 0, 0, 0, 1672, 1670, 1, 0, 0, 0, 1672, 1673, 1, 0, 0, 0, 1673, 1675,
-		1, 0, 0, 0, 1674, 1672, 1, 0, 0, 0, 1675, 1676, 5, 20, 0, 0, 1676, 249,
-		1, 0, 0, 0, 1677, 1679, 3, 248, 124, 0, 1678, 1677, 1, 0, 0, 0, 1678, 1679,
-		1, 0, 0, 0, 1679, 1680, 1, 0, 0, 0, 1680, 1681, 5, 91, 0, 0, 1681, 1682,
-		5, 19, 0, 0, 1682, 1687, 3, 252, 126, 0, 1683, 1684, 5, 15, 0, 0, 1684,
-		1686, 3, 252, 126, 0, 1685, 1683, 1, 0, 0, 0, 1686, 1689, 1, 0, 0, 0, 1687,
-		1685, 1, 0, 0, 0, 1687, 1688, 1, 0, 0, 0, 1688, 1690, 1, 0, 0, 0, 1689,
-		1687, 1, 0, 0, 0, 1690, 1691, 5, 20, 0, 0, 1691, 251, 1, 0, 0, 0, 1692,
-		1693, 3, 254, 127, 0, 1693, 1694, 5, 56, 0, 0, 1694, 1695, 3, 502, 251,
-		0, 1695, 253, 1, 0, 0, 0, 1696, 1697, 6, 127, -1, 0, 1697, 1700, 3, 256,
-		128, 0, 1698, 1700, 3, 286, 143, 0, 1699, 1696, 1, 0, 0, 0, 1699, 1698,
-		1, 0, 0, 0, 1700, 1706, 1, 0, 0, 0, 1701, 1702, 10, 1, 0, 0, 1702, 1703,
-		5, 111, 0, 0, 1703, 1705, 3, 254, 127, 2, 1704, 1701, 1, 0, 0, 0, 1705,
-		1708, 1, 0, 0, 0, 1706, 1704, 1, 0, 0, 0, 1706, 1707, 1, 0, 0, 0, 1707,
-		255, 1, 0, 0, 0, 1708, 1706, 1, 0, 0, 0, 1709, 1710, 6, 128, -1, 0, 1710,
-		1746, 3, 542, 271, 0, 1711, 1746, 3, 544, 272, 0, 1712, 1746, 3, 546, 273,
-		0, 1713, 1746, 3, 540, 270, 0, 1714, 1746, 3, 538, 269, 0, 1715, 1746,
-		3, 534, 267, 0, 1716, 1746, 3, 530, 265, 0, 1717, 1746, 3, 528, 264, 0,
-		1718, 1746, 3, 526, 263, 0, 1719, 1746, 3, 522, 261, 0, 1720, 1746, 3,
-		468, 234, 0, 1721, 1746, 3, 480, 240, 0, 1722, 1746, 3, 478, 239, 0, 1723,
-		1746, 3, 462, 231, 0, 1724, 1746, 3, 454, 227, 0, 1725, 1746, 3, 440, 220,
-		0, 1726, 1746, 3, 438, 219, 0, 1727, 1746, 3, 436, 218, 0, 1728, 1746,
-		3, 428, 214, 0, 1729, 1746, 3, 426, 213, 0, 1730, 1746, 3, 418, 209, 0,
-		1731, 1746, 3, 412, 206, 0, 1732, 1746, 3, 402, 201, 0, 1733, 1746, 3,
-		308, 154, 0, 1734, 1746, 3, 306, 153, 0, 1735, 1746, 3, 502, 251, 0, 1736,
-		1746, 3, 296, 148, 0, 1737, 1746, 3, 294, 147, 0, 1738, 1739, 5, 109, 0,
-		0, 1739, 1746, 3, 256, 128, 23, 1740, 1741, 3, 262, 131, 0, 1741, 1742,
-		3, 256, 128, 3, 1742, 1746, 1, 0, 0, 0, 1743, 1746, 3, 282, 141, 0, 1744,
-		1746, 3, 280, 140, 0, 1745, 1709, 1, 0, 0, 0, 1745, 1711, 1, 0, 0, 0, 1745,
-		1712, 1, 0, 0, 0, 1745, 1713, 1, 0, 0, 0, 1745, 1714, 1, 0, 0, 0, 1745,
-		1715, 1, 0, 0, 0, 1745, 1716, 1, 0, 0, 0, 1745, 1717, 1, 0, 0, 0, 1745,
-		1718, 1, 0, 0, 0, 1745, 1719, 1, 0, 0, 0, 1745, 1720, 1, 0, 0, 0, 1745,
-		1721, 1, 0, 0, 0, 1745, 1722, 1, 0, 0, 0, 1745, 1723, 1, 0, 0, 0, 1745,
-		1724, 1, 0, 0, 0, 1745, 1725, 1, 0, 0, 0, 1745, 1726, 1, 0, 0, 0, 1745,
-		1727, 1, 0, 0, 0, 1745, 1728, 1, 0, 0, 0, 1745, 1729, 1, 0, 0, 0, 1745,
-		1730, 1, 0, 0, 0, 1745, 1731, 1, 0, 0, 0, 1745, 1732, 1, 0, 0, 0, 1745,
-		1733, 1, 0, 0, 0, 1745, 1734, 1, 0, 0, 0, 1745, 1735, 1, 0, 0, 0, 1745,
-		1736, 1, 0, 0, 0, 1745, 1737, 1, 0, 0, 0, 1745, 1738, 1, 0, 0, 0, 1745,
-		1740, 1, 0, 0, 0, 1745, 1743, 1, 0, 0, 0, 1745, 1744, 1, 0, 0, 0, 1746,
-		1854, 1, 0, 0, 0, 1747, 1748, 10, 20, 0, 0, 1748, 1749, 3, 292, 146, 0,
-		1749, 1750, 3, 256, 128, 21, 1750, 1853, 1, 0, 0, 0, 1751, 1752, 10, 19,
-		0, 0, 1752, 1753, 3, 278, 139, 0, 1753, 1754, 3, 256, 128, 20, 1754, 1853,
-		1, 0, 0, 0, 1755, 1756, 10, 16, 0, 0, 1756, 1757, 3, 274, 137, 0, 1757,
-		1758, 3, 256, 128, 0, 1758, 1759, 5, 110, 0, 0, 1759, 1760, 3, 256, 128,
-		17, 1760, 1853, 1, 0, 0, 0, 1761, 1762, 10, 11, 0, 0, 1762, 1763, 3, 264,
-		132, 0, 1763, 1764, 3, 256, 128, 12, 1764, 1853, 1, 0, 0, 0, 1765, 1766,
-		10, 10, 0, 0, 1766, 1767, 5, 23, 0, 0, 1767, 1853, 3, 256, 128, 11, 1768,
-		1769, 10, 9, 0, 0, 1769, 1770, 5, 39, 0, 0, 1770, 1853, 3, 256, 128, 10,
-		1771, 1772, 10, 8, 0, 0, 1772, 1773, 5, 40, 0, 0, 1773, 1853, 3, 256, 128,
-		9, 1774, 1775, 10, 7, 0, 0, 1775, 1776, 5, 41, 0, 0, 1776, 1853, 3, 256,
-		128, 8, 1777, 1778, 10, 6, 0, 0, 1778, 1779, 3, 266, 133, 0, 1779, 1780,
-		3, 256, 128, 7, 1780, 1853, 1, 0, 0, 0, 1781, 1782, 10, 5, 0, 0, 1782,
-		1783, 3, 268, 134, 0, 1783, 1784, 3, 256, 128, 6, 1784, 1853, 1, 0, 0,
-		0, 1785, 1786, 10, 4, 0, 0, 1786, 1787, 3, 270, 135, 0, 1787, 1788, 3,
-		256, 128, 5, 1788, 1853, 1, 0, 0, 0, 1789, 1790, 10, 26, 0, 0, 1790, 1791,
-		5, 21, 0, 0, 1791, 1792, 3, 254, 127, 0, 1792, 1793, 5, 22, 0, 0, 1793,
-		1853, 1, 0, 0, 0, 1794, 1795, 10, 25, 0, 0, 1795, 1796, 5, 16, 0, 0, 1796,
-		1797, 5, 19, 0, 0, 1797, 1798, 3, 500, 250, 0, 1798, 1799, 5, 20, 0, 0,
-		1799, 1853, 1, 0, 0, 0, 1800, 1801, 10, 24, 0, 0, 1801, 1802, 5, 16, 0,
-		0, 1802, 1853, 3, 502, 251, 0, 1803, 1804, 10, 22, 0, 0, 1804, 1805, 3,
-		292, 146, 0, 1805, 1807, 3, 290, 145, 0, 1806, 1808, 3, 368, 184, 0, 1807,
-		1806, 1, 0, 0, 0, 1807, 1808, 1, 0, 0, 0, 1808, 1809, 1, 0, 0, 0, 1809,
-		1810, 3, 174, 87, 0, 1810, 1853, 1, 0, 0, 0, 1811, 1812, 10, 21, 0, 0,
-		1812, 1813, 3, 292, 146, 0, 1813, 1815, 3, 290, 145, 0, 1814, 1816, 3,
-		368, 184, 0, 1815, 1814, 1, 0, 0, 0, 1815, 1816, 1, 0, 0, 0, 1816, 1817,
-		1, 0, 0, 0, 1817, 1818, 3, 284, 142, 0, 1818, 1853, 1, 0, 0, 0, 1819, 1820,
-		10, 18, 0, 0, 1820, 1822, 3, 276, 138, 0, 1821, 1823, 3, 368, 184, 0, 1822,
-		1821, 1, 0, 0, 0, 1822, 1823, 1, 0, 0, 0, 1823, 1824, 1, 0, 0, 0, 1824,
-		1825, 3, 174, 87, 0, 1825, 1826, 6, 128, -1, 0, 1826, 1853, 1, 0, 0, 0,
-		1827, 1828, 10, 17, 0, 0, 1828, 1830, 3, 276, 138, 0, 1829, 1831, 3, 368,
-		184, 0, 1830, 1829, 1, 0, 0, 0, 1830, 1831, 1, 0, 0, 0, 1831, 1832, 1,
-		0, 0, 0, 1832, 1833, 3, 260, 130, 0, 1833, 1853, 1, 0, 0, 0, 1834, 1835,
+		1667, 3, 248, 124, 0, 1662, 1664, 3, 248, 124, 0, 1663, 1662, 1, 0, 0,
+		0, 1663, 1664, 1, 0, 0, 0, 1664, 1665, 1, 0, 0, 0, 1665, 1667, 3, 250,
+		125, 0, 1666, 1661, 1, 0, 0, 0, 1666, 1663, 1, 0, 0, 0, 1667, 247, 1, 0,
+		0, 0, 1668, 1669, 5, 66, 0, 0, 1669, 1670, 5, 19, 0, 0, 1670, 1675, 3,
+		502, 251, 0, 1671, 1672, 5, 16, 0, 0, 1672, 1674, 3, 502, 251, 0, 1673,
+		1671, 1, 0, 0, 0, 1674, 1677, 1, 0, 0, 0, 1675, 1673, 1, 0, 0, 0, 1675,
+		1676, 1, 0, 0, 0, 1676, 1678, 1, 0, 0, 0, 1677, 1675, 1, 0, 0, 0, 1678,
+		1679, 5, 20, 0, 0, 1679, 249, 1, 0, 0, 0, 1680, 1681, 5, 91, 0, 0, 1681,
+		1682, 5, 19, 0, 0, 1682, 1687, 3, 252, 126, 0, 1683, 1684, 5, 15, 0, 0,
+		1684, 1686, 3, 252, 126, 0, 1685, 1683, 1, 0, 0, 0, 1686, 1689, 1, 0, 0,
+		0, 1687, 1685, 1, 0, 0, 0, 1687, 1688, 1, 0, 0, 0, 1688, 1690, 1, 0, 0,
+		0, 1689, 1687, 1, 0, 0, 0, 1690, 1691, 5, 20, 0, 0, 1691, 251, 1, 0, 0,
+		0, 1692, 1693, 3, 254, 127, 0, 1693, 1694, 5, 56, 0, 0, 1694, 1695, 3,
+		502, 251, 0, 1695, 253, 1, 0, 0, 0, 1696, 1697, 6, 127, -1, 0, 1697, 1700,
+		3, 256, 128, 0, 1698, 1700, 3, 286, 143, 0, 1699, 1696, 1, 0, 0, 0, 1699,
+		1698, 1, 0, 0, 0, 1700, 1706, 1, 0, 0, 0, 1701, 1702, 10, 1, 0, 0, 1702,
+		1703, 5, 111, 0, 0, 1703, 1705, 3, 254, 127, 2, 1704, 1701, 1, 0, 0, 0,
+		1705, 1708, 1, 0, 0, 0, 1706, 1704, 1, 0, 0, 0, 1706, 1707, 1, 0, 0, 0,
+		1707, 255, 1, 0, 0, 0, 1708, 1706, 1, 0, 0, 0, 1709, 1710, 6, 128, -1,
+		0, 1710, 1746, 3, 542, 271, 0, 1711, 1746, 3, 544, 272, 0, 1712, 1746,
+		3, 546, 273, 0, 1713, 1746, 3, 540, 270, 0, 1714, 1746, 3, 538, 269, 0,
+		1715, 1746, 3, 534, 267, 0, 1716, 1746, 3, 530, 265, 0, 1717, 1746, 3,
+		528, 264, 0, 1718, 1746, 3, 526, 263, 0, 1719, 1746, 3, 522, 261, 0, 1720,
+		1746, 3, 468, 234, 0, 1721, 1746, 3, 480, 240, 0, 1722, 1746, 3, 478, 239,
+		0, 1723, 1746, 3, 462, 231, 0, 1724, 1746, 3, 454, 227, 0, 1725, 1746,
+		3, 440, 220, 0, 1726, 1746, 3, 438, 219, 0, 1727, 1746, 3, 436, 218, 0,
+		1728, 1746, 3, 428, 214, 0, 1729, 1746, 3, 426, 213, 0, 1730, 1746, 3,
+		418, 209, 0, 1731, 1746, 3, 412, 206, 0, 1732, 1746, 3, 402, 201, 0, 1733,
+		1746, 3, 308, 154, 0, 1734, 1746, 3, 306, 153, 0, 1735, 1746, 3, 502, 251,
+		0, 1736, 1746, 3, 296, 148, 0, 1737, 1746, 3, 294, 147, 0, 1738, 1739,
+		5, 109, 0, 0, 1739, 1746, 3, 256, 128, 23, 1740, 1741, 3, 262, 131, 0,
+		1741, 1742, 3, 256, 128, 3, 1742, 1746, 1, 0, 0, 0, 1743, 1746, 3, 282,
+		141, 0, 1744, 1746, 3, 280, 140, 0, 1745, 1709, 1, 0, 0, 0, 1745, 1711,
+		1, 0, 0, 0, 1745, 1712, 1, 0, 0, 0, 1745, 1713, 1, 0, 0, 0, 1745, 1714,
+		1, 0, 0, 0, 1745, 1715, 1, 0, 0, 0, 1745, 1716, 1, 0, 0, 0, 1745, 1717,
+		1, 0, 0, 0, 1745, 1718, 1, 0, 0, 0, 1745, 1719, 1, 0, 0, 0, 1745, 1720,
+		1, 0, 0, 0, 1745, 1721, 1, 0, 0, 0, 1745, 1722, 1, 0, 0, 0, 1745, 1723,
+		1, 0, 0, 0, 1745, 1724, 1, 0, 0, 0, 1745, 1725, 1, 0, 0, 0, 1745, 1726,
+		1, 0, 0, 0, 1745, 1727, 1, 0, 0, 0, 1745, 1728, 1, 0, 0, 0, 1745, 1729,
+		1, 0, 0, 0, 1745, 1730, 1, 0, 0, 0, 1745, 1731, 1, 0, 0, 0, 1745, 1732,
+		1, 0, 0, 0, 1745, 1733, 1, 0, 0, 0, 1745, 1734, 1, 0, 0, 0, 1745, 1735,
+		1, 0, 0, 0, 1745, 1736, 1, 0, 0, 0, 1745, 1737, 1, 0, 0, 0, 1745, 1738,
+		1, 0, 0, 0, 1745, 1740, 1, 0, 0, 0, 1745, 1743, 1, 0, 0, 0, 1745, 1744,
+		1, 0, 0, 0, 1746, 1854, 1, 0, 0, 0, 1747, 1748, 10, 20, 0, 0, 1748, 1749,
+		3, 292, 146, 0, 1749, 1750, 3, 256, 128, 21, 1750, 1853, 1, 0, 0, 0, 1751,
+		1752, 10, 19, 0, 0, 1752, 1753, 3, 278, 139, 0, 1753, 1754, 3, 256, 128,
+		20, 1754, 1853, 1, 0, 0, 0, 1755, 1756, 10, 16, 0, 0, 1756, 1757, 3, 274,
+		137, 0, 1757, 1758, 3, 256, 128, 0, 1758, 1759, 5, 110, 0, 0, 1759, 1760,
+		3, 256, 128, 17, 1760, 1853, 1, 0, 0, 0, 1761, 1762, 10, 11, 0, 0, 1762,
+		1763, 3, 264, 132, 0, 1763, 1764, 3, 256, 128, 12, 1764, 1853, 1, 0, 0,
+		0, 1765, 1766, 10, 10, 0, 0, 1766, 1767, 5, 23, 0, 0, 1767, 1853, 3, 256,
+		128, 11, 1768, 1769, 10, 9, 0, 0, 1769, 1770, 5, 39, 0, 0, 1770, 1853,
+		3, 256, 128, 10, 1771, 1772, 10, 8, 0, 0, 1772, 1773, 5, 40, 0, 0, 1773,
+		1853, 3, 256, 128, 9, 1774, 1775, 10, 7, 0, 0, 1775, 1776, 5, 41, 0, 0,
+		1776, 1853, 3, 256, 128, 8, 1777, 1778, 10, 6, 0, 0, 1778, 1779, 3, 266,
+		133, 0, 1779, 1780, 3, 256, 128, 7, 1780, 1853, 1, 0, 0, 0, 1781, 1782,
+		10, 5, 0, 0, 1782, 1783, 3, 268, 134, 0, 1783, 1784, 3, 256, 128, 6, 1784,
+		1853, 1, 0, 0, 0, 1785, 1786, 10, 4, 0, 0, 1786, 1787, 3, 270, 135, 0,
+		1787, 1788, 3, 256, 128, 5, 1788, 1853, 1, 0, 0, 0, 1789, 1790, 10, 26,
+		0, 0, 1790, 1791, 5, 21, 0, 0, 1791, 1792, 3, 254, 127, 0, 1792, 1793,
+		5, 22, 0, 0, 1793, 1853, 1, 0, 0, 0, 1794, 1795, 10, 25, 0, 0, 1795, 1796,
+		5, 16, 0, 0, 1796, 1797, 5, 19, 0, 0, 1797, 1798, 3, 500, 250, 0, 1798,
+		1799, 5, 20, 0, 0, 1799, 1853, 1, 0, 0, 0, 1800, 1801, 10, 24, 0, 0, 1801,
+		1802, 5, 16, 0, 0, 1802, 1853, 3, 502, 251, 0, 1803, 1804, 10, 22, 0, 0,
+		1804, 1805, 3, 292, 146, 0, 1805, 1807, 3, 290, 145, 0, 1806, 1808, 3,
+		368, 184, 0, 1807, 1806, 1, 0, 0, 0, 1807, 1808, 1, 0, 0, 0, 1808, 1809,
+		1, 0, 0, 0, 1809, 1810, 3, 174, 87, 0, 1810, 1853, 1, 0, 0, 0, 1811, 1812,
+		10, 21, 0, 0, 1812, 1813, 3, 292, 146, 0, 1813, 1815, 3, 290, 145, 0, 1814,
+		1816, 3, 368, 184, 0, 1815, 1814, 1, 0, 0, 0, 1815, 1816, 1, 0, 0, 0, 1816,
+		1817, 1, 0, 0, 0, 1817, 1818, 3, 284, 142, 0, 1818, 1853, 1, 0, 0, 0, 1819,
+		1820, 10, 18, 0, 0, 1820, 1822, 3, 276, 138, 0, 1821, 1823, 3, 368, 184,
+		0, 1822, 1821, 1, 0, 0, 0, 1822, 1823, 1, 0, 0, 0, 1823, 1824, 1, 0, 0,
+		0, 1824, 1825, 3, 174, 87, 0, 1825, 1826, 6, 128, -1, 0, 1826, 1853, 1,
+		0, 0, 0, 1827, 1828, 10, 17, 0, 0, 1828, 1830, 3, 276, 138, 0, 1829, 1831,
+		3, 368, 184, 0, 1830, 1829, 1, 0, 0, 0, 1830, 1831, 1, 0, 0, 0, 1831, 1832,
+		1, 0, 0, 0, 1832, 1833, 3, 260, 130, 0, 1833, 1853, 1, 0, 0, 0, 1834, 1835,
 		10, 15, 0, 0, 1835, 1836, 3, 274, 137, 0, 1836, 1837, 3, 256, 128, 0, 1837,
 		1838, 5, 111, 0, 0, 1838, 1839, 6, 128, -1, 0, 1839, 1853, 1, 0, 0, 0,
 		1840, 1841, 10, 14, 0, 0, 1841, 1842, 3, 272, 136, 0, 1842, 1843, 5, 276,
@@ -1744,7 +1744,7 @@ func googlesqlparserParserInit() {
 		1355, 1357, 1374, 1376, 1381, 1393, 1397, 1405, 1414, 1422, 1430, 1463,
 		1470, 1482, 1491, 1501, 1523, 1528, 1531, 1535, 1538, 1545, 1552, 1559,
 		1577, 1582, 1589, 1594, 1599, 1604, 1609, 1613, 1615, 1627, 1631, 1636,
-		1641, 1648, 1659, 1663, 1672, 1678, 1687, 1699, 1706, 1745, 1807, 1815,
+		1641, 1648, 1659, 1663, 1666, 1675, 1687, 1699, 1706, 1745, 1807, 1815,
 		1822, 1830, 1852, 1854, 1907, 1915, 1930, 1938, 2006, 2016, 2030, 2033,
 		2038, 2044, 2062, 2071, 2082, 2090, 2096, 2099, 2110, 2118, 2123, 2133,
 		2141, 2148, 2153, 2161, 2164, 2167, 2170, 2175, 2181, 2185, 2188, 2191,
@@ -2260,7 +2260,7 @@ const (
 	GoogleSQLParserRULE_select_column_dot_star                        = 122
 	GoogleSQLParserRULE_star_modifiers                                = 123
 	GoogleSQLParserRULE_star_except_list                              = 124
-	GoogleSQLParserRULE_star_modifiers_with_replace                   = 125
+	GoogleSQLParserRULE_star_replace_list                             = 125
 	GoogleSQLParserRULE_star_replace_item                             = 126
 	GoogleSQLParserRULE_expression                                    = 127
 	GoogleSQLParserRULE_expression_higher_prec_than_and               = 128
@@ -25468,7 +25468,7 @@ type IStar_modifiersContext interface {
 
 	// Getter signatures
 	Star_except_list() IStar_except_listContext
-	Star_modifiers_with_replace() IStar_modifiers_with_replaceContext
+	Star_replace_list() IStar_replace_listContext
 
 	// IsStar_modifiersContext differentiates from other interfaces.
 	IsStar_modifiersContext()
@@ -25522,10 +25522,10 @@ func (s *Star_modifiersContext) Star_except_list() IStar_except_listContext {
 	return t.(IStar_except_listContext)
 }
 
-func (s *Star_modifiersContext) Star_modifiers_with_replace() IStar_modifiers_with_replaceContext {
+func (s *Star_modifiersContext) Star_replace_list() IStar_replace_listContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IStar_modifiers_with_replaceContext); ok {
+		if _, ok := ctx.(IStar_replace_listContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -25535,7 +25535,7 @@ func (s *Star_modifiersContext) Star_modifiers_with_replace() IStar_modifiers_wi
 		return nil
 	}
 
-	return t.(IStar_modifiers_with_replaceContext)
+	return t.(IStar_replace_listContext)
 }
 
 func (s *Star_modifiersContext) GetRuleContext() antlr.RuleContext {
@@ -25571,13 +25571,15 @@ func (s *Star_modifiersContext) Accept(visitor antlr.ParseTreeVisitor) interface
 func (p *GoogleSQLParser) Star_modifiers() (localctx IStar_modifiersContext) {
 	localctx = NewStar_modifiersContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 246, GoogleSQLParserRULE_star_modifiers)
-	p.SetState(1663)
+	var _la int
+
+	p.SetState(1666)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 
-	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 170, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 171, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
@@ -25587,9 +25589,23 @@ func (p *GoogleSQLParser) Star_modifiers() (localctx IStar_modifiersContext) {
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
+		p.SetState(1663)
+		p.GetErrorHandler().Sync(p)
+		if p.HasError() {
+			goto errorExit
+		}
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == GoogleSQLParserEXCEPT_SYMBOL {
+			{
+				p.SetState(1662)
+				p.Star_except_list()
+			}
+
+		}
 		{
-			p.SetState(1662)
-			p.Star_modifiers_with_replace()
+			p.SetState(1665)
+			p.Star_replace_list()
 		}
 
 	case antlr.ATNInvalidAltNumber:
@@ -25759,7 +25775,7 @@ func (p *GoogleSQLParser) Star_except_list() (localctx IStar_except_listContext)
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(1665)
+		p.SetState(1668)
 		p.Match(GoogleSQLParserEXCEPT_SYMBOL)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -25767,7 +25783,7 @@ func (p *GoogleSQLParser) Star_except_list() (localctx IStar_except_listContext)
 		}
 	}
 	{
-		p.SetState(1666)
+		p.SetState(1669)
 		p.Match(GoogleSQLParserLR_BRACKET_SYMBOL)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -25775,10 +25791,10 @@ func (p *GoogleSQLParser) Star_except_list() (localctx IStar_except_listContext)
 		}
 	}
 	{
-		p.SetState(1667)
+		p.SetState(1670)
 		p.Identifier()
 	}
-	p.SetState(1672)
+	p.SetState(1675)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -25787,7 +25803,7 @@ func (p *GoogleSQLParser) Star_except_list() (localctx IStar_except_listContext)
 
 	for _la == GoogleSQLParserDOT_SYMBOL {
 		{
-			p.SetState(1668)
+			p.SetState(1671)
 			p.Match(GoogleSQLParserDOT_SYMBOL)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -25795,11 +25811,11 @@ func (p *GoogleSQLParser) Star_except_list() (localctx IStar_except_listContext)
 			}
 		}
 		{
-			p.SetState(1669)
+			p.SetState(1672)
 			p.Identifier()
 		}
 
-		p.SetState(1674)
+		p.SetState(1677)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -25807,7 +25823,7 @@ func (p *GoogleSQLParser) Star_except_list() (localctx IStar_except_listContext)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(1675)
+		p.SetState(1678)
 		p.Match(GoogleSQLParserRR_BRACKET_SYMBOL)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -25828,8 +25844,8 @@ errorExit:
 	goto errorExit // Trick to prevent compiler error if the label is not used
 }
 
-// IStar_modifiers_with_replaceContext is an interface to support dynamic dispatch.
-type IStar_modifiers_with_replaceContext interface {
+// IStar_replace_listContext is an interface to support dynamic dispatch.
+type IStar_replace_listContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
@@ -25841,55 +25857,54 @@ type IStar_modifiers_with_replaceContext interface {
 	AllStar_replace_item() []IStar_replace_itemContext
 	Star_replace_item(i int) IStar_replace_itemContext
 	RR_BRACKET_SYMBOL() antlr.TerminalNode
-	Star_except_list() IStar_except_listContext
 	AllCOMMA_SYMBOL() []antlr.TerminalNode
 	COMMA_SYMBOL(i int) antlr.TerminalNode
 
-	// IsStar_modifiers_with_replaceContext differentiates from other interfaces.
-	IsStar_modifiers_with_replaceContext()
+	// IsStar_replace_listContext differentiates from other interfaces.
+	IsStar_replace_listContext()
 }
 
-type Star_modifiers_with_replaceContext struct {
+type Star_replace_listContext struct {
 	antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyStar_modifiers_with_replaceContext() *Star_modifiers_with_replaceContext {
-	var p = new(Star_modifiers_with_replaceContext)
+func NewEmptyStar_replace_listContext() *Star_replace_listContext {
+	var p = new(Star_replace_listContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = GoogleSQLParserRULE_star_modifiers_with_replace
+	p.RuleIndex = GoogleSQLParserRULE_star_replace_list
 	return p
 }
 
-func InitEmptyStar_modifiers_with_replaceContext(p *Star_modifiers_with_replaceContext) {
+func InitEmptyStar_replace_listContext(p *Star_replace_listContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = GoogleSQLParserRULE_star_modifiers_with_replace
+	p.RuleIndex = GoogleSQLParserRULE_star_replace_list
 }
 
-func (*Star_modifiers_with_replaceContext) IsStar_modifiers_with_replaceContext() {}
+func (*Star_replace_listContext) IsStar_replace_listContext() {}
 
-func NewStar_modifiers_with_replaceContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Star_modifiers_with_replaceContext {
-	var p = new(Star_modifiers_with_replaceContext)
+func NewStar_replace_listContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Star_replace_listContext {
+	var p = new(Star_replace_listContext)
 
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = GoogleSQLParserRULE_star_modifiers_with_replace
+	p.RuleIndex = GoogleSQLParserRULE_star_replace_list
 
 	return p
 }
 
-func (s *Star_modifiers_with_replaceContext) GetParser() antlr.Parser { return s.parser }
+func (s *Star_replace_listContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Star_modifiers_with_replaceContext) REPLACE_SYMBOL() antlr.TerminalNode {
+func (s *Star_replace_listContext) REPLACE_SYMBOL() antlr.TerminalNode {
 	return s.GetToken(GoogleSQLParserREPLACE_SYMBOL, 0)
 }
 
-func (s *Star_modifiers_with_replaceContext) LR_BRACKET_SYMBOL() antlr.TerminalNode {
+func (s *Star_replace_listContext) LR_BRACKET_SYMBOL() antlr.TerminalNode {
 	return s.GetToken(GoogleSQLParserLR_BRACKET_SYMBOL, 0)
 }
 
-func (s *Star_modifiers_with_replaceContext) AllStar_replace_item() []IStar_replace_itemContext {
+func (s *Star_replace_listContext) AllStar_replace_item() []IStar_replace_itemContext {
 	children := s.GetChildren()
 	len := 0
 	for _, ctx := range children {
@@ -25910,7 +25925,7 @@ func (s *Star_modifiers_with_replaceContext) AllStar_replace_item() []IStar_repl
 	return tst
 }
 
-func (s *Star_modifiers_with_replaceContext) Star_replace_item(i int) IStar_replace_itemContext {
+func (s *Star_replace_listContext) Star_replace_item(i int) IStar_replace_itemContext {
 	var t antlr.RuleContext
 	j := 0
 	for _, ctx := range s.GetChildren() {
@@ -25930,84 +25945,54 @@ func (s *Star_modifiers_with_replaceContext) Star_replace_item(i int) IStar_repl
 	return t.(IStar_replace_itemContext)
 }
 
-func (s *Star_modifiers_with_replaceContext) RR_BRACKET_SYMBOL() antlr.TerminalNode {
+func (s *Star_replace_listContext) RR_BRACKET_SYMBOL() antlr.TerminalNode {
 	return s.GetToken(GoogleSQLParserRR_BRACKET_SYMBOL, 0)
 }
 
-func (s *Star_modifiers_with_replaceContext) Star_except_list() IStar_except_listContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IStar_except_listContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IStar_except_listContext)
-}
-
-func (s *Star_modifiers_with_replaceContext) AllCOMMA_SYMBOL() []antlr.TerminalNode {
+func (s *Star_replace_listContext) AllCOMMA_SYMBOL() []antlr.TerminalNode {
 	return s.GetTokens(GoogleSQLParserCOMMA_SYMBOL)
 }
 
-func (s *Star_modifiers_with_replaceContext) COMMA_SYMBOL(i int) antlr.TerminalNode {
+func (s *Star_replace_listContext) COMMA_SYMBOL(i int) antlr.TerminalNode {
 	return s.GetToken(GoogleSQLParserCOMMA_SYMBOL, i)
 }
 
-func (s *Star_modifiers_with_replaceContext) GetRuleContext() antlr.RuleContext {
+func (s *Star_replace_listContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Star_modifiers_with_replaceContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *Star_replace_listContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Star_modifiers_with_replaceContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *Star_replace_listContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(GoogleSQLParserListener); ok {
-		listenerT.EnterStar_modifiers_with_replace(s)
+		listenerT.EnterStar_replace_list(s)
 	}
 }
 
-func (s *Star_modifiers_with_replaceContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *Star_replace_listContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(GoogleSQLParserListener); ok {
-		listenerT.ExitStar_modifiers_with_replace(s)
+		listenerT.ExitStar_replace_list(s)
 	}
 }
 
-func (s *Star_modifiers_with_replaceContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+func (s *Star_replace_listContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
 	case GoogleSQLParserVisitor:
-		return t.VisitStar_modifiers_with_replace(s)
+		return t.VisitStar_replace_list(s)
 
 	default:
 		return t.VisitChildren(s)
 	}
 }
 
-func (p *GoogleSQLParser) Star_modifiers_with_replace() (localctx IStar_modifiers_with_replaceContext) {
-	localctx = NewStar_modifiers_with_replaceContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 250, GoogleSQLParserRULE_star_modifiers_with_replace)
+func (p *GoogleSQLParser) Star_replace_list() (localctx IStar_replace_listContext) {
+	localctx = NewStar_replace_listContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 250, GoogleSQLParserRULE_star_replace_list)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(1678)
-	p.GetErrorHandler().Sync(p)
-	if p.HasError() {
-		goto errorExit
-	}
-	_la = p.GetTokenStream().LA(1)
-
-	if _la == GoogleSQLParserEXCEPT_SYMBOL {
-		{
-			p.SetState(1677)
-			p.Star_except_list()
-		}
-
-	}
 	{
 		p.SetState(1680)
 		p.Match(GoogleSQLParserREPLACE_SYMBOL)
