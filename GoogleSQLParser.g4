@@ -500,9 +500,7 @@ select_list_item:
 	| select_column_dot_star
 	| select_column_star;
 
-select_column_star:
-	MULTIPLY_OPERATOR
-	| MULTIPLY_OPERATOR star_modifiers;
+select_column_star: MULTIPLY_OPERATOR star_modifiers?;
 
 select_column_expr:
 	expression
@@ -510,8 +508,7 @@ select_column_expr:
 	| expression identifier;
 
 select_column_dot_star:
-	expression_higher_prec_than_and DOT_SYMBOL MULTIPLY_OPERATOR
-	| expression_higher_prec_than_and DOT_SYMBOL MULTIPLY_OPERATOR star_modifiers;
+	expression_higher_prec_than_and DOT_SYMBOL MULTIPLY_OPERATOR star_modifiers?;
 
 star_modifiers:
 	star_except_list
