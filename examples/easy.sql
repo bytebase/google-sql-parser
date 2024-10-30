@@ -100,3 +100,6 @@ FROM
 
 select
     -123;
+
+-- String literal
+SELECT r'@(.+)';
