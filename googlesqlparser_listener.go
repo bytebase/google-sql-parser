@@ -19,6 +19,222 @@ type GoogleSQLParserListener interface {
 	// EnterQuery_statement is called when entering the query_statement production.
 	EnterQuery_statement(c *Query_statementContext)
 
+	// EnterAlter_statement is called when entering the alter_statement production.
+	EnterAlter_statement(c *Alter_statementContext)
+
+	// EnterRow_access_policy_alter_action_list is called when entering the row_access_policy_alter_action_list production.
+	EnterRow_access_policy_alter_action_list(c *Row_access_policy_alter_action_listContext)
+
+	// EnterRow_access_policy_alter_action is called when entering the row_access_policy_alter_action production.
+	EnterRow_access_policy_alter_action(c *Row_access_policy_alter_actionContext)
+
+	// EnterGrant_to_clause is called when entering the grant_to_clause production.
+	EnterGrant_to_clause(c *Grant_to_clauseContext)
+
+	// EnterGrantee_list is called when entering the grantee_list production.
+	EnterGrantee_list(c *Grantee_listContext)
+
+	// EnterPrivilege_list is called when entering the privilege_list production.
+	EnterPrivilege_list(c *Privilege_listContext)
+
+	// EnterPrivilege is called when entering the privilege production.
+	EnterPrivilege(c *PrivilegeContext)
+
+	// EnterPath_expression_list_with_parens is called when entering the path_expression_list_with_parens production.
+	EnterPath_expression_list_with_parens(c *Path_expression_list_with_parensContext)
+
+	// EnterPrivilege_name is called when entering the privilege_name production.
+	EnterPrivilege_name(c *Privilege_nameContext)
+
+	// EnterGeneric_entity_type is called when entering the generic_entity_type production.
+	EnterGeneric_entity_type(c *Generic_entity_typeContext)
+
+	// EnterGeneric_entity_type_unchecked is called when entering the generic_entity_type_unchecked production.
+	EnterGeneric_entity_type_unchecked(c *Generic_entity_type_uncheckedContext)
+
+	// EnterSchema_object_kind is called when entering the schema_object_kind production.
+	EnterSchema_object_kind(c *Schema_object_kindContext)
+
+	// EnterAlter_action_list is called when entering the alter_action_list production.
+	EnterAlter_action_list(c *Alter_action_listContext)
+
+	// EnterAlter_action is called when entering the alter_action production.
+	EnterAlter_action(c *Alter_actionContext)
+
+	// EnterSpanner_set_on_delete_action is called when entering the spanner_set_on_delete_action production.
+	EnterSpanner_set_on_delete_action(c *Spanner_set_on_delete_actionContext)
+
+	// EnterSpanner_alter_column_action is called when entering the spanner_alter_column_action production.
+	EnterSpanner_alter_column_action(c *Spanner_alter_column_actionContext)
+
+	// EnterSpanner_generated_or_default is called when entering the spanner_generated_or_default production.
+	EnterSpanner_generated_or_default(c *Spanner_generated_or_defaultContext)
+
+	// EnterGeneric_sub_entity_type is called when entering the generic_sub_entity_type production.
+	EnterGeneric_sub_entity_type(c *Generic_sub_entity_typeContext)
+
+	// EnterSub_entity_type_identifier is called when entering the sub_entity_type_identifier production.
+	EnterSub_entity_type_identifier(c *Sub_entity_type_identifierContext)
+
+	// EnterFill_using_expression is called when entering the fill_using_expression production.
+	EnterFill_using_expression(c *Fill_using_expressionContext)
+
+	// EnterColumn_position is called when entering the column_position production.
+	EnterColumn_position(c *Column_positionContext)
+
+	// EnterTable_column_definition is called when entering the table_column_definition production.
+	EnterTable_column_definition(c *Table_column_definitionContext)
+
+	// EnterColumn_attributes is called when entering the column_attributes production.
+	EnterColumn_attributes(c *Column_attributesContext)
+
+	// EnterColumn_attribute is called when entering the column_attribute production.
+	EnterColumn_attribute(c *Column_attributeContext)
+
+	// EnterPrimary_key_column_attribute is called when entering the primary_key_column_attribute production.
+	EnterPrimary_key_column_attribute(c *Primary_key_column_attributeContext)
+
+	// EnterForeign_key_column_attribute is called when entering the foreign_key_column_attribute production.
+	EnterForeign_key_column_attribute(c *Foreign_key_column_attributeContext)
+
+	// EnterHidden_column_attribute is called when entering the hidden_column_attribute production.
+	EnterHidden_column_attribute(c *Hidden_column_attributeContext)
+
+	// EnterOpt_constraint_identity is called when entering the opt_constraint_identity production.
+	EnterOpt_constraint_identity(c *Opt_constraint_identityContext)
+
+	// EnterTable_column_schema is called when entering the table_column_schema production.
+	EnterTable_column_schema(c *Table_column_schemaContext)
+
+	// EnterOpt_column_info is called when entering the opt_column_info production.
+	EnterOpt_column_info(c *Opt_column_infoContext)
+
+	// EnterInvalid_generated_column is called when entering the invalid_generated_column production.
+	EnterInvalid_generated_column(c *Invalid_generated_columnContext)
+
+	// EnterInvalid_default_column is called when entering the invalid_default_column production.
+	EnterInvalid_default_column(c *Invalid_default_columnContext)
+
+	// EnterDefault_column_info is called when entering the default_column_info production.
+	EnterDefault_column_info(c *Default_column_infoContext)
+
+	// EnterGenerated_column_info is called when entering the generated_column_info production.
+	EnterGenerated_column_info(c *Generated_column_infoContext)
+
+	// EnterIdentity_column_info is called when entering the identity_column_info production.
+	EnterIdentity_column_info(c *Identity_column_infoContext)
+
+	// EnterOpt_start_with is called when entering the opt_start_with production.
+	EnterOpt_start_with(c *Opt_start_withContext)
+
+	// EnterOpt_increment_by is called when entering the opt_increment_by production.
+	EnterOpt_increment_by(c *Opt_increment_byContext)
+
+	// EnterOpt_maxvalue is called when entering the opt_maxvalue production.
+	EnterOpt_maxvalue(c *Opt_maxvalueContext)
+
+	// EnterOpt_minvalue is called when entering the opt_minvalue production.
+	EnterOpt_minvalue(c *Opt_minvalueContext)
+
+	// EnterOpt_cycle is called when entering the opt_cycle production.
+	EnterOpt_cycle(c *Opt_cycleContext)
+
+	// EnterSigned_numeric_literal is called when entering the signed_numeric_literal production.
+	EnterSigned_numeric_literal(c *Signed_numeric_literalContext)
+
+	// EnterStored_mode is called when entering the stored_mode production.
+	EnterStored_mode(c *Stored_modeContext)
+
+	// EnterGenerated_mode is called when entering the generated_mode production.
+	EnterGenerated_mode(c *Generated_modeContext)
+
+	// EnterColumn_schema_inner is called when entering the column_schema_inner production.
+	EnterColumn_schema_inner(c *Column_schema_innerContext)
+
+	// EnterRaw_column_schema_inner is called when entering the raw_column_schema_inner production.
+	EnterRaw_column_schema_inner(c *Raw_column_schema_innerContext)
+
+	// EnterRange_column_schema_inner is called when entering the range_column_schema_inner production.
+	EnterRange_column_schema_inner(c *Range_column_schema_innerContext)
+
+	// EnterStruct_column_schema_inner is called when entering the struct_column_schema_inner production.
+	EnterStruct_column_schema_inner(c *Struct_column_schema_innerContext)
+
+	// EnterStruct_column_field is called when entering the struct_column_field production.
+	EnterStruct_column_field(c *Struct_column_fieldContext)
+
+	// EnterSimple_column_schema_inner is called when entering the simple_column_schema_inner production.
+	EnterSimple_column_schema_inner(c *Simple_column_schema_innerContext)
+
+	// EnterArray_column_schema_inner is called when entering the array_column_schema_inner production.
+	EnterArray_column_schema_inner(c *Array_column_schema_innerContext)
+
+	// EnterField_schema is called when entering the field_schema production.
+	EnterField_schema(c *Field_schemaContext)
+
+	// EnterOpt_field_attributes is called when entering the opt_field_attributes production.
+	EnterOpt_field_attributes(c *Opt_field_attributesContext)
+
+	// EnterNot_null_column_attribute is called when entering the not_null_column_attribute production.
+	EnterNot_null_column_attribute(c *Not_null_column_attributeContext)
+
+	// EnterPrimary_key_or_table_constraint_spec is called when entering the primary_key_or_table_constraint_spec production.
+	EnterPrimary_key_or_table_constraint_spec(c *Primary_key_or_table_constraint_specContext)
+
+	// EnterOpt_if_not_exists is called when entering the opt_if_not_exists production.
+	EnterOpt_if_not_exists(c *Opt_if_not_existsContext)
+
+	// EnterPrimary_key_spec is called when entering the primary_key_spec production.
+	EnterPrimary_key_spec(c *Primary_key_specContext)
+
+	// EnterPrimary_key_element_list is called when entering the primary_key_element_list production.
+	EnterPrimary_key_element_list(c *Primary_key_element_listContext)
+
+	// EnterPrimary_key_element is called when entering the primary_key_element production.
+	EnterPrimary_key_element(c *Primary_key_elementContext)
+
+	// EnterTable_constraint_spec is called when entering the table_constraint_spec production.
+	EnterTable_constraint_spec(c *Table_constraint_specContext)
+
+	// EnterForeign_key_reference is called when entering the foreign_key_reference production.
+	EnterForeign_key_reference(c *Foreign_key_referenceContext)
+
+	// EnterOpt_foreign_key_action is called when entering the opt_foreign_key_action production.
+	EnterOpt_foreign_key_action(c *Opt_foreign_key_actionContext)
+
+	// EnterForeign_key_on_update is called when entering the foreign_key_on_update production.
+	EnterForeign_key_on_update(c *Foreign_key_on_updateContext)
+
+	// EnterForeign_key_on_delete is called when entering the foreign_key_on_delete production.
+	EnterForeign_key_on_delete(c *Foreign_key_on_deleteContext)
+
+	// EnterForeign_key_action is called when entering the foreign_key_action production.
+	EnterForeign_key_action(c *Foreign_key_actionContext)
+
+	// EnterOpt_foreign_key_match is called when entering the opt_foreign_key_match production.
+	EnterOpt_foreign_key_match(c *Opt_foreign_key_matchContext)
+
+	// EnterForeign_key_match_mode is called when entering the foreign_key_match_mode production.
+	EnterForeign_key_match_mode(c *Foreign_key_match_modeContext)
+
+	// EnterColumn_list is called when entering the column_list production.
+	EnterColumn_list(c *Column_listContext)
+
+	// EnterOptions_options_list is called when entering the options_options_list production.
+	EnterOptions_options_list(c *Options_options_listContext)
+
+	// EnterConstraint_enforcement is called when entering the constraint_enforcement production.
+	EnterConstraint_enforcement(c *Constraint_enforcementContext)
+
+	// EnterGeneric_entity_body is called when entering the generic_entity_body production.
+	EnterGeneric_entity_body(c *Generic_entity_bodyContext)
+
+	// EnterOpt_if_exists is called when entering the opt_if_exists production.
+	EnterOpt_if_exists(c *Opt_if_existsContext)
+
+	// EnterTable_or_table_function is called when entering the table_or_table_function production.
+	EnterTable_or_table_function(c *Table_or_table_functionContext)
+
 	// EnterQuery is called when entering the query production.
 	EnterQuery(c *QueryContext)
 
@@ -846,6 +1062,222 @@ type GoogleSQLParserListener interface {
 
 	// ExitQuery_statement is called when exiting the query_statement production.
 	ExitQuery_statement(c *Query_statementContext)
+
+	// ExitAlter_statement is called when exiting the alter_statement production.
+	ExitAlter_statement(c *Alter_statementContext)
+
+	// ExitRow_access_policy_alter_action_list is called when exiting the row_access_policy_alter_action_list production.
+	ExitRow_access_policy_alter_action_list(c *Row_access_policy_alter_action_listContext)
+
+	// ExitRow_access_policy_alter_action is called when exiting the row_access_policy_alter_action production.
+	ExitRow_access_policy_alter_action(c *Row_access_policy_alter_actionContext)
+
+	// ExitGrant_to_clause is called when exiting the grant_to_clause production.
+	ExitGrant_to_clause(c *Grant_to_clauseContext)
+
+	// ExitGrantee_list is called when exiting the grantee_list production.
+	ExitGrantee_list(c *Grantee_listContext)
+
+	// ExitPrivilege_list is called when exiting the privilege_list production.
+	ExitPrivilege_list(c *Privilege_listContext)
+
+	// ExitPrivilege is called when exiting the privilege production.
+	ExitPrivilege(c *PrivilegeContext)
+
+	// ExitPath_expression_list_with_parens is called when exiting the path_expression_list_with_parens production.
+	ExitPath_expression_list_with_parens(c *Path_expression_list_with_parensContext)
+
+	// ExitPrivilege_name is called when exiting the privilege_name production.
+	ExitPrivilege_name(c *Privilege_nameContext)
+
+	// ExitGeneric_entity_type is called when exiting the generic_entity_type production.
+	ExitGeneric_entity_type(c *Generic_entity_typeContext)
+
+	// ExitGeneric_entity_type_unchecked is called when exiting the generic_entity_type_unchecked production.
+	ExitGeneric_entity_type_unchecked(c *Generic_entity_type_uncheckedContext)
+
+	// ExitSchema_object_kind is called when exiting the schema_object_kind production.
+	ExitSchema_object_kind(c *Schema_object_kindContext)
+
+	// ExitAlter_action_list is called when exiting the alter_action_list production.
+	ExitAlter_action_list(c *Alter_action_listContext)
+
+	// ExitAlter_action is called when exiting the alter_action production.
+	ExitAlter_action(c *Alter_actionContext)
+
+	// ExitSpanner_set_on_delete_action is called when exiting the spanner_set_on_delete_action production.
+	ExitSpanner_set_on_delete_action(c *Spanner_set_on_delete_actionContext)
+
+	// ExitSpanner_alter_column_action is called when exiting the spanner_alter_column_action production.
+	ExitSpanner_alter_column_action(c *Spanner_alter_column_actionContext)
+
+	// ExitSpanner_generated_or_default is called when exiting the spanner_generated_or_default production.
+	ExitSpanner_generated_or_default(c *Spanner_generated_or_defaultContext)
+
+	// ExitGeneric_sub_entity_type is called when exiting the generic_sub_entity_type production.
+	ExitGeneric_sub_entity_type(c *Generic_sub_entity_typeContext)
+
+	// ExitSub_entity_type_identifier is called when exiting the sub_entity_type_identifier production.
+	ExitSub_entity_type_identifier(c *Sub_entity_type_identifierContext)
+
+	// ExitFill_using_expression is called when exiting the fill_using_expression production.
+	ExitFill_using_expression(c *Fill_using_expressionContext)
+
+	// ExitColumn_position is called when exiting the column_position production.
+	ExitColumn_position(c *Column_positionContext)
+
+	// ExitTable_column_definition is called when exiting the table_column_definition production.
+	ExitTable_column_definition(c *Table_column_definitionContext)
+
+	// ExitColumn_attributes is called when exiting the column_attributes production.
+	ExitColumn_attributes(c *Column_attributesContext)
+
+	// ExitColumn_attribute is called when exiting the column_attribute production.
+	ExitColumn_attribute(c *Column_attributeContext)
+
+	// ExitPrimary_key_column_attribute is called when exiting the primary_key_column_attribute production.
+	ExitPrimary_key_column_attribute(c *Primary_key_column_attributeContext)
+
+	// ExitForeign_key_column_attribute is called when exiting the foreign_key_column_attribute production.
+	ExitForeign_key_column_attribute(c *Foreign_key_column_attributeContext)
+
+	// ExitHidden_column_attribute is called when exiting the hidden_column_attribute production.
+	ExitHidden_column_attribute(c *Hidden_column_attributeContext)
+
+	// ExitOpt_constraint_identity is called when exiting the opt_constraint_identity production.
+	ExitOpt_constraint_identity(c *Opt_constraint_identityContext)
+
+	// ExitTable_column_schema is called when exiting the table_column_schema production.
+	ExitTable_column_schema(c *Table_column_schemaContext)
+
+	// ExitOpt_column_info is called when exiting the opt_column_info production.
+	ExitOpt_column_info(c *Opt_column_infoContext)
+
+	// ExitInvalid_generated_column is called when exiting the invalid_generated_column production.
+	ExitInvalid_generated_column(c *Invalid_generated_columnContext)
+
+	// ExitInvalid_default_column is called when exiting the invalid_default_column production.
+	ExitInvalid_default_column(c *Invalid_default_columnContext)
+
+	// ExitDefault_column_info is called when exiting the default_column_info production.
+	ExitDefault_column_info(c *Default_column_infoContext)
+
+	// ExitGenerated_column_info is called when exiting the generated_column_info production.
+	ExitGenerated_column_info(c *Generated_column_infoContext)
+
+	// ExitIdentity_column_info is called when exiting the identity_column_info production.
+	ExitIdentity_column_info(c *Identity_column_infoContext)
+
+	// ExitOpt_start_with is called when exiting the opt_start_with production.
+	ExitOpt_start_with(c *Opt_start_withContext)
+
+	// ExitOpt_increment_by is called when exiting the opt_increment_by production.
+	ExitOpt_increment_by(c *Opt_increment_byContext)
+
+	// ExitOpt_maxvalue is called when exiting the opt_maxvalue production.
+	ExitOpt_maxvalue(c *Opt_maxvalueContext)
+
+	// ExitOpt_minvalue is called when exiting the opt_minvalue production.
+	ExitOpt_minvalue(c *Opt_minvalueContext)
+
+	// ExitOpt_cycle is called when exiting the opt_cycle production.
+	ExitOpt_cycle(c *Opt_cycleContext)
+
+	// ExitSigned_numeric_literal is called when exiting the signed_numeric_literal production.
+	ExitSigned_numeric_literal(c *Signed_numeric_literalContext)
+
+	// ExitStored_mode is called when exiting the stored_mode production.
+	ExitStored_mode(c *Stored_modeContext)
+
+	// ExitGenerated_mode is called when exiting the generated_mode production.
+	ExitGenerated_mode(c *Generated_modeContext)
+
+	// ExitColumn_schema_inner is called when exiting the column_schema_inner production.
+	ExitColumn_schema_inner(c *Column_schema_innerContext)
+
+	// ExitRaw_column_schema_inner is called when exiting the raw_column_schema_inner production.
+	ExitRaw_column_schema_inner(c *Raw_column_schema_innerContext)
+
+	// ExitRange_column_schema_inner is called when exiting the range_column_schema_inner production.
+	ExitRange_column_schema_inner(c *Range_column_schema_innerContext)
+
+	// ExitStruct_column_schema_inner is called when exiting the struct_column_schema_inner production.
+	ExitStruct_column_schema_inner(c *Struct_column_schema_innerContext)
+
+	// ExitStruct_column_field is called when exiting the struct_column_field production.
+	ExitStruct_column_field(c *Struct_column_fieldContext)
+
+	// ExitSimple_column_schema_inner is called when exiting the simple_column_schema_inner production.
+	ExitSimple_column_schema_inner(c *Simple_column_schema_innerContext)
+
+	// ExitArray_column_schema_inner is called when exiting the array_column_schema_inner production.
+	ExitArray_column_schema_inner(c *Array_column_schema_innerContext)
+
+	// ExitField_schema is called when exiting the field_schema production.
+	ExitField_schema(c *Field_schemaContext)
+
+	// ExitOpt_field_attributes is called when exiting the opt_field_attributes production.
+	ExitOpt_field_attributes(c *Opt_field_attributesContext)
+
+	// ExitNot_null_column_attribute is called when exiting the not_null_column_attribute production.
+	ExitNot_null_column_attribute(c *Not_null_column_attributeContext)
+
+	// ExitPrimary_key_or_table_constraint_spec is called when exiting the primary_key_or_table_constraint_spec production.
+	ExitPrimary_key_or_table_constraint_spec(c *Primary_key_or_table_constraint_specContext)
+
+	// ExitOpt_if_not_exists is called when exiting the opt_if_not_exists production.
+	ExitOpt_if_not_exists(c *Opt_if_not_existsContext)
+
+	// ExitPrimary_key_spec is called when exiting the primary_key_spec production.
+	ExitPrimary_key_spec(c *Primary_key_specContext)
+
+	// ExitPrimary_key_element_list is called when exiting the primary_key_element_list production.
+	ExitPrimary_key_element_list(c *Primary_key_element_listContext)
+
+	// ExitPrimary_key_element is called when exiting the primary_key_element production.
+	ExitPrimary_key_element(c *Primary_key_elementContext)
+
+	// ExitTable_constraint_spec is called when exiting the table_constraint_spec production.
+	ExitTable_constraint_spec(c *Table_constraint_specContext)
+
+	// ExitForeign_key_reference is called when exiting the foreign_key_reference production.
+	ExitForeign_key_reference(c *Foreign_key_referenceContext)
+
+	// ExitOpt_foreign_key_action is called when exiting the opt_foreign_key_action production.
+	ExitOpt_foreign_key_action(c *Opt_foreign_key_actionContext)
+
+	// ExitForeign_key_on_update is called when exiting the foreign_key_on_update production.
+	ExitForeign_key_on_update(c *Foreign_key_on_updateContext)
+
+	// ExitForeign_key_on_delete is called when exiting the foreign_key_on_delete production.
+	ExitForeign_key_on_delete(c *Foreign_key_on_deleteContext)
+
+	// ExitForeign_key_action is called when exiting the foreign_key_action production.
+	ExitForeign_key_action(c *Foreign_key_actionContext)
+
+	// ExitOpt_foreign_key_match is called when exiting the opt_foreign_key_match production.
+	ExitOpt_foreign_key_match(c *Opt_foreign_key_matchContext)
+
+	// ExitForeign_key_match_mode is called when exiting the foreign_key_match_mode production.
+	ExitForeign_key_match_mode(c *Foreign_key_match_modeContext)
+
+	// ExitColumn_list is called when exiting the column_list production.
+	ExitColumn_list(c *Column_listContext)
+
+	// ExitOptions_options_list is called when exiting the options_options_list production.
+	ExitOptions_options_list(c *Options_options_listContext)
+
+	// ExitConstraint_enforcement is called when exiting the constraint_enforcement production.
+	ExitConstraint_enforcement(c *Constraint_enforcementContext)
+
+	// ExitGeneric_entity_body is called when exiting the generic_entity_body production.
+	ExitGeneric_entity_body(c *Generic_entity_bodyContext)
+
+	// ExitOpt_if_exists is called when exiting the opt_if_exists production.
+	ExitOpt_if_exists(c *Opt_if_existsContext)
+
+	// ExitTable_or_table_function is called when exiting the table_or_table_function production.
+	ExitTable_or_table_function(c *Table_or_table_functionContext)
 
 	// ExitQuery is called when exiting the query production.
 	ExitQuery(c *QueryContext)

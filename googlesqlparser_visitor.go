@@ -19,6 +19,222 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#query_statement.
 	VisitQuery_statement(ctx *Query_statementContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#alter_statement.
+	VisitAlter_statement(ctx *Alter_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#row_access_policy_alter_action_list.
+	VisitRow_access_policy_alter_action_list(ctx *Row_access_policy_alter_action_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#row_access_policy_alter_action.
+	VisitRow_access_policy_alter_action(ctx *Row_access_policy_alter_actionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#grant_to_clause.
+	VisitGrant_to_clause(ctx *Grant_to_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#grantee_list.
+	VisitGrantee_list(ctx *Grantee_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#privilege_list.
+	VisitPrivilege_list(ctx *Privilege_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#privilege.
+	VisitPrivilege(ctx *PrivilegeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#path_expression_list_with_parens.
+	VisitPath_expression_list_with_parens(ctx *Path_expression_list_with_parensContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#privilege_name.
+	VisitPrivilege_name(ctx *Privilege_nameContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#generic_entity_type.
+	VisitGeneric_entity_type(ctx *Generic_entity_typeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#generic_entity_type_unchecked.
+	VisitGeneric_entity_type_unchecked(ctx *Generic_entity_type_uncheckedContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#schema_object_kind.
+	VisitSchema_object_kind(ctx *Schema_object_kindContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#alter_action_list.
+	VisitAlter_action_list(ctx *Alter_action_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#alter_action.
+	VisitAlter_action(ctx *Alter_actionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#spanner_set_on_delete_action.
+	VisitSpanner_set_on_delete_action(ctx *Spanner_set_on_delete_actionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#spanner_alter_column_action.
+	VisitSpanner_alter_column_action(ctx *Spanner_alter_column_actionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#spanner_generated_or_default.
+	VisitSpanner_generated_or_default(ctx *Spanner_generated_or_defaultContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#generic_sub_entity_type.
+	VisitGeneric_sub_entity_type(ctx *Generic_sub_entity_typeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#sub_entity_type_identifier.
+	VisitSub_entity_type_identifier(ctx *Sub_entity_type_identifierContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#fill_using_expression.
+	VisitFill_using_expression(ctx *Fill_using_expressionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#column_position.
+	VisitColumn_position(ctx *Column_positionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#table_column_definition.
+	VisitTable_column_definition(ctx *Table_column_definitionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#column_attributes.
+	VisitColumn_attributes(ctx *Column_attributesContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#column_attribute.
+	VisitColumn_attribute(ctx *Column_attributeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#primary_key_column_attribute.
+	VisitPrimary_key_column_attribute(ctx *Primary_key_column_attributeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#foreign_key_column_attribute.
+	VisitForeign_key_column_attribute(ctx *Foreign_key_column_attributeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#hidden_column_attribute.
+	VisitHidden_column_attribute(ctx *Hidden_column_attributeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_constraint_identity.
+	VisitOpt_constraint_identity(ctx *Opt_constraint_identityContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#table_column_schema.
+	VisitTable_column_schema(ctx *Table_column_schemaContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_column_info.
+	VisitOpt_column_info(ctx *Opt_column_infoContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#invalid_generated_column.
+	VisitInvalid_generated_column(ctx *Invalid_generated_columnContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#invalid_default_column.
+	VisitInvalid_default_column(ctx *Invalid_default_columnContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#default_column_info.
+	VisitDefault_column_info(ctx *Default_column_infoContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#generated_column_info.
+	VisitGenerated_column_info(ctx *Generated_column_infoContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#identity_column_info.
+	VisitIdentity_column_info(ctx *Identity_column_infoContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_start_with.
+	VisitOpt_start_with(ctx *Opt_start_withContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_increment_by.
+	VisitOpt_increment_by(ctx *Opt_increment_byContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_maxvalue.
+	VisitOpt_maxvalue(ctx *Opt_maxvalueContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_minvalue.
+	VisitOpt_minvalue(ctx *Opt_minvalueContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_cycle.
+	VisitOpt_cycle(ctx *Opt_cycleContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#signed_numeric_literal.
+	VisitSigned_numeric_literal(ctx *Signed_numeric_literalContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#stored_mode.
+	VisitStored_mode(ctx *Stored_modeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#generated_mode.
+	VisitGenerated_mode(ctx *Generated_modeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#column_schema_inner.
+	VisitColumn_schema_inner(ctx *Column_schema_innerContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#raw_column_schema_inner.
+	VisitRaw_column_schema_inner(ctx *Raw_column_schema_innerContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#range_column_schema_inner.
+	VisitRange_column_schema_inner(ctx *Range_column_schema_innerContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#struct_column_schema_inner.
+	VisitStruct_column_schema_inner(ctx *Struct_column_schema_innerContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#struct_column_field.
+	VisitStruct_column_field(ctx *Struct_column_fieldContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#simple_column_schema_inner.
+	VisitSimple_column_schema_inner(ctx *Simple_column_schema_innerContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#array_column_schema_inner.
+	VisitArray_column_schema_inner(ctx *Array_column_schema_innerContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#field_schema.
+	VisitField_schema(ctx *Field_schemaContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_field_attributes.
+	VisitOpt_field_attributes(ctx *Opt_field_attributesContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#not_null_column_attribute.
+	VisitNot_null_column_attribute(ctx *Not_null_column_attributeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#primary_key_or_table_constraint_spec.
+	VisitPrimary_key_or_table_constraint_spec(ctx *Primary_key_or_table_constraint_specContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_if_not_exists.
+	VisitOpt_if_not_exists(ctx *Opt_if_not_existsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#primary_key_spec.
+	VisitPrimary_key_spec(ctx *Primary_key_specContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#primary_key_element_list.
+	VisitPrimary_key_element_list(ctx *Primary_key_element_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#primary_key_element.
+	VisitPrimary_key_element(ctx *Primary_key_elementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#table_constraint_spec.
+	VisitTable_constraint_spec(ctx *Table_constraint_specContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#foreign_key_reference.
+	VisitForeign_key_reference(ctx *Foreign_key_referenceContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_foreign_key_action.
+	VisitOpt_foreign_key_action(ctx *Opt_foreign_key_actionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#foreign_key_on_update.
+	VisitForeign_key_on_update(ctx *Foreign_key_on_updateContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#foreign_key_on_delete.
+	VisitForeign_key_on_delete(ctx *Foreign_key_on_deleteContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#foreign_key_action.
+	VisitForeign_key_action(ctx *Foreign_key_actionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_foreign_key_match.
+	VisitOpt_foreign_key_match(ctx *Opt_foreign_key_matchContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#foreign_key_match_mode.
+	VisitForeign_key_match_mode(ctx *Foreign_key_match_modeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#column_list.
+	VisitColumn_list(ctx *Column_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#options_options_list.
+	VisitOptions_options_list(ctx *Options_options_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#constraint_enforcement.
+	VisitConstraint_enforcement(ctx *Constraint_enforcementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#generic_entity_body.
+	VisitGeneric_entity_body(ctx *Generic_entity_bodyContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_if_exists.
+	VisitOpt_if_exists(ctx *Opt_if_existsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#table_or_table_function.
+	VisitTable_or_table_function(ctx *Table_or_table_functionContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#query.
 	VisitQuery(ctx *QueryContext) interface{}
 

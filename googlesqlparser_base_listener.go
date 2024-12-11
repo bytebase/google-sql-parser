@@ -44,6 +44,496 @@ func (s *BaseGoogleSQLParserListener) EnterQuery_statement(ctx *Query_statementC
 // ExitQuery_statement is called when production query_statement is exited.
 func (s *BaseGoogleSQLParserListener) ExitQuery_statement(ctx *Query_statementContext) {}
 
+// EnterAlter_statement is called when production alter_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterAlter_statement(ctx *Alter_statementContext) {}
+
+// ExitAlter_statement is called when production alter_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitAlter_statement(ctx *Alter_statementContext) {}
+
+// EnterRow_access_policy_alter_action_list is called when production row_access_policy_alter_action_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterRow_access_policy_alter_action_list(ctx *Row_access_policy_alter_action_listContext) {
+}
+
+// ExitRow_access_policy_alter_action_list is called when production row_access_policy_alter_action_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitRow_access_policy_alter_action_list(ctx *Row_access_policy_alter_action_listContext) {
+}
+
+// EnterRow_access_policy_alter_action is called when production row_access_policy_alter_action is entered.
+func (s *BaseGoogleSQLParserListener) EnterRow_access_policy_alter_action(ctx *Row_access_policy_alter_actionContext) {
+}
+
+// ExitRow_access_policy_alter_action is called when production row_access_policy_alter_action is exited.
+func (s *BaseGoogleSQLParserListener) ExitRow_access_policy_alter_action(ctx *Row_access_policy_alter_actionContext) {
+}
+
+// EnterGrant_to_clause is called when production grant_to_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterGrant_to_clause(ctx *Grant_to_clauseContext) {}
+
+// ExitGrant_to_clause is called when production grant_to_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitGrant_to_clause(ctx *Grant_to_clauseContext) {}
+
+// EnterGrantee_list is called when production grantee_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterGrantee_list(ctx *Grantee_listContext) {}
+
+// ExitGrantee_list is called when production grantee_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitGrantee_list(ctx *Grantee_listContext) {}
+
+// EnterPrivilege_list is called when production privilege_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterPrivilege_list(ctx *Privilege_listContext) {}
+
+// ExitPrivilege_list is called when production privilege_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitPrivilege_list(ctx *Privilege_listContext) {}
+
+// EnterPrivilege is called when production privilege is entered.
+func (s *BaseGoogleSQLParserListener) EnterPrivilege(ctx *PrivilegeContext) {}
+
+// ExitPrivilege is called when production privilege is exited.
+func (s *BaseGoogleSQLParserListener) ExitPrivilege(ctx *PrivilegeContext) {}
+
+// EnterPath_expression_list_with_parens is called when production path_expression_list_with_parens is entered.
+func (s *BaseGoogleSQLParserListener) EnterPath_expression_list_with_parens(ctx *Path_expression_list_with_parensContext) {
+}
+
+// ExitPath_expression_list_with_parens is called when production path_expression_list_with_parens is exited.
+func (s *BaseGoogleSQLParserListener) ExitPath_expression_list_with_parens(ctx *Path_expression_list_with_parensContext) {
+}
+
+// EnterPrivilege_name is called when production privilege_name is entered.
+func (s *BaseGoogleSQLParserListener) EnterPrivilege_name(ctx *Privilege_nameContext) {}
+
+// ExitPrivilege_name is called when production privilege_name is exited.
+func (s *BaseGoogleSQLParserListener) ExitPrivilege_name(ctx *Privilege_nameContext) {}
+
+// EnterGeneric_entity_type is called when production generic_entity_type is entered.
+func (s *BaseGoogleSQLParserListener) EnterGeneric_entity_type(ctx *Generic_entity_typeContext) {}
+
+// ExitGeneric_entity_type is called when production generic_entity_type is exited.
+func (s *BaseGoogleSQLParserListener) ExitGeneric_entity_type(ctx *Generic_entity_typeContext) {}
+
+// EnterGeneric_entity_type_unchecked is called when production generic_entity_type_unchecked is entered.
+func (s *BaseGoogleSQLParserListener) EnterGeneric_entity_type_unchecked(ctx *Generic_entity_type_uncheckedContext) {
+}
+
+// ExitGeneric_entity_type_unchecked is called when production generic_entity_type_unchecked is exited.
+func (s *BaseGoogleSQLParserListener) ExitGeneric_entity_type_unchecked(ctx *Generic_entity_type_uncheckedContext) {
+}
+
+// EnterSchema_object_kind is called when production schema_object_kind is entered.
+func (s *BaseGoogleSQLParserListener) EnterSchema_object_kind(ctx *Schema_object_kindContext) {}
+
+// ExitSchema_object_kind is called when production schema_object_kind is exited.
+func (s *BaseGoogleSQLParserListener) ExitSchema_object_kind(ctx *Schema_object_kindContext) {}
+
+// EnterAlter_action_list is called when production alter_action_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterAlter_action_list(ctx *Alter_action_listContext) {}
+
+// ExitAlter_action_list is called when production alter_action_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitAlter_action_list(ctx *Alter_action_listContext) {}
+
+// EnterAlter_action is called when production alter_action is entered.
+func (s *BaseGoogleSQLParserListener) EnterAlter_action(ctx *Alter_actionContext) {}
+
+// ExitAlter_action is called when production alter_action is exited.
+func (s *BaseGoogleSQLParserListener) ExitAlter_action(ctx *Alter_actionContext) {}
+
+// EnterSpanner_set_on_delete_action is called when production spanner_set_on_delete_action is entered.
+func (s *BaseGoogleSQLParserListener) EnterSpanner_set_on_delete_action(ctx *Spanner_set_on_delete_actionContext) {
+}
+
+// ExitSpanner_set_on_delete_action is called when production spanner_set_on_delete_action is exited.
+func (s *BaseGoogleSQLParserListener) ExitSpanner_set_on_delete_action(ctx *Spanner_set_on_delete_actionContext) {
+}
+
+// EnterSpanner_alter_column_action is called when production spanner_alter_column_action is entered.
+func (s *BaseGoogleSQLParserListener) EnterSpanner_alter_column_action(ctx *Spanner_alter_column_actionContext) {
+}
+
+// ExitSpanner_alter_column_action is called when production spanner_alter_column_action is exited.
+func (s *BaseGoogleSQLParserListener) ExitSpanner_alter_column_action(ctx *Spanner_alter_column_actionContext) {
+}
+
+// EnterSpanner_generated_or_default is called when production spanner_generated_or_default is entered.
+func (s *BaseGoogleSQLParserListener) EnterSpanner_generated_or_default(ctx *Spanner_generated_or_defaultContext) {
+}
+
+// ExitSpanner_generated_or_default is called when production spanner_generated_or_default is exited.
+func (s *BaseGoogleSQLParserListener) ExitSpanner_generated_or_default(ctx *Spanner_generated_or_defaultContext) {
+}
+
+// EnterGeneric_sub_entity_type is called when production generic_sub_entity_type is entered.
+func (s *BaseGoogleSQLParserListener) EnterGeneric_sub_entity_type(ctx *Generic_sub_entity_typeContext) {
+}
+
+// ExitGeneric_sub_entity_type is called when production generic_sub_entity_type is exited.
+func (s *BaseGoogleSQLParserListener) ExitGeneric_sub_entity_type(ctx *Generic_sub_entity_typeContext) {
+}
+
+// EnterSub_entity_type_identifier is called when production sub_entity_type_identifier is entered.
+func (s *BaseGoogleSQLParserListener) EnterSub_entity_type_identifier(ctx *Sub_entity_type_identifierContext) {
+}
+
+// ExitSub_entity_type_identifier is called when production sub_entity_type_identifier is exited.
+func (s *BaseGoogleSQLParserListener) ExitSub_entity_type_identifier(ctx *Sub_entity_type_identifierContext) {
+}
+
+// EnterFill_using_expression is called when production fill_using_expression is entered.
+func (s *BaseGoogleSQLParserListener) EnterFill_using_expression(ctx *Fill_using_expressionContext) {}
+
+// ExitFill_using_expression is called when production fill_using_expression is exited.
+func (s *BaseGoogleSQLParserListener) ExitFill_using_expression(ctx *Fill_using_expressionContext) {}
+
+// EnterColumn_position is called when production column_position is entered.
+func (s *BaseGoogleSQLParserListener) EnterColumn_position(ctx *Column_positionContext) {}
+
+// ExitColumn_position is called when production column_position is exited.
+func (s *BaseGoogleSQLParserListener) ExitColumn_position(ctx *Column_positionContext) {}
+
+// EnterTable_column_definition is called when production table_column_definition is entered.
+func (s *BaseGoogleSQLParserListener) EnterTable_column_definition(ctx *Table_column_definitionContext) {
+}
+
+// ExitTable_column_definition is called when production table_column_definition is exited.
+func (s *BaseGoogleSQLParserListener) ExitTable_column_definition(ctx *Table_column_definitionContext) {
+}
+
+// EnterColumn_attributes is called when production column_attributes is entered.
+func (s *BaseGoogleSQLParserListener) EnterColumn_attributes(ctx *Column_attributesContext) {}
+
+// ExitColumn_attributes is called when production column_attributes is exited.
+func (s *BaseGoogleSQLParserListener) ExitColumn_attributes(ctx *Column_attributesContext) {}
+
+// EnterColumn_attribute is called when production column_attribute is entered.
+func (s *BaseGoogleSQLParserListener) EnterColumn_attribute(ctx *Column_attributeContext) {}
+
+// ExitColumn_attribute is called when production column_attribute is exited.
+func (s *BaseGoogleSQLParserListener) ExitColumn_attribute(ctx *Column_attributeContext) {}
+
+// EnterPrimary_key_column_attribute is called when production primary_key_column_attribute is entered.
+func (s *BaseGoogleSQLParserListener) EnterPrimary_key_column_attribute(ctx *Primary_key_column_attributeContext) {
+}
+
+// ExitPrimary_key_column_attribute is called when production primary_key_column_attribute is exited.
+func (s *BaseGoogleSQLParserListener) ExitPrimary_key_column_attribute(ctx *Primary_key_column_attributeContext) {
+}
+
+// EnterForeign_key_column_attribute is called when production foreign_key_column_attribute is entered.
+func (s *BaseGoogleSQLParserListener) EnterForeign_key_column_attribute(ctx *Foreign_key_column_attributeContext) {
+}
+
+// ExitForeign_key_column_attribute is called when production foreign_key_column_attribute is exited.
+func (s *BaseGoogleSQLParserListener) ExitForeign_key_column_attribute(ctx *Foreign_key_column_attributeContext) {
+}
+
+// EnterHidden_column_attribute is called when production hidden_column_attribute is entered.
+func (s *BaseGoogleSQLParserListener) EnterHidden_column_attribute(ctx *Hidden_column_attributeContext) {
+}
+
+// ExitHidden_column_attribute is called when production hidden_column_attribute is exited.
+func (s *BaseGoogleSQLParserListener) ExitHidden_column_attribute(ctx *Hidden_column_attributeContext) {
+}
+
+// EnterOpt_constraint_identity is called when production opt_constraint_identity is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_constraint_identity(ctx *Opt_constraint_identityContext) {
+}
+
+// ExitOpt_constraint_identity is called when production opt_constraint_identity is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_constraint_identity(ctx *Opt_constraint_identityContext) {
+}
+
+// EnterTable_column_schema is called when production table_column_schema is entered.
+func (s *BaseGoogleSQLParserListener) EnterTable_column_schema(ctx *Table_column_schemaContext) {}
+
+// ExitTable_column_schema is called when production table_column_schema is exited.
+func (s *BaseGoogleSQLParserListener) ExitTable_column_schema(ctx *Table_column_schemaContext) {}
+
+// EnterOpt_column_info is called when production opt_column_info is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_column_info(ctx *Opt_column_infoContext) {}
+
+// ExitOpt_column_info is called when production opt_column_info is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_column_info(ctx *Opt_column_infoContext) {}
+
+// EnterInvalid_generated_column is called when production invalid_generated_column is entered.
+func (s *BaseGoogleSQLParserListener) EnterInvalid_generated_column(ctx *Invalid_generated_columnContext) {
+}
+
+// ExitInvalid_generated_column is called when production invalid_generated_column is exited.
+func (s *BaseGoogleSQLParserListener) ExitInvalid_generated_column(ctx *Invalid_generated_columnContext) {
+}
+
+// EnterInvalid_default_column is called when production invalid_default_column is entered.
+func (s *BaseGoogleSQLParserListener) EnterInvalid_default_column(ctx *Invalid_default_columnContext) {
+}
+
+// ExitInvalid_default_column is called when production invalid_default_column is exited.
+func (s *BaseGoogleSQLParserListener) ExitInvalid_default_column(ctx *Invalid_default_columnContext) {
+}
+
+// EnterDefault_column_info is called when production default_column_info is entered.
+func (s *BaseGoogleSQLParserListener) EnterDefault_column_info(ctx *Default_column_infoContext) {}
+
+// ExitDefault_column_info is called when production default_column_info is exited.
+func (s *BaseGoogleSQLParserListener) ExitDefault_column_info(ctx *Default_column_infoContext) {}
+
+// EnterGenerated_column_info is called when production generated_column_info is entered.
+func (s *BaseGoogleSQLParserListener) EnterGenerated_column_info(ctx *Generated_column_infoContext) {}
+
+// ExitGenerated_column_info is called when production generated_column_info is exited.
+func (s *BaseGoogleSQLParserListener) ExitGenerated_column_info(ctx *Generated_column_infoContext) {}
+
+// EnterIdentity_column_info is called when production identity_column_info is entered.
+func (s *BaseGoogleSQLParserListener) EnterIdentity_column_info(ctx *Identity_column_infoContext) {}
+
+// ExitIdentity_column_info is called when production identity_column_info is exited.
+func (s *BaseGoogleSQLParserListener) ExitIdentity_column_info(ctx *Identity_column_infoContext) {}
+
+// EnterOpt_start_with is called when production opt_start_with is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_start_with(ctx *Opt_start_withContext) {}
+
+// ExitOpt_start_with is called when production opt_start_with is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_start_with(ctx *Opt_start_withContext) {}
+
+// EnterOpt_increment_by is called when production opt_increment_by is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_increment_by(ctx *Opt_increment_byContext) {}
+
+// ExitOpt_increment_by is called when production opt_increment_by is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_increment_by(ctx *Opt_increment_byContext) {}
+
+// EnterOpt_maxvalue is called when production opt_maxvalue is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_maxvalue(ctx *Opt_maxvalueContext) {}
+
+// ExitOpt_maxvalue is called when production opt_maxvalue is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_maxvalue(ctx *Opt_maxvalueContext) {}
+
+// EnterOpt_minvalue is called when production opt_minvalue is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_minvalue(ctx *Opt_minvalueContext) {}
+
+// ExitOpt_minvalue is called when production opt_minvalue is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_minvalue(ctx *Opt_minvalueContext) {}
+
+// EnterOpt_cycle is called when production opt_cycle is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_cycle(ctx *Opt_cycleContext) {}
+
+// ExitOpt_cycle is called when production opt_cycle is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_cycle(ctx *Opt_cycleContext) {}
+
+// EnterSigned_numeric_literal is called when production signed_numeric_literal is entered.
+func (s *BaseGoogleSQLParserListener) EnterSigned_numeric_literal(ctx *Signed_numeric_literalContext) {
+}
+
+// ExitSigned_numeric_literal is called when production signed_numeric_literal is exited.
+func (s *BaseGoogleSQLParserListener) ExitSigned_numeric_literal(ctx *Signed_numeric_literalContext) {
+}
+
+// EnterStored_mode is called when production stored_mode is entered.
+func (s *BaseGoogleSQLParserListener) EnterStored_mode(ctx *Stored_modeContext) {}
+
+// ExitStored_mode is called when production stored_mode is exited.
+func (s *BaseGoogleSQLParserListener) ExitStored_mode(ctx *Stored_modeContext) {}
+
+// EnterGenerated_mode is called when production generated_mode is entered.
+func (s *BaseGoogleSQLParserListener) EnterGenerated_mode(ctx *Generated_modeContext) {}
+
+// ExitGenerated_mode is called when production generated_mode is exited.
+func (s *BaseGoogleSQLParserListener) ExitGenerated_mode(ctx *Generated_modeContext) {}
+
+// EnterColumn_schema_inner is called when production column_schema_inner is entered.
+func (s *BaseGoogleSQLParserListener) EnterColumn_schema_inner(ctx *Column_schema_innerContext) {}
+
+// ExitColumn_schema_inner is called when production column_schema_inner is exited.
+func (s *BaseGoogleSQLParserListener) ExitColumn_schema_inner(ctx *Column_schema_innerContext) {}
+
+// EnterRaw_column_schema_inner is called when production raw_column_schema_inner is entered.
+func (s *BaseGoogleSQLParserListener) EnterRaw_column_schema_inner(ctx *Raw_column_schema_innerContext) {
+}
+
+// ExitRaw_column_schema_inner is called when production raw_column_schema_inner is exited.
+func (s *BaseGoogleSQLParserListener) ExitRaw_column_schema_inner(ctx *Raw_column_schema_innerContext) {
+}
+
+// EnterRange_column_schema_inner is called when production range_column_schema_inner is entered.
+func (s *BaseGoogleSQLParserListener) EnterRange_column_schema_inner(ctx *Range_column_schema_innerContext) {
+}
+
+// ExitRange_column_schema_inner is called when production range_column_schema_inner is exited.
+func (s *BaseGoogleSQLParserListener) ExitRange_column_schema_inner(ctx *Range_column_schema_innerContext) {
+}
+
+// EnterStruct_column_schema_inner is called when production struct_column_schema_inner is entered.
+func (s *BaseGoogleSQLParserListener) EnterStruct_column_schema_inner(ctx *Struct_column_schema_innerContext) {
+}
+
+// ExitStruct_column_schema_inner is called when production struct_column_schema_inner is exited.
+func (s *BaseGoogleSQLParserListener) ExitStruct_column_schema_inner(ctx *Struct_column_schema_innerContext) {
+}
+
+// EnterStruct_column_field is called when production struct_column_field is entered.
+func (s *BaseGoogleSQLParserListener) EnterStruct_column_field(ctx *Struct_column_fieldContext) {}
+
+// ExitStruct_column_field is called when production struct_column_field is exited.
+func (s *BaseGoogleSQLParserListener) ExitStruct_column_field(ctx *Struct_column_fieldContext) {}
+
+// EnterSimple_column_schema_inner is called when production simple_column_schema_inner is entered.
+func (s *BaseGoogleSQLParserListener) EnterSimple_column_schema_inner(ctx *Simple_column_schema_innerContext) {
+}
+
+// ExitSimple_column_schema_inner is called when production simple_column_schema_inner is exited.
+func (s *BaseGoogleSQLParserListener) ExitSimple_column_schema_inner(ctx *Simple_column_schema_innerContext) {
+}
+
+// EnterArray_column_schema_inner is called when production array_column_schema_inner is entered.
+func (s *BaseGoogleSQLParserListener) EnterArray_column_schema_inner(ctx *Array_column_schema_innerContext) {
+}
+
+// ExitArray_column_schema_inner is called when production array_column_schema_inner is exited.
+func (s *BaseGoogleSQLParserListener) ExitArray_column_schema_inner(ctx *Array_column_schema_innerContext) {
+}
+
+// EnterField_schema is called when production field_schema is entered.
+func (s *BaseGoogleSQLParserListener) EnterField_schema(ctx *Field_schemaContext) {}
+
+// ExitField_schema is called when production field_schema is exited.
+func (s *BaseGoogleSQLParserListener) ExitField_schema(ctx *Field_schemaContext) {}
+
+// EnterOpt_field_attributes is called when production opt_field_attributes is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_field_attributes(ctx *Opt_field_attributesContext) {}
+
+// ExitOpt_field_attributes is called when production opt_field_attributes is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_field_attributes(ctx *Opt_field_attributesContext) {}
+
+// EnterNot_null_column_attribute is called when production not_null_column_attribute is entered.
+func (s *BaseGoogleSQLParserListener) EnterNot_null_column_attribute(ctx *Not_null_column_attributeContext) {
+}
+
+// ExitNot_null_column_attribute is called when production not_null_column_attribute is exited.
+func (s *BaseGoogleSQLParserListener) ExitNot_null_column_attribute(ctx *Not_null_column_attributeContext) {
+}
+
+// EnterPrimary_key_or_table_constraint_spec is called when production primary_key_or_table_constraint_spec is entered.
+func (s *BaseGoogleSQLParserListener) EnterPrimary_key_or_table_constraint_spec(ctx *Primary_key_or_table_constraint_specContext) {
+}
+
+// ExitPrimary_key_or_table_constraint_spec is called when production primary_key_or_table_constraint_spec is exited.
+func (s *BaseGoogleSQLParserListener) ExitPrimary_key_or_table_constraint_spec(ctx *Primary_key_or_table_constraint_specContext) {
+}
+
+// EnterOpt_if_not_exists is called when production opt_if_not_exists is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_if_not_exists(ctx *Opt_if_not_existsContext) {}
+
+// ExitOpt_if_not_exists is called when production opt_if_not_exists is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_if_not_exists(ctx *Opt_if_not_existsContext) {}
+
+// EnterPrimary_key_spec is called when production primary_key_spec is entered.
+func (s *BaseGoogleSQLParserListener) EnterPrimary_key_spec(ctx *Primary_key_specContext) {}
+
+// ExitPrimary_key_spec is called when production primary_key_spec is exited.
+func (s *BaseGoogleSQLParserListener) ExitPrimary_key_spec(ctx *Primary_key_specContext) {}
+
+// EnterPrimary_key_element_list is called when production primary_key_element_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterPrimary_key_element_list(ctx *Primary_key_element_listContext) {
+}
+
+// ExitPrimary_key_element_list is called when production primary_key_element_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitPrimary_key_element_list(ctx *Primary_key_element_listContext) {
+}
+
+// EnterPrimary_key_element is called when production primary_key_element is entered.
+func (s *BaseGoogleSQLParserListener) EnterPrimary_key_element(ctx *Primary_key_elementContext) {}
+
+// ExitPrimary_key_element is called when production primary_key_element is exited.
+func (s *BaseGoogleSQLParserListener) ExitPrimary_key_element(ctx *Primary_key_elementContext) {}
+
+// EnterTable_constraint_spec is called when production table_constraint_spec is entered.
+func (s *BaseGoogleSQLParserListener) EnterTable_constraint_spec(ctx *Table_constraint_specContext) {}
+
+// ExitTable_constraint_spec is called when production table_constraint_spec is exited.
+func (s *BaseGoogleSQLParserListener) ExitTable_constraint_spec(ctx *Table_constraint_specContext) {}
+
+// EnterForeign_key_reference is called when production foreign_key_reference is entered.
+func (s *BaseGoogleSQLParserListener) EnterForeign_key_reference(ctx *Foreign_key_referenceContext) {}
+
+// ExitForeign_key_reference is called when production foreign_key_reference is exited.
+func (s *BaseGoogleSQLParserListener) ExitForeign_key_reference(ctx *Foreign_key_referenceContext) {}
+
+// EnterOpt_foreign_key_action is called when production opt_foreign_key_action is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_foreign_key_action(ctx *Opt_foreign_key_actionContext) {
+}
+
+// ExitOpt_foreign_key_action is called when production opt_foreign_key_action is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_foreign_key_action(ctx *Opt_foreign_key_actionContext) {
+}
+
+// EnterForeign_key_on_update is called when production foreign_key_on_update is entered.
+func (s *BaseGoogleSQLParserListener) EnterForeign_key_on_update(ctx *Foreign_key_on_updateContext) {}
+
+// ExitForeign_key_on_update is called when production foreign_key_on_update is exited.
+func (s *BaseGoogleSQLParserListener) ExitForeign_key_on_update(ctx *Foreign_key_on_updateContext) {}
+
+// EnterForeign_key_on_delete is called when production foreign_key_on_delete is entered.
+func (s *BaseGoogleSQLParserListener) EnterForeign_key_on_delete(ctx *Foreign_key_on_deleteContext) {}
+
+// ExitForeign_key_on_delete is called when production foreign_key_on_delete is exited.
+func (s *BaseGoogleSQLParserListener) ExitForeign_key_on_delete(ctx *Foreign_key_on_deleteContext) {}
+
+// EnterForeign_key_action is called when production foreign_key_action is entered.
+func (s *BaseGoogleSQLParserListener) EnterForeign_key_action(ctx *Foreign_key_actionContext) {}
+
+// ExitForeign_key_action is called when production foreign_key_action is exited.
+func (s *BaseGoogleSQLParserListener) ExitForeign_key_action(ctx *Foreign_key_actionContext) {}
+
+// EnterOpt_foreign_key_match is called when production opt_foreign_key_match is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_foreign_key_match(ctx *Opt_foreign_key_matchContext) {}
+
+// ExitOpt_foreign_key_match is called when production opt_foreign_key_match is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_foreign_key_match(ctx *Opt_foreign_key_matchContext) {}
+
+// EnterForeign_key_match_mode is called when production foreign_key_match_mode is entered.
+func (s *BaseGoogleSQLParserListener) EnterForeign_key_match_mode(ctx *Foreign_key_match_modeContext) {
+}
+
+// ExitForeign_key_match_mode is called when production foreign_key_match_mode is exited.
+func (s *BaseGoogleSQLParserListener) ExitForeign_key_match_mode(ctx *Foreign_key_match_modeContext) {
+}
+
+// EnterColumn_list is called when production column_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterColumn_list(ctx *Column_listContext) {}
+
+// ExitColumn_list is called when production column_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitColumn_list(ctx *Column_listContext) {}
+
+// EnterOptions_options_list is called when production options_options_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterOptions_options_list(ctx *Options_options_listContext) {}
+
+// ExitOptions_options_list is called when production options_options_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitOptions_options_list(ctx *Options_options_listContext) {}
+
+// EnterConstraint_enforcement is called when production constraint_enforcement is entered.
+func (s *BaseGoogleSQLParserListener) EnterConstraint_enforcement(ctx *Constraint_enforcementContext) {
+}
+
+// ExitConstraint_enforcement is called when production constraint_enforcement is exited.
+func (s *BaseGoogleSQLParserListener) ExitConstraint_enforcement(ctx *Constraint_enforcementContext) {
+}
+
+// EnterGeneric_entity_body is called when production generic_entity_body is entered.
+func (s *BaseGoogleSQLParserListener) EnterGeneric_entity_body(ctx *Generic_entity_bodyContext) {}
+
+// ExitGeneric_entity_body is called when production generic_entity_body is exited.
+func (s *BaseGoogleSQLParserListener) ExitGeneric_entity_body(ctx *Generic_entity_bodyContext) {}
+
+// EnterOpt_if_exists is called when production opt_if_exists is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_if_exists(ctx *Opt_if_existsContext) {}
+
+// ExitOpt_if_exists is called when production opt_if_exists is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_if_exists(ctx *Opt_if_existsContext) {}
+
+// EnterTable_or_table_function is called when production table_or_table_function is entered.
+func (s *BaseGoogleSQLParserListener) EnterTable_or_table_function(ctx *Table_or_table_functionContext) {
+}
+
+// ExitTable_or_table_function is called when production table_or_table_function is exited.
+func (s *BaseGoogleSQLParserListener) ExitTable_or_table_function(ctx *Table_or_table_functionContext) {
+}
+
 // EnterQuery is called when production query is entered.
 func (s *BaseGoogleSQLParserListener) EnterQuery(ctx *QueryContext) {}
 
