@@ -8,10 +8,298 @@ root: stmts EOF;
 
 stmts: stmt (SEMI_SYMBOL stmt)* SEMI_SYMBOL?;
 
-stmt: query_statement;
+stmt: query_statement | alter_statement;
 
 // query_statement: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax
 query_statement: query;
+
+alter_statement:
+	ALTER_SYMBOL table_or_table_function opt_if_exists? maybe_dashed_path_expression
+		alter_action_list
+	| ALTER_SYMBOL schema_object_kind opt_if_exists? path_expression alter_action_list
+	| ALTER_SYMBOL generic_entity_type opt_if_exists? path_expression alter_action_list
+	| ALTER_SYMBOL generic_entity_type opt_if_exists? alter_action_list
+	| ALTER_SYMBOL PRIVILEGE_SYMBOL RESTRICTION_SYMBOL opt_if_exists? ON_SYMBOL privilege_list
+		ON_SYMBOL identifier path_expression
+	| ALTER_SYMBOL ROW_SYMBOL ACCESS_SYMBOL POLICY_SYMBOL opt_if_exists? identifier ON_SYMBOL
+		path_expression row_access_policy_alter_action_list
+	| ALTER_SYMBOL ALL_SYMBOL ROW_SYMBOL ACCESS_SYMBOL POLICIES_SYMBOL ON_SYMBOL path_expression
+		row_access_policy_alter_action;
+
+row_access_policy_alter_action_list:
+	row_access_policy_alter_action (
+		COMMA_SYMBOL row_access_policy_alter_action
+	)*;
+
+row_access_policy_alter_action:
+	grant_to_clause
+	| FILTER_SYMBOL USING_SYMBOL LR_BRACKET_SYMBOL expression RR_BRACKET_SYMBOL
+	| REVOKE_SYMBOL FROM_SYMBOL LR_BRACKET_SYMBOL grantee_list RR_BRACKET_SYMBOL
+	| REVOKE_SYMBOL FROM_SYMBOL ALL_SYMBOL
+	| RENAME_SYMBOL TO_SYMBOL identifier;
+
+grant_to_clause:
+	GRANT_SYMBOL TO_SYMBOL LR_BRACKET_SYMBOL grantee_list RR_BRACKET_SYMBOL;
+
+grantee_list: string_literal (COMMA_SYMBOL string_literal)*;
+
+privilege_list: privilege (COMMA_SYMBOL privilege)*;
+
+privilege: privilege_name path_expression_list_with_parens?;
+
+path_expression_list_with_parens:
+	LR_BRACKET_SYMBOL path_expression_list RR_BRACKET_SYMBOL;
+
+privilege_name: identifier | SELECT_SYMBOL;
+
+generic_entity_type: generic_entity_type_unchecked;
+
+generic_entity_type_unchecked: IDENTIFIER | PROJECT_SYMBOL;
+
+schema_object_kind:
+	AGGREGATE_SYMBOL FUNCTION_SYMBOL
+	| APPROX_SYMBOL VIEW_SYMBOL
+	| CONNECTION_SYMBOL
+	| CONSTANT_SYMBOL
+	| DATABASE_SYMBOL
+	| EXTERNAL_SYMBOL table_or_table_function
+	| EXTERNAL_SYMBOL SCHEMA_SYMBOL
+	| FUNCTION_SYMBOL
+	| INDEX_SYMBOL
+	| MATERIALIZED_SYMBOL VIEW_SYMBOL
+	| MODEL_SYMBOL
+	| PROCEDURE_SYMBOL
+	| SCHEMA_SYMBOL
+	| VIEW_SYMBOL;
+
+alter_action_list: alter_action (COMMA_SYMBOL alter_action)*;
+
+alter_action:
+	SET_SYMBOL OPTIONS_SYMBOL options_list
+	| SET_SYMBOL AS_SYMBOL generic_entity_body
+	| ADD_SYMBOL table_constraint_spec
+	| ADD_SYMBOL primary_key_spec
+	| ADD_SYMBOL CONSTRAINT_SYMBOL opt_if_not_exists? identifier
+		primary_key_or_table_constraint_spec
+	| DROP_SYMBOL CONSTRAINT_SYMBOL opt_if_exists? identifier
+	| DROP_SYMBOL PRIMARY_SYMBOL KEY_SYMBOL opt_if_exists?
+	| ALTER_SYMBOL CONSTRAINT_SYMBOL opt_if_exists? identifier constraint_enforcement
+	| ALTER_SYMBOL CONSTRAINT_SYMBOL opt_if_exists? identifier SET_SYMBOL OPTIONS_SYMBOL
+		options_list
+	| ADD_SYMBOL COLUMN_SYMBOL opt_if_not_exists table_column_definition column_position?
+		fill_using_expression?
+	| DROP_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier
+	| RENAME_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier TO_SYMBOL identifier
+	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier SET_SYMBOL DATA_SYMBOL TYPE_SYMBOL
+	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier SET_SYMBOL OPTIONS_SYMBOL options_list
+	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier SET_SYMBOL DEFAULT_SYMBOL expression
+	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier DROP_SYMBOL DEFAULT_SYMBOL
+	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier DROP_SYMBOL NOT_SYMBOL NULL_SYMBOL
+	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier DROP_SYMBOL GENERATED_SYMBOL
+	| RENAME_SYMBOL TO_SYMBOL path_expression
+	| SET_SYMBOL DEFAULT_SYMBOL collate_clause
+	| ADD_SYMBOL ROW_SYMBOL DELETION_SYMBOL POLICY_SYMBOL opt_if_not_exists? LR_BRACKET_SYMBOL
+		expression RR_BRACKET_SYMBOL
+	| REPLACE_SYMBOL ROW_SYMBOL DELETION_SYMBOL POLICY_SYMBOL opt_if_exists? LR_BRACKET_SYMBOL
+		expression RR_BRACKET_SYMBOL
+	| DROP_SYMBOL ROW_SYMBOL DELETION_SYMBOL POLICY_SYMBOL opt_if_exists?
+	| ALTER_SYMBOL generic_sub_entity_type opt_if_exists? identifier alter_action
+	| ADD_SYMBOL generic_sub_entity_type opt_if_not_exists? identifier
+	| DROP_SYMBOL generic_sub_entity_type opt_if_exists? identifier
+	| spanner_alter_column_action
+	| spanner_set_on_delete_action;
+
+spanner_set_on_delete_action:
+	SET_SYMBOL ON_SYMBOL DELETE_SYMBOL foreign_key_action;
+
+spanner_alter_column_action:
+	ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier column_schema_inner
+		not_null_column_attribute? spanner_generated_or_default? options_list?;
+
+spanner_generated_or_default:
+	AS_SYMBOL LR_BRACKET_SYMBOL expression RR_BRACKET_SYMBOL STORED_SYMBOL;
+
+generic_sub_entity_type: sub_entity_type_identifier;
+
+sub_entity_type_identifier: IDENTIFIER | REPLICA_SYMBOL;
+
+fill_using_expression: FILL_SYMBOL USING_SYMBOL expression;
+
+column_position:
+	PRECEDING_SYMBOL identifier
+	| FOLLOWING_SYMBOL identifier;
+
+table_column_definition:
+	identifier table_column_schema column_attributes? options_list?;
+
+column_attributes: column_attribute+ constraint_enforcement;
+
+column_attribute:
+	primary_key_column_attribute
+	| foreign_key_column_attribute
+	| hidden_column_attribute
+	| not_null_column_attribute;
+
+primary_key_column_attribute: PRIMARY_SYMBOL KEY_SYMBOL;
+
+foreign_key_column_attribute:
+	opt_constraint_identity? foreign_key_reference;
+
+hidden_column_attribute: HIDDEN_SYMBOL;
+
+opt_constraint_identity: CONSTRAINT_SYMBOL identifier;
+
+table_column_schema:
+	column_schema_inner collate_clause? opt_column_info?
+	| generated_column_info;
+
+opt_column_info:
+	generated_column_info invalid_default_column? {
+		if localctx.Invalid_default_column() != nil {
+			p.NotifyErrorListeners("Syntax error: \"DEFAULT\" and \"GENERATED ALWAYS AS\" clauses must not be both provided for the column", nil, nil)
+		}
+	}
+	| default_column_info invalid_generated_column? {
+		if localctx.Invalid_generated_column() != nil {
+			p.NotifyErrorListeners("Syntax error: \"DEFAULT\" and \"GENERATED ALWAYS AS\" clauses must not be both provided for the column", nil, nil)
+		}
+	};
+
+invalid_generated_column: generated_column_info;
+
+invalid_default_column: default_column_info;
+
+default_column_info: DEFAULT_SYMBOL expression;
+
+generated_column_info:
+	generated_mode LR_BRACKET_SYMBOL expression RR_BRACKET_SYMBOL stored_mode?
+	| generated_mode identity_column_info;
+
+identity_column_info:
+	IDENTITY_SYMBOL LR_BRACKET_SYMBOL opt_start_with? opt_increment_by? opt_maxvalue? opt_minvalue?
+		opt_cycle? RR_BRACKET_SYMBOL;
+
+opt_start_with: START_SYMBOL WITH_SYMBOL signed_numeric_literal;
+
+opt_increment_by:
+	INCREMENT_SYMBOL BY_SYMBOL signed_numeric_literal;
+
+opt_maxvalue: MAXVALUE_SYMBOL signed_numeric_literal;
+
+opt_minvalue: MINVALUE_SYMBOL signed_numeric_literal;
+
+opt_cycle: CYCLE_SYMBOL | NO_SYMBOL CYCLE_SYMBOL;
+
+signed_numeric_literal:
+	integer_literal
+	| numeric_literal
+	| bignumeric_literal
+	| floating_point_literal
+	| MINUS_OPERATOR integer_literal
+	| MINUS_OPERATOR floating_point_literal;
+
+// All rules reference stored_mode should make stored_mode optional.
+stored_mode: STORED_SYMBOL VOLATILE_SYMBOL | STORED_SYMBOL;
+
+generated_mode:
+	GENERATED_SYMBOL AS_SYMBOL
+	| GENERATED_SYMBOL ALWAYS_SYMBOL AS_SYMBOL
+	| GENERATED_SYMBOL BY_SYMBOL DEFAULT_SYMBOL AS_SYMBOL
+	| AS_SYMBOL;
+
+column_schema_inner:
+	raw_column_schema_inner opt_type_parameters?;
+
+raw_column_schema_inner:
+	simple_column_schema_inner
+	| array_column_schema_inner
+	| struct_column_schema_inner
+	| range_column_schema_inner;
+
+range_column_schema_inner:
+	RANGE_SYMBOL template_type_open field_schema template_type_close;
+
+struct_column_schema_inner:
+	STRUCT_SYMBOL template_type_open (
+		struct_column_field (COMMA_SYMBOL struct_column_field)*
+	)? template_type_close;
+
+struct_column_field:
+	column_schema_inner collate_clause? opt_field_attributes?
+	| identifier field_schema;
+
+simple_column_schema_inner: path_expression | INTERVAL_SYMBOL;
+
+array_column_schema_inner:
+	ARRAY_SYMBOL template_type_open field_schema template_type_close;
+
+field_schema:
+	column_schema_inner collate_clause? opt_field_attributes? options_list?;
+
+opt_field_attributes: not_null_column_attribute;
+
+not_null_column_attribute: NOT_SYMBOL NULL_SYMBOL;
+
+primary_key_or_table_constraint_spec:
+	primary_key_spec
+	| table_constraint_spec;
+
+opt_if_not_exists: IF_SYMBOL NOT_SYMBOL EXISTS_SYMBOL;
+
+primary_key_spec:
+	PRIMARY_SYMBOL KEY_SYMBOL primary_key_element_list constraint_enforcement? options_list?;
+
+primary_key_element_list:
+	LR_BRACKET_SYMBOL (
+		primary_key_element (COMMA_SYMBOL primary_key_element)*
+	)? RR_BRACKET_SYMBOL;
+
+primary_key_element: identifier asc_or_desc? null_order?;
+
+table_constraint_spec:
+	CHECK_SYMBOL LR_BRACKET_SYMBOL expression RR_BRACKET_SYMBOL constraint_enforcement?
+		options_options_list?
+	| FOREIGN_SYMBOL KEY_SYMBOL column_list foreign_key_reference constraint_enforcement?
+		options_options_list?;
+
+foreign_key_reference:
+	REFERENCES_SYMBOL path_expression column_list opt_foreign_key_match? opt_foreign_key_action?;
+
+opt_foreign_key_action:
+	foreign_key_on_update foreign_key_on_delete?
+	| foreign_key_on_delete foreign_key_on_update?;
+
+foreign_key_on_update:
+	ON_SYMBOL UPDATE_SYMBOL foreign_key_action;
+
+foreign_key_on_delete:
+	ON_SYMBOL DELETE_SYMBOL foreign_key_action;
+
+foreign_key_action:
+	NO_SYMBOL ACTION_SYMBOL
+	| RESTRICT_SYMBOL
+	| CASCADE_SYMBOL
+	| SET_SYMBOL NULL_SYMBOL;
+
+opt_foreign_key_match: MATCH_SYMBOL foreign_key_match_mode;
+
+foreign_key_match_mode:
+	SIMPLE_SYMBOL
+	| FULL_SYMBOL
+	| NOT_SYMBOL DISTINCT_SYMBOL;
+
+column_list:
+	LR_BRACKET_SYMBOL identifier (COMMA_SYMBOL identifier)* RR_BRACKET_SYMBOL;
+
+options_options_list: OPTIONS_SYMBOL options_list;
+
+constraint_enforcement: NOT_SYMBOL? ENFORCED_SYMBOL;
+
+generic_entity_body: json_literal | string_literal;
+
+opt_if_exists: IF_SYMBOL EXISTS_SYMBOL;
+
+table_or_table_function: TABLE_SYMBOL FUNCTION_SYMBOL?;
 
 query: query_without_pipe_operators;
 
