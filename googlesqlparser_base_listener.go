@@ -56,6 +56,18 @@ func (s *BaseGoogleSQLParserListener) EnterAnalyze_statement(ctx *Analyze_statem
 // ExitAnalyze_statement is called when production analyze_statement is exited.
 func (s *BaseGoogleSQLParserListener) ExitAnalyze_statement(ctx *Analyze_statementContext) {}
 
+// EnterAssert_statement is called when production assert_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterAssert_statement(ctx *Assert_statementContext) {}
+
+// ExitAssert_statement is called when production assert_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitAssert_statement(ctx *Assert_statementContext) {}
+
+// EnterOpt_description is called when production opt_description is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_description(ctx *Opt_descriptionContext) {}
+
+// ExitOpt_description is called when production opt_description is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_description(ctx *Opt_descriptionContext) {}
+
 // EnterTable_and_column_info_list is called when production table_and_column_info_list is entered.
 func (s *BaseGoogleSQLParserListener) EnterTable_and_column_info_list(ctx *Table_and_column_info_listContext) {
 }

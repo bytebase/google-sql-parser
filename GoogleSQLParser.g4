@@ -8,7 +8,11 @@ root: stmts EOF;
 
 stmts: stmt (SEMI_SYMBOL stmt)* SEMI_SYMBOL?;
 
-stmt: query_statement | alter_statement | analyze_statement;
+stmt:
+	query_statement
+	| alter_statement
+	| analyze_statement
+	| assert_statement;
 
 // query_statement: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax
 query_statement: query;
@@ -28,6 +32,10 @@ alter_statement:
 
 analyze_statement:
 	ANALYZE_SYMBOL opt_options_list? table_and_column_info_list?;
+
+assert_statement: ASSERT_SYMBOL expression opt_description?;
+
+opt_description: AS_SYMBOL string_literal;
 
 table_and_column_info_list:
 	table_and_column_info (COMMA_SYMBOL table_and_column_info)*;

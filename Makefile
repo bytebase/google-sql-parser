@@ -1,4 +1,4 @@
-all: build test
+all: update_test build test
 
 update_test:
 	python3 fetch_test.py
