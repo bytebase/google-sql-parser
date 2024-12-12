@@ -57,6 +57,13 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/alter_set_options.test",
         "zetasql/parser/testdata/alter_table_add_check_constraint.test",
         "zetasql/parser/testdata/alter_table_add_column.test",
+        "zetasql/parser/testdata/alter_table_add_foreign_key.test",
+        # "zetasql/parser/testdata/alter_table_add_constraint.test",
+        # "zetasql/parser/testdata/alter_table_drop_column.test",
+        # "zetasql/parser/testdata/alter_table_drop_constraint.test",
+        # "zetasql/parser/testdata/alter_table_multiple_actions.test",
+        # "zetasql/parser/testdata/alter_table_rename_to.test",
+        # "zetasql/parser/testdata/alter_table_ttl.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)
