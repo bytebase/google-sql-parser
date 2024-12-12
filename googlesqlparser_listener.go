@@ -28,6 +28,36 @@ type GoogleSQLParserListener interface {
 	// EnterInsert_statement is called when entering the insert_statement production.
 	EnterInsert_statement(c *Insert_statementContext)
 
+	// EnterOn_conflict_clause is called when entering the on_conflict_clause production.
+	EnterOn_conflict_clause(c *On_conflict_clauseContext)
+
+	// EnterOpt_where_expression is called when entering the opt_where_expression production.
+	EnterOpt_where_expression(c *Opt_where_expressionContext)
+
+	// EnterOpt_conflict_target is called when entering the opt_conflict_target production.
+	EnterOpt_conflict_target(c *Opt_conflict_targetContext)
+
+	// EnterUpdate_item_list is called when entering the update_item_list production.
+	EnterUpdate_item_list(c *Update_item_listContext)
+
+	// EnterUpdate_item is called when entering the update_item production.
+	EnterUpdate_item(c *Update_itemContext)
+
+	// EnterUpdate_set_value is called when entering the update_set_value production.
+	EnterUpdate_set_value(c *Update_set_valueContext)
+
+	// EnterNested_dml_statement is called when entering the nested_dml_statement production.
+	EnterNested_dml_statement(c *Nested_dml_statementContext)
+
+	// EnterInsert_values_list_or_table_clause is called when entering the insert_values_list_or_table_clause production.
+	EnterInsert_values_list_or_table_clause(c *Insert_values_list_or_table_clauseContext)
+
+	// EnterTable_clause_unreversed is called when entering the table_clause_unreversed production.
+	EnterTable_clause_unreversed(c *Table_clause_unreversedContext)
+
+	// EnterTable_clause_no_keyword is called when entering the table_clause_no_keyword production.
+	EnterTable_clause_no_keyword(c *Table_clause_no_keywordContext)
+
 	// EnterOpt_returning_clause is called when entering the opt_returning_clause production.
 	EnterOpt_returning_clause(c *Opt_returning_clauseContext)
 
@@ -1170,6 +1200,36 @@ type GoogleSQLParserListener interface {
 
 	// ExitInsert_statement is called when exiting the insert_statement production.
 	ExitInsert_statement(c *Insert_statementContext)
+
+	// ExitOn_conflict_clause is called when exiting the on_conflict_clause production.
+	ExitOn_conflict_clause(c *On_conflict_clauseContext)
+
+	// ExitOpt_where_expression is called when exiting the opt_where_expression production.
+	ExitOpt_where_expression(c *Opt_where_expressionContext)
+
+	// ExitOpt_conflict_target is called when exiting the opt_conflict_target production.
+	ExitOpt_conflict_target(c *Opt_conflict_targetContext)
+
+	// ExitUpdate_item_list is called when exiting the update_item_list production.
+	ExitUpdate_item_list(c *Update_item_listContext)
+
+	// ExitUpdate_item is called when exiting the update_item production.
+	ExitUpdate_item(c *Update_itemContext)
+
+	// ExitUpdate_set_value is called when exiting the update_set_value production.
+	ExitUpdate_set_value(c *Update_set_valueContext)
+
+	// ExitNested_dml_statement is called when exiting the nested_dml_statement production.
+	ExitNested_dml_statement(c *Nested_dml_statementContext)
+
+	// ExitInsert_values_list_or_table_clause is called when exiting the insert_values_list_or_table_clause production.
+	ExitInsert_values_list_or_table_clause(c *Insert_values_list_or_table_clauseContext)
+
+	// ExitTable_clause_unreversed is called when exiting the table_clause_unreversed production.
+	ExitTable_clause_unreversed(c *Table_clause_unreversedContext)
+
+	// ExitTable_clause_no_keyword is called when exiting the table_clause_no_keyword production.
+	ExitTable_clause_no_keyword(c *Table_clause_no_keywordContext)
 
 	// ExitOpt_returning_clause is called when exiting the opt_returning_clause production.
 	ExitOpt_returning_clause(c *Opt_returning_clauseContext)

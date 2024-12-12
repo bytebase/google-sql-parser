@@ -28,6 +28,36 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#insert_statement.
 	VisitInsert_statement(ctx *Insert_statementContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#on_conflict_clause.
+	VisitOn_conflict_clause(ctx *On_conflict_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_where_expression.
+	VisitOpt_where_expression(ctx *Opt_where_expressionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_conflict_target.
+	VisitOpt_conflict_target(ctx *Opt_conflict_targetContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#update_item_list.
+	VisitUpdate_item_list(ctx *Update_item_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#update_item.
+	VisitUpdate_item(ctx *Update_itemContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#update_set_value.
+	VisitUpdate_set_value(ctx *Update_set_valueContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#nested_dml_statement.
+	VisitNested_dml_statement(ctx *Nested_dml_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#insert_values_list_or_table_clause.
+	VisitInsert_values_list_or_table_clause(ctx *Insert_values_list_or_table_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#table_clause_unreversed.
+	VisitTable_clause_unreversed(ctx *Table_clause_unreversedContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#table_clause_no_keyword.
+	VisitTable_clause_no_keyword(ctx *Table_clause_no_keywordContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#opt_returning_clause.
 	VisitOpt_returning_clause(ctx *Opt_returning_clauseContext) interface{}
 

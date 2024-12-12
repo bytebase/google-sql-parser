@@ -35,6 +35,46 @@ func (v *BaseGoogleSQLParserVisitor) VisitInsert_statement(ctx *Insert_statement
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitOn_conflict_clause(ctx *On_conflict_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_where_expression(ctx *Opt_where_expressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_conflict_target(ctx *Opt_conflict_targetContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitUpdate_item_list(ctx *Update_item_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitUpdate_item(ctx *Update_itemContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitUpdate_set_value(ctx *Update_set_valueContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitNested_dml_statement(ctx *Nested_dml_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitInsert_values_list_or_table_clause(ctx *Insert_values_list_or_table_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTable_clause_unreversed(ctx *Table_clause_unreversedContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTable_clause_no_keyword(ctx *Table_clause_no_keywordContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitOpt_returning_clause(ctx *Opt_returning_clauseContext) interface{} {
 	return v.VisitChildren(ctx)
 }

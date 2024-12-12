@@ -62,6 +62,72 @@ func (s *BaseGoogleSQLParserListener) EnterInsert_statement(ctx *Insert_statemen
 // ExitInsert_statement is called when production insert_statement is exited.
 func (s *BaseGoogleSQLParserListener) ExitInsert_statement(ctx *Insert_statementContext) {}
 
+// EnterOn_conflict_clause is called when production on_conflict_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOn_conflict_clause(ctx *On_conflict_clauseContext) {}
+
+// ExitOn_conflict_clause is called when production on_conflict_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOn_conflict_clause(ctx *On_conflict_clauseContext) {}
+
+// EnterOpt_where_expression is called when production opt_where_expression is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_where_expression(ctx *Opt_where_expressionContext) {}
+
+// ExitOpt_where_expression is called when production opt_where_expression is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_where_expression(ctx *Opt_where_expressionContext) {}
+
+// EnterOpt_conflict_target is called when production opt_conflict_target is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_conflict_target(ctx *Opt_conflict_targetContext) {}
+
+// ExitOpt_conflict_target is called when production opt_conflict_target is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_conflict_target(ctx *Opt_conflict_targetContext) {}
+
+// EnterUpdate_item_list is called when production update_item_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterUpdate_item_list(ctx *Update_item_listContext) {}
+
+// ExitUpdate_item_list is called when production update_item_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitUpdate_item_list(ctx *Update_item_listContext) {}
+
+// EnterUpdate_item is called when production update_item is entered.
+func (s *BaseGoogleSQLParserListener) EnterUpdate_item(ctx *Update_itemContext) {}
+
+// ExitUpdate_item is called when production update_item is exited.
+func (s *BaseGoogleSQLParserListener) ExitUpdate_item(ctx *Update_itemContext) {}
+
+// EnterUpdate_set_value is called when production update_set_value is entered.
+func (s *BaseGoogleSQLParserListener) EnterUpdate_set_value(ctx *Update_set_valueContext) {}
+
+// ExitUpdate_set_value is called when production update_set_value is exited.
+func (s *BaseGoogleSQLParserListener) ExitUpdate_set_value(ctx *Update_set_valueContext) {}
+
+// EnterNested_dml_statement is called when production nested_dml_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterNested_dml_statement(ctx *Nested_dml_statementContext) {}
+
+// ExitNested_dml_statement is called when production nested_dml_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitNested_dml_statement(ctx *Nested_dml_statementContext) {}
+
+// EnterInsert_values_list_or_table_clause is called when production insert_values_list_or_table_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterInsert_values_list_or_table_clause(ctx *Insert_values_list_or_table_clauseContext) {
+}
+
+// ExitInsert_values_list_or_table_clause is called when production insert_values_list_or_table_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitInsert_values_list_or_table_clause(ctx *Insert_values_list_or_table_clauseContext) {
+}
+
+// EnterTable_clause_unreversed is called when production table_clause_unreversed is entered.
+func (s *BaseGoogleSQLParserListener) EnterTable_clause_unreversed(ctx *Table_clause_unreversedContext) {
+}
+
+// ExitTable_clause_unreversed is called when production table_clause_unreversed is exited.
+func (s *BaseGoogleSQLParserListener) ExitTable_clause_unreversed(ctx *Table_clause_unreversedContext) {
+}
+
+// EnterTable_clause_no_keyword is called when production table_clause_no_keyword is entered.
+func (s *BaseGoogleSQLParserListener) EnterTable_clause_no_keyword(ctx *Table_clause_no_keywordContext) {
+}
+
+// ExitTable_clause_no_keyword is called when production table_clause_no_keyword is exited.
+func (s *BaseGoogleSQLParserListener) ExitTable_clause_no_keyword(ctx *Table_clause_no_keywordContext) {
+}
+
 // EnterOpt_returning_clause is called when production opt_returning_clause is entered.
 func (s *BaseGoogleSQLParserListener) EnterOpt_returning_clause(ctx *Opt_returning_clauseContext) {}
 

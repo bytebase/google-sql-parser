@@ -28,7 +28,42 @@ dml_statement: insert_statement;
 
 insert_statement:
 	insert_statement_prefix column_list? insert_values_or_query opt_assert_rows_modified?
-		opt_returning_clause?;
+		opt_returning_clause?
+	| insert_statement_prefix column_list? insert_values_list_or_table_clause on_conflict_clause
+		opt_assert_rows_modified? opt_returning_clause?
+	| insert_statement_prefix column_list? LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL
+		on_conflict_clause opt_assert_rows_modified? opt_returning_clause?;
+
+on_conflict_clause:
+	ON_SYMBOL CONFLICT_SYMBOL opt_conflict_target? DO_SYMBOL NOTHING_SYMBOL
+	| ON_SYMBOL CONFLICT_SYMBOL opt_conflict_target? DO_SYMBOL UPDATE_SYMBOL SET_SYMBOL
+		update_item_list opt_where_expression?;
+
+opt_where_expression: WHERE_SYMBOL expression;
+
+opt_conflict_target:
+	column_list
+	| ON_SYMBOL UNIQUE_SYMBOL CONSTRAINT_SYMBOL identifier;
+
+update_item_list: update_item (COMMA_SYMBOL update_item)*;
+
+update_item: update_set_value | nested_dml_statement;
+
+update_set_value:
+	generalized_path_expression EQUAL_OPERATOR expression_or_default;
+
+nested_dml_statement:
+	LR_BRACKET_SYMBOL dml_statement RR_BRACKET_SYMBOL;
+
+insert_values_list_or_table_clause:
+	insert_values_list
+	| table_clause_unreversed;
+
+table_clause_unreversed: TABLE_SYMBOL table_clause_no_keyword;
+
+table_clause_no_keyword:
+	path_expression where_clause?
+	| tvf_with_suffixes where_clause?;
 
 opt_returning_clause:
 	THEN_SYMBOL RETURN_SYMBOL select_list
@@ -1587,6 +1622,7 @@ common_keyword_as_identifier:
 	| CASCADE_SYMBOL
 	| CHECK_SYMBOL
 	| CLAMPED_SYMBOL
+	| CONFLICT_SYMBOL
 	| CLONE_SYMBOL
 	| COPY_SYMBOL
 	| CLUSTER_SYMBOL
