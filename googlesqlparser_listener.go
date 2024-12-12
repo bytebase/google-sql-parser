@@ -22,6 +22,15 @@ type GoogleSQLParserListener interface {
 	// EnterAlter_statement is called when entering the alter_statement production.
 	EnterAlter_statement(c *Alter_statementContext)
 
+	// EnterAnalyze_statement is called when entering the analyze_statement production.
+	EnterAnalyze_statement(c *Analyze_statementContext)
+
+	// EnterTable_and_column_info_list is called when entering the table_and_column_info_list production.
+	EnterTable_and_column_info_list(c *Table_and_column_info_listContext)
+
+	// EnterTable_and_column_info is called when entering the table_and_column_info production.
+	EnterTable_and_column_info(c *Table_and_column_infoContext)
+
 	// EnterRow_access_policy_alter_action_list is called when entering the row_access_policy_alter_action_list production.
 	EnterRow_access_policy_alter_action_list(c *Row_access_policy_alter_action_listContext)
 
@@ -1065,6 +1074,15 @@ type GoogleSQLParserListener interface {
 
 	// ExitAlter_statement is called when exiting the alter_statement production.
 	ExitAlter_statement(c *Alter_statementContext)
+
+	// ExitAnalyze_statement is called when exiting the analyze_statement production.
+	ExitAnalyze_statement(c *Analyze_statementContext)
+
+	// ExitTable_and_column_info_list is called when exiting the table_and_column_info_list production.
+	ExitTable_and_column_info_list(c *Table_and_column_info_listContext)
+
+	// ExitTable_and_column_info is called when exiting the table_and_column_info production.
+	ExitTable_and_column_info(c *Table_and_column_infoContext)
 
 	// ExitRow_access_policy_alter_action_list is called when exiting the row_access_policy_alter_action_list production.
 	ExitRow_access_policy_alter_action_list(c *Row_access_policy_alter_action_listContext)

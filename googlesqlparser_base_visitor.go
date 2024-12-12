@@ -27,6 +27,18 @@ func (v *BaseGoogleSQLParserVisitor) VisitAlter_statement(ctx *Alter_statementCo
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitAnalyze_statement(ctx *Analyze_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTable_and_column_info_list(ctx *Table_and_column_info_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTable_and_column_info(ctx *Table_and_column_infoContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitRow_access_policy_alter_action_list(ctx *Row_access_policy_alter_action_listContext) interface{} {
 	return v.VisitChildren(ctx)
 }

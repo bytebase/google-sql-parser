@@ -50,6 +50,26 @@ func (s *BaseGoogleSQLParserListener) EnterAlter_statement(ctx *Alter_statementC
 // ExitAlter_statement is called when production alter_statement is exited.
 func (s *BaseGoogleSQLParserListener) ExitAlter_statement(ctx *Alter_statementContext) {}
 
+// EnterAnalyze_statement is called when production analyze_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterAnalyze_statement(ctx *Analyze_statementContext) {}
+
+// ExitAnalyze_statement is called when production analyze_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitAnalyze_statement(ctx *Analyze_statementContext) {}
+
+// EnterTable_and_column_info_list is called when production table_and_column_info_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterTable_and_column_info_list(ctx *Table_and_column_info_listContext) {
+}
+
+// ExitTable_and_column_info_list is called when production table_and_column_info_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitTable_and_column_info_list(ctx *Table_and_column_info_listContext) {
+}
+
+// EnterTable_and_column_info is called when production table_and_column_info is entered.
+func (s *BaseGoogleSQLParserListener) EnterTable_and_column_info(ctx *Table_and_column_infoContext) {}
+
+// ExitTable_and_column_info is called when production table_and_column_info is exited.
+func (s *BaseGoogleSQLParserListener) ExitTable_and_column_info(ctx *Table_and_column_infoContext) {}
+
 // EnterRow_access_policy_alter_action_list is called when production row_access_policy_alter_action_list is entered.
 func (s *BaseGoogleSQLParserListener) EnterRow_access_policy_alter_action_list(ctx *Row_access_policy_alter_action_listContext) {
 }

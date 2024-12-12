@@ -8,7 +8,7 @@ root: stmts EOF;
 
 stmts: stmt (SEMI_SYMBOL stmt)* SEMI_SYMBOL?;
 
-stmt: query_statement | alter_statement;
+stmt: query_statement | alter_statement | analyze_statement;
 
 // query_statement: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax
 query_statement: query;
@@ -25,6 +25,15 @@ alter_statement:
 		path_expression row_access_policy_alter_action_list
 	| ALTER_SYMBOL ALL_SYMBOL ROW_SYMBOL ACCESS_SYMBOL POLICIES_SYMBOL ON_SYMBOL path_expression
 		row_access_policy_alter_action;
+
+analyze_statement:
+	ANALYZE_SYMBOL opt_options_list? table_and_column_info_list?;
+
+table_and_column_info_list:
+	table_and_column_info (COMMA_SYMBOL table_and_column_info)*;
+
+table_and_column_info:
+	maybe_dashed_path_expression column_list?;
 
 row_access_policy_alter_action_list:
 	row_access_policy_alter_action (

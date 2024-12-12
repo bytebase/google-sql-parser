@@ -64,6 +64,8 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/alter_table_multiple_actions.test",
         "zetasql/parser/testdata/alter_table_rename_to.test",
         "zetasql/parser/testdata/alter_table_ttl.test",
+        # analyze_statement
+        "zetasql/parser/testdata/analyze.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)
