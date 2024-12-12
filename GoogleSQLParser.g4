@@ -91,6 +91,7 @@ alter_action:
 	| DROP_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier
 	| RENAME_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier TO_SYMBOL identifier
 	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier SET_SYMBOL DATA_SYMBOL TYPE_SYMBOL
+		field_schema
 	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier SET_SYMBOL OPTIONS_SYMBOL options_list
 	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier SET_SYMBOL DEFAULT_SYMBOL expression
 	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier DROP_SYMBOL DEFAULT_SYMBOL

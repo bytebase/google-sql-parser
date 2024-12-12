@@ -44,7 +44,10 @@ def extract_valid_statement_from_block(block: str) -> str:
 
 
 if __name__ == "__main__":
-    filepaths = ["zetasql/parser/testdata/alter_column_set_drop_default.test"]
+    filepaths = [
+        "zetasql/parser/testdata/alter_column_set_drop_default.test",
+        "zetasql/parser/testdata/alter_column_type.test",
+    ]
     for filepath in filepaths:
         content = fetch_file(filepath)
         valid_statements = extract_valid_statement_from_page(content)
