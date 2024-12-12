@@ -9,15 +9,101 @@ root: stmts EOF;
 stmts: stmt (SEMI_SYMBOL stmt)* SEMI_SYMBOL?;
 
 stmt:
-	query_statement
-	| alter_statement
-	| analyze_statement
-	| assert_statement
-	| aux_load_data_statement
-	| clone_data_statement;
+	statement_level_hint? (
+		query_statement
+		| alter_statement
+		| analyze_statement
+		| assert_statement
+		| aux_load_data_statement
+		| clone_data_statement
+		| dml_statement
+	);
+
+statement_level_hint: hint;
 
 // query_statement: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax
 query_statement: query;
+
+dml_statement: insert_statement;
+
+insert_statement:
+	insert_statement_prefix column_list? insert_values_or_query opt_assert_rows_modified?
+		opt_returning_clause?
+	| insert_statement_prefix column_list? insert_values_list_or_table_clause on_conflict_clause
+		opt_assert_rows_modified? opt_returning_clause?
+	| insert_statement_prefix column_list? LR_BRACKET_SYMBOL query RR_BRACKET_SYMBOL
+		on_conflict_clause opt_assert_rows_modified? opt_returning_clause?;
+
+on_conflict_clause:
+	ON_SYMBOL CONFLICT_SYMBOL opt_conflict_target? DO_SYMBOL NOTHING_SYMBOL
+	| ON_SYMBOL CONFLICT_SYMBOL opt_conflict_target? DO_SYMBOL UPDATE_SYMBOL SET_SYMBOL
+		update_item_list opt_where_expression?;
+
+opt_where_expression: WHERE_SYMBOL expression;
+
+opt_conflict_target:
+	column_list
+	| ON_SYMBOL UNIQUE_SYMBOL CONSTRAINT_SYMBOL identifier;
+
+update_item_list: update_item (COMMA_SYMBOL update_item)*;
+
+update_item: update_set_value | nested_dml_statement;
+
+update_set_value:
+	generalized_path_expression EQUAL_OPERATOR expression_or_default;
+
+nested_dml_statement:
+	LR_BRACKET_SYMBOL dml_statement RR_BRACKET_SYMBOL;
+
+insert_values_list_or_table_clause:
+	insert_values_list
+	| table_clause_unreversed;
+
+table_clause_unreversed: TABLE_SYMBOL table_clause_no_keyword;
+
+table_clause_no_keyword:
+	path_expression where_clause?
+	| tvf_with_suffixes where_clause?;
+
+opt_returning_clause:
+	THEN_SYMBOL RETURN_SYMBOL select_list
+	| THEN_SYMBOL RETURN_SYMBOL WITH_SYMBOL ACTION_SYMBOL select_list
+	| THEN_SYMBOL RETURN_SYMBOL WITH_SYMBOL ACTION_SYMBOL AS_SYMBOL identifier select_list;
+
+opt_assert_rows_modified:
+	ASSERT_ROWS_MODIFIED_SYMBOL possibly_cast_int_literal_or_parameter;
+
+insert_values_or_query: insert_values_list | query;
+
+insert_values_list:
+	VALUES_SYMBOL insert_values_row (
+		COMMA_SYMBOL insert_values_row
+	)*;
+
+insert_values_row:
+	LR_BRACKET_SYMBOL expression_or_default (
+		COMMA_SYMBOL expression_or_default
+	)* RR_BRACKET_SYMBOL;
+
+expression_or_default: expression | DEFAULT_SYMBOL;
+
+insert_statement_prefix:
+	INSERT_SYMBOL opt_or_ignore_replace_update? opt_into? maybe_dashed_generalized_path_expression
+		hint?;
+
+maybe_dashed_generalized_path_expression:
+	generalized_path_expression
+	| dashed_path_expression;
+
+opt_into: INTO_SYMBOL;
+
+opt_or_ignore_replace_update:
+	OR_SYMBOL IGNORE_SYMBOL
+	| IGNORE_SYMBOL
+	| OR_SYMBOL REPLACE_SYMBOL
+	| REPLACE_SYMBOL
+	| OR_SYMBOL UPDATE_SYMBOL
+	| UPDATE_SYMBOL;
 
 alter_statement:
 	ALTER_SYMBOL table_or_table_function opt_if_exists? maybe_dashed_path_expression
@@ -1325,10 +1411,9 @@ generalized_path_expression:
 	| generalized_path_expression LS_BRACKET_SYMBOL expression RS_BRACKET_SYMBOL;
 
 generalized_extension_path:
-	identifier
-	| generalized_path_expression DOT_SYMBOL generalized_extension_path
-	| generalized_path_expression DOT_SYMBOL identifier
-	| generalized_path_expression LS_BRACKET_SYMBOL expression RS_BRACKET_SYMBOL;
+	LR_BRACKET_SYMBOL path_expression RR_BRACKET_SYMBOL
+	| generalized_extension_path DOT_SYMBOL LR_BRACKET_SYMBOL path_expression RR_BRACKET_SYMBOL
+	| generalized_extension_path DOT_SYMBOL identifier;
 
 with_expression:
 	/* XXX(zp): zetasql Yacc implement this in lookahead_transformer. */ WITH_SYMBOL
@@ -1537,6 +1622,7 @@ common_keyword_as_identifier:
 	| CASCADE_SYMBOL
 	| CHECK_SYMBOL
 	| CLAMPED_SYMBOL
+	| CONFLICT_SYMBOL
 	| CLONE_SYMBOL
 	| COPY_SYMBOL
 	| CLUSTER_SYMBOL
