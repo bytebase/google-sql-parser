@@ -24,7 +24,15 @@ statement_level_hint: hint;
 // query_statement: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax
 query_statement: query;
 
-dml_statement: insert_statement | delete_statement;
+dml_statement:
+	insert_statement
+	| delete_statement
+	| update_statement;
+
+update_statement:
+	UPDATE_SYMBOL maybe_dashed_generalized_path_expression hint? as_alias? opt_with_offset_and_alias
+		? SET_SYMBOL update_item_list from_clause? opt_where_expression? opt_assert_rows_modified?
+		opt_returning_clause?;
 
 delete_statement:
 	DELETE_SYMBOL FROM_SYMBOL? maybe_dashed_generalized_path_expression hint? as_alias?

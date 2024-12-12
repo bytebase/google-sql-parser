@@ -56,6 +56,12 @@ func (s *BaseGoogleSQLParserListener) EnterDml_statement(ctx *Dml_statementConte
 // ExitDml_statement is called when production dml_statement is exited.
 func (s *BaseGoogleSQLParserListener) ExitDml_statement(ctx *Dml_statementContext) {}
 
+// EnterUpdate_statement is called when production update_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterUpdate_statement(ctx *Update_statementContext) {}
+
+// ExitUpdate_statement is called when production update_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitUpdate_statement(ctx *Update_statementContext) {}
+
 // EnterDelete_statement is called when production delete_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterDelete_statement(ctx *Delete_statementContext) {}
 

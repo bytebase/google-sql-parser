@@ -25,6 +25,9 @@ type GoogleSQLParserListener interface {
 	// EnterDml_statement is called when entering the dml_statement production.
 	EnterDml_statement(c *Dml_statementContext)
 
+	// EnterUpdate_statement is called when entering the update_statement production.
+	EnterUpdate_statement(c *Update_statementContext)
+
 	// EnterDelete_statement is called when entering the delete_statement production.
 	EnterDelete_statement(c *Delete_statementContext)
 
@@ -1200,6 +1203,9 @@ type GoogleSQLParserListener interface {
 
 	// ExitDml_statement is called when exiting the dml_statement production.
 	ExitDml_statement(c *Dml_statementContext)
+
+	// ExitUpdate_statement is called when exiting the update_statement production.
+	ExitUpdate_statement(c *Update_statementContext)
 
 	// ExitDelete_statement is called when exiting the delete_statement production.
 	ExitDelete_statement(c *Delete_statementContext)
