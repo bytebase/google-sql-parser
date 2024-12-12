@@ -36,15 +36,35 @@ def extract_valid_statement_from_page(content: str) -> list[str]:
 def extract_valid_statement_from_block(block: str) -> str:
     if "ERROR" in block:
         return ""
-    # return the last non-empty line
+    # skip the empty line, and read reversely until meet '--'
     lines = block.split("\n")
+    valid_statement_lines = []
     for line in reversed(lines):
+        if line == "":
+            continue
+        if line == "--":
+            break
         if line != "":
-            return line
-
+            valid_statement_lines.append(line)
+    return "\n".join(reversed(valid_statement_lines))
 
 if __name__ == "__main__":
-    filepaths = ["zetasql/parser/testdata/alter_column_set_drop_default.test"]
+    filepaths = [
+        # alter_statement
+        "zetasql/parser/testdata/alter_column_set_drop_default.test",
+        "zetasql/parser/testdata/alter_column_type.test",
+        "zetasql/parser/testdata/alter_row_access_policy.test",
+        "zetasql/parser/testdata/alter_set_options.test",
+        "zetasql/parser/testdata/alter_table_add_check_constraint.test",
+        "zetasql/parser/testdata/alter_table_add_column.test",
+        "zetasql/parser/testdata/alter_table_add_foreign_key.test",
+        "zetasql/parser/testdata/alter_table_alter_constraint.test",
+        "zetasql/parser/testdata/alter_table_drop_column.test",
+        "zetasql/parser/testdata/alter_table_drop_constraint.test",
+        "zetasql/parser/testdata/alter_table_multiple_actions.test",
+        "zetasql/parser/testdata/alter_table_rename_to.test",
+        "zetasql/parser/testdata/alter_table_ttl.test",
+    ]
     for filepath in filepaths:
         content = fetch_file(filepath)
         valid_statements = extract_valid_statement_from_page(content)

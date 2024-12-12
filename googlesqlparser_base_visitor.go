@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -291,7 +291,7 @@ func (v *BaseGoogleSQLParserVisitor) VisitColumn_list(ctx *Column_listContext) i
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitOptions_options_list(ctx *Options_options_listContext) interface{} {
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_options_list(ctx *Opt_options_listContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

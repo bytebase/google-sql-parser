@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -500,11 +500,11 @@ func (s *BaseGoogleSQLParserListener) EnterColumn_list(ctx *Column_listContext) 
 // ExitColumn_list is called when production column_list is exited.
 func (s *BaseGoogleSQLParserListener) ExitColumn_list(ctx *Column_listContext) {}
 
-// EnterOptions_options_list is called when production options_options_list is entered.
-func (s *BaseGoogleSQLParserListener) EnterOptions_options_list(ctx *Options_options_listContext) {}
+// EnterOpt_options_list is called when production opt_options_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_options_list(ctx *Opt_options_listContext) {}
 
-// ExitOptions_options_list is called when production options_options_list is exited.
-func (s *BaseGoogleSQLParserListener) ExitOptions_options_list(ctx *Options_options_listContext) {}
+// ExitOpt_options_list is called when production opt_options_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_options_list(ctx *Opt_options_listContext) {}
 
 // EnterConstraint_enforcement is called when production constraint_enforcement is entered.
 func (s *BaseGoogleSQLParserListener) EnterConstraint_enforcement(ctx *Constraint_enforcementContext) {

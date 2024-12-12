@@ -41,7 +41,10 @@ row_access_policy_alter_action:
 grant_to_clause:
 	GRANT_SYMBOL TO_SYMBOL LR_BRACKET_SYMBOL grantee_list RR_BRACKET_SYMBOL;
 
-grantee_list: string_literal (COMMA_SYMBOL string_literal)*;
+grantee_list:
+	string_literal_or_parameter (
+		COMMA_SYMBOL string_literal_or_parameter
+	)*;
 
 privilege_list: privilege (COMMA_SYMBOL privilege)*;
 
@@ -86,11 +89,12 @@ alter_action:
 	| ALTER_SYMBOL CONSTRAINT_SYMBOL opt_if_exists? identifier constraint_enforcement
 	| ALTER_SYMBOL CONSTRAINT_SYMBOL opt_if_exists? identifier SET_SYMBOL OPTIONS_SYMBOL
 		options_list
-	| ADD_SYMBOL COLUMN_SYMBOL opt_if_not_exists table_column_definition column_position?
+	| ADD_SYMBOL COLUMN_SYMBOL opt_if_not_exists? table_column_definition column_position?
 		fill_using_expression?
 	| DROP_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier
 	| RENAME_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier TO_SYMBOL identifier
 	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier SET_SYMBOL DATA_SYMBOL TYPE_SYMBOL
+		field_schema
 	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier SET_SYMBOL OPTIONS_SYMBOL options_list
 	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier SET_SYMBOL DEFAULT_SYMBOL expression
 	| ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier DROP_SYMBOL DEFAULT_SYMBOL
@@ -114,7 +118,7 @@ spanner_set_on_delete_action:
 
 spanner_alter_column_action:
 	ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier column_schema_inner
-		not_null_column_attribute? spanner_generated_or_default? options_list?;
+		not_null_column_attribute? spanner_generated_or_default? opt_options_list?;
 
 spanner_generated_or_default:
 	AS_SYMBOL LR_BRACKET_SYMBOL expression RR_BRACKET_SYMBOL STORED_SYMBOL;
@@ -130,9 +134,9 @@ column_position:
 	| FOLLOWING_SYMBOL identifier;
 
 table_column_definition:
-	identifier table_column_schema column_attributes? options_list?;
+	identifier table_column_schema column_attributes? opt_options_list?;
 
-column_attributes: column_attribute+ constraint_enforcement;
+column_attributes: column_attribute+ constraint_enforcement?;
 
 column_attribute:
 	primary_key_column_attribute
@@ -234,7 +238,7 @@ array_column_schema_inner:
 	ARRAY_SYMBOL template_type_open field_schema template_type_close;
 
 field_schema:
-	column_schema_inner collate_clause? opt_field_attributes? options_list?;
+	column_schema_inner collate_clause? opt_field_attributes? opt_options_list?;
 
 opt_field_attributes: not_null_column_attribute;
 
@@ -247,7 +251,7 @@ primary_key_or_table_constraint_spec:
 opt_if_not_exists: IF_SYMBOL NOT_SYMBOL EXISTS_SYMBOL;
 
 primary_key_spec:
-	PRIMARY_SYMBOL KEY_SYMBOL primary_key_element_list constraint_enforcement? options_list?;
+	PRIMARY_SYMBOL KEY_SYMBOL primary_key_element_list constraint_enforcement? opt_options_list?;
 
 primary_key_element_list:
 	LR_BRACKET_SYMBOL (
@@ -258,9 +262,9 @@ primary_key_element: identifier asc_or_desc? null_order?;
 
 table_constraint_spec:
 	CHECK_SYMBOL LR_BRACKET_SYMBOL expression RR_BRACKET_SYMBOL constraint_enforcement?
-		options_options_list?
+		opt_options_list?
 	| FOREIGN_SYMBOL KEY_SYMBOL column_list foreign_key_reference constraint_enforcement?
-		options_options_list?;
+		opt_options_list?;
 
 foreign_key_reference:
 	REFERENCES_SYMBOL path_expression column_list opt_foreign_key_match? opt_foreign_key_action?;
@@ -291,7 +295,7 @@ foreign_key_match_mode:
 column_list:
 	LR_BRACKET_SYMBOL identifier (COMMA_SYMBOL identifier)* RR_BRACKET_SYMBOL;
 
-options_options_list: OPTIONS_SYMBOL options_list;
+opt_options_list: OPTIONS_SYMBOL options_list;
 
 constraint_enforcement: NOT_SYMBOL? ENFORCED_SYMBOL;
 
@@ -1114,7 +1118,7 @@ options_entry:
 expression_or_proto: PROTO_SYMBOL | expression;
 
 options_assignment_operator:
-	MULTIPLY_OPERATOR
+	EQUAL_OPERATOR
 	| PLUS_EQUAL_SYMBOL
 	| SUB_EQUAL_SYMBOL;
 
