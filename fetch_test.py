@@ -73,6 +73,7 @@ if __name__ == "__main__":
         # dml_statement
         "zetasql/parser/testdata/dml_insert.test",
         "zetasql/parser/testdata/dml_insert_on_conflict_clause.test",
+        "zetasql/parser/testdata/dml_delete.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)

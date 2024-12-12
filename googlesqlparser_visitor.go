@@ -25,6 +25,9 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#dml_statement.
 	VisitDml_statement(ctx *Dml_statementContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#delete_statement.
+	VisitDelete_statement(ctx *Delete_statementContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#insert_statement.
 	VisitInsert_statement(ctx *Insert_statementContext) interface{}
 

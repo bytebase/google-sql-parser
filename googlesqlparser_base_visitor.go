@@ -31,6 +31,10 @@ func (v *BaseGoogleSQLParserVisitor) VisitDml_statement(ctx *Dml_statementContex
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitDelete_statement(ctx *Delete_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitInsert_statement(ctx *Insert_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
