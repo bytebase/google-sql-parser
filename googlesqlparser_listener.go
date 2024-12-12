@@ -28,6 +28,42 @@ type GoogleSQLParserListener interface {
 	// EnterAssert_statement is called when entering the assert_statement production.
 	EnterAssert_statement(c *Assert_statementContext)
 
+	// EnterAux_load_data_statement is called when entering the aux_load_data_statement production.
+	EnterAux_load_data_statement(c *Aux_load_data_statementContext)
+
+	// EnterOpt_external_table_with_clauses is called when entering the opt_external_table_with_clauses production.
+	EnterOpt_external_table_with_clauses(c *Opt_external_table_with_clausesContext)
+
+	// EnterWith_connection_clause is called when entering the with_connection_clause production.
+	EnterWith_connection_clause(c *With_connection_clauseContext)
+
+	// EnterWith_partition_columns_clause is called when entering the with_partition_columns_clause production.
+	EnterWith_partition_columns_clause(c *With_partition_columns_clauseContext)
+
+	// EnterAux_load_data_from_files_options_list is called when entering the aux_load_data_from_files_options_list production.
+	EnterAux_load_data_from_files_options_list(c *Aux_load_data_from_files_options_listContext)
+
+	// EnterCluster_by_clause_prefix_no_hint is called when entering the cluster_by_clause_prefix_no_hint production.
+	EnterCluster_by_clause_prefix_no_hint(c *Cluster_by_clause_prefix_no_hintContext)
+
+	// EnterLoad_data_partitions_clause is called when entering the load_data_partitions_clause production.
+	EnterLoad_data_partitions_clause(c *Load_data_partitions_clauseContext)
+
+	// EnterMaybe_dashed_path_expression_with_scope is called when entering the maybe_dashed_path_expression_with_scope production.
+	EnterMaybe_dashed_path_expression_with_scope(c *Maybe_dashed_path_expression_with_scopeContext)
+
+	// EnterTable_element_list is called when entering the table_element_list production.
+	EnterTable_element_list(c *Table_element_listContext)
+
+	// EnterTable_element is called when entering the table_element production.
+	EnterTable_element(c *Table_elementContext)
+
+	// EnterTable_constraint_definition is called when entering the table_constraint_definition production.
+	EnterTable_constraint_definition(c *Table_constraint_definitionContext)
+
+	// EnterAppend_or_overwrite is called when entering the append_or_overwrite production.
+	EnterAppend_or_overwrite(c *Append_or_overwriteContext)
+
 	// EnterOpt_description is called when entering the opt_description production.
 	EnterOpt_description(c *Opt_descriptionContext)
 
@@ -1086,6 +1122,42 @@ type GoogleSQLParserListener interface {
 
 	// ExitAssert_statement is called when exiting the assert_statement production.
 	ExitAssert_statement(c *Assert_statementContext)
+
+	// ExitAux_load_data_statement is called when exiting the aux_load_data_statement production.
+	ExitAux_load_data_statement(c *Aux_load_data_statementContext)
+
+	// ExitOpt_external_table_with_clauses is called when exiting the opt_external_table_with_clauses production.
+	ExitOpt_external_table_with_clauses(c *Opt_external_table_with_clausesContext)
+
+	// ExitWith_connection_clause is called when exiting the with_connection_clause production.
+	ExitWith_connection_clause(c *With_connection_clauseContext)
+
+	// ExitWith_partition_columns_clause is called when exiting the with_partition_columns_clause production.
+	ExitWith_partition_columns_clause(c *With_partition_columns_clauseContext)
+
+	// ExitAux_load_data_from_files_options_list is called when exiting the aux_load_data_from_files_options_list production.
+	ExitAux_load_data_from_files_options_list(c *Aux_load_data_from_files_options_listContext)
+
+	// ExitCluster_by_clause_prefix_no_hint is called when exiting the cluster_by_clause_prefix_no_hint production.
+	ExitCluster_by_clause_prefix_no_hint(c *Cluster_by_clause_prefix_no_hintContext)
+
+	// ExitLoad_data_partitions_clause is called when exiting the load_data_partitions_clause production.
+	ExitLoad_data_partitions_clause(c *Load_data_partitions_clauseContext)
+
+	// ExitMaybe_dashed_path_expression_with_scope is called when exiting the maybe_dashed_path_expression_with_scope production.
+	ExitMaybe_dashed_path_expression_with_scope(c *Maybe_dashed_path_expression_with_scopeContext)
+
+	// ExitTable_element_list is called when exiting the table_element_list production.
+	ExitTable_element_list(c *Table_element_listContext)
+
+	// ExitTable_element is called when exiting the table_element production.
+	ExitTable_element(c *Table_elementContext)
+
+	// ExitTable_constraint_definition is called when exiting the table_constraint_definition production.
+	ExitTable_constraint_definition(c *Table_constraint_definitionContext)
+
+	// ExitAppend_or_overwrite is called when exiting the append_or_overwrite production.
+	ExitAppend_or_overwrite(c *Append_or_overwriteContext)
 
 	// ExitOpt_description is called when exiting the opt_description production.
 	ExitOpt_description(c *Opt_descriptionContext)

@@ -12,7 +12,8 @@ stmt:
 	query_statement
 	| alter_statement
 	| analyze_statement
-	| assert_statement;
+	| assert_statement
+	| aux_load_data_statement;
 
 // query_statement: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax
 query_statement: query;
@@ -34,6 +35,52 @@ analyze_statement:
 	ANALYZE_SYMBOL opt_options_list? table_and_column_info_list?;
 
 assert_statement: ASSERT_SYMBOL expression opt_description?;
+
+aux_load_data_statement:
+	LOAD_SYMBOL DATA_SYMBOL append_or_overwrite maybe_dashed_path_expression_with_scope
+		table_element_list? load_data_partitions_clause? collate_clause?
+		partition_by_clause_prefix_no_hint? cluster_by_clause_prefix_no_hint? opt_options_list?
+		aux_load_data_from_files_options_list opt_external_table_with_clauses?;
+
+opt_external_table_with_clauses:
+	with_partition_columns_clause with_connection_clause
+	| with_partition_columns_clause
+	| with_connection_clause;
+
+with_connection_clause: WITH_SYMBOL connection_clause;
+
+with_partition_columns_clause:
+	WITH_SYMBOL PARTITION_SYMBOL COLUMNS_SYMBOL table_element_list?;
+
+aux_load_data_from_files_options_list:
+	FROM_SYMBOL FILES_SYMBOL options_list;
+
+cluster_by_clause_prefix_no_hint:
+	CLUSTER_SYMBOL BY_SYMBOL expression (COMMA_SYMBOL expression)*;
+
+load_data_partitions_clause:
+	OVERWRITE_SYMBOL? PARTITIONS_SYMBOL LR_BRACKET_SYMBOL expression RR_BRACKET_SYMBOL;
+
+maybe_dashed_path_expression_with_scope:
+	TEMP_SYMBOL TABLE_SYMBOL maybe_dashed_path_expression
+	| TEMPORARY_SYMBOL TABLE_SYMBOL maybe_dashed_path_expression
+	| maybe_dashed_path_expression;
+
+table_element_list:
+	LR_BRACKET_SYMBOL (
+		table_element (COMMA_SYMBOL table_element)* COMMA_SYMBOL?
+	)? RR_BRACKET_SYMBOL;
+
+table_element:
+	table_column_definition
+	| table_constraint_definition;
+
+table_constraint_definition:
+	primary_key_spec
+	| table_constraint_spec
+	| identifier identifier table_constraint_spec;
+
+append_or_overwrite: INTO_SYMBOL | OVERWRITE_SYMBOL;
 
 opt_description: AS_SYMBOL string_literal;
 

@@ -62,6 +62,96 @@ func (s *BaseGoogleSQLParserListener) EnterAssert_statement(ctx *Assert_statemen
 // ExitAssert_statement is called when production assert_statement is exited.
 func (s *BaseGoogleSQLParserListener) ExitAssert_statement(ctx *Assert_statementContext) {}
 
+// EnterAux_load_data_statement is called when production aux_load_data_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterAux_load_data_statement(ctx *Aux_load_data_statementContext) {
+}
+
+// ExitAux_load_data_statement is called when production aux_load_data_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitAux_load_data_statement(ctx *Aux_load_data_statementContext) {
+}
+
+// EnterOpt_external_table_with_clauses is called when production opt_external_table_with_clauses is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_external_table_with_clauses(ctx *Opt_external_table_with_clausesContext) {
+}
+
+// ExitOpt_external_table_with_clauses is called when production opt_external_table_with_clauses is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_external_table_with_clauses(ctx *Opt_external_table_with_clausesContext) {
+}
+
+// EnterWith_connection_clause is called when production with_connection_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterWith_connection_clause(ctx *With_connection_clauseContext) {
+}
+
+// ExitWith_connection_clause is called when production with_connection_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitWith_connection_clause(ctx *With_connection_clauseContext) {
+}
+
+// EnterWith_partition_columns_clause is called when production with_partition_columns_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterWith_partition_columns_clause(ctx *With_partition_columns_clauseContext) {
+}
+
+// ExitWith_partition_columns_clause is called when production with_partition_columns_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitWith_partition_columns_clause(ctx *With_partition_columns_clauseContext) {
+}
+
+// EnterAux_load_data_from_files_options_list is called when production aux_load_data_from_files_options_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterAux_load_data_from_files_options_list(ctx *Aux_load_data_from_files_options_listContext) {
+}
+
+// ExitAux_load_data_from_files_options_list is called when production aux_load_data_from_files_options_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitAux_load_data_from_files_options_list(ctx *Aux_load_data_from_files_options_listContext) {
+}
+
+// EnterCluster_by_clause_prefix_no_hint is called when production cluster_by_clause_prefix_no_hint is entered.
+func (s *BaseGoogleSQLParserListener) EnterCluster_by_clause_prefix_no_hint(ctx *Cluster_by_clause_prefix_no_hintContext) {
+}
+
+// ExitCluster_by_clause_prefix_no_hint is called when production cluster_by_clause_prefix_no_hint is exited.
+func (s *BaseGoogleSQLParserListener) ExitCluster_by_clause_prefix_no_hint(ctx *Cluster_by_clause_prefix_no_hintContext) {
+}
+
+// EnterLoad_data_partitions_clause is called when production load_data_partitions_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterLoad_data_partitions_clause(ctx *Load_data_partitions_clauseContext) {
+}
+
+// ExitLoad_data_partitions_clause is called when production load_data_partitions_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitLoad_data_partitions_clause(ctx *Load_data_partitions_clauseContext) {
+}
+
+// EnterMaybe_dashed_path_expression_with_scope is called when production maybe_dashed_path_expression_with_scope is entered.
+func (s *BaseGoogleSQLParserListener) EnterMaybe_dashed_path_expression_with_scope(ctx *Maybe_dashed_path_expression_with_scopeContext) {
+}
+
+// ExitMaybe_dashed_path_expression_with_scope is called when production maybe_dashed_path_expression_with_scope is exited.
+func (s *BaseGoogleSQLParserListener) ExitMaybe_dashed_path_expression_with_scope(ctx *Maybe_dashed_path_expression_with_scopeContext) {
+}
+
+// EnterTable_element_list is called when production table_element_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterTable_element_list(ctx *Table_element_listContext) {}
+
+// ExitTable_element_list is called when production table_element_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitTable_element_list(ctx *Table_element_listContext) {}
+
+// EnterTable_element is called when production table_element is entered.
+func (s *BaseGoogleSQLParserListener) EnterTable_element(ctx *Table_elementContext) {}
+
+// ExitTable_element is called when production table_element is exited.
+func (s *BaseGoogleSQLParserListener) ExitTable_element(ctx *Table_elementContext) {}
+
+// EnterTable_constraint_definition is called when production table_constraint_definition is entered.
+func (s *BaseGoogleSQLParserListener) EnterTable_constraint_definition(ctx *Table_constraint_definitionContext) {
+}
+
+// ExitTable_constraint_definition is called when production table_constraint_definition is exited.
+func (s *BaseGoogleSQLParserListener) ExitTable_constraint_definition(ctx *Table_constraint_definitionContext) {
+}
+
+// EnterAppend_or_overwrite is called when production append_or_overwrite is entered.
+func (s *BaseGoogleSQLParserListener) EnterAppend_or_overwrite(ctx *Append_or_overwriteContext) {}
+
+// ExitAppend_or_overwrite is called when production append_or_overwrite is exited.
+func (s *BaseGoogleSQLParserListener) ExitAppend_or_overwrite(ctx *Append_or_overwriteContext) {}
+
 // EnterOpt_description is called when production opt_description is entered.
 func (s *BaseGoogleSQLParserListener) EnterOpt_description(ctx *Opt_descriptionContext) {}
 

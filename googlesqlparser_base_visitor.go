@@ -35,6 +35,54 @@ func (v *BaseGoogleSQLParserVisitor) VisitAssert_statement(ctx *Assert_statement
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitAux_load_data_statement(ctx *Aux_load_data_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_external_table_with_clauses(ctx *Opt_external_table_with_clausesContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitWith_connection_clause(ctx *With_connection_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitWith_partition_columns_clause(ctx *With_partition_columns_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitAux_load_data_from_files_options_list(ctx *Aux_load_data_from_files_options_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitCluster_by_clause_prefix_no_hint(ctx *Cluster_by_clause_prefix_no_hintContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitLoad_data_partitions_clause(ctx *Load_data_partitions_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitMaybe_dashed_path_expression_with_scope(ctx *Maybe_dashed_path_expression_with_scopeContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTable_element_list(ctx *Table_element_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTable_element(ctx *Table_elementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTable_constraint_definition(ctx *Table_constraint_definitionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitAppend_or_overwrite(ctx *Append_or_overwriteContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitOpt_description(ctx *Opt_descriptionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
