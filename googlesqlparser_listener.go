@@ -25,6 +25,12 @@ type GoogleSQLParserListener interface {
 	// EnterAnalyze_statement is called when entering the analyze_statement production.
 	EnterAnalyze_statement(c *Analyze_statementContext)
 
+	// EnterAssert_statement is called when entering the assert_statement production.
+	EnterAssert_statement(c *Assert_statementContext)
+
+	// EnterOpt_description is called when entering the opt_description production.
+	EnterOpt_description(c *Opt_descriptionContext)
+
 	// EnterTable_and_column_info_list is called when entering the table_and_column_info_list production.
 	EnterTable_and_column_info_list(c *Table_and_column_info_listContext)
 
@@ -1077,6 +1083,12 @@ type GoogleSQLParserListener interface {
 
 	// ExitAnalyze_statement is called when exiting the analyze_statement production.
 	ExitAnalyze_statement(c *Analyze_statementContext)
+
+	// ExitAssert_statement is called when exiting the assert_statement production.
+	ExitAssert_statement(c *Assert_statementContext)
+
+	// ExitOpt_description is called when exiting the opt_description production.
+	ExitOpt_description(c *Opt_descriptionContext)
 
 	// ExitTable_and_column_info_list is called when exiting the table_and_column_info_list production.
 	ExitTable_and_column_info_list(c *Table_and_column_info_listContext)

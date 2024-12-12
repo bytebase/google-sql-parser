@@ -25,6 +25,12 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#analyze_statement.
 	VisitAnalyze_statement(ctx *Analyze_statementContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#assert_statement.
+	VisitAssert_statement(ctx *Assert_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_description.
+	VisitOpt_description(ctx *Opt_descriptionContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#table_and_column_info_list.
 	VisitTable_and_column_info_list(ctx *Table_and_column_info_listContext) interface{}
 

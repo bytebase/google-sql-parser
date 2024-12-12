@@ -31,6 +31,14 @@ func (v *BaseGoogleSQLParserVisitor) VisitAnalyze_statement(ctx *Analyze_stateme
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitAssert_statement(ctx *Assert_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_description(ctx *Opt_descriptionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitTable_and_column_info_list(ctx *Table_and_column_info_listContext) interface{} {
 	return v.VisitChildren(ctx)
 }
