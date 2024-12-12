@@ -56,6 +56,7 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/alter_row_access_policy.test",
         "zetasql/parser/testdata/alter_set_options.test",
         "zetasql/parser/testdata/alter_table_add_check_constraint.test",
+        "zetasql/parser/testdata/alter_table_add_column.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)

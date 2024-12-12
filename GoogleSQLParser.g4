@@ -89,7 +89,7 @@ alter_action:
 	| ALTER_SYMBOL CONSTRAINT_SYMBOL opt_if_exists? identifier constraint_enforcement
 	| ALTER_SYMBOL CONSTRAINT_SYMBOL opt_if_exists? identifier SET_SYMBOL OPTIONS_SYMBOL
 		options_list
-	| ADD_SYMBOL COLUMN_SYMBOL opt_if_not_exists table_column_definition column_position?
+	| ADD_SYMBOL COLUMN_SYMBOL opt_if_not_exists? table_column_definition column_position?
 		fill_using_expression?
 	| DROP_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier
 	| RENAME_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier TO_SYMBOL identifier
