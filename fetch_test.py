@@ -50,10 +50,12 @@ def extract_valid_statement_from_block(block: str) -> str:
 
 if __name__ == "__main__":
     filepaths = [
+        # alter_statement
         "zetasql/parser/testdata/alter_column_set_drop_default.test",
         "zetasql/parser/testdata/alter_column_type.test",
         "zetasql/parser/testdata/alter_row_access_policy.test",
-        "zetasql/parser/testdata/alter_set_options.test"
+        "zetasql/parser/testdata/alter_set_options.test",
+        "zetasql/parser/testdata/alter_table_add_check_constraint.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)
