@@ -444,6 +444,7 @@ SOME_SYMBOL: 'SOME';
 LIKE_SYMBOL: 'LIKE';
 IS_SYMBOL: 'IS';
 NO_SYMBOL: 'NO';
+INTO_SYMBOL: 'INTO';
 
 /* Identifiers: */
 fragment EXPONENT_WITHOUT_SIGN: E [0-9]+;

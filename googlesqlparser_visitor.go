@@ -28,6 +28,42 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#assert_statement.
 	VisitAssert_statement(ctx *Assert_statementContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#aux_load_data_statement.
+	VisitAux_load_data_statement(ctx *Aux_load_data_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_external_table_with_clauses.
+	VisitOpt_external_table_with_clauses(ctx *Opt_external_table_with_clausesContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#with_connection_clause.
+	VisitWith_connection_clause(ctx *With_connection_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#with_partition_columns_clause.
+	VisitWith_partition_columns_clause(ctx *With_partition_columns_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#aux_load_data_from_files_options_list.
+	VisitAux_load_data_from_files_options_list(ctx *Aux_load_data_from_files_options_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#cluster_by_clause_prefix_no_hint.
+	VisitCluster_by_clause_prefix_no_hint(ctx *Cluster_by_clause_prefix_no_hintContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#load_data_partitions_clause.
+	VisitLoad_data_partitions_clause(ctx *Load_data_partitions_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#maybe_dashed_path_expression_with_scope.
+	VisitMaybe_dashed_path_expression_with_scope(ctx *Maybe_dashed_path_expression_with_scopeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#table_element_list.
+	VisitTable_element_list(ctx *Table_element_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#table_element.
+	VisitTable_element(ctx *Table_elementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#table_constraint_definition.
+	VisitTable_constraint_definition(ctx *Table_constraint_definitionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#append_or_overwrite.
+	VisitAppend_or_overwrite(ctx *Append_or_overwriteContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#opt_description.
 	VisitOpt_description(ctx *Opt_descriptionContext) interface{}
 
