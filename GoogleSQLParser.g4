@@ -41,7 +41,10 @@ row_access_policy_alter_action:
 grant_to_clause:
 	GRANT_SYMBOL TO_SYMBOL LR_BRACKET_SYMBOL grantee_list RR_BRACKET_SYMBOL;
 
-grantee_list: string_literal (COMMA_SYMBOL string_literal)*;
+grantee_list:
+	string_literal_or_parameter (
+		COMMA_SYMBOL string_literal_or_parameter
+	)*;
 
 privilege_list: privilege (COMMA_SYMBOL privilege)*;
 

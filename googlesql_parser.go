@@ -915,7 +915,7 @@ func googlesqlparserParserInit() {
 		1, 0, 0, 0, 809, 803, 1, 0, 0, 0, 809, 806, 1, 0, 0, 0, 810, 13, 1, 0,
 		0, 0, 811, 812, 5, 178, 0, 0, 812, 813, 5, 329, 0, 0, 813, 814, 5, 19,
 		0, 0, 814, 815, 3, 16, 8, 0, 815, 816, 5, 20, 0, 0, 816, 15, 1, 0, 0, 0,
-		817, 822, 3, 690, 345, 0, 818, 819, 5, 15, 0, 0, 819, 821, 3, 690, 345,
+		817, 822, 3, 620, 310, 0, 818, 819, 5, 15, 0, 0, 819, 821, 3, 620, 310,
 		0, 820, 818, 1, 0, 0, 0, 821, 824, 1, 0, 0, 0, 822, 820, 1, 0, 0, 0, 822,
 		823, 1, 0, 0, 0, 823, 17, 1, 0, 0, 0, 824, 822, 1, 0, 0, 0, 825, 830, 3,
 		20, 10, 0, 826, 827, 5, 15, 0, 0, 827, 829, 3, 20, 10, 0, 828, 826, 1,
@@ -4952,8 +4952,8 @@ type IGrantee_listContext interface {
 	GetParser() antlr.Parser
 
 	// Getter signatures
-	AllString_literal() []IString_literalContext
-	String_literal(i int) IString_literalContext
+	AllString_literal_or_parameter() []IString_literal_or_parameterContext
+	String_literal_or_parameter(i int) IString_literal_or_parameterContext
 	AllCOMMA_SYMBOL() []antlr.TerminalNode
 	COMMA_SYMBOL(i int) antlr.TerminalNode
 
@@ -4993,20 +4993,20 @@ func NewGrantee_listContext(parser antlr.Parser, parent antlr.ParserRuleContext,
 
 func (s *Grantee_listContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Grantee_listContext) AllString_literal() []IString_literalContext {
+func (s *Grantee_listContext) AllString_literal_or_parameter() []IString_literal_or_parameterContext {
 	children := s.GetChildren()
 	len := 0
 	for _, ctx := range children {
-		if _, ok := ctx.(IString_literalContext); ok {
+		if _, ok := ctx.(IString_literal_or_parameterContext); ok {
 			len++
 		}
 	}
 
-	tst := make([]IString_literalContext, len)
+	tst := make([]IString_literal_or_parameterContext, len)
 	i := 0
 	for _, ctx := range children {
-		if t, ok := ctx.(IString_literalContext); ok {
-			tst[i] = t.(IString_literalContext)
+		if t, ok := ctx.(IString_literal_or_parameterContext); ok {
+			tst[i] = t.(IString_literal_or_parameterContext)
 			i++
 		}
 	}
@@ -5014,11 +5014,11 @@ func (s *Grantee_listContext) AllString_literal() []IString_literalContext {
 	return tst
 }
 
-func (s *Grantee_listContext) String_literal(i int) IString_literalContext {
+func (s *Grantee_listContext) String_literal_or_parameter(i int) IString_literal_or_parameterContext {
 	var t antlr.RuleContext
 	j := 0
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IString_literalContext); ok {
+		if _, ok := ctx.(IString_literal_or_parameterContext); ok {
 			if j == i {
 				t = ctx.(antlr.RuleContext)
 				break
@@ -5031,7 +5031,7 @@ func (s *Grantee_listContext) String_literal(i int) IString_literalContext {
 		return nil
 	}
 
-	return t.(IString_literalContext)
+	return t.(IString_literal_or_parameterContext)
 }
 
 func (s *Grantee_listContext) AllCOMMA_SYMBOL() []antlr.TerminalNode {
@@ -5080,7 +5080,7 @@ func (p *GoogleSQLParser) Grantee_list() (localctx IGrantee_listContext) {
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(817)
-		p.string_literal(0)
+		p.String_literal_or_parameter()
 	}
 	p.SetState(822)
 	p.GetErrorHandler().Sync(p)
@@ -5100,7 +5100,7 @@ func (p *GoogleSQLParser) Grantee_list() (localctx IGrantee_listContext) {
 		}
 		{
 			p.SetState(819)
-			p.string_literal(0)
+			p.String_literal_or_parameter()
 		}
 
 		p.SetState(824)
