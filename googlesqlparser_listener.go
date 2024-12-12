@@ -16,8 +16,47 @@ type GoogleSQLParserListener interface {
 	// EnterStmt is called when entering the stmt production.
 	EnterStmt(c *StmtContext)
 
+	// EnterStatement_level_hint is called when entering the statement_level_hint production.
+	EnterStatement_level_hint(c *Statement_level_hintContext)
+
 	// EnterQuery_statement is called when entering the query_statement production.
 	EnterQuery_statement(c *Query_statementContext)
+
+	// EnterDml_statement is called when entering the dml_statement production.
+	EnterDml_statement(c *Dml_statementContext)
+
+	// EnterInsert_statement is called when entering the insert_statement production.
+	EnterInsert_statement(c *Insert_statementContext)
+
+	// EnterOpt_returning_clause is called when entering the opt_returning_clause production.
+	EnterOpt_returning_clause(c *Opt_returning_clauseContext)
+
+	// EnterOpt_assert_rows_modified is called when entering the opt_assert_rows_modified production.
+	EnterOpt_assert_rows_modified(c *Opt_assert_rows_modifiedContext)
+
+	// EnterInsert_values_or_query is called when entering the insert_values_or_query production.
+	EnterInsert_values_or_query(c *Insert_values_or_queryContext)
+
+	// EnterInsert_values_list is called when entering the insert_values_list production.
+	EnterInsert_values_list(c *Insert_values_listContext)
+
+	// EnterInsert_values_row is called when entering the insert_values_row production.
+	EnterInsert_values_row(c *Insert_values_rowContext)
+
+	// EnterExpression_or_default is called when entering the expression_or_default production.
+	EnterExpression_or_default(c *Expression_or_defaultContext)
+
+	// EnterInsert_statement_prefix is called when entering the insert_statement_prefix production.
+	EnterInsert_statement_prefix(c *Insert_statement_prefixContext)
+
+	// EnterMaybe_dashed_generalized_path_expression is called when entering the maybe_dashed_generalized_path_expression production.
+	EnterMaybe_dashed_generalized_path_expression(c *Maybe_dashed_generalized_path_expressionContext)
+
+	// EnterOpt_into is called when entering the opt_into production.
+	EnterOpt_into(c *Opt_intoContext)
+
+	// EnterOpt_or_ignore_replace_update is called when entering the opt_or_ignore_replace_update production.
+	EnterOpt_or_ignore_replace_update(c *Opt_or_ignore_replace_updateContext)
 
 	// EnterAlter_statement is called when entering the alter_statement production.
 	EnterAlter_statement(c *Alter_statementContext)
@@ -1120,8 +1159,47 @@ type GoogleSQLParserListener interface {
 	// ExitStmt is called when exiting the stmt production.
 	ExitStmt(c *StmtContext)
 
+	// ExitStatement_level_hint is called when exiting the statement_level_hint production.
+	ExitStatement_level_hint(c *Statement_level_hintContext)
+
 	// ExitQuery_statement is called when exiting the query_statement production.
 	ExitQuery_statement(c *Query_statementContext)
+
+	// ExitDml_statement is called when exiting the dml_statement production.
+	ExitDml_statement(c *Dml_statementContext)
+
+	// ExitInsert_statement is called when exiting the insert_statement production.
+	ExitInsert_statement(c *Insert_statementContext)
+
+	// ExitOpt_returning_clause is called when exiting the opt_returning_clause production.
+	ExitOpt_returning_clause(c *Opt_returning_clauseContext)
+
+	// ExitOpt_assert_rows_modified is called when exiting the opt_assert_rows_modified production.
+	ExitOpt_assert_rows_modified(c *Opt_assert_rows_modifiedContext)
+
+	// ExitInsert_values_or_query is called when exiting the insert_values_or_query production.
+	ExitInsert_values_or_query(c *Insert_values_or_queryContext)
+
+	// ExitInsert_values_list is called when exiting the insert_values_list production.
+	ExitInsert_values_list(c *Insert_values_listContext)
+
+	// ExitInsert_values_row is called when exiting the insert_values_row production.
+	ExitInsert_values_row(c *Insert_values_rowContext)
+
+	// ExitExpression_or_default is called when exiting the expression_or_default production.
+	ExitExpression_or_default(c *Expression_or_defaultContext)
+
+	// ExitInsert_statement_prefix is called when exiting the insert_statement_prefix production.
+	ExitInsert_statement_prefix(c *Insert_statement_prefixContext)
+
+	// ExitMaybe_dashed_generalized_path_expression is called when exiting the maybe_dashed_generalized_path_expression production.
+	ExitMaybe_dashed_generalized_path_expression(c *Maybe_dashed_generalized_path_expressionContext)
+
+	// ExitOpt_into is called when exiting the opt_into production.
+	ExitOpt_into(c *Opt_intoContext)
+
+	// ExitOpt_or_ignore_replace_update is called when exiting the opt_or_ignore_replace_update production.
+	ExitOpt_or_ignore_replace_update(c *Opt_or_ignore_replace_updateContext)
 
 	// ExitAlter_statement is called when exiting the alter_statement production.
 	ExitAlter_statement(c *Alter_statementContext)

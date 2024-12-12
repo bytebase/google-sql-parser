@@ -16,8 +16,47 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#stmt.
 	VisitStmt(ctx *StmtContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#statement_level_hint.
+	VisitStatement_level_hint(ctx *Statement_level_hintContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#query_statement.
 	VisitQuery_statement(ctx *Query_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#dml_statement.
+	VisitDml_statement(ctx *Dml_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#insert_statement.
+	VisitInsert_statement(ctx *Insert_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_returning_clause.
+	VisitOpt_returning_clause(ctx *Opt_returning_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_assert_rows_modified.
+	VisitOpt_assert_rows_modified(ctx *Opt_assert_rows_modifiedContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#insert_values_or_query.
+	VisitInsert_values_or_query(ctx *Insert_values_or_queryContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#insert_values_list.
+	VisitInsert_values_list(ctx *Insert_values_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#insert_values_row.
+	VisitInsert_values_row(ctx *Insert_values_rowContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#expression_or_default.
+	VisitExpression_or_default(ctx *Expression_or_defaultContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#insert_statement_prefix.
+	VisitInsert_statement_prefix(ctx *Insert_statement_prefixContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#maybe_dashed_generalized_path_expression.
+	VisitMaybe_dashed_generalized_path_expression(ctx *Maybe_dashed_generalized_path_expressionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_into.
+	VisitOpt_into(ctx *Opt_intoContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_or_ignore_replace_update.
+	VisitOpt_or_ignore_replace_update(ctx *Opt_or_ignore_replace_updateContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#alter_statement.
 	VisitAlter_statement(ctx *Alter_statementContext) interface{}
