@@ -136,7 +136,7 @@ column_position:
 table_column_definition:
 	identifier table_column_schema column_attributes? opt_options_list?;
 
-column_attributes: column_attribute+ constraint_enforcement;
+column_attributes: column_attribute+ constraint_enforcement?;
 
 column_attribute:
 	primary_key_column_attribute
