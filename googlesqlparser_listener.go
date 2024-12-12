@@ -31,6 +31,15 @@ type GoogleSQLParserListener interface {
 	// EnterAux_load_data_statement is called when entering the aux_load_data_statement production.
 	EnterAux_load_data_statement(c *Aux_load_data_statementContext)
 
+	// EnterClone_data_statement is called when entering the clone_data_statement production.
+	EnterClone_data_statement(c *Clone_data_statementContext)
+
+	// EnterClone_data_source_list is called when entering the clone_data_source_list production.
+	EnterClone_data_source_list(c *Clone_data_source_listContext)
+
+	// EnterClone_data_source is called when entering the clone_data_source production.
+	EnterClone_data_source(c *Clone_data_sourceContext)
+
 	// EnterOpt_external_table_with_clauses is called when entering the opt_external_table_with_clauses production.
 	EnterOpt_external_table_with_clauses(c *Opt_external_table_with_clausesContext)
 
@@ -1125,6 +1134,15 @@ type GoogleSQLParserListener interface {
 
 	// ExitAux_load_data_statement is called when exiting the aux_load_data_statement production.
 	ExitAux_load_data_statement(c *Aux_load_data_statementContext)
+
+	// ExitClone_data_statement is called when exiting the clone_data_statement production.
+	ExitClone_data_statement(c *Clone_data_statementContext)
+
+	// ExitClone_data_source_list is called when exiting the clone_data_source_list production.
+	ExitClone_data_source_list(c *Clone_data_source_listContext)
+
+	// ExitClone_data_source is called when exiting the clone_data_source production.
+	ExitClone_data_source(c *Clone_data_sourceContext)
 
 	// ExitOpt_external_table_with_clauses is called when exiting the opt_external_table_with_clauses production.
 	ExitOpt_external_table_with_clauses(c *Opt_external_table_with_clausesContext)

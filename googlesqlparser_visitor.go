@@ -31,6 +31,15 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#aux_load_data_statement.
 	VisitAux_load_data_statement(ctx *Aux_load_data_statementContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#clone_data_statement.
+	VisitClone_data_statement(ctx *Clone_data_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#clone_data_source_list.
+	VisitClone_data_source_list(ctx *Clone_data_source_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#clone_data_source.
+	VisitClone_data_source(ctx *Clone_data_sourceContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#opt_external_table_with_clauses.
 	VisitOpt_external_table_with_clauses(ctx *Opt_external_table_with_clausesContext) interface{}
 

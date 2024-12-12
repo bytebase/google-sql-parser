@@ -39,6 +39,18 @@ func (v *BaseGoogleSQLParserVisitor) VisitAux_load_data_statement(ctx *Aux_load_
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitClone_data_statement(ctx *Clone_data_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitClone_data_source_list(ctx *Clone_data_source_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitClone_data_source(ctx *Clone_data_sourceContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitOpt_external_table_with_clauses(ctx *Opt_external_table_with_clausesContext) interface{} {
 	return v.VisitChildren(ctx)
 }

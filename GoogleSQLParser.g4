@@ -13,7 +13,8 @@ stmt:
 	| alter_statement
 	| analyze_statement
 	| assert_statement
-	| aux_load_data_statement;
+	| aux_load_data_statement
+	| clone_data_statement;
 
 // query_statement: https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax
 query_statement: query;
@@ -41,6 +42,16 @@ aux_load_data_statement:
 		table_element_list? load_data_partitions_clause? collate_clause?
 		partition_by_clause_prefix_no_hint? cluster_by_clause_prefix_no_hint? opt_options_list?
 		aux_load_data_from_files_options_list opt_external_table_with_clauses?;
+
+clone_data_statement:
+	CLONE_SYMBOL DATA_SYMBOL INTO_SYMBOL maybe_dashed_path_expression FROM_SYMBOL
+		clone_data_source_list;
+
+clone_data_source_list:
+	clone_data_source (UNION_SYMBOL ALL_SYMBOL clone_data_source)*;
+
+clone_data_source:
+	maybe_dashed_path_expression opt_at_system_time? where_clause?;
 
 opt_external_table_with_clauses:
 	with_partition_columns_clause with_connection_clause

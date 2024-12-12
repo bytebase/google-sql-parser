@@ -68,6 +68,8 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/analyze.test",
         # assert_statement
         "zetasql/parser/testdata/assert.test",
+        # clone_data_statement
+        "zetasql/parser/testdata/clone_data.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)

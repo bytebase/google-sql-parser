@@ -70,6 +70,26 @@ func (s *BaseGoogleSQLParserListener) EnterAux_load_data_statement(ctx *Aux_load
 func (s *BaseGoogleSQLParserListener) ExitAux_load_data_statement(ctx *Aux_load_data_statementContext) {
 }
 
+// EnterClone_data_statement is called when production clone_data_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterClone_data_statement(ctx *Clone_data_statementContext) {}
+
+// ExitClone_data_statement is called when production clone_data_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitClone_data_statement(ctx *Clone_data_statementContext) {}
+
+// EnterClone_data_source_list is called when production clone_data_source_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterClone_data_source_list(ctx *Clone_data_source_listContext) {
+}
+
+// ExitClone_data_source_list is called when production clone_data_source_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitClone_data_source_list(ctx *Clone_data_source_listContext) {
+}
+
+// EnterClone_data_source is called when production clone_data_source is entered.
+func (s *BaseGoogleSQLParserListener) EnterClone_data_source(ctx *Clone_data_sourceContext) {}
+
+// ExitClone_data_source is called when production clone_data_source is exited.
+func (s *BaseGoogleSQLParserListener) ExitClone_data_source(ctx *Clone_data_sourceContext) {}
+
 // EnterOpt_external_table_with_clauses is called when production opt_external_table_with_clauses is entered.
 func (s *BaseGoogleSQLParserListener) EnterOpt_external_table_with_clauses(ctx *Opt_external_table_with_clausesContext) {
 }
