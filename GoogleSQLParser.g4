@@ -1115,7 +1115,7 @@ options_entry:
 expression_or_proto: PROTO_SYMBOL | expression;
 
 options_assignment_operator:
-	MULTIPLY_OPERATOR
+	EQUAL_OPERATOR
 	| PLUS_EQUAL_SYMBOL
 	| SUB_EQUAL_SYMBOL;
 
