@@ -220,8 +220,8 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#column_list.
 	VisitColumn_list(ctx *Column_listContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#options_options_list.
-	VisitOptions_options_list(ctx *Options_options_listContext) interface{}
+	// Visit a parse tree produced by GoogleSQLParser#opt_options_list.
+	VisitOpt_options_list(ctx *Opt_options_listContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#constraint_enforcement.
 	VisitConstraint_enforcement(ctx *Constraint_enforcementContext) interface{}

@@ -115,7 +115,7 @@ spanner_set_on_delete_action:
 
 spanner_alter_column_action:
 	ALTER_SYMBOL COLUMN_SYMBOL opt_if_exists? identifier column_schema_inner
-		not_null_column_attribute? spanner_generated_or_default? options_list?;
+		not_null_column_attribute? spanner_generated_or_default? opt_options_list?;
 
 spanner_generated_or_default:
 	AS_SYMBOL LR_BRACKET_SYMBOL expression RR_BRACKET_SYMBOL STORED_SYMBOL;
@@ -131,7 +131,7 @@ column_position:
 	| FOLLOWING_SYMBOL identifier;
 
 table_column_definition:
-	identifier table_column_schema column_attributes? options_list?;
+	identifier table_column_schema column_attributes? opt_options_list?;
 
 column_attributes: column_attribute+ constraint_enforcement;
 
@@ -235,7 +235,7 @@ array_column_schema_inner:
 	ARRAY_SYMBOL template_type_open field_schema template_type_close;
 
 field_schema:
-	column_schema_inner collate_clause? opt_field_attributes? options_list?;
+	column_schema_inner collate_clause? opt_field_attributes? opt_options_list?;
 
 opt_field_attributes: not_null_column_attribute;
 
@@ -248,7 +248,7 @@ primary_key_or_table_constraint_spec:
 opt_if_not_exists: IF_SYMBOL NOT_SYMBOL EXISTS_SYMBOL;
 
 primary_key_spec:
-	PRIMARY_SYMBOL KEY_SYMBOL primary_key_element_list constraint_enforcement? options_list?;
+	PRIMARY_SYMBOL KEY_SYMBOL primary_key_element_list constraint_enforcement? opt_options_list?;
 
 primary_key_element_list:
 	LR_BRACKET_SYMBOL (
@@ -259,9 +259,9 @@ primary_key_element: identifier asc_or_desc? null_order?;
 
 table_constraint_spec:
 	CHECK_SYMBOL LR_BRACKET_SYMBOL expression RR_BRACKET_SYMBOL constraint_enforcement?
-		options_options_list?
+		opt_options_list?
 	| FOREIGN_SYMBOL KEY_SYMBOL column_list foreign_key_reference constraint_enforcement?
-		options_options_list?;
+		opt_options_list?;
 
 foreign_key_reference:
 	REFERENCES_SYMBOL path_expression column_list opt_foreign_key_match? opt_foreign_key_action?;
@@ -292,7 +292,7 @@ foreign_key_match_mode:
 column_list:
 	LR_BRACKET_SYMBOL identifier (COMMA_SYMBOL identifier)* RR_BRACKET_SYMBOL;
 
-options_options_list: OPTIONS_SYMBOL options_list;
+opt_options_list: OPTIONS_SYMBOL options_list;
 
 constraint_enforcement: NOT_SYMBOL? ENFORCED_SYMBOL;
 

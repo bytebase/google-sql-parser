@@ -191,7 +191,7 @@ func googlesqlparserParserInit() {
 		"primary_key_element", "table_constraint_spec", "foreign_key_reference",
 		"opt_foreign_key_action", "foreign_key_on_update", "foreign_key_on_delete",
 		"foreign_key_action", "opt_foreign_key_match", "foreign_key_match_mode",
-		"column_list", "options_options_list", "constraint_enforcement", "generic_entity_body",
+		"column_list", "opt_options_list", "constraint_enforcement", "generic_entity_body",
 		"opt_if_exists", "table_or_table_function", "query", "query_without_pipe_operators",
 		"bad_keyword_after_from_query", "bad_keyword_after_from_query_allows_parens",
 		"with_clause_with_trailing_comma", "select_or_from_keyword", "query_primary_or_set_operation",
@@ -1027,7 +1027,7 @@ func googlesqlparserParserInit() {
 		1081, 1082, 3, 646, 323, 0, 1082, 1084, 3, 94, 47, 0, 1083, 1085, 3, 112,
 		56, 0, 1084, 1083, 1, 0, 0, 0, 1084, 1085, 1, 0, 0, 0, 1085, 1087, 1, 0,
 		0, 0, 1086, 1088, 3, 40, 20, 0, 1087, 1086, 1, 0, 0, 0, 1087, 1088, 1,
-		0, 0, 0, 1088, 1090, 1, 0, 0, 0, 1089, 1091, 3, 480, 240, 0, 1090, 1089,
+		0, 0, 0, 1088, 1090, 1, 0, 0, 0, 1089, 1091, 3, 142, 71, 0, 1090, 1089,
 		1, 0, 0, 0, 1090, 1091, 1, 0, 0, 0, 1091, 39, 1, 0, 0, 0, 1092, 1093, 5,
 		56, 0, 0, 1093, 1094, 5, 19, 0, 0, 1094, 1095, 3, 398, 199, 0, 1095, 1096,
 		5, 20, 0, 0, 1096, 1097, 5, 263, 0, 0, 1097, 41, 1, 0, 0, 0, 1098, 1099,
@@ -1038,7 +1038,7 @@ func googlesqlparserParserInit() {
 		1106, 1, 0, 0, 0, 1110, 1108, 1, 0, 0, 0, 1111, 49, 1, 0, 0, 0, 1112, 1113,
 		3, 646, 323, 0, 1113, 1115, 3, 64, 32, 0, 1114, 1116, 3, 52, 26, 0, 1115,
 		1114, 1, 0, 0, 0, 1115, 1116, 1, 0, 0, 0, 1116, 1118, 1, 0, 0, 0, 1117,
-		1119, 3, 480, 240, 0, 1118, 1117, 1, 0, 0, 0, 1118, 1119, 1, 0, 0, 0, 1119,
+		1119, 3, 142, 71, 0, 1118, 1117, 1, 0, 0, 0, 1118, 1119, 1, 0, 0, 0, 1119,
 		51, 1, 0, 0, 0, 1120, 1122, 3, 54, 27, 0, 1121, 1120, 1, 0, 0, 0, 1122,
 		1123, 1, 0, 0, 0, 1123, 1121, 1, 0, 0, 0, 1123, 1124, 1, 0, 0, 0, 1124,
 		1125, 1, 0, 0, 0, 1125, 1126, 3, 144, 72, 0, 1126, 53, 1, 0, 0, 0, 1127,
@@ -1118,7 +1118,7 @@ func googlesqlparserParserInit() {
 		94, 47, 0, 1305, 1307, 3, 618, 309, 0, 1306, 1305, 1, 0, 0, 0, 1306, 1307,
 		1, 0, 0, 0, 1307, 1309, 1, 0, 0, 0, 1308, 1310, 3, 110, 55, 0, 1309, 1308,
 		1, 0, 0, 0, 1309, 1310, 1, 0, 0, 0, 1310, 1312, 1, 0, 0, 0, 1311, 1313,
-		3, 480, 240, 0, 1312, 1311, 1, 0, 0, 0, 1312, 1313, 1, 0, 0, 0, 1313, 109,
+		3, 142, 71, 0, 1312, 1311, 1, 0, 0, 0, 1312, 1313, 1, 0, 0, 0, 1313, 109,
 		1, 0, 0, 0, 1314, 1315, 3, 112, 56, 0, 1315, 111, 1, 0, 0, 0, 1316, 1317,
 		5, 109, 0, 0, 1317, 1318, 5, 78, 0, 0, 1318, 113, 1, 0, 0, 0, 1319, 1322,
 		3, 118, 59, 0, 1320, 1322, 3, 124, 62, 0, 1321, 1319, 1, 0, 0, 0, 1321,
@@ -1126,7 +1126,7 @@ func googlesqlparserParserInit() {
 		1325, 5, 109, 0, 0, 1325, 1326, 5, 330, 0, 0, 1326, 117, 1, 0, 0, 0, 1327,
 		1328, 5, 223, 0, 0, 1328, 1329, 5, 193, 0, 0, 1329, 1331, 3, 120, 60, 0,
 		1330, 1332, 3, 144, 72, 0, 1331, 1330, 1, 0, 0, 0, 1331, 1332, 1, 0, 0,
-		0, 1332, 1334, 1, 0, 0, 0, 1333, 1335, 3, 480, 240, 0, 1334, 1333, 1, 0,
+		0, 1332, 1334, 1, 0, 0, 0, 1333, 1335, 3, 142, 71, 0, 1334, 1333, 1, 0,
 		0, 0, 1334, 1335, 1, 0, 0, 0, 1335, 119, 1, 0, 0, 0, 1336, 1345, 5, 19,
 		0, 0, 1337, 1342, 3, 122, 61, 0, 1338, 1339, 5, 15, 0, 0, 1339, 1341, 3,
 		122, 61, 0, 1340, 1338, 1, 0, 0, 0, 1341, 1344, 1, 0, 0, 0, 1342, 1340,
@@ -2688,7 +2688,7 @@ const (
 	GoogleSQLParserRULE_opt_foreign_key_match                         = 68
 	GoogleSQLParserRULE_foreign_key_match_mode                        = 69
 	GoogleSQLParserRULE_column_list                                   = 70
-	GoogleSQLParserRULE_options_options_list                          = 71
+	GoogleSQLParserRULE_opt_options_list                              = 71
 	GoogleSQLParserRULE_constraint_enforcement                        = 72
 	GoogleSQLParserRULE_generic_entity_body                           = 73
 	GoogleSQLParserRULE_opt_if_exists                                 = 74
@@ -8406,7 +8406,7 @@ type ISpanner_alter_column_actionContext interface {
 	Opt_if_exists() IOpt_if_existsContext
 	Not_null_column_attribute() INot_null_column_attributeContext
 	Spanner_generated_or_default() ISpanner_generated_or_defaultContext
-	Options_list() IOptions_listContext
+	Opt_options_list() IOpt_options_listContext
 
 	// IsSpanner_alter_column_actionContext differentiates from other interfaces.
 	IsSpanner_alter_column_actionContext()
@@ -8532,10 +8532,10 @@ func (s *Spanner_alter_column_actionContext) Spanner_generated_or_default() ISpa
 	return t.(ISpanner_generated_or_defaultContext)
 }
 
-func (s *Spanner_alter_column_actionContext) Options_list() IOptions_listContext {
+func (s *Spanner_alter_column_actionContext) Opt_options_list() IOpt_options_listContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IOptions_listContext); ok {
+		if _, ok := ctx.(IOpt_options_listContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -8545,7 +8545,7 @@ func (s *Spanner_alter_column_actionContext) Options_list() IOptions_listContext
 		return nil
 	}
 
-	return t.(IOptions_listContext)
+	return t.(IOpt_options_listContext)
 }
 
 func (s *Spanner_alter_column_actionContext) GetRuleContext() antlr.RuleContext {
@@ -8657,10 +8657,10 @@ func (p *GoogleSQLParser) Spanner_alter_column_action() (localctx ISpanner_alter
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	if _la == GoogleSQLParserLR_BRACKET_SYMBOL {
+	if _la == GoogleSQLParserOPTIONS_SYMBOL {
 		{
 			p.SetState(1089)
-			p.Options_list()
+			p.Opt_options_list()
 		}
 
 	}
@@ -9385,7 +9385,7 @@ type ITable_column_definitionContext interface {
 	Identifier() IIdentifierContext
 	Table_column_schema() ITable_column_schemaContext
 	Column_attributes() IColumn_attributesContext
-	Options_list() IOptions_listContext
+	Opt_options_list() IOpt_options_listContext
 
 	// IsTable_column_definitionContext differentiates from other interfaces.
 	IsTable_column_definitionContext()
@@ -9471,10 +9471,10 @@ func (s *Table_column_definitionContext) Column_attributes() IColumn_attributesC
 	return t.(IColumn_attributesContext)
 }
 
-func (s *Table_column_definitionContext) Options_list() IOptions_listContext {
+func (s *Table_column_definitionContext) Opt_options_list() IOpt_options_listContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IOptions_listContext); ok {
+		if _, ok := ctx.(IOpt_options_listContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -9484,7 +9484,7 @@ func (s *Table_column_definitionContext) Options_list() IOptions_listContext {
 		return nil
 	}
 
-	return t.(IOptions_listContext)
+	return t.(IOpt_options_listContext)
 }
 
 func (s *Table_column_definitionContext) GetRuleContext() antlr.RuleContext {
@@ -9552,10 +9552,10 @@ func (p *GoogleSQLParser) Table_column_definition() (localctx ITable_column_defi
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	if _la == GoogleSQLParserLR_BRACKET_SYMBOL {
+	if _la == GoogleSQLParserOPTIONS_SYMBOL {
 		{
 			p.SetState(1117)
-			p.Options_list()
+			p.Opt_options_list()
 		}
 
 	}
@@ -13154,6 +13154,8 @@ func (s *Column_schema_innerContext) Accept(visitor antlr.ParseTreeVisitor) inte
 func (p *GoogleSQLParser) Column_schema_inner() (localctx IColumn_schema_innerContext) {
 	localctx = NewColumn_schema_innerContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 94, GoogleSQLParserRULE_column_schema_inner)
+	var _la int
+
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(1254)
@@ -13161,15 +13163,17 @@ func (p *GoogleSQLParser) Column_schema_inner() (localctx IColumn_schema_innerCo
 	}
 	p.SetState(1256)
 	p.GetErrorHandler().Sync(p)
+	if p.HasError() {
+		goto errorExit
+	}
+	_la = p.GetTokenStream().LA(1)
 
-	if p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 67, p.GetParserRuleContext()) == 1 {
+	if _la == GoogleSQLParserLR_BRACKET_SYMBOL {
 		{
 			p.SetState(1255)
 			p.Opt_type_parameters()
 		}
 
-	} else if p.HasError() { // JIM
-		goto errorExit
 	}
 
 errorExit:
@@ -14356,7 +14360,7 @@ type IField_schemaContext interface {
 	Column_schema_inner() IColumn_schema_innerContext
 	Collate_clause() ICollate_clauseContext
 	Opt_field_attributes() IOpt_field_attributesContext
-	Options_list() IOptions_listContext
+	Opt_options_list() IOpt_options_listContext
 
 	// IsField_schemaContext differentiates from other interfaces.
 	IsField_schemaContext()
@@ -14442,10 +14446,10 @@ func (s *Field_schemaContext) Opt_field_attributes() IOpt_field_attributesContex
 	return t.(IOpt_field_attributesContext)
 }
 
-func (s *Field_schemaContext) Options_list() IOptions_listContext {
+func (s *Field_schemaContext) Opt_options_list() IOpt_options_listContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IOptions_listContext); ok {
+		if _, ok := ctx.(IOpt_options_listContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -14455,7 +14459,7 @@ func (s *Field_schemaContext) Options_list() IOptions_listContext {
 		return nil
 	}
 
-	return t.(IOptions_listContext)
+	return t.(IOpt_options_listContext)
 }
 
 func (s *Field_schemaContext) GetRuleContext() antlr.RuleContext {
@@ -14533,10 +14537,10 @@ func (p *GoogleSQLParser) Field_schema() (localctx IField_schemaContext) {
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	if _la == GoogleSQLParserLR_BRACKET_SYMBOL {
+	if _la == GoogleSQLParserOPTIONS_SYMBOL {
 		{
 			p.SetState(1311)
-			p.Options_list()
+			p.Opt_options_list()
 		}
 
 	}
@@ -15082,7 +15086,7 @@ type IPrimary_key_specContext interface {
 	KEY_SYMBOL() antlr.TerminalNode
 	Primary_key_element_list() IPrimary_key_element_listContext
 	Constraint_enforcement() IConstraint_enforcementContext
-	Options_list() IOptions_listContext
+	Opt_options_list() IOpt_options_listContext
 
 	// IsPrimary_key_specContext differentiates from other interfaces.
 	IsPrimary_key_specContext()
@@ -15160,10 +15164,10 @@ func (s *Primary_key_specContext) Constraint_enforcement() IConstraint_enforceme
 	return t.(IConstraint_enforcementContext)
 }
 
-func (s *Primary_key_specContext) Options_list() IOptions_listContext {
+func (s *Primary_key_specContext) Opt_options_list() IOpt_options_listContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IOptions_listContext); ok {
+		if _, ok := ctx.(IOpt_options_listContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -15173,7 +15177,7 @@ func (s *Primary_key_specContext) Options_list() IOptions_listContext {
 		return nil
 	}
 
-	return t.(IOptions_listContext)
+	return t.(IOpt_options_listContext)
 }
 
 func (s *Primary_key_specContext) GetRuleContext() antlr.RuleContext {
@@ -15253,10 +15257,10 @@ func (p *GoogleSQLParser) Primary_key_spec() (localctx IPrimary_key_specContext)
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	if _la == GoogleSQLParserLR_BRACKET_SYMBOL {
+	if _la == GoogleSQLParserOPTIONS_SYMBOL {
 		{
 			p.SetState(1333)
-			p.Options_list()
+			p.Opt_options_list()
 		}
 
 	}
@@ -15681,7 +15685,7 @@ type ITable_constraint_specContext interface {
 	Expression() IExpressionContext
 	RR_BRACKET_SYMBOL() antlr.TerminalNode
 	Constraint_enforcement() IConstraint_enforcementContext
-	Options_options_list() IOptions_options_listContext
+	Opt_options_list() IOpt_options_listContext
 	FOREIGN_SYMBOL() antlr.TerminalNode
 	KEY_SYMBOL() antlr.TerminalNode
 	Column_list() IColumn_listContext
@@ -15767,10 +15771,10 @@ func (s *Table_constraint_specContext) Constraint_enforcement() IConstraint_enfo
 	return t.(IConstraint_enforcementContext)
 }
 
-func (s *Table_constraint_specContext) Options_options_list() IOptions_options_listContext {
+func (s *Table_constraint_specContext) Opt_options_list() IOpt_options_listContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IOptions_options_listContext); ok {
+		if _, ok := ctx.(IOpt_options_listContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -15780,7 +15784,7 @@ func (s *Table_constraint_specContext) Options_options_list() IOptions_options_l
 		return nil
 	}
 
-	return t.(IOptions_options_listContext)
+	return t.(IOpt_options_listContext)
 }
 
 func (s *Table_constraint_specContext) FOREIGN_SYMBOL() antlr.TerminalNode {
@@ -15919,7 +15923,7 @@ func (p *GoogleSQLParser) Table_constraint_spec() (localctx ITable_constraint_sp
 		if _la == GoogleSQLParserOPTIONS_SYMBOL {
 			{
 				p.SetState(1363)
-				p.Options_options_list()
+				p.Opt_options_list()
 			}
 
 		}
@@ -15974,7 +15978,7 @@ func (p *GoogleSQLParser) Table_constraint_spec() (localctx ITable_constraint_sp
 		if _la == GoogleSQLParserOPTIONS_SYMBOL {
 			{
 				p.SetState(1373)
-				p.Options_options_list()
+				p.Opt_options_list()
 			}
 
 		}
@@ -17359,8 +17363,8 @@ errorExit:
 	goto errorExit // Trick to prevent compiler error if the label is not used
 }
 
-// IOptions_options_listContext is an interface to support dynamic dispatch.
-type IOptions_options_listContext interface {
+// IOpt_options_listContext is an interface to support dynamic dispatch.
+type IOpt_options_listContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
@@ -17370,47 +17374,47 @@ type IOptions_options_listContext interface {
 	OPTIONS_SYMBOL() antlr.TerminalNode
 	Options_list() IOptions_listContext
 
-	// IsOptions_options_listContext differentiates from other interfaces.
-	IsOptions_options_listContext()
+	// IsOpt_options_listContext differentiates from other interfaces.
+	IsOpt_options_listContext()
 }
 
-type Options_options_listContext struct {
+type Opt_options_listContext struct {
 	antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyOptions_options_listContext() *Options_options_listContext {
-	var p = new(Options_options_listContext)
+func NewEmptyOpt_options_listContext() *Opt_options_listContext {
+	var p = new(Opt_options_listContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = GoogleSQLParserRULE_options_options_list
+	p.RuleIndex = GoogleSQLParserRULE_opt_options_list
 	return p
 }
 
-func InitEmptyOptions_options_listContext(p *Options_options_listContext) {
+func InitEmptyOpt_options_listContext(p *Opt_options_listContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = GoogleSQLParserRULE_options_options_list
+	p.RuleIndex = GoogleSQLParserRULE_opt_options_list
 }
 
-func (*Options_options_listContext) IsOptions_options_listContext() {}
+func (*Opt_options_listContext) IsOpt_options_listContext() {}
 
-func NewOptions_options_listContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Options_options_listContext {
-	var p = new(Options_options_listContext)
+func NewOpt_options_listContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Opt_options_listContext {
+	var p = new(Opt_options_listContext)
 
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = GoogleSQLParserRULE_options_options_list
+	p.RuleIndex = GoogleSQLParserRULE_opt_options_list
 
 	return p
 }
 
-func (s *Options_options_listContext) GetParser() antlr.Parser { return s.parser }
+func (s *Opt_options_listContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Options_options_listContext) OPTIONS_SYMBOL() antlr.TerminalNode {
+func (s *Opt_options_listContext) OPTIONS_SYMBOL() antlr.TerminalNode {
 	return s.GetToken(GoogleSQLParserOPTIONS_SYMBOL, 0)
 }
 
-func (s *Options_options_listContext) Options_list() IOptions_listContext {
+func (s *Opt_options_listContext) Options_list() IOptions_listContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
 		if _, ok := ctx.(IOptions_listContext); ok {
@@ -17426,39 +17430,39 @@ func (s *Options_options_listContext) Options_list() IOptions_listContext {
 	return t.(IOptions_listContext)
 }
 
-func (s *Options_options_listContext) GetRuleContext() antlr.RuleContext {
+func (s *Opt_options_listContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Options_options_listContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *Opt_options_listContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Options_options_listContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *Opt_options_listContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(GoogleSQLParserListener); ok {
-		listenerT.EnterOptions_options_list(s)
+		listenerT.EnterOpt_options_list(s)
 	}
 }
 
-func (s *Options_options_listContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *Opt_options_listContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(GoogleSQLParserListener); ok {
-		listenerT.ExitOptions_options_list(s)
+		listenerT.ExitOpt_options_list(s)
 	}
 }
 
-func (s *Options_options_listContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+func (s *Opt_options_listContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
 	case GoogleSQLParserVisitor:
-		return t.VisitOptions_options_list(s)
+		return t.VisitOpt_options_list(s)
 
 	default:
 		return t.VisitChildren(s)
 	}
 }
 
-func (p *GoogleSQLParser) Options_options_list() (localctx IOptions_options_listContext) {
-	localctx = NewOptions_options_listContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 142, GoogleSQLParserRULE_options_options_list)
+func (p *GoogleSQLParser) Opt_options_list() (localctx IOpt_options_listContext) {
+	localctx = NewOpt_options_listContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 142, GoogleSQLParserRULE_opt_options_list)
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(1433)
