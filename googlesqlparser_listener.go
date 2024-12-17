@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -15,6 +15,27 @@ type GoogleSQLParserListener interface {
 
 	// EnterStmt is called when entering the stmt production.
 	EnterStmt(c *StmtContext)
+
+	// EnterMerge_statement is called when entering the merge_statement production.
+	EnterMerge_statement(c *Merge_statementContext)
+
+	// EnterMerge_source is called when entering the merge_source production.
+	EnterMerge_source(c *Merge_sourceContext)
+
+	// EnterMerge_when_clause is called when entering the merge_when_clause production.
+	EnterMerge_when_clause(c *Merge_when_clauseContext)
+
+	// EnterMerge_action is called when entering the merge_action production.
+	EnterMerge_action(c *Merge_actionContext)
+
+	// EnterMerge_insert_value_list_or_source_row is called when entering the merge_insert_value_list_or_source_row production.
+	EnterMerge_insert_value_list_or_source_row(c *Merge_insert_value_list_or_source_rowContext)
+
+	// EnterBy_target is called when entering the by_target production.
+	EnterBy_target(c *By_targetContext)
+
+	// EnterOpt_and_expression is called when entering the opt_and_expression production.
+	EnterOpt_and_expression(c *Opt_and_expressionContext)
 
 	// EnterStatement_level_hint is called when entering the statement_level_hint production.
 	EnterStatement_level_hint(c *Statement_level_hintContext)
@@ -1194,6 +1215,27 @@ type GoogleSQLParserListener interface {
 
 	// ExitStmt is called when exiting the stmt production.
 	ExitStmt(c *StmtContext)
+
+	// ExitMerge_statement is called when exiting the merge_statement production.
+	ExitMerge_statement(c *Merge_statementContext)
+
+	// ExitMerge_source is called when exiting the merge_source production.
+	ExitMerge_source(c *Merge_sourceContext)
+
+	// ExitMerge_when_clause is called when exiting the merge_when_clause production.
+	ExitMerge_when_clause(c *Merge_when_clauseContext)
+
+	// ExitMerge_action is called when exiting the merge_action production.
+	ExitMerge_action(c *Merge_actionContext)
+
+	// ExitMerge_insert_value_list_or_source_row is called when exiting the merge_insert_value_list_or_source_row production.
+	ExitMerge_insert_value_list_or_source_row(c *Merge_insert_value_list_or_source_rowContext)
+
+	// ExitBy_target is called when exiting the by_target production.
+	ExitBy_target(c *By_targetContext)
+
+	// ExitOpt_and_expression is called when exiting the opt_and_expression production.
+	ExitOpt_and_expression(c *Opt_and_expressionContext)
 
 	// ExitStatement_level_hint is called when exiting the statement_level_hint production.
 	ExitStatement_level_hint(c *Statement_level_hintContext)

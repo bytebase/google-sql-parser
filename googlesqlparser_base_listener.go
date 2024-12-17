@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -37,6 +37,50 @@ func (s *BaseGoogleSQLParserListener) EnterStmt(ctx *StmtContext) {}
 
 // ExitStmt is called when production stmt is exited.
 func (s *BaseGoogleSQLParserListener) ExitStmt(ctx *StmtContext) {}
+
+// EnterMerge_statement is called when production merge_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterMerge_statement(ctx *Merge_statementContext) {}
+
+// ExitMerge_statement is called when production merge_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitMerge_statement(ctx *Merge_statementContext) {}
+
+// EnterMerge_source is called when production merge_source is entered.
+func (s *BaseGoogleSQLParserListener) EnterMerge_source(ctx *Merge_sourceContext) {}
+
+// ExitMerge_source is called when production merge_source is exited.
+func (s *BaseGoogleSQLParserListener) ExitMerge_source(ctx *Merge_sourceContext) {}
+
+// EnterMerge_when_clause is called when production merge_when_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterMerge_when_clause(ctx *Merge_when_clauseContext) {}
+
+// ExitMerge_when_clause is called when production merge_when_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitMerge_when_clause(ctx *Merge_when_clauseContext) {}
+
+// EnterMerge_action is called when production merge_action is entered.
+func (s *BaseGoogleSQLParserListener) EnterMerge_action(ctx *Merge_actionContext) {}
+
+// ExitMerge_action is called when production merge_action is exited.
+func (s *BaseGoogleSQLParserListener) ExitMerge_action(ctx *Merge_actionContext) {}
+
+// EnterMerge_insert_value_list_or_source_row is called when production merge_insert_value_list_or_source_row is entered.
+func (s *BaseGoogleSQLParserListener) EnterMerge_insert_value_list_or_source_row(ctx *Merge_insert_value_list_or_source_rowContext) {
+}
+
+// ExitMerge_insert_value_list_or_source_row is called when production merge_insert_value_list_or_source_row is exited.
+func (s *BaseGoogleSQLParserListener) ExitMerge_insert_value_list_or_source_row(ctx *Merge_insert_value_list_or_source_rowContext) {
+}
+
+// EnterBy_target is called when production by_target is entered.
+func (s *BaseGoogleSQLParserListener) EnterBy_target(ctx *By_targetContext) {}
+
+// ExitBy_target is called when production by_target is exited.
+func (s *BaseGoogleSQLParserListener) ExitBy_target(ctx *By_targetContext) {}
+
+// EnterOpt_and_expression is called when production opt_and_expression is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_and_expression(ctx *Opt_and_expressionContext) {}
+
+// ExitOpt_and_expression is called when production opt_and_expression is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_and_expression(ctx *Opt_and_expressionContext) {}
 
 // EnterStatement_level_hint is called when production statement_level_hint is entered.
 func (s *BaseGoogleSQLParserListener) EnterStatement_level_hint(ctx *Statement_level_hintContext) {}

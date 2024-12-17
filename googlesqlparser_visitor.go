@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -15,6 +15,27 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#stmt.
 	VisitStmt(ctx *StmtContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#merge_statement.
+	VisitMerge_statement(ctx *Merge_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#merge_source.
+	VisitMerge_source(ctx *Merge_sourceContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#merge_when_clause.
+	VisitMerge_when_clause(ctx *Merge_when_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#merge_action.
+	VisitMerge_action(ctx *Merge_actionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#merge_insert_value_list_or_source_row.
+	VisitMerge_insert_value_list_or_source_row(ctx *Merge_insert_value_list_or_source_rowContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#by_target.
+	VisitBy_target(ctx *By_targetContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_and_expression.
+	VisitOpt_and_expression(ctx *Opt_and_expressionContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#statement_level_hint.
 	VisitStatement_level_hint(ctx *Statement_level_hintContext) interface{}

@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -16,6 +16,34 @@ func (v *BaseGoogleSQLParserVisitor) VisitStmts(ctx *StmtsContext) interface{} {
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitStmt(ctx *StmtContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitMerge_statement(ctx *Merge_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitMerge_source(ctx *Merge_sourceContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitMerge_when_clause(ctx *Merge_when_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitMerge_action(ctx *Merge_actionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitMerge_insert_value_list_or_source_row(ctx *Merge_insert_value_list_or_source_rowContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitBy_target(ctx *By_targetContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_and_expression(ctx *Opt_and_expressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
