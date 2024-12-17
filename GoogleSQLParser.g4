@@ -17,7 +17,33 @@ stmt:
 		| aux_load_data_statement
 		| clone_data_statement
 		| dml_statement
+		| merge_statement
 	);
+
+merge_statement:
+	MERGE_SYMBOL INTO_SYMBOL? maybe_dashed_path_expression as_alias? USING_SYMBOL merge_source
+		ON_SYMBOL expression (merge_when_clause)+;
+
+merge_source: table_path_expression | table_subquery;
+
+merge_when_clause:
+	WHEN_SYMBOL MATCHED_SYMBOL opt_and_expression? THEN_SYMBOL merge_action
+	| WHEN_SYMBOL NOT_SYMBOL MATCHED_SYMBOL by_target? opt_and_expression? THEN_SYMBOL merge_action
+	| WHEN_SYMBOL NOT_SYMBOL MATCHED_SYMBOL BY_SYMBOL SOURCE_SYMBOL opt_and_expression? THEN_SYMBOL
+		merge_action;
+
+merge_action:
+	INSERT_SYMBOL column_list? merge_insert_value_list_or_source_row
+	| UPDATE_SYMBOL SET_SYMBOL update_item_list
+	| DELETE_SYMBOL;
+
+merge_insert_value_list_or_source_row:
+	VALUES_SYMBOL insert_values_row
+	| ROW_SYMBOL;
+
+by_target: BY_SYMBOL TARGET_SYMBOL;
+
+opt_and_expression: AND_SYMBOL expression;
 
 statement_level_hint: hint;
 

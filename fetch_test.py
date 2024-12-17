@@ -48,6 +48,7 @@ def extract_valid_statement_from_block(block: str) -> str:
             valid_statement_lines.append(line)
     return "\n".join(reversed(valid_statement_lines))
 
+
 if __name__ == "__main__":
     filepaths = [
         # alter_statement
@@ -75,6 +76,8 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/dml_insert_on_conflict_clause.test",
         "zetasql/parser/testdata/dml_delete.test",
         "zetasql/parser/testdata/dml_update.test",
+        # merge_statement
+        "zetasql/parser/testdata/dml_merge.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)
