@@ -22,8 +22,17 @@ stmt:
 		| begin_statement
 		| set_statement
 		| commit_statement
+		| start_batch_statement
+		| run_batch_statement
+		| abort_batch_statement
 		| rollback_statement
 	);
+
+run_batch_statement: RUN_SYMBOL BATCH_SYMBOL;
+
+abort_batch_statement: ABORT_SYMBOL BATCH_SYMBOL;
+
+start_batch_statement: START_SYMBOL BATCH_SYMBOL identifier?;
 
 rollback_statement: ROLLBACK_SYMBOL TRANSACTION_SYMBOL?;
 

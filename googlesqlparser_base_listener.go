@@ -38,6 +38,24 @@ func (s *BaseGoogleSQLParserListener) EnterStmt(ctx *StmtContext) {}
 // ExitStmt is called when production stmt is exited.
 func (s *BaseGoogleSQLParserListener) ExitStmt(ctx *StmtContext) {}
 
+// EnterRun_batch_statement is called when production run_batch_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterRun_batch_statement(ctx *Run_batch_statementContext) {}
+
+// ExitRun_batch_statement is called when production run_batch_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitRun_batch_statement(ctx *Run_batch_statementContext) {}
+
+// EnterAbort_batch_statement is called when production abort_batch_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterAbort_batch_statement(ctx *Abort_batch_statementContext) {}
+
+// ExitAbort_batch_statement is called when production abort_batch_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitAbort_batch_statement(ctx *Abort_batch_statementContext) {}
+
+// EnterStart_batch_statement is called when production start_batch_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterStart_batch_statement(ctx *Start_batch_statementContext) {}
+
+// ExitStart_batch_statement is called when production start_batch_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitStart_batch_statement(ctx *Start_batch_statementContext) {}
+
 // EnterRollback_statement is called when production rollback_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterRollback_statement(ctx *Rollback_statementContext) {}
 
