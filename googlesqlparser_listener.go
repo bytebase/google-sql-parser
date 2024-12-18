@@ -16,6 +16,15 @@ type GoogleSQLParserListener interface {
 	// EnterStmt is called when entering the stmt production.
 	EnterStmt(c *StmtContext)
 
+	// EnterRun_batch_statement is called when entering the run_batch_statement production.
+	EnterRun_batch_statement(c *Run_batch_statementContext)
+
+	// EnterAbort_batch_statement is called when entering the abort_batch_statement production.
+	EnterAbort_batch_statement(c *Abort_batch_statementContext)
+
+	// EnterStart_batch_statement is called when entering the start_batch_statement production.
+	EnterStart_batch_statement(c *Start_batch_statementContext)
+
 	// EnterRollback_statement is called when entering the rollback_statement production.
 	EnterRollback_statement(c *Rollback_statementContext)
 
@@ -1242,6 +1251,15 @@ type GoogleSQLParserListener interface {
 
 	// ExitStmt is called when exiting the stmt production.
 	ExitStmt(c *StmtContext)
+
+	// ExitRun_batch_statement is called when exiting the run_batch_statement production.
+	ExitRun_batch_statement(c *Run_batch_statementContext)
+
+	// ExitAbort_batch_statement is called when exiting the abort_batch_statement production.
+	ExitAbort_batch_statement(c *Abort_batch_statementContext)
+
+	// ExitStart_batch_statement is called when exiting the start_batch_statement production.
+	ExitStart_batch_statement(c *Start_batch_statementContext)
 
 	// ExitRollback_statement is called when exiting the rollback_statement production.
 	ExitRollback_statement(c *Rollback_statementContext)

@@ -19,6 +19,18 @@ func (v *BaseGoogleSQLParserVisitor) VisitStmt(ctx *StmtContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitRun_batch_statement(ctx *Run_batch_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitAbort_batch_statement(ctx *Abort_batch_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitStart_batch_statement(ctx *Start_batch_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitRollback_statement(ctx *Rollback_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }

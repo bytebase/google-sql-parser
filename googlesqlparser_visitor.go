@@ -16,6 +16,15 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#stmt.
 	VisitStmt(ctx *StmtContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#run_batch_statement.
+	VisitRun_batch_statement(ctx *Run_batch_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#abort_batch_statement.
+	VisitAbort_batch_statement(ctx *Abort_batch_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#start_batch_statement.
+	VisitStart_batch_statement(ctx *Start_batch_statementContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#rollback_statement.
 	VisitRollback_statement(ctx *Rollback_statementContext) interface{}
 
