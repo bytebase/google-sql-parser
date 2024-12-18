@@ -19,6 +19,10 @@ func (v *BaseGoogleSQLParserVisitor) VisitStmt(ctx *StmtContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitTruncate_statement(ctx *Truncate_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitMerge_statement(ctx *Merge_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
