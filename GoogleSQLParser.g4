@@ -18,7 +18,11 @@ stmt:
 		| clone_data_statement
 		| dml_statement
 		| merge_statement
+		| truncate_statement
 	);
+
+truncate_statement:
+	TRUNCATE_SYMBOL TABLE_SYMBOL maybe_dashed_path_expression opt_where_expression?;
 
 merge_statement:
 	MERGE_SYMBOL INTO_SYMBOL? maybe_dashed_path_expression as_alias? USING_SYMBOL merge_source

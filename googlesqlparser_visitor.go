@@ -16,6 +16,9 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#stmt.
 	VisitStmt(ctx *StmtContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#truncate_statement.
+	VisitTruncate_statement(ctx *Truncate_statementContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#merge_statement.
 	VisitMerge_statement(ctx *Merge_statementContext) interface{}
 

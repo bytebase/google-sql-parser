@@ -38,6 +38,12 @@ func (s *BaseGoogleSQLParserListener) EnterStmt(ctx *StmtContext) {}
 // ExitStmt is called when production stmt is exited.
 func (s *BaseGoogleSQLParserListener) ExitStmt(ctx *StmtContext) {}
 
+// EnterTruncate_statement is called when production truncate_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterTruncate_statement(ctx *Truncate_statementContext) {}
+
+// ExitTruncate_statement is called when production truncate_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitTruncate_statement(ctx *Truncate_statementContext) {}
+
 // EnterMerge_statement is called when production merge_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterMerge_statement(ctx *Merge_statementContext) {}
 

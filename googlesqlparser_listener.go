@@ -16,6 +16,9 @@ type GoogleSQLParserListener interface {
 	// EnterStmt is called when entering the stmt production.
 	EnterStmt(c *StmtContext)
 
+	// EnterTruncate_statement is called when entering the truncate_statement production.
+	EnterTruncate_statement(c *Truncate_statementContext)
+
 	// EnterMerge_statement is called when entering the merge_statement production.
 	EnterMerge_statement(c *Merge_statementContext)
 
@@ -1215,6 +1218,9 @@ type GoogleSQLParserListener interface {
 
 	// ExitStmt is called when exiting the stmt production.
 	ExitStmt(c *StmtContext)
+
+	// ExitTruncate_statement is called when exiting the truncate_statement production.
+	ExitTruncate_statement(c *Truncate_statementContext)
 
 	// ExitMerge_statement is called when exiting the merge_statement production.
 	ExitMerge_statement(c *Merge_statementContext)
