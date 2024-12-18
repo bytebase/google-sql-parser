@@ -84,6 +84,8 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/transaction.test",
         # begin_batch, run_batch, abort_batch statement
         "zetasql/parser/testdata/batch.test",
+        # create_constant_statement
+        "zetasql/parser/testdata/create_constant.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)

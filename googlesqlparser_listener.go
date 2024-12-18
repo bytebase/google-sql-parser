@@ -16,6 +16,15 @@ type GoogleSQLParserListener interface {
 	// EnterStmt is called when entering the stmt production.
 	EnterStmt(c *StmtContext)
 
+	// EnterCreate_constant_statement is called when entering the create_constant_statement production.
+	EnterCreate_constant_statement(c *Create_constant_statementContext)
+
+	// EnterOpt_or_replace is called when entering the opt_or_replace production.
+	EnterOpt_or_replace(c *Opt_or_replaceContext)
+
+	// EnterOpt_create_scope is called when entering the opt_create_scope production.
+	EnterOpt_create_scope(c *Opt_create_scopeContext)
+
 	// EnterRun_batch_statement is called when entering the run_batch_statement production.
 	EnterRun_batch_statement(c *Run_batch_statementContext)
 
@@ -1251,6 +1260,15 @@ type GoogleSQLParserListener interface {
 
 	// ExitStmt is called when exiting the stmt production.
 	ExitStmt(c *StmtContext)
+
+	// ExitCreate_constant_statement is called when exiting the create_constant_statement production.
+	ExitCreate_constant_statement(c *Create_constant_statementContext)
+
+	// ExitOpt_or_replace is called when exiting the opt_or_replace production.
+	ExitOpt_or_replace(c *Opt_or_replaceContext)
+
+	// ExitOpt_create_scope is called when exiting the opt_create_scope production.
+	ExitOpt_create_scope(c *Opt_create_scopeContext)
 
 	// ExitRun_batch_statement is called when exiting the run_batch_statement production.
 	ExitRun_batch_statement(c *Run_batch_statementContext)

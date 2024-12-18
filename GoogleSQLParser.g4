@@ -25,8 +25,21 @@ stmt:
 		| start_batch_statement
 		| run_batch_statement
 		| abort_batch_statement
+		| create_constant_statement
 		| rollback_statement
 	);
+
+create_constant_statement:
+	CREATE_SYMBOL opt_or_replace? opt_create_scope? CONSTANT_SYMBOL opt_if_not_exists?
+		path_expression EQUAL_OPERATOR expression;
+
+opt_or_replace: OR_SYMBOL REPLACE_SYMBOL;
+
+opt_create_scope:
+	TEMP_SYMBOL
+	| TEMPORARY_SYMBOL
+	| PUBLIC_SYMBOL
+	| PRIVATE_SYMBOL;
 
 run_batch_statement: RUN_SYMBOL BATCH_SYMBOL;
 
@@ -1526,10 +1539,10 @@ opt_format: FORMAT_SYMBOL expression opt_at_time_zone?;
 opt_at_time_zone: AT_SYMBOL TIME_SYMBOL ZONE_SYMBOL expression;
 
 cast_expression:
-	CAST_SYMBOL LR_BRACKET_SYMBOL AS_SYMBOL type opt_format? RR_BRACKET_SYMBOL
+	CAST_SYMBOL LR_BRACKET_SYMBOL expression AS_SYMBOL type opt_format? RR_BRACKET_SYMBOL
 	| CAST_SYMBOL LR_BRACKET_SYMBOL CAST_SYMBOL { p.NotifyErrorListeners("The argument to CAST is an expression, not a query; to use a query as an expression, the query must be wrapped with additional parentheses to make it a scalar subquery expression", nil, nil); 
 		}
-	| SAFE_CAST_SYMBOL LR_BRACKET_SYMBOL AS_SYMBOL type opt_format? RR_BRACKET_SYMBOL
+	| SAFE_CAST_SYMBOL LR_BRACKET_SYMBOL expression AS_SYMBOL type opt_format? RR_BRACKET_SYMBOL
 	| SAFE_CAST_SYMBOL LR_BRACKET_SYMBOL SAFE_CAST_SYMBOL { p.NotifyErrorListeners("The argument to CAST is an expression, not a query; to use a query as an expression, the query must be wrapped with additional parentheses to make it a scalar subquery expression", nil, nil); 
 		};
 

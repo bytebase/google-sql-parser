@@ -19,6 +19,18 @@ func (v *BaseGoogleSQLParserVisitor) VisitStmt(ctx *StmtContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitCreate_constant_statement(ctx *Create_constant_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_or_replace(ctx *Opt_or_replaceContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_create_scope(ctx *Opt_create_scopeContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitRun_batch_statement(ctx *Run_batch_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
