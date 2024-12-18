@@ -16,6 +16,30 @@ type GoogleSQLParserListener interface {
 	// EnterStmt is called when entering the stmt production.
 	EnterStmt(c *StmtContext)
 
+	// EnterRollback_statement is called when entering the rollback_statement production.
+	EnterRollback_statement(c *Rollback_statementContext)
+
+	// EnterCommit_statement is called when entering the commit_statement production.
+	EnterCommit_statement(c *Commit_statementContext)
+
+	// EnterSet_statement is called when entering the set_statement production.
+	EnterSet_statement(c *Set_statementContext)
+
+	// EnterIdentifier_list is called when entering the identifier_list production.
+	EnterIdentifier_list(c *Identifier_listContext)
+
+	// EnterBegin_statement is called when entering the begin_statement production.
+	EnterBegin_statement(c *Begin_statementContext)
+
+	// EnterBegin_transaction_keywords is called when entering the begin_transaction_keywords production.
+	EnterBegin_transaction_keywords(c *Begin_transaction_keywordsContext)
+
+	// EnterTransaction_mode_list is called when entering the transaction_mode_list production.
+	EnterTransaction_mode_list(c *Transaction_mode_listContext)
+
+	// EnterTransaction_mode is called when entering the transaction_mode production.
+	EnterTransaction_mode(c *Transaction_modeContext)
+
 	// EnterTruncate_statement is called when entering the truncate_statement production.
 	EnterTruncate_statement(c *Truncate_statementContext)
 
@@ -1218,6 +1242,30 @@ type GoogleSQLParserListener interface {
 
 	// ExitStmt is called when exiting the stmt production.
 	ExitStmt(c *StmtContext)
+
+	// ExitRollback_statement is called when exiting the rollback_statement production.
+	ExitRollback_statement(c *Rollback_statementContext)
+
+	// ExitCommit_statement is called when exiting the commit_statement production.
+	ExitCommit_statement(c *Commit_statementContext)
+
+	// ExitSet_statement is called when exiting the set_statement production.
+	ExitSet_statement(c *Set_statementContext)
+
+	// ExitIdentifier_list is called when exiting the identifier_list production.
+	ExitIdentifier_list(c *Identifier_listContext)
+
+	// ExitBegin_statement is called when exiting the begin_statement production.
+	ExitBegin_statement(c *Begin_statementContext)
+
+	// ExitBegin_transaction_keywords is called when exiting the begin_transaction_keywords production.
+	ExitBegin_transaction_keywords(c *Begin_transaction_keywordsContext)
+
+	// ExitTransaction_mode_list is called when exiting the transaction_mode_list production.
+	ExitTransaction_mode_list(c *Transaction_mode_listContext)
+
+	// ExitTransaction_mode is called when exiting the transaction_mode production.
+	ExitTransaction_mode(c *Transaction_modeContext)
 
 	// ExitTruncate_statement is called when exiting the truncate_statement production.
 	ExitTruncate_statement(c *Truncate_statementContext)

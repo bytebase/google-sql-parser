@@ -80,6 +80,8 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/dml_merge.test",
         # truncate_statement
         "zetasql/parser/testdata/truncate.test",
+        # begin, commit, set statement
+        "zetasql/parser/testdata/transaction.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)

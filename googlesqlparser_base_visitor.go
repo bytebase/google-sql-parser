@@ -19,6 +19,38 @@ func (v *BaseGoogleSQLParserVisitor) VisitStmt(ctx *StmtContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitRollback_statement(ctx *Rollback_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitCommit_statement(ctx *Commit_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitSet_statement(ctx *Set_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitIdentifier_list(ctx *Identifier_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitBegin_statement(ctx *Begin_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitBegin_transaction_keywords(ctx *Begin_transaction_keywordsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTransaction_mode_list(ctx *Transaction_mode_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTransaction_mode(ctx *Transaction_modeContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitTruncate_statement(ctx *Truncate_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }

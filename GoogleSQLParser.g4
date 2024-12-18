@@ -19,7 +19,43 @@ stmt:
 		| dml_statement
 		| merge_statement
 		| truncate_statement
+		| begin_statement
+		| set_statement
+		| commit_statement
+		| rollback_statement
 	);
+
+rollback_statement: ROLLBACK_SYMBOL TRANSACTION_SYMBOL?;
+
+commit_statement: COMMIT_SYMBOL TRANSACTION_SYMBOL?;
+
+set_statement:
+	SET_SYMBOL TRANSACTION_SYMBOL transaction_mode_list
+	| SET_SYMBOL identifier EQUAL_OPERATOR expression
+	| SET_SYMBOL named_parameter_expression EQUAL_OPERATOR expression
+	| SET_SYMBOL system_variable_expression EQUAL_OPERATOR expression
+	| SET_SYMBOL LR_BRACKET_SYMBOL identifier_list RR_BRACKET_SYMBOL EQUAL_OPERATOR expression
+	| SET_SYMBOL identifier COMMA_SYMBOL identifier EQUAL_OPERATOR {
+		p.NotifyErrorListeners("Using SET with multiple variable required parentheses around the variable list", nil, nil)
+	};
+
+identifier_list: identifier (COMMA_SYMBOL identifier)*;
+
+begin_statement:
+	begin_transaction_keywords transaction_mode_list?;
+
+begin_transaction_keywords:
+	START_SYMBOL TRANSACTION_SYMBOL
+	| BEGIN_SYMBOL TRANSACTION_SYMBOL?;
+
+transaction_mode_list:
+	transaction_mode (COMMA_SYMBOL transaction_mode)*;
+
+transaction_mode:
+	READ_SYMBOL ONLY_SYMBOL
+	| READ_SYMBOL WRITE_SYMBOL
+	| ISOLATION_SYMBOL LEVEL_SYMBOL identifier
+	| ISOLATION_SYMBOL LEVEL_SYMBOL identifier identifier;
 
 truncate_statement:
 	TRUNCATE_SYMBOL TABLE_SYMBOL maybe_dashed_path_expression opt_where_expression?;
