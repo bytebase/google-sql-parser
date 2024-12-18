@@ -16,6 +16,30 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#stmt.
 	VisitStmt(ctx *StmtContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#rollback_statement.
+	VisitRollback_statement(ctx *Rollback_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#commit_statement.
+	VisitCommit_statement(ctx *Commit_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#set_statement.
+	VisitSet_statement(ctx *Set_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#identifier_list.
+	VisitIdentifier_list(ctx *Identifier_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#begin_statement.
+	VisitBegin_statement(ctx *Begin_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#begin_transaction_keywords.
+	VisitBegin_transaction_keywords(ctx *Begin_transaction_keywordsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#transaction_mode_list.
+	VisitTransaction_mode_list(ctx *Transaction_mode_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#transaction_mode.
+	VisitTransaction_mode(ctx *Transaction_modeContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#truncate_statement.
 	VisitTruncate_statement(ctx *Truncate_statementContext) interface{}
 

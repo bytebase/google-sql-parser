@@ -38,6 +38,56 @@ func (s *BaseGoogleSQLParserListener) EnterStmt(ctx *StmtContext) {}
 // ExitStmt is called when production stmt is exited.
 func (s *BaseGoogleSQLParserListener) ExitStmt(ctx *StmtContext) {}
 
+// EnterRollback_statement is called when production rollback_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterRollback_statement(ctx *Rollback_statementContext) {}
+
+// ExitRollback_statement is called when production rollback_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitRollback_statement(ctx *Rollback_statementContext) {}
+
+// EnterCommit_statement is called when production commit_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCommit_statement(ctx *Commit_statementContext) {}
+
+// ExitCommit_statement is called when production commit_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCommit_statement(ctx *Commit_statementContext) {}
+
+// EnterSet_statement is called when production set_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterSet_statement(ctx *Set_statementContext) {}
+
+// ExitSet_statement is called when production set_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitSet_statement(ctx *Set_statementContext) {}
+
+// EnterIdentifier_list is called when production identifier_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterIdentifier_list(ctx *Identifier_listContext) {}
+
+// ExitIdentifier_list is called when production identifier_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitIdentifier_list(ctx *Identifier_listContext) {}
+
+// EnterBegin_statement is called when production begin_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterBegin_statement(ctx *Begin_statementContext) {}
+
+// ExitBegin_statement is called when production begin_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitBegin_statement(ctx *Begin_statementContext) {}
+
+// EnterBegin_transaction_keywords is called when production begin_transaction_keywords is entered.
+func (s *BaseGoogleSQLParserListener) EnterBegin_transaction_keywords(ctx *Begin_transaction_keywordsContext) {
+}
+
+// ExitBegin_transaction_keywords is called when production begin_transaction_keywords is exited.
+func (s *BaseGoogleSQLParserListener) ExitBegin_transaction_keywords(ctx *Begin_transaction_keywordsContext) {
+}
+
+// EnterTransaction_mode_list is called when production transaction_mode_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterTransaction_mode_list(ctx *Transaction_mode_listContext) {}
+
+// ExitTransaction_mode_list is called when production transaction_mode_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitTransaction_mode_list(ctx *Transaction_mode_listContext) {}
+
+// EnterTransaction_mode is called when production transaction_mode is entered.
+func (s *BaseGoogleSQLParserListener) EnterTransaction_mode(ctx *Transaction_modeContext) {}
+
+// ExitTransaction_mode is called when production transaction_mode is exited.
+func (s *BaseGoogleSQLParserListener) ExitTransaction_mode(ctx *Transaction_modeContext) {}
+
 // EnterTruncate_statement is called when production truncate_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterTruncate_statement(ctx *Truncate_statementContext) {}
 
