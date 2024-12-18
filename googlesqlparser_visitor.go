@@ -16,6 +16,15 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#stmt.
 	VisitStmt(ctx *StmtContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#create_constant_statement.
+	VisitCreate_constant_statement(ctx *Create_constant_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_or_replace.
+	VisitOpt_or_replace(ctx *Opt_or_replaceContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_create_scope.
+	VisitOpt_create_scope(ctx *Opt_create_scopeContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#run_batch_statement.
 	VisitRun_batch_statement(ctx *Run_batch_statementContext) interface{}
 

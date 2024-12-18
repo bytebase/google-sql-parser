@@ -38,6 +38,26 @@ func (s *BaseGoogleSQLParserListener) EnterStmt(ctx *StmtContext) {}
 // ExitStmt is called when production stmt is exited.
 func (s *BaseGoogleSQLParserListener) ExitStmt(ctx *StmtContext) {}
 
+// EnterCreate_constant_statement is called when production create_constant_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_constant_statement(ctx *Create_constant_statementContext) {
+}
+
+// ExitCreate_constant_statement is called when production create_constant_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_constant_statement(ctx *Create_constant_statementContext) {
+}
+
+// EnterOpt_or_replace is called when production opt_or_replace is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_or_replace(ctx *Opt_or_replaceContext) {}
+
+// ExitOpt_or_replace is called when production opt_or_replace is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_or_replace(ctx *Opt_or_replaceContext) {}
+
+// EnterOpt_create_scope is called when production opt_create_scope is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_create_scope(ctx *Opt_create_scopeContext) {}
+
+// ExitOpt_create_scope is called when production opt_create_scope is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_create_scope(ctx *Opt_create_scopeContext) {}
+
 // EnterRun_batch_statement is called when production run_batch_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterRun_batch_statement(ctx *Run_batch_statementContext) {}
 
