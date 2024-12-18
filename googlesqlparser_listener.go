@@ -16,6 +16,12 @@ type GoogleSQLParserListener interface {
 	// EnterStmt is called when entering the stmt production.
 	EnterStmt(c *StmtContext)
 
+	// EnterCreate_database_statement is called when entering the create_database_statement production.
+	EnterCreate_database_statement(c *Create_database_statementContext)
+
+	// EnterCreate_connection_statement is called when entering the create_connection_statement production.
+	EnterCreate_connection_statement(c *Create_connection_statementContext)
+
 	// EnterCreate_constant_statement is called when entering the create_constant_statement production.
 	EnterCreate_constant_statement(c *Create_constant_statementContext)
 
@@ -1260,6 +1266,12 @@ type GoogleSQLParserListener interface {
 
 	// ExitStmt is called when exiting the stmt production.
 	ExitStmt(c *StmtContext)
+
+	// ExitCreate_database_statement is called when exiting the create_database_statement production.
+	ExitCreate_database_statement(c *Create_database_statementContext)
+
+	// ExitCreate_connection_statement is called when exiting the create_connection_statement production.
+	ExitCreate_connection_statement(c *Create_connection_statementContext)
 
 	// ExitCreate_constant_statement is called when exiting the create_constant_statement production.
 	ExitCreate_constant_statement(c *Create_constant_statementContext)

@@ -38,6 +38,22 @@ func (s *BaseGoogleSQLParserListener) EnterStmt(ctx *StmtContext) {}
 // ExitStmt is called when production stmt is exited.
 func (s *BaseGoogleSQLParserListener) ExitStmt(ctx *StmtContext) {}
 
+// EnterCreate_database_statement is called when production create_database_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_database_statement(ctx *Create_database_statementContext) {
+}
+
+// ExitCreate_database_statement is called when production create_database_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_database_statement(ctx *Create_database_statementContext) {
+}
+
+// EnterCreate_connection_statement is called when production create_connection_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_connection_statement(ctx *Create_connection_statementContext) {
+}
+
+// ExitCreate_connection_statement is called when production create_connection_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_connection_statement(ctx *Create_connection_statementContext) {
+}
+
 // EnterCreate_constant_statement is called when production create_constant_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCreate_constant_statement(ctx *Create_constant_statementContext) {
 }

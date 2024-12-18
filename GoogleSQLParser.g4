@@ -26,8 +26,17 @@ stmt:
 		| run_batch_statement
 		| abort_batch_statement
 		| create_constant_statement
+		| create_connection_statement
+		| create_database_statement
 		| rollback_statement
 	);
+
+create_database_statement:
+	CREATE_SYMBOL DATABASE_SYMBOL path_expression opt_options_list?;
+
+create_connection_statement:
+	CREATE_SYMBOL opt_or_replace? CONNECTION_SYMBOL opt_if_not_exists? path_expression
+		opt_options_list?;
 
 create_constant_statement:
 	CREATE_SYMBOL opt_or_replace? opt_create_scope? CONSTANT_SYMBOL opt_if_not_exists?
