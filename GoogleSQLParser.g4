@@ -29,8 +29,48 @@ stmt:
 		| create_connection_statement
 		| create_database_statement
 		| create_function_statement
+		| create_procedure_statement
 		| rollback_statement
 	);
+
+create_procedure_statement:
+	CREATE_SYMBOL opt_or_replace? opt_create_scope? PROCEDURE_SYMBOL opt_if_not_exists?
+		path_expression procedure_parameters opt_external_security_clause? with_connection_clause?
+		opt_options_list? begin_end_block_or_language_as_code;
+
+begin_end_block_or_language_as_code:
+	begin_end_block
+	| LANGUAGE_SYMBOL identifier opt_as_code?;
+
+begin_end_block:
+	BEGIN_SYMBOL statement_list opt_exception_handler? END_SYMBOL;
+
+opt_as_code: AS_SYMBOL string_literal;
+
+opt_external_security_clause:
+	EXTERNAL_SYMBOL SECURITY_SYMBOL external_security_clause_kind;
+
+external_security_clause_kind: INVOKER_SYMBOL | DEFINER_SYMBOL;
+
+procedure_parameters:
+	LR_BRACKET_SYMBOL (
+		procedure_parameter (COMMA_SYMBOL procedure_parameters)*
+	)? RR_BRACKET_SYMBOL;
+
+procedure_parameter:
+	opt_procedure_parameter_mode? identifier type_or_tvf_schema
+	| opt_procedure_parameter_mode? identifier procedure_parameter_termination {
+		p.NotifyErrorListeners("Syntax error: Unexpected end of parameter. Parameters should be in the format [<parameter mode>] <parameter name> <type>. If IN/OUT/INOUT is intended to be the name of a parameter, it must be escaped with backticks", nil, nil)
+	};
+
+procedure_parameter_termination:
+	RR_BRACKET_SYMBOL
+	| COMMA_SYMBOL;
+
+opt_procedure_parameter_mode:
+	IN_SYMBOL
+	| OUT_SYMBOL
+	| INOUT_SYMBOL;
 
 create_function_statement:
 	CREATE_SYMBOL opt_or_replace? opt_create_scope? opt_aggregate? FUNCTION_SYMBOL opt_if_not_exists
