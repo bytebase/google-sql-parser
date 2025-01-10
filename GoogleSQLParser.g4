@@ -28,8 +28,95 @@ stmt:
 		| create_constant_statement
 		| create_connection_statement
 		| create_database_statement
+		| create_function_statement
 		| rollback_statement
 	);
+
+create_function_statement:
+	CREATE_SYMBOL opt_or_replace? opt_create_scope? opt_aggregate? FUNCTION_SYMBOL opt_if_not_exists
+		? function_declaration opt_function_returns? opt_sql_security_clause? opt_determinism_level?
+		opt_language_or_remote_with_connection? unordered_options_body?;
+
+opt_determinism_level:
+	DETERMINISTIC_SYMBOL
+	| NOT_SYMBOL DETERMINISTIC_SYMBOL
+	| IMMUTABLE_SYMBOL
+	| STABLE_SYMBOL
+	| VOLATILE_SYMBOL;
+
+opt_sql_security_clause:
+	SQL_SYMBOL SECURITY_SYMBOL sql_security_clause_kind;
+
+sql_security_clause_kind: INVOKER_SYMBOL | DEFINER_SYMBOL;
+
+as_sql_function_body_or_string:
+	AS_SYMBOL sql_function_body
+	| AS_SYMBOL string_literal;
+
+sql_function_body:
+	LR_BRACKET_SYMBOL expression RR_BRACKET_SYMBOL
+	| LR_BRACKET_SYMBOL SELECT_SYMBOL {
+		p.NotifyErrorListeners("The body of each CREATE FUNCTION statement is an expression, not a query; to use a query as an expression, the query must be wrapped with additional parentheses to make it a scalar subquery expression", nil, nil)
+	};
+
+unordered_options_body:
+	opt_options_list as_sql_function_body_or_string?
+	| as_sql_function_body_or_string opt_options_list?;
+
+opt_language_or_remote_with_connection:
+	LANGUAGE_SYMBOL identifier remote_with_connection_clause?
+	| remote_with_connection_clause language?;
+
+language: LANGUAGE_SYMBOL identifier;
+
+remote_with_connection_clause:
+	REMOTE_SYMBOL with_connection_clause?
+	| with_connection_clause;
+
+with_connection_clause: WITH_SYMBOL connection_clause;
+
+opt_function_returns: opt_returns;
+
+opt_returns: RETURNS_SYMBOL type_or_tvf_schema;
+
+function_declaration: path_expression function_parameters;
+
+function_parameters:
+	LR_BRACKET_SYMBOL (
+		function_parameter (COMMA_SYMBOL function_parameter)*
+	)? RR_BRACKET_SYMBOL;
+
+function_parameter:
+	identifier type_or_tvf_schema opt_as_alias_with_required_as? opt_default_expression?
+		opt_not_aggregate?
+	| type_or_tvf_schema opt_as_alias_with_required_as? opt_not_aggregate?;
+
+opt_not_aggregate: NOT_SYMBOL AGGREGATE_SYMBOL;
+
+opt_default_expression: DEFAULT_SYMBOL expression;
+
+type_or_tvf_schema:
+	type
+	| templated_parameter_type
+	| tvf_schema;
+
+tvf_schema:
+	TABLE_SYMBOL template_type_open tvf_schema_column (
+		COMMA_SYMBOL tvf_schema_column
+	)* template_type_close;
+
+tvf_schema_column: identifier type | type;
+
+templated_parameter_type: ANY_SYMBOL templated_parameter_kind;
+
+templated_parameter_kind:
+	PROTO_SYMBOL
+	| ENUM_SYMBOL
+	| STRUCT_SYMBOL
+	| ARRAY_SYMBOL
+	| identifier;
+
+opt_aggregate: AGGREGATE_SYMBOL;
 
 create_database_statement:
 	CREATE_SYMBOL DATABASE_SYMBOL path_expression opt_options_list?;
@@ -253,8 +340,6 @@ opt_external_table_with_clauses:
 	with_partition_columns_clause with_connection_clause
 	| with_partition_columns_clause
 	| with_connection_clause;
-
-with_connection_clause: WITH_SYMBOL connection_clause;
 
 with_partition_columns_clause:
 	WITH_SYMBOL PARTITION_SYMBOL COLUMNS_SYMBOL table_element_list?;

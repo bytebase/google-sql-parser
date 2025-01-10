@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.2. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -15,6 +15,78 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#stmt.
 	VisitStmt(ctx *StmtContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#create_function_statement.
+	VisitCreate_function_statement(ctx *Create_function_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_determinism_level.
+	VisitOpt_determinism_level(ctx *Opt_determinism_levelContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_sql_security_clause.
+	VisitOpt_sql_security_clause(ctx *Opt_sql_security_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#sql_security_clause_kind.
+	VisitSql_security_clause_kind(ctx *Sql_security_clause_kindContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#as_sql_function_body_or_string.
+	VisitAs_sql_function_body_or_string(ctx *As_sql_function_body_or_stringContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#sql_function_body.
+	VisitSql_function_body(ctx *Sql_function_bodyContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#unordered_options_body.
+	VisitUnordered_options_body(ctx *Unordered_options_bodyContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_language_or_remote_with_connection.
+	VisitOpt_language_or_remote_with_connection(ctx *Opt_language_or_remote_with_connectionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#language.
+	VisitLanguage(ctx *LanguageContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#remote_with_connection_clause.
+	VisitRemote_with_connection_clause(ctx *Remote_with_connection_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#with_connection_clause.
+	VisitWith_connection_clause(ctx *With_connection_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_function_returns.
+	VisitOpt_function_returns(ctx *Opt_function_returnsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_returns.
+	VisitOpt_returns(ctx *Opt_returnsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#function_declaration.
+	VisitFunction_declaration(ctx *Function_declarationContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#function_parameters.
+	VisitFunction_parameters(ctx *Function_parametersContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#function_parameter.
+	VisitFunction_parameter(ctx *Function_parameterContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_not_aggregate.
+	VisitOpt_not_aggregate(ctx *Opt_not_aggregateContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_default_expression.
+	VisitOpt_default_expression(ctx *Opt_default_expressionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#type_or_tvf_schema.
+	VisitType_or_tvf_schema(ctx *Type_or_tvf_schemaContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#tvf_schema.
+	VisitTvf_schema(ctx *Tvf_schemaContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#tvf_schema_column.
+	VisitTvf_schema_column(ctx *Tvf_schema_columnContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#templated_parameter_type.
+	VisitTemplated_parameter_type(ctx *Templated_parameter_typeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#templated_parameter_kind.
+	VisitTemplated_parameter_kind(ctx *Templated_parameter_kindContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_aggregate.
+	VisitOpt_aggregate(ctx *Opt_aggregateContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#create_database_statement.
 	VisitCreate_database_statement(ctx *Create_database_statementContext) interface{}
@@ -189,9 +261,6 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#opt_external_table_with_clauses.
 	VisitOpt_external_table_with_clauses(ctx *Opt_external_table_with_clausesContext) interface{}
-
-	// Visit a parse tree produced by GoogleSQLParser#with_connection_clause.
-	VisitWith_connection_clause(ctx *With_connection_clauseContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#with_partition_columns_clause.
 	VisitWith_partition_columns_clause(ctx *With_partition_columns_clauseContext) interface{}

@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.2. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -37,6 +37,172 @@ func (s *BaseGoogleSQLParserListener) EnterStmt(ctx *StmtContext) {}
 
 // ExitStmt is called when production stmt is exited.
 func (s *BaseGoogleSQLParserListener) ExitStmt(ctx *StmtContext) {}
+
+// EnterCreate_function_statement is called when production create_function_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_function_statement(ctx *Create_function_statementContext) {
+}
+
+// ExitCreate_function_statement is called when production create_function_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_function_statement(ctx *Create_function_statementContext) {
+}
+
+// EnterOpt_determinism_level is called when production opt_determinism_level is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_determinism_level(ctx *Opt_determinism_levelContext) {}
+
+// ExitOpt_determinism_level is called when production opt_determinism_level is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_determinism_level(ctx *Opt_determinism_levelContext) {}
+
+// EnterOpt_sql_security_clause is called when production opt_sql_security_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_sql_security_clause(ctx *Opt_sql_security_clauseContext) {
+}
+
+// ExitOpt_sql_security_clause is called when production opt_sql_security_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_sql_security_clause(ctx *Opt_sql_security_clauseContext) {
+}
+
+// EnterSql_security_clause_kind is called when production sql_security_clause_kind is entered.
+func (s *BaseGoogleSQLParserListener) EnterSql_security_clause_kind(ctx *Sql_security_clause_kindContext) {
+}
+
+// ExitSql_security_clause_kind is called when production sql_security_clause_kind is exited.
+func (s *BaseGoogleSQLParserListener) ExitSql_security_clause_kind(ctx *Sql_security_clause_kindContext) {
+}
+
+// EnterAs_sql_function_body_or_string is called when production as_sql_function_body_or_string is entered.
+func (s *BaseGoogleSQLParserListener) EnterAs_sql_function_body_or_string(ctx *As_sql_function_body_or_stringContext) {
+}
+
+// ExitAs_sql_function_body_or_string is called when production as_sql_function_body_or_string is exited.
+func (s *BaseGoogleSQLParserListener) ExitAs_sql_function_body_or_string(ctx *As_sql_function_body_or_stringContext) {
+}
+
+// EnterSql_function_body is called when production sql_function_body is entered.
+func (s *BaseGoogleSQLParserListener) EnterSql_function_body(ctx *Sql_function_bodyContext) {}
+
+// ExitSql_function_body is called when production sql_function_body is exited.
+func (s *BaseGoogleSQLParserListener) ExitSql_function_body(ctx *Sql_function_bodyContext) {}
+
+// EnterUnordered_options_body is called when production unordered_options_body is entered.
+func (s *BaseGoogleSQLParserListener) EnterUnordered_options_body(ctx *Unordered_options_bodyContext) {
+}
+
+// ExitUnordered_options_body is called when production unordered_options_body is exited.
+func (s *BaseGoogleSQLParserListener) ExitUnordered_options_body(ctx *Unordered_options_bodyContext) {
+}
+
+// EnterOpt_language_or_remote_with_connection is called when production opt_language_or_remote_with_connection is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_language_or_remote_with_connection(ctx *Opt_language_or_remote_with_connectionContext) {
+}
+
+// ExitOpt_language_or_remote_with_connection is called when production opt_language_or_remote_with_connection is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_language_or_remote_with_connection(ctx *Opt_language_or_remote_with_connectionContext) {
+}
+
+// EnterLanguage is called when production language is entered.
+func (s *BaseGoogleSQLParserListener) EnterLanguage(ctx *LanguageContext) {}
+
+// ExitLanguage is called when production language is exited.
+func (s *BaseGoogleSQLParserListener) ExitLanguage(ctx *LanguageContext) {}
+
+// EnterRemote_with_connection_clause is called when production remote_with_connection_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterRemote_with_connection_clause(ctx *Remote_with_connection_clauseContext) {
+}
+
+// ExitRemote_with_connection_clause is called when production remote_with_connection_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitRemote_with_connection_clause(ctx *Remote_with_connection_clauseContext) {
+}
+
+// EnterWith_connection_clause is called when production with_connection_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterWith_connection_clause(ctx *With_connection_clauseContext) {
+}
+
+// ExitWith_connection_clause is called when production with_connection_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitWith_connection_clause(ctx *With_connection_clauseContext) {
+}
+
+// EnterOpt_function_returns is called when production opt_function_returns is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_function_returns(ctx *Opt_function_returnsContext) {}
+
+// ExitOpt_function_returns is called when production opt_function_returns is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_function_returns(ctx *Opt_function_returnsContext) {}
+
+// EnterOpt_returns is called when production opt_returns is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_returns(ctx *Opt_returnsContext) {}
+
+// ExitOpt_returns is called when production opt_returns is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_returns(ctx *Opt_returnsContext) {}
+
+// EnterFunction_declaration is called when production function_declaration is entered.
+func (s *BaseGoogleSQLParserListener) EnterFunction_declaration(ctx *Function_declarationContext) {}
+
+// ExitFunction_declaration is called when production function_declaration is exited.
+func (s *BaseGoogleSQLParserListener) ExitFunction_declaration(ctx *Function_declarationContext) {}
+
+// EnterFunction_parameters is called when production function_parameters is entered.
+func (s *BaseGoogleSQLParserListener) EnterFunction_parameters(ctx *Function_parametersContext) {}
+
+// ExitFunction_parameters is called when production function_parameters is exited.
+func (s *BaseGoogleSQLParserListener) ExitFunction_parameters(ctx *Function_parametersContext) {}
+
+// EnterFunction_parameter is called when production function_parameter is entered.
+func (s *BaseGoogleSQLParserListener) EnterFunction_parameter(ctx *Function_parameterContext) {}
+
+// ExitFunction_parameter is called when production function_parameter is exited.
+func (s *BaseGoogleSQLParserListener) ExitFunction_parameter(ctx *Function_parameterContext) {}
+
+// EnterOpt_not_aggregate is called when production opt_not_aggregate is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_not_aggregate(ctx *Opt_not_aggregateContext) {}
+
+// ExitOpt_not_aggregate is called when production opt_not_aggregate is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_not_aggregate(ctx *Opt_not_aggregateContext) {}
+
+// EnterOpt_default_expression is called when production opt_default_expression is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_default_expression(ctx *Opt_default_expressionContext) {
+}
+
+// ExitOpt_default_expression is called when production opt_default_expression is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_default_expression(ctx *Opt_default_expressionContext) {
+}
+
+// EnterType_or_tvf_schema is called when production type_or_tvf_schema is entered.
+func (s *BaseGoogleSQLParserListener) EnterType_or_tvf_schema(ctx *Type_or_tvf_schemaContext) {}
+
+// ExitType_or_tvf_schema is called when production type_or_tvf_schema is exited.
+func (s *BaseGoogleSQLParserListener) ExitType_or_tvf_schema(ctx *Type_or_tvf_schemaContext) {}
+
+// EnterTvf_schema is called when production tvf_schema is entered.
+func (s *BaseGoogleSQLParserListener) EnterTvf_schema(ctx *Tvf_schemaContext) {}
+
+// ExitTvf_schema is called when production tvf_schema is exited.
+func (s *BaseGoogleSQLParserListener) ExitTvf_schema(ctx *Tvf_schemaContext) {}
+
+// EnterTvf_schema_column is called when production tvf_schema_column is entered.
+func (s *BaseGoogleSQLParserListener) EnterTvf_schema_column(ctx *Tvf_schema_columnContext) {}
+
+// ExitTvf_schema_column is called when production tvf_schema_column is exited.
+func (s *BaseGoogleSQLParserListener) ExitTvf_schema_column(ctx *Tvf_schema_columnContext) {}
+
+// EnterTemplated_parameter_type is called when production templated_parameter_type is entered.
+func (s *BaseGoogleSQLParserListener) EnterTemplated_parameter_type(ctx *Templated_parameter_typeContext) {
+}
+
+// ExitTemplated_parameter_type is called when production templated_parameter_type is exited.
+func (s *BaseGoogleSQLParserListener) ExitTemplated_parameter_type(ctx *Templated_parameter_typeContext) {
+}
+
+// EnterTemplated_parameter_kind is called when production templated_parameter_kind is entered.
+func (s *BaseGoogleSQLParserListener) EnterTemplated_parameter_kind(ctx *Templated_parameter_kindContext) {
+}
+
+// ExitTemplated_parameter_kind is called when production templated_parameter_kind is exited.
+func (s *BaseGoogleSQLParserListener) ExitTemplated_parameter_kind(ctx *Templated_parameter_kindContext) {
+}
+
+// EnterOpt_aggregate is called when production opt_aggregate is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_aggregate(ctx *Opt_aggregateContext) {}
+
+// ExitOpt_aggregate is called when production opt_aggregate is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_aggregate(ctx *Opt_aggregateContext) {}
 
 // EnterCreate_database_statement is called when production create_database_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCreate_database_statement(ctx *Create_database_statementContext) {
@@ -416,14 +582,6 @@ func (s *BaseGoogleSQLParserListener) EnterOpt_external_table_with_clauses(ctx *
 
 // ExitOpt_external_table_with_clauses is called when production opt_external_table_with_clauses is exited.
 func (s *BaseGoogleSQLParserListener) ExitOpt_external_table_with_clauses(ctx *Opt_external_table_with_clausesContext) {
-}
-
-// EnterWith_connection_clause is called when production with_connection_clause is entered.
-func (s *BaseGoogleSQLParserListener) EnterWith_connection_clause(ctx *With_connection_clauseContext) {
-}
-
-// ExitWith_connection_clause is called when production with_connection_clause is exited.
-func (s *BaseGoogleSQLParserListener) ExitWith_connection_clause(ctx *With_connection_clauseContext) {
 }
 
 // EnterWith_partition_columns_clause is called when production with_partition_columns_clause is entered.

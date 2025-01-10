@@ -88,6 +88,8 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/create_constant.test",
         # create_database_statement
         "zetasql/parser/testdata/create_database.test",
+        # create_function_statement
+        "zetasql/parser/testdata/create_function.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)
