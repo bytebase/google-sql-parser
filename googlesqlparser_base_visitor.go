@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.2. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -16,6 +16,110 @@ func (v *BaseGoogleSQLParserVisitor) VisitStmts(ctx *StmtsContext) interface{} {
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitStmt(ctx *StmtContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitCreate_function_statement(ctx *Create_function_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_determinism_level(ctx *Opt_determinism_levelContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_sql_security_clause(ctx *Opt_sql_security_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitSql_security_clause_kind(ctx *Sql_security_clause_kindContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitAs_sql_function_body_or_string(ctx *As_sql_function_body_or_stringContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitSql_function_body(ctx *Sql_function_bodyContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitUnordered_options_body(ctx *Unordered_options_bodyContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_language_or_remote_with_connection(ctx *Opt_language_or_remote_with_connectionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitLanguage(ctx *LanguageContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitRemote_with_connection_clause(ctx *Remote_with_connection_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitWith_connection_clause(ctx *With_connection_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_function_returns(ctx *Opt_function_returnsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_returns(ctx *Opt_returnsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitFunction_declaration(ctx *Function_declarationContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitFunction_parameters(ctx *Function_parametersContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitFunction_parameter(ctx *Function_parameterContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_not_aggregate(ctx *Opt_not_aggregateContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_default_expression(ctx *Opt_default_expressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitType_or_tvf_schema(ctx *Type_or_tvf_schemaContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTvf_schema(ctx *Tvf_schemaContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTvf_schema_column(ctx *Tvf_schema_columnContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTemplated_parameter_type(ctx *Templated_parameter_typeContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitTemplated_parameter_kind(ctx *Templated_parameter_kindContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_aggregate(ctx *Opt_aggregateContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitCreate_database_statement(ctx *Create_database_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitCreate_connection_statement(ctx *Create_connection_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -240,10 +344,6 @@ func (v *BaseGoogleSQLParserVisitor) VisitClone_data_source(ctx *Clone_data_sour
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitOpt_external_table_with_clauses(ctx *Opt_external_table_with_clausesContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseGoogleSQLParserVisitor) VisitWith_connection_clause(ctx *With_connection_clauseContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

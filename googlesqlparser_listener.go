@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.1. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.2. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -15,6 +15,84 @@ type GoogleSQLParserListener interface {
 
 	// EnterStmt is called when entering the stmt production.
 	EnterStmt(c *StmtContext)
+
+	// EnterCreate_function_statement is called when entering the create_function_statement production.
+	EnterCreate_function_statement(c *Create_function_statementContext)
+
+	// EnterOpt_determinism_level is called when entering the opt_determinism_level production.
+	EnterOpt_determinism_level(c *Opt_determinism_levelContext)
+
+	// EnterOpt_sql_security_clause is called when entering the opt_sql_security_clause production.
+	EnterOpt_sql_security_clause(c *Opt_sql_security_clauseContext)
+
+	// EnterSql_security_clause_kind is called when entering the sql_security_clause_kind production.
+	EnterSql_security_clause_kind(c *Sql_security_clause_kindContext)
+
+	// EnterAs_sql_function_body_or_string is called when entering the as_sql_function_body_or_string production.
+	EnterAs_sql_function_body_or_string(c *As_sql_function_body_or_stringContext)
+
+	// EnterSql_function_body is called when entering the sql_function_body production.
+	EnterSql_function_body(c *Sql_function_bodyContext)
+
+	// EnterUnordered_options_body is called when entering the unordered_options_body production.
+	EnterUnordered_options_body(c *Unordered_options_bodyContext)
+
+	// EnterOpt_language_or_remote_with_connection is called when entering the opt_language_or_remote_with_connection production.
+	EnterOpt_language_or_remote_with_connection(c *Opt_language_or_remote_with_connectionContext)
+
+	// EnterLanguage is called when entering the language production.
+	EnterLanguage(c *LanguageContext)
+
+	// EnterRemote_with_connection_clause is called when entering the remote_with_connection_clause production.
+	EnterRemote_with_connection_clause(c *Remote_with_connection_clauseContext)
+
+	// EnterWith_connection_clause is called when entering the with_connection_clause production.
+	EnterWith_connection_clause(c *With_connection_clauseContext)
+
+	// EnterOpt_function_returns is called when entering the opt_function_returns production.
+	EnterOpt_function_returns(c *Opt_function_returnsContext)
+
+	// EnterOpt_returns is called when entering the opt_returns production.
+	EnterOpt_returns(c *Opt_returnsContext)
+
+	// EnterFunction_declaration is called when entering the function_declaration production.
+	EnterFunction_declaration(c *Function_declarationContext)
+
+	// EnterFunction_parameters is called when entering the function_parameters production.
+	EnterFunction_parameters(c *Function_parametersContext)
+
+	// EnterFunction_parameter is called when entering the function_parameter production.
+	EnterFunction_parameter(c *Function_parameterContext)
+
+	// EnterOpt_not_aggregate is called when entering the opt_not_aggregate production.
+	EnterOpt_not_aggregate(c *Opt_not_aggregateContext)
+
+	// EnterOpt_default_expression is called when entering the opt_default_expression production.
+	EnterOpt_default_expression(c *Opt_default_expressionContext)
+
+	// EnterType_or_tvf_schema is called when entering the type_or_tvf_schema production.
+	EnterType_or_tvf_schema(c *Type_or_tvf_schemaContext)
+
+	// EnterTvf_schema is called when entering the tvf_schema production.
+	EnterTvf_schema(c *Tvf_schemaContext)
+
+	// EnterTvf_schema_column is called when entering the tvf_schema_column production.
+	EnterTvf_schema_column(c *Tvf_schema_columnContext)
+
+	// EnterTemplated_parameter_type is called when entering the templated_parameter_type production.
+	EnterTemplated_parameter_type(c *Templated_parameter_typeContext)
+
+	// EnterTemplated_parameter_kind is called when entering the templated_parameter_kind production.
+	EnterTemplated_parameter_kind(c *Templated_parameter_kindContext)
+
+	// EnterOpt_aggregate is called when entering the opt_aggregate production.
+	EnterOpt_aggregate(c *Opt_aggregateContext)
+
+	// EnterCreate_database_statement is called when entering the create_database_statement production.
+	EnterCreate_database_statement(c *Create_database_statementContext)
+
+	// EnterCreate_connection_statement is called when entering the create_connection_statement production.
+	EnterCreate_connection_statement(c *Create_connection_statementContext)
 
 	// EnterCreate_constant_statement is called when entering the create_constant_statement production.
 	EnterCreate_constant_statement(c *Create_constant_statementContext)
@@ -183,9 +261,6 @@ type GoogleSQLParserListener interface {
 
 	// EnterOpt_external_table_with_clauses is called when entering the opt_external_table_with_clauses production.
 	EnterOpt_external_table_with_clauses(c *Opt_external_table_with_clausesContext)
-
-	// EnterWith_connection_clause is called when entering the with_connection_clause production.
-	EnterWith_connection_clause(c *With_connection_clauseContext)
 
 	// EnterWith_partition_columns_clause is called when entering the with_partition_columns_clause production.
 	EnterWith_partition_columns_clause(c *With_partition_columns_clauseContext)
@@ -1261,6 +1336,84 @@ type GoogleSQLParserListener interface {
 	// ExitStmt is called when exiting the stmt production.
 	ExitStmt(c *StmtContext)
 
+	// ExitCreate_function_statement is called when exiting the create_function_statement production.
+	ExitCreate_function_statement(c *Create_function_statementContext)
+
+	// ExitOpt_determinism_level is called when exiting the opt_determinism_level production.
+	ExitOpt_determinism_level(c *Opt_determinism_levelContext)
+
+	// ExitOpt_sql_security_clause is called when exiting the opt_sql_security_clause production.
+	ExitOpt_sql_security_clause(c *Opt_sql_security_clauseContext)
+
+	// ExitSql_security_clause_kind is called when exiting the sql_security_clause_kind production.
+	ExitSql_security_clause_kind(c *Sql_security_clause_kindContext)
+
+	// ExitAs_sql_function_body_or_string is called when exiting the as_sql_function_body_or_string production.
+	ExitAs_sql_function_body_or_string(c *As_sql_function_body_or_stringContext)
+
+	// ExitSql_function_body is called when exiting the sql_function_body production.
+	ExitSql_function_body(c *Sql_function_bodyContext)
+
+	// ExitUnordered_options_body is called when exiting the unordered_options_body production.
+	ExitUnordered_options_body(c *Unordered_options_bodyContext)
+
+	// ExitOpt_language_or_remote_with_connection is called when exiting the opt_language_or_remote_with_connection production.
+	ExitOpt_language_or_remote_with_connection(c *Opt_language_or_remote_with_connectionContext)
+
+	// ExitLanguage is called when exiting the language production.
+	ExitLanguage(c *LanguageContext)
+
+	// ExitRemote_with_connection_clause is called when exiting the remote_with_connection_clause production.
+	ExitRemote_with_connection_clause(c *Remote_with_connection_clauseContext)
+
+	// ExitWith_connection_clause is called when exiting the with_connection_clause production.
+	ExitWith_connection_clause(c *With_connection_clauseContext)
+
+	// ExitOpt_function_returns is called when exiting the opt_function_returns production.
+	ExitOpt_function_returns(c *Opt_function_returnsContext)
+
+	// ExitOpt_returns is called when exiting the opt_returns production.
+	ExitOpt_returns(c *Opt_returnsContext)
+
+	// ExitFunction_declaration is called when exiting the function_declaration production.
+	ExitFunction_declaration(c *Function_declarationContext)
+
+	// ExitFunction_parameters is called when exiting the function_parameters production.
+	ExitFunction_parameters(c *Function_parametersContext)
+
+	// ExitFunction_parameter is called when exiting the function_parameter production.
+	ExitFunction_parameter(c *Function_parameterContext)
+
+	// ExitOpt_not_aggregate is called when exiting the opt_not_aggregate production.
+	ExitOpt_not_aggregate(c *Opt_not_aggregateContext)
+
+	// ExitOpt_default_expression is called when exiting the opt_default_expression production.
+	ExitOpt_default_expression(c *Opt_default_expressionContext)
+
+	// ExitType_or_tvf_schema is called when exiting the type_or_tvf_schema production.
+	ExitType_or_tvf_schema(c *Type_or_tvf_schemaContext)
+
+	// ExitTvf_schema is called when exiting the tvf_schema production.
+	ExitTvf_schema(c *Tvf_schemaContext)
+
+	// ExitTvf_schema_column is called when exiting the tvf_schema_column production.
+	ExitTvf_schema_column(c *Tvf_schema_columnContext)
+
+	// ExitTemplated_parameter_type is called when exiting the templated_parameter_type production.
+	ExitTemplated_parameter_type(c *Templated_parameter_typeContext)
+
+	// ExitTemplated_parameter_kind is called when exiting the templated_parameter_kind production.
+	ExitTemplated_parameter_kind(c *Templated_parameter_kindContext)
+
+	// ExitOpt_aggregate is called when exiting the opt_aggregate production.
+	ExitOpt_aggregate(c *Opt_aggregateContext)
+
+	// ExitCreate_database_statement is called when exiting the create_database_statement production.
+	ExitCreate_database_statement(c *Create_database_statementContext)
+
+	// ExitCreate_connection_statement is called when exiting the create_connection_statement production.
+	ExitCreate_connection_statement(c *Create_connection_statementContext)
+
 	// ExitCreate_constant_statement is called when exiting the create_constant_statement production.
 	ExitCreate_constant_statement(c *Create_constant_statementContext)
 
@@ -1428,9 +1581,6 @@ type GoogleSQLParserListener interface {
 
 	// ExitOpt_external_table_with_clauses is called when exiting the opt_external_table_with_clauses production.
 	ExitOpt_external_table_with_clauses(c *Opt_external_table_with_clausesContext)
-
-	// ExitWith_connection_clause is called when exiting the with_connection_clause production.
-	ExitWith_connection_clause(c *With_connection_clauseContext)
 
 	// ExitWith_partition_columns_clause is called when exiting the with_partition_columns_clause production.
 	ExitWith_partition_columns_clause(c *With_partition_columns_clauseContext)
