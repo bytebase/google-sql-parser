@@ -6,32 +6,42 @@ options {
 
 root: stmts EOF;
 
-stmts: stmt (SEMI_SYMBOL stmt)* SEMI_SYMBOL?;
+stmts:
+	unterminated_sql_statement (
+		SEMI_SYMBOL unterminated_sql_statement
+	)* SEMI_SYMBOL?;
 
-stmt:
-	statement_level_hint? (
-		query_statement
-		| alter_statement
-		| analyze_statement
-		| assert_statement
-		| aux_load_data_statement
-		| clone_data_statement
-		| dml_statement
-		| merge_statement
-		| truncate_statement
-		| begin_statement
-		| set_statement
-		| commit_statement
-		| start_batch_statement
-		| run_batch_statement
-		| abort_batch_statement
-		| create_constant_statement
-		| create_connection_statement
-		| create_database_statement
-		| create_function_statement
-		| create_procedure_statement
-		| rollback_statement
-	);
+unterminated_sql_statement:
+	statement_level_hint? sql_statement_body
+	| DEFINE_SYMBOL MACRO_SYMBOL {
+		p.NotifyErrorListeners("Syntax error: DEFINE MACRO statements cannot be composed from other expansions")
+	 }
+	| statement_level_hint DEFINE_SYMBOL MACRO_SYMBOL {
+		p.NotifyErrorListeners("Hints are not allowed on DEFINE MACRO statements")
+	 };
+
+sql_statement_body:
+	query_statement
+	| alter_statement
+	| analyze_statement
+	| assert_statement
+	| aux_load_data_statement
+	| clone_data_statement
+	| dml_statement
+	| merge_statement
+	| truncate_statement
+	| begin_statement
+	| set_statement
+	| commit_statement
+	| start_batch_statement
+	| run_batch_statement
+	| abort_batch_statement
+	| create_constant_statement
+	| create_connection_statement
+	| create_database_statement
+	| create_function_statement
+	| create_procedure_statement
+	| rollback_statement;
 
 create_procedure_statement:
 	CREATE_SYMBOL opt_or_replace? opt_create_scope? PROCEDURE_SYMBOL opt_if_not_exists?
@@ -43,7 +53,36 @@ begin_end_block_or_language_as_code:
 	| LANGUAGE_SYMBOL identifier opt_as_code?;
 
 begin_end_block:
-	BEGIN_SYMBOL statement_list opt_exception_handler? END_SYMBOL;
+	BEGIN_SYMBOL statement_list? opt_exception_handler? END_SYMBOL;
+
+statement_list:
+	unterminated_non_empty_statement_list SEMI_SYMBOL;
+
+unterminated_non_empty_statement_list:
+	unterminated_statement (SEMI_SYMBOL unterminated_statement)*;
+
+unterminated_statement:
+	unterminated_sql_statement
+	| unterminated_script_statement;
+
+unterminated_script_statement:
+	if_statement
+	| case_statement
+	| variable_declaration
+	| break_statement
+	| continue_statement
+	| return_statement
+	| raise_statement
+	| unterminated_unlabeled_script_statement
+	| label COLON_SYMBOL unterminated_unlabeled_script_statement opt_identifier?;
+
+if_statement:
+	IF_SYMBOL expression THEN_SYMBOL statement_list? elseif_clauses? opt_else? END_SYMBOL IF_SYMBOL;
+
+elseif_clauses:
+	(ELSEIF_SYMBOL expression THEN_SYMBOL statement_list?)+;
+
+opt_else: ELSE_SYMBOL statement_list?;
 
 opt_as_code: AS_SYMBOL string_literal;
 
