@@ -42,7 +42,22 @@ sql_statement_body:
 	| create_function_statement
 	| create_procedure_statement
 	| create_index_statement
+	| create_privilege_restriction_statement
 	| rollback_statement;
+
+create_privilege_restriction_statement:
+	CREATE_SYMBOL opt_or_replace? PRIVILEGE_SYMBOL RESTRICTION_SYMBOL opt_if_not_exists? ON_SYMBOL
+		privilege_list ON_SYMBOL identifier path_expression opt_restrict_to_clause?;
+
+restrict_to_clause:
+	RESTRICT_SYMBOL TO_SYMBOL possibly_empty_grantee_list;
+
+possibly_empty_grantee_list:
+	LR_BRACKET_SYMBOL (
+		string_literal_or_parameter (
+			COMMA_SYMBOL string_literal_or_parameter
+		)*
+	)? RR_BRACKET_SYMBOL;
 
 create_index_statement:
 	CREATE_SYMBOL opt_or_replace? UNIQUE_SYMBOL? opt_spanner_null_filtered? index_type? INDEX_SYMBOL
