@@ -23,6 +23,66 @@ func (v *BaseGoogleSQLParserVisitor) VisitSql_statement_body(ctx *Sql_statement_
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitCreate_index_statement(ctx *Create_index_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_create_index_statement_suffix(ctx *Opt_create_index_statement_suffixContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitSpanner_index_interleave_clause(ctx *Spanner_index_interleave_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitIndex_storing_list(ctx *Index_storing_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitIndex_storing_expression_list(ctx *Index_storing_expression_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitIndex_order_by_and_options(ctx *Index_order_by_and_optionsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitIndex_all_columns(ctx *Index_all_columnsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_with_column_options(ctx *Opt_with_column_optionsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitAll_column_column_options(ctx *All_column_column_optionsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitColumn_ordering_and_options_expr(ctx *Column_ordering_and_options_exprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitIndex_unnest_expression_list(ctx *Index_unnest_expression_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitUnnest_expression_with_opt_alias_and_offset(ctx *Unnest_expression_with_opt_alias_and_offsetContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOn_path_expression(ctx *On_path_expressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitIndex_type(ctx *Index_typeContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_spanner_null_filtered(ctx *Opt_spanner_null_filteredContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitCreate_procedure_statement(ctx *Create_procedure_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
