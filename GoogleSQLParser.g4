@@ -14,10 +14,10 @@ stmts:
 unterminated_sql_statement:
 	statement_level_hint? sql_statement_body
 	| DEFINE_SYMBOL MACRO_SYMBOL {
-		p.NotifyErrorListeners("Syntax error: DEFINE MACRO statements cannot be composed from other expansions")
+		p.NotifyErrorListeners("Syntax error: DEFINE MACRO statements cannot be composed from other expansions", nil, nil)
 	 }
 	| statement_level_hint DEFINE_SYMBOL MACRO_SYMBOL {
-		p.NotifyErrorListeners("Hints are not allowed on DEFINE MACRO statements")
+		p.NotifyErrorListeners("Hints are not allowed on DEFINE MACRO statements", nil, nil)
 	 };
 
 sql_statement_body:
@@ -55,6 +55,9 @@ begin_end_block_or_language_as_code:
 begin_end_block:
 	BEGIN_SYMBOL statement_list? opt_exception_handler? END_SYMBOL;
 
+opt_exception_handler:
+	EXCEPTION_SYMBOL WHEN_SYMBOL ERROR_SYMBOL THEN_SYMBOL statement_list;
+
 statement_list:
 	unterminated_non_empty_statement_list SEMI_SYMBOL;
 
@@ -74,7 +77,55 @@ unterminated_script_statement:
 	| return_statement
 	| raise_statement
 	| unterminated_unlabeled_script_statement
-	| label COLON_SYMBOL unterminated_unlabeled_script_statement opt_identifier?;
+	| label COLON_SYMBOL unterminated_unlabeled_script_statement identifier?;
+
+label: /* TODO(zp): refine label. */ identifier;
+
+unterminated_unlabeled_script_statement:
+	begin_end_block
+	| while_statement
+	| loop_statement
+	| repeat_statement
+	| for_in_statement;
+
+for_in_statement:
+	FOR_SYMBOL identifier IN_SYMBOL parenthesized_query DO_SYMBOL statement_list? END_SYMBOL
+		FOR_SYMBOL;
+
+repeat_statement:
+	REPEAT_SYMBOL statement_list? until_clause END_SYMBOL REPEAT_SYMBOL;
+
+until_clause: UNTIL_SYMBOL expression;
+
+loop_statement:
+	LOOP_SYMBOL statement_list? END_SYMBOL LOOP_SYMBOL;
+
+while_statement:
+	WHILE_SYMBOL expression DO_SYMBOL statement_list? END_SYMBOL WHILE_SYMBOL;
+
+raise_statement:
+	RAISE_SYMBOL
+	| RAISE_SYMBOL USING_SYMBOL MESSAGE_SYMBOL EQUAL_OPERATOR expression;
+
+return_statement: RETURN_SYMBOL;
+
+continue_statement:
+	CONTINUE_SYMBOL identifier?
+	| ITERATE_SYMBOL identifier?;
+
+variable_declaration:
+	DECLARE_SYMBOL identifier_list type opt_default_expression?
+	| DECLARE_SYMBOL identifier_list DEFAULT_SYMBOL expression;
+
+break_statement:
+	BREAK_SYMBOL identifier?
+	| LEAVE_SYMBOL identifier?;
+
+case_statement:
+	CASE_SYMBOL expression? when_then_clauses opt_else? END_SYMBOL CASE_SYMBOL;
+
+when_then_clauses:
+	(WHEN_SYMBOL expression THEN_SYMBOL statement_list?)+;
 
 if_statement:
 	IF_SYMBOL expression THEN_SYMBOL statement_list? elseif_clauses? opt_else? END_SYMBOL IF_SYMBOL;
@@ -93,7 +144,7 @@ external_security_clause_kind: INVOKER_SYMBOL | DEFINER_SYMBOL;
 
 procedure_parameters:
 	LR_BRACKET_SYMBOL (
-		procedure_parameter (COMMA_SYMBOL procedure_parameters)*
+		procedure_parameter (COMMA_SYMBOL procedure_parameter)*
 	)? RR_BRACKET_SYMBOL;
 
 procedure_parameter:

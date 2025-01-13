@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.2. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -13,8 +13,107 @@ type GoogleSQLParserListener interface {
 	// EnterStmts is called when entering the stmts production.
 	EnterStmts(c *StmtsContext)
 
-	// EnterStmt is called when entering the stmt production.
-	EnterStmt(c *StmtContext)
+	// EnterUnterminated_sql_statement is called when entering the unterminated_sql_statement production.
+	EnterUnterminated_sql_statement(c *Unterminated_sql_statementContext)
+
+	// EnterSql_statement_body is called when entering the sql_statement_body production.
+	EnterSql_statement_body(c *Sql_statement_bodyContext)
+
+	// EnterCreate_procedure_statement is called when entering the create_procedure_statement production.
+	EnterCreate_procedure_statement(c *Create_procedure_statementContext)
+
+	// EnterBegin_end_block_or_language_as_code is called when entering the begin_end_block_or_language_as_code production.
+	EnterBegin_end_block_or_language_as_code(c *Begin_end_block_or_language_as_codeContext)
+
+	// EnterBegin_end_block is called when entering the begin_end_block production.
+	EnterBegin_end_block(c *Begin_end_blockContext)
+
+	// EnterOpt_exception_handler is called when entering the opt_exception_handler production.
+	EnterOpt_exception_handler(c *Opt_exception_handlerContext)
+
+	// EnterStatement_list is called when entering the statement_list production.
+	EnterStatement_list(c *Statement_listContext)
+
+	// EnterUnterminated_non_empty_statement_list is called when entering the unterminated_non_empty_statement_list production.
+	EnterUnterminated_non_empty_statement_list(c *Unterminated_non_empty_statement_listContext)
+
+	// EnterUnterminated_statement is called when entering the unterminated_statement production.
+	EnterUnterminated_statement(c *Unterminated_statementContext)
+
+	// EnterUnterminated_script_statement is called when entering the unterminated_script_statement production.
+	EnterUnterminated_script_statement(c *Unterminated_script_statementContext)
+
+	// EnterLabel is called when entering the label production.
+	EnterLabel(c *LabelContext)
+
+	// EnterUnterminated_unlabeled_script_statement is called when entering the unterminated_unlabeled_script_statement production.
+	EnterUnterminated_unlabeled_script_statement(c *Unterminated_unlabeled_script_statementContext)
+
+	// EnterFor_in_statement is called when entering the for_in_statement production.
+	EnterFor_in_statement(c *For_in_statementContext)
+
+	// EnterRepeat_statement is called when entering the repeat_statement production.
+	EnterRepeat_statement(c *Repeat_statementContext)
+
+	// EnterUntil_clause is called when entering the until_clause production.
+	EnterUntil_clause(c *Until_clauseContext)
+
+	// EnterLoop_statement is called when entering the loop_statement production.
+	EnterLoop_statement(c *Loop_statementContext)
+
+	// EnterWhile_statement is called when entering the while_statement production.
+	EnterWhile_statement(c *While_statementContext)
+
+	// EnterRaise_statement is called when entering the raise_statement production.
+	EnterRaise_statement(c *Raise_statementContext)
+
+	// EnterReturn_statement is called when entering the return_statement production.
+	EnterReturn_statement(c *Return_statementContext)
+
+	// EnterContinue_statement is called when entering the continue_statement production.
+	EnterContinue_statement(c *Continue_statementContext)
+
+	// EnterVariable_declaration is called when entering the variable_declaration production.
+	EnterVariable_declaration(c *Variable_declarationContext)
+
+	// EnterBreak_statement is called when entering the break_statement production.
+	EnterBreak_statement(c *Break_statementContext)
+
+	// EnterCase_statement is called when entering the case_statement production.
+	EnterCase_statement(c *Case_statementContext)
+
+	// EnterWhen_then_clauses is called when entering the when_then_clauses production.
+	EnterWhen_then_clauses(c *When_then_clausesContext)
+
+	// EnterIf_statement is called when entering the if_statement production.
+	EnterIf_statement(c *If_statementContext)
+
+	// EnterElseif_clauses is called when entering the elseif_clauses production.
+	EnterElseif_clauses(c *Elseif_clausesContext)
+
+	// EnterOpt_else is called when entering the opt_else production.
+	EnterOpt_else(c *Opt_elseContext)
+
+	// EnterOpt_as_code is called when entering the opt_as_code production.
+	EnterOpt_as_code(c *Opt_as_codeContext)
+
+	// EnterOpt_external_security_clause is called when entering the opt_external_security_clause production.
+	EnterOpt_external_security_clause(c *Opt_external_security_clauseContext)
+
+	// EnterExternal_security_clause_kind is called when entering the external_security_clause_kind production.
+	EnterExternal_security_clause_kind(c *External_security_clause_kindContext)
+
+	// EnterProcedure_parameters is called when entering the procedure_parameters production.
+	EnterProcedure_parameters(c *Procedure_parametersContext)
+
+	// EnterProcedure_parameter is called when entering the procedure_parameter production.
+	EnterProcedure_parameter(c *Procedure_parameterContext)
+
+	// EnterProcedure_parameter_termination is called when entering the procedure_parameter_termination production.
+	EnterProcedure_parameter_termination(c *Procedure_parameter_terminationContext)
+
+	// EnterOpt_procedure_parameter_mode is called when entering the opt_procedure_parameter_mode production.
+	EnterOpt_procedure_parameter_mode(c *Opt_procedure_parameter_modeContext)
 
 	// EnterCreate_function_statement is called when entering the create_function_statement production.
 	EnterCreate_function_statement(c *Create_function_statementContext)
@@ -1333,8 +1432,107 @@ type GoogleSQLParserListener interface {
 	// ExitStmts is called when exiting the stmts production.
 	ExitStmts(c *StmtsContext)
 
-	// ExitStmt is called when exiting the stmt production.
-	ExitStmt(c *StmtContext)
+	// ExitUnterminated_sql_statement is called when exiting the unterminated_sql_statement production.
+	ExitUnterminated_sql_statement(c *Unterminated_sql_statementContext)
+
+	// ExitSql_statement_body is called when exiting the sql_statement_body production.
+	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitCreate_procedure_statement is called when exiting the create_procedure_statement production.
+	ExitCreate_procedure_statement(c *Create_procedure_statementContext)
+
+	// ExitBegin_end_block_or_language_as_code is called when exiting the begin_end_block_or_language_as_code production.
+	ExitBegin_end_block_or_language_as_code(c *Begin_end_block_or_language_as_codeContext)
+
+	// ExitBegin_end_block is called when exiting the begin_end_block production.
+	ExitBegin_end_block(c *Begin_end_blockContext)
+
+	// ExitOpt_exception_handler is called when exiting the opt_exception_handler production.
+	ExitOpt_exception_handler(c *Opt_exception_handlerContext)
+
+	// ExitStatement_list is called when exiting the statement_list production.
+	ExitStatement_list(c *Statement_listContext)
+
+	// ExitUnterminated_non_empty_statement_list is called when exiting the unterminated_non_empty_statement_list production.
+	ExitUnterminated_non_empty_statement_list(c *Unterminated_non_empty_statement_listContext)
+
+	// ExitUnterminated_statement is called when exiting the unterminated_statement production.
+	ExitUnterminated_statement(c *Unterminated_statementContext)
+
+	// ExitUnterminated_script_statement is called when exiting the unterminated_script_statement production.
+	ExitUnterminated_script_statement(c *Unterminated_script_statementContext)
+
+	// ExitLabel is called when exiting the label production.
+	ExitLabel(c *LabelContext)
+
+	// ExitUnterminated_unlabeled_script_statement is called when exiting the unterminated_unlabeled_script_statement production.
+	ExitUnterminated_unlabeled_script_statement(c *Unterminated_unlabeled_script_statementContext)
+
+	// ExitFor_in_statement is called when exiting the for_in_statement production.
+	ExitFor_in_statement(c *For_in_statementContext)
+
+	// ExitRepeat_statement is called when exiting the repeat_statement production.
+	ExitRepeat_statement(c *Repeat_statementContext)
+
+	// ExitUntil_clause is called when exiting the until_clause production.
+	ExitUntil_clause(c *Until_clauseContext)
+
+	// ExitLoop_statement is called when exiting the loop_statement production.
+	ExitLoop_statement(c *Loop_statementContext)
+
+	// ExitWhile_statement is called when exiting the while_statement production.
+	ExitWhile_statement(c *While_statementContext)
+
+	// ExitRaise_statement is called when exiting the raise_statement production.
+	ExitRaise_statement(c *Raise_statementContext)
+
+	// ExitReturn_statement is called when exiting the return_statement production.
+	ExitReturn_statement(c *Return_statementContext)
+
+	// ExitContinue_statement is called when exiting the continue_statement production.
+	ExitContinue_statement(c *Continue_statementContext)
+
+	// ExitVariable_declaration is called when exiting the variable_declaration production.
+	ExitVariable_declaration(c *Variable_declarationContext)
+
+	// ExitBreak_statement is called when exiting the break_statement production.
+	ExitBreak_statement(c *Break_statementContext)
+
+	// ExitCase_statement is called when exiting the case_statement production.
+	ExitCase_statement(c *Case_statementContext)
+
+	// ExitWhen_then_clauses is called when exiting the when_then_clauses production.
+	ExitWhen_then_clauses(c *When_then_clausesContext)
+
+	// ExitIf_statement is called when exiting the if_statement production.
+	ExitIf_statement(c *If_statementContext)
+
+	// ExitElseif_clauses is called when exiting the elseif_clauses production.
+	ExitElseif_clauses(c *Elseif_clausesContext)
+
+	// ExitOpt_else is called when exiting the opt_else production.
+	ExitOpt_else(c *Opt_elseContext)
+
+	// ExitOpt_as_code is called when exiting the opt_as_code production.
+	ExitOpt_as_code(c *Opt_as_codeContext)
+
+	// ExitOpt_external_security_clause is called when exiting the opt_external_security_clause production.
+	ExitOpt_external_security_clause(c *Opt_external_security_clauseContext)
+
+	// ExitExternal_security_clause_kind is called when exiting the external_security_clause_kind production.
+	ExitExternal_security_clause_kind(c *External_security_clause_kindContext)
+
+	// ExitProcedure_parameters is called when exiting the procedure_parameters production.
+	ExitProcedure_parameters(c *Procedure_parametersContext)
+
+	// ExitProcedure_parameter is called when exiting the procedure_parameter production.
+	ExitProcedure_parameter(c *Procedure_parameterContext)
+
+	// ExitProcedure_parameter_termination is called when exiting the procedure_parameter_termination production.
+	ExitProcedure_parameter_termination(c *Procedure_parameter_terminationContext)
+
+	// ExitOpt_procedure_parameter_mode is called when exiting the opt_procedure_parameter_mode production.
+	ExitOpt_procedure_parameter_mode(c *Opt_procedure_parameter_modeContext)
 
 	// ExitCreate_function_statement is called when exiting the create_function_statement production.
 	ExitCreate_function_statement(c *Create_function_statementContext)

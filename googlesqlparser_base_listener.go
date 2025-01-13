@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.2. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -32,11 +32,231 @@ func (s *BaseGoogleSQLParserListener) EnterStmts(ctx *StmtsContext) {}
 // ExitStmts is called when production stmts is exited.
 func (s *BaseGoogleSQLParserListener) ExitStmts(ctx *StmtsContext) {}
 
-// EnterStmt is called when production stmt is entered.
-func (s *BaseGoogleSQLParserListener) EnterStmt(ctx *StmtContext) {}
+// EnterUnterminated_sql_statement is called when production unterminated_sql_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterUnterminated_sql_statement(ctx *Unterminated_sql_statementContext) {
+}
 
-// ExitStmt is called when production stmt is exited.
-func (s *BaseGoogleSQLParserListener) ExitStmt(ctx *StmtContext) {}
+// ExitUnterminated_sql_statement is called when production unterminated_sql_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitUnterminated_sql_statement(ctx *Unterminated_sql_statementContext) {
+}
+
+// EnterSql_statement_body is called when production sql_statement_body is entered.
+func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement_bodyContext) {}
+
+// ExitSql_statement_body is called when production sql_statement_body is exited.
+func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
+
+// EnterCreate_procedure_statement is called when production create_procedure_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_procedure_statement(ctx *Create_procedure_statementContext) {
+}
+
+// ExitCreate_procedure_statement is called when production create_procedure_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_procedure_statement(ctx *Create_procedure_statementContext) {
+}
+
+// EnterBegin_end_block_or_language_as_code is called when production begin_end_block_or_language_as_code is entered.
+func (s *BaseGoogleSQLParserListener) EnterBegin_end_block_or_language_as_code(ctx *Begin_end_block_or_language_as_codeContext) {
+}
+
+// ExitBegin_end_block_or_language_as_code is called when production begin_end_block_or_language_as_code is exited.
+func (s *BaseGoogleSQLParserListener) ExitBegin_end_block_or_language_as_code(ctx *Begin_end_block_or_language_as_codeContext) {
+}
+
+// EnterBegin_end_block is called when production begin_end_block is entered.
+func (s *BaseGoogleSQLParserListener) EnterBegin_end_block(ctx *Begin_end_blockContext) {}
+
+// ExitBegin_end_block is called when production begin_end_block is exited.
+func (s *BaseGoogleSQLParserListener) ExitBegin_end_block(ctx *Begin_end_blockContext) {}
+
+// EnterOpt_exception_handler is called when production opt_exception_handler is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_exception_handler(ctx *Opt_exception_handlerContext) {}
+
+// ExitOpt_exception_handler is called when production opt_exception_handler is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_exception_handler(ctx *Opt_exception_handlerContext) {}
+
+// EnterStatement_list is called when production statement_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterStatement_list(ctx *Statement_listContext) {}
+
+// ExitStatement_list is called when production statement_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitStatement_list(ctx *Statement_listContext) {}
+
+// EnterUnterminated_non_empty_statement_list is called when production unterminated_non_empty_statement_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterUnterminated_non_empty_statement_list(ctx *Unterminated_non_empty_statement_listContext) {
+}
+
+// ExitUnterminated_non_empty_statement_list is called when production unterminated_non_empty_statement_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitUnterminated_non_empty_statement_list(ctx *Unterminated_non_empty_statement_listContext) {
+}
+
+// EnterUnterminated_statement is called when production unterminated_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterUnterminated_statement(ctx *Unterminated_statementContext) {
+}
+
+// ExitUnterminated_statement is called when production unterminated_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitUnterminated_statement(ctx *Unterminated_statementContext) {
+}
+
+// EnterUnterminated_script_statement is called when production unterminated_script_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterUnterminated_script_statement(ctx *Unterminated_script_statementContext) {
+}
+
+// ExitUnterminated_script_statement is called when production unterminated_script_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitUnterminated_script_statement(ctx *Unterminated_script_statementContext) {
+}
+
+// EnterLabel is called when production label is entered.
+func (s *BaseGoogleSQLParserListener) EnterLabel(ctx *LabelContext) {}
+
+// ExitLabel is called when production label is exited.
+func (s *BaseGoogleSQLParserListener) ExitLabel(ctx *LabelContext) {}
+
+// EnterUnterminated_unlabeled_script_statement is called when production unterminated_unlabeled_script_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterUnterminated_unlabeled_script_statement(ctx *Unterminated_unlabeled_script_statementContext) {
+}
+
+// ExitUnterminated_unlabeled_script_statement is called when production unterminated_unlabeled_script_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitUnterminated_unlabeled_script_statement(ctx *Unterminated_unlabeled_script_statementContext) {
+}
+
+// EnterFor_in_statement is called when production for_in_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterFor_in_statement(ctx *For_in_statementContext) {}
+
+// ExitFor_in_statement is called when production for_in_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitFor_in_statement(ctx *For_in_statementContext) {}
+
+// EnterRepeat_statement is called when production repeat_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterRepeat_statement(ctx *Repeat_statementContext) {}
+
+// ExitRepeat_statement is called when production repeat_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitRepeat_statement(ctx *Repeat_statementContext) {}
+
+// EnterUntil_clause is called when production until_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterUntil_clause(ctx *Until_clauseContext) {}
+
+// ExitUntil_clause is called when production until_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitUntil_clause(ctx *Until_clauseContext) {}
+
+// EnterLoop_statement is called when production loop_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterLoop_statement(ctx *Loop_statementContext) {}
+
+// ExitLoop_statement is called when production loop_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitLoop_statement(ctx *Loop_statementContext) {}
+
+// EnterWhile_statement is called when production while_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterWhile_statement(ctx *While_statementContext) {}
+
+// ExitWhile_statement is called when production while_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitWhile_statement(ctx *While_statementContext) {}
+
+// EnterRaise_statement is called when production raise_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterRaise_statement(ctx *Raise_statementContext) {}
+
+// ExitRaise_statement is called when production raise_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitRaise_statement(ctx *Raise_statementContext) {}
+
+// EnterReturn_statement is called when production return_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterReturn_statement(ctx *Return_statementContext) {}
+
+// ExitReturn_statement is called when production return_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitReturn_statement(ctx *Return_statementContext) {}
+
+// EnterContinue_statement is called when production continue_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterContinue_statement(ctx *Continue_statementContext) {}
+
+// ExitContinue_statement is called when production continue_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitContinue_statement(ctx *Continue_statementContext) {}
+
+// EnterVariable_declaration is called when production variable_declaration is entered.
+func (s *BaseGoogleSQLParserListener) EnterVariable_declaration(ctx *Variable_declarationContext) {}
+
+// ExitVariable_declaration is called when production variable_declaration is exited.
+func (s *BaseGoogleSQLParserListener) ExitVariable_declaration(ctx *Variable_declarationContext) {}
+
+// EnterBreak_statement is called when production break_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterBreak_statement(ctx *Break_statementContext) {}
+
+// ExitBreak_statement is called when production break_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitBreak_statement(ctx *Break_statementContext) {}
+
+// EnterCase_statement is called when production case_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCase_statement(ctx *Case_statementContext) {}
+
+// ExitCase_statement is called when production case_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCase_statement(ctx *Case_statementContext) {}
+
+// EnterWhen_then_clauses is called when production when_then_clauses is entered.
+func (s *BaseGoogleSQLParserListener) EnterWhen_then_clauses(ctx *When_then_clausesContext) {}
+
+// ExitWhen_then_clauses is called when production when_then_clauses is exited.
+func (s *BaseGoogleSQLParserListener) ExitWhen_then_clauses(ctx *When_then_clausesContext) {}
+
+// EnterIf_statement is called when production if_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterIf_statement(ctx *If_statementContext) {}
+
+// ExitIf_statement is called when production if_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitIf_statement(ctx *If_statementContext) {}
+
+// EnterElseif_clauses is called when production elseif_clauses is entered.
+func (s *BaseGoogleSQLParserListener) EnterElseif_clauses(ctx *Elseif_clausesContext) {}
+
+// ExitElseif_clauses is called when production elseif_clauses is exited.
+func (s *BaseGoogleSQLParserListener) ExitElseif_clauses(ctx *Elseif_clausesContext) {}
+
+// EnterOpt_else is called when production opt_else is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_else(ctx *Opt_elseContext) {}
+
+// ExitOpt_else is called when production opt_else is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_else(ctx *Opt_elseContext) {}
+
+// EnterOpt_as_code is called when production opt_as_code is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_as_code(ctx *Opt_as_codeContext) {}
+
+// ExitOpt_as_code is called when production opt_as_code is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_as_code(ctx *Opt_as_codeContext) {}
+
+// EnterOpt_external_security_clause is called when production opt_external_security_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_external_security_clause(ctx *Opt_external_security_clauseContext) {
+}
+
+// ExitOpt_external_security_clause is called when production opt_external_security_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_external_security_clause(ctx *Opt_external_security_clauseContext) {
+}
+
+// EnterExternal_security_clause_kind is called when production external_security_clause_kind is entered.
+func (s *BaseGoogleSQLParserListener) EnterExternal_security_clause_kind(ctx *External_security_clause_kindContext) {
+}
+
+// ExitExternal_security_clause_kind is called when production external_security_clause_kind is exited.
+func (s *BaseGoogleSQLParserListener) ExitExternal_security_clause_kind(ctx *External_security_clause_kindContext) {
+}
+
+// EnterProcedure_parameters is called when production procedure_parameters is entered.
+func (s *BaseGoogleSQLParserListener) EnterProcedure_parameters(ctx *Procedure_parametersContext) {}
+
+// ExitProcedure_parameters is called when production procedure_parameters is exited.
+func (s *BaseGoogleSQLParserListener) ExitProcedure_parameters(ctx *Procedure_parametersContext) {}
+
+// EnterProcedure_parameter is called when production procedure_parameter is entered.
+func (s *BaseGoogleSQLParserListener) EnterProcedure_parameter(ctx *Procedure_parameterContext) {}
+
+// ExitProcedure_parameter is called when production procedure_parameter is exited.
+func (s *BaseGoogleSQLParserListener) ExitProcedure_parameter(ctx *Procedure_parameterContext) {}
+
+// EnterProcedure_parameter_termination is called when production procedure_parameter_termination is entered.
+func (s *BaseGoogleSQLParserListener) EnterProcedure_parameter_termination(ctx *Procedure_parameter_terminationContext) {
+}
+
+// ExitProcedure_parameter_termination is called when production procedure_parameter_termination is exited.
+func (s *BaseGoogleSQLParserListener) ExitProcedure_parameter_termination(ctx *Procedure_parameter_terminationContext) {
+}
+
+// EnterOpt_procedure_parameter_mode is called when production opt_procedure_parameter_mode is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_procedure_parameter_mode(ctx *Opt_procedure_parameter_modeContext) {
+}
+
+// ExitOpt_procedure_parameter_mode is called when production opt_procedure_parameter_mode is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_procedure_parameter_mode(ctx *Opt_procedure_parameter_modeContext) {
+}
 
 // EnterCreate_function_statement is called when production create_function_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCreate_function_statement(ctx *Create_function_statementContext) {

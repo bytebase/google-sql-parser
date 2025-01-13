@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.2. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -13,8 +13,107 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#stmts.
 	VisitStmts(ctx *StmtsContext) interface{}
 
-	// Visit a parse tree produced by GoogleSQLParser#stmt.
-	VisitStmt(ctx *StmtContext) interface{}
+	// Visit a parse tree produced by GoogleSQLParser#unterminated_sql_statement.
+	VisitUnterminated_sql_statement(ctx *Unterminated_sql_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
+	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#create_procedure_statement.
+	VisitCreate_procedure_statement(ctx *Create_procedure_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#begin_end_block_or_language_as_code.
+	VisitBegin_end_block_or_language_as_code(ctx *Begin_end_block_or_language_as_codeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#begin_end_block.
+	VisitBegin_end_block(ctx *Begin_end_blockContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_exception_handler.
+	VisitOpt_exception_handler(ctx *Opt_exception_handlerContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#statement_list.
+	VisitStatement_list(ctx *Statement_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#unterminated_non_empty_statement_list.
+	VisitUnterminated_non_empty_statement_list(ctx *Unterminated_non_empty_statement_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#unterminated_statement.
+	VisitUnterminated_statement(ctx *Unterminated_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#unterminated_script_statement.
+	VisitUnterminated_script_statement(ctx *Unterminated_script_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#label.
+	VisitLabel(ctx *LabelContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#unterminated_unlabeled_script_statement.
+	VisitUnterminated_unlabeled_script_statement(ctx *Unterminated_unlabeled_script_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#for_in_statement.
+	VisitFor_in_statement(ctx *For_in_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#repeat_statement.
+	VisitRepeat_statement(ctx *Repeat_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#until_clause.
+	VisitUntil_clause(ctx *Until_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#loop_statement.
+	VisitLoop_statement(ctx *Loop_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#while_statement.
+	VisitWhile_statement(ctx *While_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#raise_statement.
+	VisitRaise_statement(ctx *Raise_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#return_statement.
+	VisitReturn_statement(ctx *Return_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#continue_statement.
+	VisitContinue_statement(ctx *Continue_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#variable_declaration.
+	VisitVariable_declaration(ctx *Variable_declarationContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#break_statement.
+	VisitBreak_statement(ctx *Break_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#case_statement.
+	VisitCase_statement(ctx *Case_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#when_then_clauses.
+	VisitWhen_then_clauses(ctx *When_then_clausesContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#if_statement.
+	VisitIf_statement(ctx *If_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#elseif_clauses.
+	VisitElseif_clauses(ctx *Elseif_clausesContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_else.
+	VisitOpt_else(ctx *Opt_elseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_as_code.
+	VisitOpt_as_code(ctx *Opt_as_codeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_external_security_clause.
+	VisitOpt_external_security_clause(ctx *Opt_external_security_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#external_security_clause_kind.
+	VisitExternal_security_clause_kind(ctx *External_security_clause_kindContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#procedure_parameters.
+	VisitProcedure_parameters(ctx *Procedure_parametersContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#procedure_parameter.
+	VisitProcedure_parameter(ctx *Procedure_parameterContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#procedure_parameter_termination.
+	VisitProcedure_parameter_termination(ctx *Procedure_parameter_terminationContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_procedure_parameter_mode.
+	VisitOpt_procedure_parameter_mode(ctx *Opt_procedure_parameter_modeContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#create_function_statement.
 	VisitCreate_function_statement(ctx *Create_function_statementContext) interface{}
