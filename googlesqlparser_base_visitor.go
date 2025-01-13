@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.2. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -15,7 +15,139 @@ func (v *BaseGoogleSQLParserVisitor) VisitStmts(ctx *StmtsContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseGoogleSQLParserVisitor) VisitStmt(ctx *StmtContext) interface{} {
+func (v *BaseGoogleSQLParserVisitor) VisitUnterminated_sql_statement(ctx *Unterminated_sql_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitCreate_procedure_statement(ctx *Create_procedure_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitBegin_end_block_or_language_as_code(ctx *Begin_end_block_or_language_as_codeContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitBegin_end_block(ctx *Begin_end_blockContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_exception_handler(ctx *Opt_exception_handlerContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitStatement_list(ctx *Statement_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitUnterminated_non_empty_statement_list(ctx *Unterminated_non_empty_statement_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitUnterminated_statement(ctx *Unterminated_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitUnterminated_script_statement(ctx *Unterminated_script_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitLabel(ctx *LabelContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitUnterminated_unlabeled_script_statement(ctx *Unterminated_unlabeled_script_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitFor_in_statement(ctx *For_in_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitRepeat_statement(ctx *Repeat_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitUntil_clause(ctx *Until_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitLoop_statement(ctx *Loop_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitWhile_statement(ctx *While_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitRaise_statement(ctx *Raise_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitReturn_statement(ctx *Return_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitContinue_statement(ctx *Continue_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitVariable_declaration(ctx *Variable_declarationContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitBreak_statement(ctx *Break_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitCase_statement(ctx *Case_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitWhen_then_clauses(ctx *When_then_clausesContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitIf_statement(ctx *If_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitElseif_clauses(ctx *Elseif_clausesContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_else(ctx *Opt_elseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_as_code(ctx *Opt_as_codeContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_external_security_clause(ctx *Opt_external_security_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitExternal_security_clause_kind(ctx *External_security_clause_kindContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitProcedure_parameters(ctx *Procedure_parametersContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitProcedure_parameter(ctx *Procedure_parameterContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitProcedure_parameter_termination(ctx *Procedure_parameter_terminationContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_procedure_parameter_mode(ctx *Opt_procedure_parameter_modeContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
