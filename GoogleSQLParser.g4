@@ -41,7 +41,59 @@ sql_statement_body:
 	| create_database_statement
 	| create_function_statement
 	| create_procedure_statement
+	| create_index_statement
 	| rollback_statement;
+
+create_index_statement:
+	CREATE_SYMBOL opt_or_replace? UNIQUE_SYMBOL? opt_spanner_null_filtered? index_type? INDEX_SYMBOL
+		opt_if_not_exists? path_expression on_path_expression as_alias? index_unnest_expression_list
+		? index_order_by_and_options index_storing_list? opt_create_index_statement_suffix?;
+
+opt_create_index_statement_suffix:
+	partition_by_clause_prefix_no_hint opt_options_list?
+	| opt_options_list? spanner_index_interleave_clause
+	| opt_options_list;
+
+spanner_index_interleave_clause:
+	COMMA_SYMBOL INTERLEAVE_SYMBOL IN_SYMBOL maybe_dashed_path_expression;
+
+index_storing_list:
+	STORING_SYMBOL index_storing_expression_list;
+
+index_storing_expression_list:
+	LR_BRACKET_SYMBOL expression (COMMA_SYMBOL expression)* RR_BRACKET_SYMBOL;
+
+index_order_by_and_options:
+	LR_BRACKET_SYMBOL column_ordering_and_options_expr (
+		COMMA_SYMBOL column_ordering_and_options_expr
+	)* RR_BRACKET_SYMBOL
+	| index_all_columns;
+
+index_all_columns:
+	LR_BRACKET_SYMBOL ALL_SYMBOL COLUMNS_SYMBOL opt_with_column_options? RR_BRACKET_SYMBOL;
+
+opt_with_column_options:
+	WITH_SYMBOL COLUMN_SYMBOL OPTIONS_SYMBOL all_column_column_options;
+
+all_column_column_options:
+	LR_BRACKET_SYMBOL column_ordering_and_options_expr (
+		COMMA_SYMBOL column_ordering_and_options_expr
+	)* RR_BRACKET_SYMBOL;
+
+column_ordering_and_options_expr:
+	expression collate_clause? asc_or_desc? null_order? opt_options_list?;
+
+index_unnest_expression_list:
+	unnest_expression_with_opt_alias_and_offset+;
+
+unnest_expression_with_opt_alias_and_offset:
+	unnest_expression as_alias? opt_with_offset_and_alias?;
+
+on_path_expression: ON_SYMBOL path_expression;
+
+index_type: SEARCH_SYMBOL | VECTOR_SYMBOL;
+
+opt_spanner_null_filtered: NULL_FILTERED_SYMBOL;
 
 create_procedure_statement:
 	CREATE_SYMBOL opt_or_replace? opt_create_scope? PROCEDURE_SYMBOL opt_if_not_exists?

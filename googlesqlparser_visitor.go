@@ -19,6 +19,51 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#create_index_statement.
+	VisitCreate_index_statement(ctx *Create_index_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_create_index_statement_suffix.
+	VisitOpt_create_index_statement_suffix(ctx *Opt_create_index_statement_suffixContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#spanner_index_interleave_clause.
+	VisitSpanner_index_interleave_clause(ctx *Spanner_index_interleave_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#index_storing_list.
+	VisitIndex_storing_list(ctx *Index_storing_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#index_storing_expression_list.
+	VisitIndex_storing_expression_list(ctx *Index_storing_expression_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#index_order_by_and_options.
+	VisitIndex_order_by_and_options(ctx *Index_order_by_and_optionsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#index_all_columns.
+	VisitIndex_all_columns(ctx *Index_all_columnsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_with_column_options.
+	VisitOpt_with_column_options(ctx *Opt_with_column_optionsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#all_column_column_options.
+	VisitAll_column_column_options(ctx *All_column_column_optionsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#column_ordering_and_options_expr.
+	VisitColumn_ordering_and_options_expr(ctx *Column_ordering_and_options_exprContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#index_unnest_expression_list.
+	VisitIndex_unnest_expression_list(ctx *Index_unnest_expression_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#unnest_expression_with_opt_alias_and_offset.
+	VisitUnnest_expression_with_opt_alias_and_offset(ctx *Unnest_expression_with_opt_alias_and_offsetContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#on_path_expression.
+	VisitOn_path_expression(ctx *On_path_expressionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#index_type.
+	VisitIndex_type(ctx *Index_typeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_spanner_null_filtered.
+	VisitOpt_spanner_null_filtered(ctx *Opt_spanner_null_filteredContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#create_procedure_statement.
 	VisitCreate_procedure_statement(ctx *Create_procedure_statementContext) interface{}
 

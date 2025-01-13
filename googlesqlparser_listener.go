@@ -19,6 +19,51 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterCreate_index_statement is called when entering the create_index_statement production.
+	EnterCreate_index_statement(c *Create_index_statementContext)
+
+	// EnterOpt_create_index_statement_suffix is called when entering the opt_create_index_statement_suffix production.
+	EnterOpt_create_index_statement_suffix(c *Opt_create_index_statement_suffixContext)
+
+	// EnterSpanner_index_interleave_clause is called when entering the spanner_index_interleave_clause production.
+	EnterSpanner_index_interleave_clause(c *Spanner_index_interleave_clauseContext)
+
+	// EnterIndex_storing_list is called when entering the index_storing_list production.
+	EnterIndex_storing_list(c *Index_storing_listContext)
+
+	// EnterIndex_storing_expression_list is called when entering the index_storing_expression_list production.
+	EnterIndex_storing_expression_list(c *Index_storing_expression_listContext)
+
+	// EnterIndex_order_by_and_options is called when entering the index_order_by_and_options production.
+	EnterIndex_order_by_and_options(c *Index_order_by_and_optionsContext)
+
+	// EnterIndex_all_columns is called when entering the index_all_columns production.
+	EnterIndex_all_columns(c *Index_all_columnsContext)
+
+	// EnterOpt_with_column_options is called when entering the opt_with_column_options production.
+	EnterOpt_with_column_options(c *Opt_with_column_optionsContext)
+
+	// EnterAll_column_column_options is called when entering the all_column_column_options production.
+	EnterAll_column_column_options(c *All_column_column_optionsContext)
+
+	// EnterColumn_ordering_and_options_expr is called when entering the column_ordering_and_options_expr production.
+	EnterColumn_ordering_and_options_expr(c *Column_ordering_and_options_exprContext)
+
+	// EnterIndex_unnest_expression_list is called when entering the index_unnest_expression_list production.
+	EnterIndex_unnest_expression_list(c *Index_unnest_expression_listContext)
+
+	// EnterUnnest_expression_with_opt_alias_and_offset is called when entering the unnest_expression_with_opt_alias_and_offset production.
+	EnterUnnest_expression_with_opt_alias_and_offset(c *Unnest_expression_with_opt_alias_and_offsetContext)
+
+	// EnterOn_path_expression is called when entering the on_path_expression production.
+	EnterOn_path_expression(c *On_path_expressionContext)
+
+	// EnterIndex_type is called when entering the index_type production.
+	EnterIndex_type(c *Index_typeContext)
+
+	// EnterOpt_spanner_null_filtered is called when entering the opt_spanner_null_filtered production.
+	EnterOpt_spanner_null_filtered(c *Opt_spanner_null_filteredContext)
+
 	// EnterCreate_procedure_statement is called when entering the create_procedure_statement production.
 	EnterCreate_procedure_statement(c *Create_procedure_statementContext)
 
@@ -1437,6 +1482,51 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitCreate_index_statement is called when exiting the create_index_statement production.
+	ExitCreate_index_statement(c *Create_index_statementContext)
+
+	// ExitOpt_create_index_statement_suffix is called when exiting the opt_create_index_statement_suffix production.
+	ExitOpt_create_index_statement_suffix(c *Opt_create_index_statement_suffixContext)
+
+	// ExitSpanner_index_interleave_clause is called when exiting the spanner_index_interleave_clause production.
+	ExitSpanner_index_interleave_clause(c *Spanner_index_interleave_clauseContext)
+
+	// ExitIndex_storing_list is called when exiting the index_storing_list production.
+	ExitIndex_storing_list(c *Index_storing_listContext)
+
+	// ExitIndex_storing_expression_list is called when exiting the index_storing_expression_list production.
+	ExitIndex_storing_expression_list(c *Index_storing_expression_listContext)
+
+	// ExitIndex_order_by_and_options is called when exiting the index_order_by_and_options production.
+	ExitIndex_order_by_and_options(c *Index_order_by_and_optionsContext)
+
+	// ExitIndex_all_columns is called when exiting the index_all_columns production.
+	ExitIndex_all_columns(c *Index_all_columnsContext)
+
+	// ExitOpt_with_column_options is called when exiting the opt_with_column_options production.
+	ExitOpt_with_column_options(c *Opt_with_column_optionsContext)
+
+	// ExitAll_column_column_options is called when exiting the all_column_column_options production.
+	ExitAll_column_column_options(c *All_column_column_optionsContext)
+
+	// ExitColumn_ordering_and_options_expr is called when exiting the column_ordering_and_options_expr production.
+	ExitColumn_ordering_and_options_expr(c *Column_ordering_and_options_exprContext)
+
+	// ExitIndex_unnest_expression_list is called when exiting the index_unnest_expression_list production.
+	ExitIndex_unnest_expression_list(c *Index_unnest_expression_listContext)
+
+	// ExitUnnest_expression_with_opt_alias_and_offset is called when exiting the unnest_expression_with_opt_alias_and_offset production.
+	ExitUnnest_expression_with_opt_alias_and_offset(c *Unnest_expression_with_opt_alias_and_offsetContext)
+
+	// ExitOn_path_expression is called when exiting the on_path_expression production.
+	ExitOn_path_expression(c *On_path_expressionContext)
+
+	// ExitIndex_type is called when exiting the index_type production.
+	ExitIndex_type(c *Index_typeContext)
+
+	// ExitOpt_spanner_null_filtered is called when exiting the opt_spanner_null_filtered production.
+	ExitOpt_spanner_null_filtered(c *Opt_spanner_null_filteredContext)
 
 	// ExitCreate_procedure_statement is called when exiting the create_procedure_statement production.
 	ExitCreate_procedure_statement(c *Create_procedure_statementContext)

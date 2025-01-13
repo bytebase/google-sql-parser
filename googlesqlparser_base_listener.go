@@ -46,6 +46,118 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterCreate_index_statement is called when production create_index_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_index_statement(ctx *Create_index_statementContext) {
+}
+
+// ExitCreate_index_statement is called when production create_index_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_index_statement(ctx *Create_index_statementContext) {
+}
+
+// EnterOpt_create_index_statement_suffix is called when production opt_create_index_statement_suffix is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_create_index_statement_suffix(ctx *Opt_create_index_statement_suffixContext) {
+}
+
+// ExitOpt_create_index_statement_suffix is called when production opt_create_index_statement_suffix is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_create_index_statement_suffix(ctx *Opt_create_index_statement_suffixContext) {
+}
+
+// EnterSpanner_index_interleave_clause is called when production spanner_index_interleave_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterSpanner_index_interleave_clause(ctx *Spanner_index_interleave_clauseContext) {
+}
+
+// ExitSpanner_index_interleave_clause is called when production spanner_index_interleave_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitSpanner_index_interleave_clause(ctx *Spanner_index_interleave_clauseContext) {
+}
+
+// EnterIndex_storing_list is called when production index_storing_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterIndex_storing_list(ctx *Index_storing_listContext) {}
+
+// ExitIndex_storing_list is called when production index_storing_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitIndex_storing_list(ctx *Index_storing_listContext) {}
+
+// EnterIndex_storing_expression_list is called when production index_storing_expression_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterIndex_storing_expression_list(ctx *Index_storing_expression_listContext) {
+}
+
+// ExitIndex_storing_expression_list is called when production index_storing_expression_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitIndex_storing_expression_list(ctx *Index_storing_expression_listContext) {
+}
+
+// EnterIndex_order_by_and_options is called when production index_order_by_and_options is entered.
+func (s *BaseGoogleSQLParserListener) EnterIndex_order_by_and_options(ctx *Index_order_by_and_optionsContext) {
+}
+
+// ExitIndex_order_by_and_options is called when production index_order_by_and_options is exited.
+func (s *BaseGoogleSQLParserListener) ExitIndex_order_by_and_options(ctx *Index_order_by_and_optionsContext) {
+}
+
+// EnterIndex_all_columns is called when production index_all_columns is entered.
+func (s *BaseGoogleSQLParserListener) EnterIndex_all_columns(ctx *Index_all_columnsContext) {}
+
+// ExitIndex_all_columns is called when production index_all_columns is exited.
+func (s *BaseGoogleSQLParserListener) ExitIndex_all_columns(ctx *Index_all_columnsContext) {}
+
+// EnterOpt_with_column_options is called when production opt_with_column_options is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_with_column_options(ctx *Opt_with_column_optionsContext) {
+}
+
+// ExitOpt_with_column_options is called when production opt_with_column_options is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_with_column_options(ctx *Opt_with_column_optionsContext) {
+}
+
+// EnterAll_column_column_options is called when production all_column_column_options is entered.
+func (s *BaseGoogleSQLParserListener) EnterAll_column_column_options(ctx *All_column_column_optionsContext) {
+}
+
+// ExitAll_column_column_options is called when production all_column_column_options is exited.
+func (s *BaseGoogleSQLParserListener) ExitAll_column_column_options(ctx *All_column_column_optionsContext) {
+}
+
+// EnterColumn_ordering_and_options_expr is called when production column_ordering_and_options_expr is entered.
+func (s *BaseGoogleSQLParserListener) EnterColumn_ordering_and_options_expr(ctx *Column_ordering_and_options_exprContext) {
+}
+
+// ExitColumn_ordering_and_options_expr is called when production column_ordering_and_options_expr is exited.
+func (s *BaseGoogleSQLParserListener) ExitColumn_ordering_and_options_expr(ctx *Column_ordering_and_options_exprContext) {
+}
+
+// EnterIndex_unnest_expression_list is called when production index_unnest_expression_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterIndex_unnest_expression_list(ctx *Index_unnest_expression_listContext) {
+}
+
+// ExitIndex_unnest_expression_list is called when production index_unnest_expression_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitIndex_unnest_expression_list(ctx *Index_unnest_expression_listContext) {
+}
+
+// EnterUnnest_expression_with_opt_alias_and_offset is called when production unnest_expression_with_opt_alias_and_offset is entered.
+func (s *BaseGoogleSQLParserListener) EnterUnnest_expression_with_opt_alias_and_offset(ctx *Unnest_expression_with_opt_alias_and_offsetContext) {
+}
+
+// ExitUnnest_expression_with_opt_alias_and_offset is called when production unnest_expression_with_opt_alias_and_offset is exited.
+func (s *BaseGoogleSQLParserListener) ExitUnnest_expression_with_opt_alias_and_offset(ctx *Unnest_expression_with_opt_alias_and_offsetContext) {
+}
+
+// EnterOn_path_expression is called when production on_path_expression is entered.
+func (s *BaseGoogleSQLParserListener) EnterOn_path_expression(ctx *On_path_expressionContext) {}
+
+// ExitOn_path_expression is called when production on_path_expression is exited.
+func (s *BaseGoogleSQLParserListener) ExitOn_path_expression(ctx *On_path_expressionContext) {}
+
+// EnterIndex_type is called when production index_type is entered.
+func (s *BaseGoogleSQLParserListener) EnterIndex_type(ctx *Index_typeContext) {}
+
+// ExitIndex_type is called when production index_type is exited.
+func (s *BaseGoogleSQLParserListener) ExitIndex_type(ctx *Index_typeContext) {}
+
+// EnterOpt_spanner_null_filtered is called when production opt_spanner_null_filtered is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_spanner_null_filtered(ctx *Opt_spanner_null_filteredContext) {
+}
+
+// ExitOpt_spanner_null_filtered is called when production opt_spanner_null_filtered is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_spanner_null_filtered(ctx *Opt_spanner_null_filteredContext) {
+}
+
 // EnterCreate_procedure_statement is called when production create_procedure_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCreate_procedure_statement(ctx *Create_procedure_statementContext) {
 }
