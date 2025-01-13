@@ -46,6 +46,50 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterCreate_row_access_policy_statement is called when production create_row_access_policy_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_row_access_policy_statement(ctx *Create_row_access_policy_statementContext) {
+}
+
+// ExitCreate_row_access_policy_statement is called when production create_row_access_policy_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_row_access_policy_statement(ctx *Create_row_access_policy_statementContext) {
+}
+
+// EnterFilter_using_clause is called when production filter_using_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterFilter_using_clause(ctx *Filter_using_clauseContext) {}
+
+// ExitFilter_using_clause is called when production filter_using_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitFilter_using_clause(ctx *Filter_using_clauseContext) {}
+
+// EnterCreate_row_access_policy_grant_to_clause is called when production create_row_access_policy_grant_to_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_row_access_policy_grant_to_clause(ctx *Create_row_access_policy_grant_to_clauseContext) {
+}
+
+// ExitCreate_row_access_policy_grant_to_clause is called when production create_row_access_policy_grant_to_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_row_access_policy_grant_to_clause(ctx *Create_row_access_policy_grant_to_clauseContext) {
+}
+
+// EnterCreate_privilege_restriction_statement is called when production create_privilege_restriction_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_privilege_restriction_statement(ctx *Create_privilege_restriction_statementContext) {
+}
+
+// ExitCreate_privilege_restriction_statement is called when production create_privilege_restriction_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_privilege_restriction_statement(ctx *Create_privilege_restriction_statementContext) {
+}
+
+// EnterRestrict_to_clause is called when production restrict_to_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterRestrict_to_clause(ctx *Restrict_to_clauseContext) {}
+
+// ExitRestrict_to_clause is called when production restrict_to_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitRestrict_to_clause(ctx *Restrict_to_clauseContext) {}
+
+// EnterPossibly_empty_grantee_list is called when production possibly_empty_grantee_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterPossibly_empty_grantee_list(ctx *Possibly_empty_grantee_listContext) {
+}
+
+// ExitPossibly_empty_grantee_list is called when production possibly_empty_grantee_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitPossibly_empty_grantee_list(ctx *Possibly_empty_grantee_listContext) {
+}
+
 // EnterCreate_index_statement is called when production create_index_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCreate_index_statement(ctx *Create_index_statementContext) {
 }

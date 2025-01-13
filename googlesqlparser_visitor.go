@@ -19,6 +19,24 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#create_row_access_policy_statement.
+	VisitCreate_row_access_policy_statement(ctx *Create_row_access_policy_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#filter_using_clause.
+	VisitFilter_using_clause(ctx *Filter_using_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#create_row_access_policy_grant_to_clause.
+	VisitCreate_row_access_policy_grant_to_clause(ctx *Create_row_access_policy_grant_to_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#create_privilege_restriction_statement.
+	VisitCreate_privilege_restriction_statement(ctx *Create_privilege_restriction_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#restrict_to_clause.
+	VisitRestrict_to_clause(ctx *Restrict_to_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#possibly_empty_grantee_list.
+	VisitPossibly_empty_grantee_list(ctx *Possibly_empty_grantee_listContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#create_index_statement.
 	VisitCreate_index_statement(ctx *Create_index_statementContext) interface{}
 

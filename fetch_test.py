@@ -94,6 +94,8 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/create_procedure.test",
         # create_index_statement
         "zetasql/parser/testdata/create_index.test",
+        # create_row_access_policy_statement
+        "zetasql/parser/testdata/create_row_access_policy.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)

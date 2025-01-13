@@ -19,6 +19,24 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterCreate_row_access_policy_statement is called when entering the create_row_access_policy_statement production.
+	EnterCreate_row_access_policy_statement(c *Create_row_access_policy_statementContext)
+
+	// EnterFilter_using_clause is called when entering the filter_using_clause production.
+	EnterFilter_using_clause(c *Filter_using_clauseContext)
+
+	// EnterCreate_row_access_policy_grant_to_clause is called when entering the create_row_access_policy_grant_to_clause production.
+	EnterCreate_row_access_policy_grant_to_clause(c *Create_row_access_policy_grant_to_clauseContext)
+
+	// EnterCreate_privilege_restriction_statement is called when entering the create_privilege_restriction_statement production.
+	EnterCreate_privilege_restriction_statement(c *Create_privilege_restriction_statementContext)
+
+	// EnterRestrict_to_clause is called when entering the restrict_to_clause production.
+	EnterRestrict_to_clause(c *Restrict_to_clauseContext)
+
+	// EnterPossibly_empty_grantee_list is called when entering the possibly_empty_grantee_list production.
+	EnterPossibly_empty_grantee_list(c *Possibly_empty_grantee_listContext)
+
 	// EnterCreate_index_statement is called when entering the create_index_statement production.
 	EnterCreate_index_statement(c *Create_index_statementContext)
 
@@ -1482,6 +1500,24 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitCreate_row_access_policy_statement is called when exiting the create_row_access_policy_statement production.
+	ExitCreate_row_access_policy_statement(c *Create_row_access_policy_statementContext)
+
+	// ExitFilter_using_clause is called when exiting the filter_using_clause production.
+	ExitFilter_using_clause(c *Filter_using_clauseContext)
+
+	// ExitCreate_row_access_policy_grant_to_clause is called when exiting the create_row_access_policy_grant_to_clause production.
+	ExitCreate_row_access_policy_grant_to_clause(c *Create_row_access_policy_grant_to_clauseContext)
+
+	// ExitCreate_privilege_restriction_statement is called when exiting the create_privilege_restriction_statement production.
+	ExitCreate_privilege_restriction_statement(c *Create_privilege_restriction_statementContext)
+
+	// ExitRestrict_to_clause is called when exiting the restrict_to_clause production.
+	ExitRestrict_to_clause(c *Restrict_to_clauseContext)
+
+	// ExitPossibly_empty_grantee_list is called when exiting the possibly_empty_grantee_list production.
+	ExitPossibly_empty_grantee_list(c *Possibly_empty_grantee_listContext)
 
 	// ExitCreate_index_statement is called when exiting the create_index_statement production.
 	ExitCreate_index_statement(c *Create_index_statementContext)
