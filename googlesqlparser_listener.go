@@ -19,6 +19,30 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterCreate_table_statement is called when entering the create_table_statement production.
+	EnterCreate_table_statement(c *Create_table_statementContext)
+
+	// EnterOpt_ttl_clause is called when entering the opt_ttl_clause production.
+	EnterOpt_ttl_clause(c *Opt_ttl_clauseContext)
+
+	// EnterOpt_copy_table is called when entering the opt_copy_table production.
+	EnterOpt_copy_table(c *Opt_copy_tableContext)
+
+	// EnterCopy_data_source is called when entering the copy_data_source production.
+	EnterCopy_data_source(c *Copy_data_sourceContext)
+
+	// EnterOpt_clone_table is called when entering the opt_clone_table production.
+	EnterOpt_clone_table(c *Opt_clone_tableContext)
+
+	// EnterOpt_spanner_table_options is called when entering the opt_spanner_table_options production.
+	EnterOpt_spanner_table_options(c *Opt_spanner_table_optionsContext)
+
+	// EnterOpt_spanner_interleave_in_parent_clause is called when entering the opt_spanner_interleave_in_parent_clause production.
+	EnterOpt_spanner_interleave_in_parent_clause(c *Opt_spanner_interleave_in_parent_clauseContext)
+
+	// EnterSpanner_primary_key is called when entering the spanner_primary_key production.
+	EnterSpanner_primary_key(c *Spanner_primary_keyContext)
+
 	// EnterCreate_table_function_statement is called when entering the create_table_function_statement production.
 	EnterCreate_table_function_statement(c *Create_table_function_statementContext)
 
@@ -1596,6 +1620,30 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitCreate_table_statement is called when exiting the create_table_statement production.
+	ExitCreate_table_statement(c *Create_table_statementContext)
+
+	// ExitOpt_ttl_clause is called when exiting the opt_ttl_clause production.
+	ExitOpt_ttl_clause(c *Opt_ttl_clauseContext)
+
+	// ExitOpt_copy_table is called when exiting the opt_copy_table production.
+	ExitOpt_copy_table(c *Opt_copy_tableContext)
+
+	// ExitCopy_data_source is called when exiting the copy_data_source production.
+	ExitCopy_data_source(c *Copy_data_sourceContext)
+
+	// ExitOpt_clone_table is called when exiting the opt_clone_table production.
+	ExitOpt_clone_table(c *Opt_clone_tableContext)
+
+	// ExitOpt_spanner_table_options is called when exiting the opt_spanner_table_options production.
+	ExitOpt_spanner_table_options(c *Opt_spanner_table_optionsContext)
+
+	// ExitOpt_spanner_interleave_in_parent_clause is called when exiting the opt_spanner_interleave_in_parent_clause production.
+	ExitOpt_spanner_interleave_in_parent_clause(c *Opt_spanner_interleave_in_parent_clauseContext)
+
+	// ExitSpanner_primary_key is called when exiting the spanner_primary_key production.
+	ExitSpanner_primary_key(c *Spanner_primary_keyContext)
 
 	// ExitCreate_table_function_statement is called when exiting the create_table_function_statement production.
 	ExitCreate_table_function_statement(c *Create_table_function_statementContext)

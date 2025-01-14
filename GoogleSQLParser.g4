@@ -52,7 +52,35 @@ sql_statement_body:
 	| create_external_schema_statement
 	| create_snapshot_statement
 	| create_table_function_statement
+	| create_table_statement
 	| rollback_statement;
+
+create_table_statement:
+	CREATE_SYMBOL opt_or_replace? opt_create_scope? TABLE_SYMBOL opt_if_not_exists?
+		maybe_dashed_path_expression table_element_list? opt_spanner_table_options?
+		opt_like_path_expression? opt_clone_table? opt_copy_table? opt_default_collate_clause?
+		partition_by_clause_prefix_no_hint? cluster_by_clause_prefix_no_hint? opt_ttl_clause?
+		with_connection_clause? opt_options_list? as_query?;
+
+opt_ttl_clause:
+	ROW_SYMBOL DELETION_SYMBOL POLICY_SYMBOL LR_BRACKET_SYMBOL expression RR_BRACKET_SYMBOL;
+
+opt_copy_table: COPY_SYMBOL copy_data_source;
+
+copy_data_source:
+	maybe_dashed_path_expression opt_at_system_time? where_clause?;
+
+opt_clone_table: CLONE_SYMBOL clone_data_source;
+
+opt_spanner_table_options:
+	spanner_primary_key opt_spanner_interleave_in_parent_clause?;
+
+opt_spanner_interleave_in_parent_clause:
+	COMMA_SYMBOL INTERLEAVE_SYMBOL IN_SYMBOL PARENT_SYMBOL maybe_dashed_path_expression
+		foreign_key_on_delete;
+
+spanner_primary_key:
+	PRIMARY_SYMBOL KEY_SYMBOL primary_key_element_list;
 
 create_table_function_statement:
 	CREATE_SYMBOL opt_or_replace? opt_create_scope? TABLE_SYMBOL FUNCTION_SYMBOL opt_if_not_exists?

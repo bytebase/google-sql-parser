@@ -19,6 +19,30 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#create_table_statement.
+	VisitCreate_table_statement(ctx *Create_table_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_ttl_clause.
+	VisitOpt_ttl_clause(ctx *Opt_ttl_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_copy_table.
+	VisitOpt_copy_table(ctx *Opt_copy_tableContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#copy_data_source.
+	VisitCopy_data_source(ctx *Copy_data_sourceContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_clone_table.
+	VisitOpt_clone_table(ctx *Opt_clone_tableContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_spanner_table_options.
+	VisitOpt_spanner_table_options(ctx *Opt_spanner_table_optionsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_spanner_interleave_in_parent_clause.
+	VisitOpt_spanner_interleave_in_parent_clause(ctx *Opt_spanner_interleave_in_parent_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#spanner_primary_key.
+	VisitSpanner_primary_key(ctx *Spanner_primary_keyContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#create_table_function_statement.
 	VisitCreate_table_function_statement(ctx *Create_table_function_statementContext) interface{}
 
