@@ -46,6 +46,32 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterDescribe_statement is called when production describe_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterDescribe_statement(ctx *Describe_statementContext) {}
+
+// ExitDescribe_statement is called when production describe_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitDescribe_statement(ctx *Describe_statementContext) {}
+
+// EnterDescribe_info is called when production describe_info is entered.
+func (s *BaseGoogleSQLParserListener) EnterDescribe_info(ctx *Describe_infoContext) {}
+
+// ExitDescribe_info is called when production describe_info is exited.
+func (s *BaseGoogleSQLParserListener) ExitDescribe_info(ctx *Describe_infoContext) {}
+
+// EnterOpt_from_path_expression is called when production opt_from_path_expression is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_from_path_expression(ctx *Opt_from_path_expressionContext) {
+}
+
+// ExitOpt_from_path_expression is called when production opt_from_path_expression is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_from_path_expression(ctx *Opt_from_path_expressionContext) {
+}
+
+// EnterDescribe_keyword is called when production describe_keyword is entered.
+func (s *BaseGoogleSQLParserListener) EnterDescribe_keyword(ctx *Describe_keywordContext) {}
+
+// ExitDescribe_keyword is called when production describe_keyword is exited.
+func (s *BaseGoogleSQLParserListener) ExitDescribe_keyword(ctx *Describe_keywordContext) {}
+
 // EnterDefine_table_statement is called when production define_table_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterDefine_table_statement(ctx *Define_table_statementContext) {
 }
