@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.2. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -20,6 +20,22 @@ func (v *BaseGoogleSQLParserVisitor) VisitUnterminated_sql_statement(ctx *Unterm
 }
 
 func (v *BaseGoogleSQLParserVisitor) VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitCreate_external_table_function_statement(ctx *Create_external_table_function_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitCreate_external_table_statement(ctx *Create_external_table_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_default_collate_clause(ctx *Opt_default_collate_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_like_path_expression(ctx *Opt_like_path_expressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

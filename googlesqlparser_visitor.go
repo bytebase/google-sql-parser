@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.2. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -18,6 +18,18 @@ type GoogleSQLParserVisitor interface {
 
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#create_external_table_function_statement.
+	VisitCreate_external_table_function_statement(ctx *Create_external_table_function_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#create_external_table_statement.
+	VisitCreate_external_table_statement(ctx *Create_external_table_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_default_collate_clause.
+	VisitOpt_default_collate_clause(ctx *Opt_default_collate_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_like_path_expression.
+	VisitOpt_like_path_expression(ctx *Opt_like_path_expressionContext) interface{}
 
 	// Visit a parse tree produced by GoogleSQLParser#create_row_access_policy_statement.
 	VisitCreate_row_access_policy_statement(ctx *Create_row_access_policy_statementContext) interface{}

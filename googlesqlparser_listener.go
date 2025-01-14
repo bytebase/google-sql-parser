@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.2. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -18,6 +18,18 @@ type GoogleSQLParserListener interface {
 
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
+
+	// EnterCreate_external_table_function_statement is called when entering the create_external_table_function_statement production.
+	EnterCreate_external_table_function_statement(c *Create_external_table_function_statementContext)
+
+	// EnterCreate_external_table_statement is called when entering the create_external_table_statement production.
+	EnterCreate_external_table_statement(c *Create_external_table_statementContext)
+
+	// EnterOpt_default_collate_clause is called when entering the opt_default_collate_clause production.
+	EnterOpt_default_collate_clause(c *Opt_default_collate_clauseContext)
+
+	// EnterOpt_like_path_expression is called when entering the opt_like_path_expression production.
+	EnterOpt_like_path_expression(c *Opt_like_path_expressionContext)
 
 	// EnterCreate_row_access_policy_statement is called when entering the create_row_access_policy_statement production.
 	EnterCreate_row_access_policy_statement(c *Create_row_access_policy_statementContext)
@@ -1500,6 +1512,18 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitCreate_external_table_function_statement is called when exiting the create_external_table_function_statement production.
+	ExitCreate_external_table_function_statement(c *Create_external_table_function_statementContext)
+
+	// ExitCreate_external_table_statement is called when exiting the create_external_table_statement production.
+	ExitCreate_external_table_statement(c *Create_external_table_statementContext)
+
+	// ExitOpt_default_collate_clause is called when exiting the opt_default_collate_clause production.
+	ExitOpt_default_collate_clause(c *Opt_default_collate_clauseContext)
+
+	// ExitOpt_like_path_expression is called when exiting the opt_like_path_expression production.
+	ExitOpt_like_path_expression(c *Opt_like_path_expressionContext)
 
 	// ExitCreate_row_access_policy_statement is called when exiting the create_row_access_policy_statement production.
 	ExitCreate_row_access_policy_statement(c *Create_row_access_policy_statementContext)

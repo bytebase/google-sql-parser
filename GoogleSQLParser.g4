@@ -44,7 +44,24 @@ sql_statement_body:
 	| create_index_statement
 	| create_privilege_restriction_statement
 	| create_row_access_policy_statement
+	| create_external_table_statement
+	| create_external_table_function_statement
 	| rollback_statement;
+
+create_external_table_function_statement:
+	CREATE_SYMBOL opt_or_replace? opt_create_scope? EXTERNAL_SYMBOL TABLE_SYMBOL FUNCTION_SYMBOL {
+		p.NotifyErrorListeners("Syntax error: CREATE EXTERNAL TABLE FUNCTION is not supported", nil, nil)
+	};
+
+create_external_table_statement:
+	CREATE_SYMBOL opt_or_replace? opt_create_scope? EXTERNAL_SYMBOL TABLE_SYMBOL opt_if_not_exists?
+		maybe_dashed_path_expression table_element_list? opt_like_path_expression?
+		opt_default_collate_clause? opt_external_table_with_clauses? opt_options_list?;
+
+opt_default_collate_clause: DEFAULT_SYMBOL collate_clause;
+
+opt_like_path_expression:
+	LIKE_SYMBOL maybe_dashed_path_expression;
 
 create_row_access_policy_statement:
 	CREATE_SYMBOL opt_or_replace? ROW_SYMBOL ACCESS_SYMBOL? POLICY_SYMBOL opt_if_not_exists?
