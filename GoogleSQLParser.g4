@@ -53,7 +53,31 @@ sql_statement_body:
 	| create_snapshot_statement
 	| create_table_function_statement
 	| create_table_statement
+	| create_view_statement
 	| rollback_statement;
+
+create_view_statement:
+	CREATE_SYMBOL opt_or_replace? opt_create_scope? RECURSIVE_SYMBOL? VIEW_SYMBOL opt_if_not_exists?
+		maybe_dashed_path_expression column_with_options_list? opt_sql_security_clause?
+		opt_options_list? as_query
+	| CREATE_SYMBOL opt_or_replace? MATERIALIZED_SYMBOL RECURSIVE_SYMBOL? VIEW_SYMBOL
+		opt_if_not_exists? maybe_dashed_path_expression column_with_options_list?
+		opt_sql_security_clause? partition_by_clause_prefix_no_hint?
+		cluster_by_clause_prefix_no_hint? opt_options_list? AS_SYMBOL query_or_replica_source
+	| CREATE_SYMBOL opt_or_replace? APPROX_SYMBOL RECURSIVE_SYMBOL? VIEW_SYMBOL opt_if_not_exists?
+		maybe_dashed_path_expression column_with_options_list? opt_sql_security_clause?
+		opt_options_list? as_query;
+
+query_or_replica_source:
+	query
+	| REPLICA_SYMBOL OF_SYMBOL maybe_dashed_path_expression;
+
+column_with_options_list:
+	LR_BRACKET_SYMBOL column_with_options (
+		COMMA_SYMBOL column_with_options
+	)* RR_BRACKET_SYMBOL;
+
+column_with_options: identifier opt_options_list?;
 
 create_table_statement:
 	CREATE_SYMBOL opt_or_replace? opt_create_scope? TABLE_SYMBOL opt_if_not_exists?
