@@ -46,6 +46,22 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterCreate_external_schema_statement is called when production create_external_schema_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_external_schema_statement(ctx *Create_external_schema_statementContext) {
+}
+
+// ExitCreate_external_schema_statement is called when production create_external_schema_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_external_schema_statement(ctx *Create_external_schema_statementContext) {
+}
+
+// EnterCreate_schema_statement is called when production create_schema_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_schema_statement(ctx *Create_schema_statementContext) {
+}
+
+// ExitCreate_schema_statement is called when production create_schema_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_schema_statement(ctx *Create_schema_statementContext) {
+}
+
 // EnterCreate_property_graph_statement is called when production create_property_graph_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCreate_property_graph_statement(ctx *Create_property_graph_statementContext) {
 }

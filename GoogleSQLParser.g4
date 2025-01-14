@@ -48,7 +48,17 @@ sql_statement_body:
 	| create_external_table_function_statement
 	| create_model_statement
 	| create_property_graph_statement
+	| create_schema_statement
+	| create_external_schema_statement
 	| rollback_statement;
+
+create_external_schema_statement:
+	CREATE_SYMBOL opt_or_replace? opt_create_scope? EXTERNAL_SYMBOL SCHEMA_SYMBOL opt_if_not_exists?
+		path_expression with_connection_clause? opt_options_list;
+
+create_schema_statement:
+	CREATE_SYMBOL opt_or_replace? SCHEMA_SYMBOL opt_if_not_exists? path_expression
+		opt_default_collate_clause? opt_options_list?;
 
 create_property_graph_statement:
 	CREATE_SYMBOL opt_or_replace? PROPERTY_SYMBOL GRAPH_SYMBOL opt_if_not_exists path_expression

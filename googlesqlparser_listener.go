@@ -19,6 +19,12 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterCreate_external_schema_statement is called when entering the create_external_schema_statement production.
+	EnterCreate_external_schema_statement(c *Create_external_schema_statementContext)
+
+	// EnterCreate_schema_statement is called when entering the create_schema_statement production.
+	EnterCreate_schema_statement(c *Create_schema_statementContext)
+
 	// EnterCreate_property_graph_statement is called when entering the create_property_graph_statement production.
 	EnterCreate_property_graph_statement(c *Create_property_graph_statementContext)
 
@@ -1575,6 +1581,12 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitCreate_external_schema_statement is called when exiting the create_external_schema_statement production.
+	ExitCreate_external_schema_statement(c *Create_external_schema_statementContext)
+
+	// ExitCreate_schema_statement is called when exiting the create_schema_statement production.
+	ExitCreate_schema_statement(c *Create_schema_statementContext)
 
 	// ExitCreate_property_graph_statement is called when exiting the create_property_graph_statement production.
 	ExitCreate_property_graph_statement(c *Create_property_graph_statementContext)
