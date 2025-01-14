@@ -59,7 +59,10 @@ sql_statement_body:
 	| define_table_statement
 	| describe_statement
 	| execute_immediate
+	| explain_statement
 	| rollback_statement;
+
+explain_statement: EXPLAIN_SYMBOL unterminated_sql_statement;
 
 execute_immediate:
 	EXECUTE_SYMBOL IMMEDIATE_SYMBOL expression opt_execute_into_clause? opt_execute_using_clause?;
