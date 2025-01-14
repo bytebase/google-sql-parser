@@ -19,6 +19,9 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#define_table_statement.
+	VisitDefine_table_statement(ctx *Define_table_statementContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#create_entity_statement.
 	VisitCreate_entity_statement(ctx *Create_entity_statementContext) interface{}
 
