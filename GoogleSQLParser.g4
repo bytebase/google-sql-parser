@@ -57,7 +57,18 @@ sql_statement_body:
 	| create_entity_statement
 	// /* TODO(zp): define macro statement */ | define_macro_statement
 	| define_table_statement
+	| describe_statement
 	| rollback_statement;
+
+describe_statement: describe_keyword describe_info;
+
+describe_info:
+	identifier? maybe_slashed_or_dashed_path_expression opt_from_path_expression?;
+
+opt_from_path_expression:
+	FROM_SYMBOL maybe_slashed_or_dashed_path_expression;
+
+describe_keyword: DESCRIBE_SYMBOL | DESC_SYMBOL;
 
 define_table_statement:
 	DEFINE_SYMBOL TABLE_SYMBOL path_expression options_list?;

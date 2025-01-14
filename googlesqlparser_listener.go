@@ -19,6 +19,18 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterDescribe_statement is called when entering the describe_statement production.
+	EnterDescribe_statement(c *Describe_statementContext)
+
+	// EnterDescribe_info is called when entering the describe_info production.
+	EnterDescribe_info(c *Describe_infoContext)
+
+	// EnterOpt_from_path_expression is called when entering the opt_from_path_expression production.
+	EnterOpt_from_path_expression(c *Opt_from_path_expressionContext)
+
+	// EnterDescribe_keyword is called when entering the describe_keyword production.
+	EnterDescribe_keyword(c *Describe_keywordContext)
+
 	// EnterDefine_table_statement is called when entering the define_table_statement production.
 	EnterDefine_table_statement(c *Define_table_statementContext)
 
@@ -1641,6 +1653,18 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitDescribe_statement is called when exiting the describe_statement production.
+	ExitDescribe_statement(c *Describe_statementContext)
+
+	// ExitDescribe_info is called when exiting the describe_info production.
+	ExitDescribe_info(c *Describe_infoContext)
+
+	// ExitOpt_from_path_expression is called when exiting the opt_from_path_expression production.
+	ExitOpt_from_path_expression(c *Opt_from_path_expressionContext)
+
+	// ExitDescribe_keyword is called when exiting the describe_keyword production.
+	ExitDescribe_keyword(c *Describe_keywordContext)
 
 	// ExitDefine_table_statement is called when exiting the define_table_statement production.
 	ExitDefine_table_statement(c *Define_table_statementContext)
