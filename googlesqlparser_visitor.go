@@ -19,6 +19,69 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#create_property_graph_statement.
+	VisitCreate_property_graph_statement(ctx *Create_property_graph_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_edge_table_clause.
+	VisitOpt_edge_table_clause(ctx *Opt_edge_table_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#element_table_list.
+	VisitElement_table_list(ctx *Element_table_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#element_table_definition.
+	VisitElement_table_definition(ctx *Element_table_definitionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_label_and_properties_clause.
+	VisitOpt_label_and_properties_clause(ctx *Opt_label_and_properties_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#label_and_properties_list.
+	VisitLabel_and_properties_list(ctx *Label_and_properties_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#label_and_properties.
+	VisitLabel_and_properties(ctx *Label_and_propertiesContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#properties_clause.
+	VisitProperties_clause(ctx *Properties_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#derived_property_list.
+	VisitDerived_property_list(ctx *Derived_property_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#derived_property.
+	VisitDerived_property(ctx *Derived_propertyContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_except_column_list.
+	VisitOpt_except_column_list(ctx *Opt_except_column_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#properties_all_columns.
+	VisitProperties_all_columns(ctx *Properties_all_columnsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_dest_node_table_clause.
+	VisitOpt_dest_node_table_clause(ctx *Opt_dest_node_table_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_source_node_table_clause.
+	VisitOpt_source_node_table_clause(ctx *Opt_source_node_table_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_key_clause.
+	VisitOpt_key_clause(ctx *Opt_key_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#create_model_statement.
+	VisitCreate_model_statement(ctx *Create_model_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_input_output_clause.
+	VisitOpt_input_output_clause(ctx *Opt_input_output_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_transform_clause.
+	VisitOpt_transform_clause(ctx *Opt_transform_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_as_query_or_aliased_query_list.
+	VisitOpt_as_query_or_aliased_query_list(ctx *Opt_as_query_or_aliased_query_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#aliased_query_list.
+	VisitAliased_query_list(ctx *Aliased_query_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#as_query.
+	VisitAs_query(ctx *As_queryContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#create_external_table_function_statement.
 	VisitCreate_external_table_function_statement(ctx *Create_external_table_function_statementContext) interface{}
 

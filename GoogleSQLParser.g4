@@ -46,7 +46,76 @@ sql_statement_body:
 	| create_row_access_policy_statement
 	| create_external_table_statement
 	| create_external_table_function_statement
+	| create_model_statement
+	| create_property_graph_statement
 	| rollback_statement;
+
+create_property_graph_statement:
+	CREATE_SYMBOL opt_or_replace? PROPERTY_SYMBOL GRAPH_SYMBOL opt_if_not_exists path_expression
+		opt_options_list? NODE_SYMBOL TABLES_SYMBOL element_table_list opt_edge_table_clause?;
+
+opt_edge_table_clause:
+	EDGE_SYMBOL TABLES_SYMBOL element_table_list;
+
+element_table_list:
+	LR_BRACKET_SYMBOL element_table_definition (
+		COMMA_SYMBOL element_table_definition
+	)* COMMA_SYMBOL? RR_BRACKET_SYMBOL;
+
+element_table_definition:
+	path_expression opt_as_alias_with_required_as? opt_key_clause? opt_source_node_table_clause?
+		opt_dest_node_table_clause? opt_label_and_properties_clause?;
+
+opt_label_and_properties_clause:
+	properties_clause
+	| label_and_properties_list;
+
+label_and_properties_list: label_and_properties+;
+
+label_and_properties:
+	DEFAULT_SYMBOL? LABEL_SYMBOL identifier properties_clause?;
+
+properties_clause:
+	NO_SYMBOL PROPERTIES_SYMBOL
+	| properties_all_columns opt_except_column_list?
+	| PROPERTIES_SYMBOL LR_BRACKET_SYMBOL derived_property_list RR_BRACKET_SYMBOL;
+
+derived_property_list:
+	derived_property (COMMA_SYMBOL derived_property)*;
+
+derived_property: expression opt_as_alias_with_required_as?;
+
+opt_except_column_list: EXCEPT_SYMBOL column_list;
+
+properties_all_columns:
+	PROPERTIES_SYMBOL ARE_SYMBOL? ALL_SYMBOL COLUMNS_SYMBOL;
+
+opt_dest_node_table_clause:
+	DESTINATION_SYMBOL KEY_SYMBOL column_list REFERENCES_SYMBOL identifier column_list?;
+
+opt_source_node_table_clause:
+	SOURCE_SYMBOL KEY_SYMBOL column_list REFERENCES_SYMBOL identifier column_list?;
+
+opt_key_clause: KEY_SYMBOL column_list;
+
+create_model_statement:
+	CREATE_SYMBOL opt_or_replace? opt_create_scope? MODEL_SYMBOL opt_if_not_exists? path_expression
+		opt_input_output_clause? opt_transform_clause? remote_with_connection_clause?
+		opt_options_list? opt_as_query_or_aliased_query_list?;
+
+opt_input_output_clause:
+	INPUT_SYMBOL table_element_list OUTPUT_SYMBOL table_element_list;
+
+opt_transform_clause:
+	TRANSFORM_SYMBOL LR_BRACKET_SYMBOL select_list RR_BRACKET_SYMBOL;
+
+opt_as_query_or_aliased_query_list:
+	as_query
+	| AS_SYMBOL LR_BRACKET_SYMBOL aliased_query_list RR_BRACKET_SYMBOL;
+
+aliased_query_list: aliased_query (COMMA_SYMBOL aliased_query)*;
+
+as_query: AS_SYMBOL query;
 
 create_external_table_function_statement:
 	CREATE_SYMBOL opt_or_replace? opt_create_scope? EXTERNAL_SYMBOL TABLE_SYMBOL FUNCTION_SYMBOL {
@@ -1391,7 +1460,7 @@ star_modifiers:
 
 star_except_list:
 	EXCEPT_SYMBOL LR_BRACKET_SYMBOL identifier (
-		DOT_SYMBOL identifier
+		COMMA_SYMBOL identifier
 	)* RR_BRACKET_SYMBOL;
 
 star_replace_list:
@@ -2215,7 +2284,14 @@ common_keyword_as_identifier:
 	| DESCRIPTOR_SYMBOL
 	| INTERLEAVE_SYMBOL
 	| NULL_FILTERED_SYMBOL
-	| PARENT_SYMBOL;
+	| PARENT_SYMBOL
+	| DESTINATION_SYMBOL
+	| PROPERTY_SYMBOL
+	| GRAPH_SYMBOL
+	| NODE_SYMBOL
+	| PROPERTIES_SYMBOL
+	| LABEL_SYMBOL
+	| EDGE_SYMBOL;
 
 token_identifier: IDENTIFIER;
 
