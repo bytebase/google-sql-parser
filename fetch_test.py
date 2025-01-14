@@ -100,6 +100,10 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/create_external_table.test",
         # create_model_statement
         "zetasql/parser/testdata/create_model.test",
+        # create_schema_statement
+        "zetasql/parser/testdata/create_schema.test",
+        # create_external_schema_statement
+        "zetasql/parser/testdata/create_external_schema.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)
