@@ -116,6 +116,8 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/execute_immediate.test",
         # export_data
         "zetasql/parser/testdata/export_data.test",
+        # export_model
+        "zetasql/parser/testdata/export_model.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)

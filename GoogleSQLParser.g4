@@ -61,7 +61,11 @@ sql_statement_body:
 	| execute_immediate
 	| explain_statement
 	| export_data_statement
+	| export_model_statement
 	| rollback_statement;
+
+export_model_statement:
+	EXPORT_SYMBOL MODEL_SYMBOL path_expression with_connection_clause? opt_options_list?;
 
 export_data_statement: export_data_no_query as_query;
 
