@@ -46,6 +46,92 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterCreate_table_statement is called when production create_table_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_table_statement(ctx *Create_table_statementContext) {
+}
+
+// ExitCreate_table_statement is called when production create_table_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_table_statement(ctx *Create_table_statementContext) {
+}
+
+// EnterOpt_ttl_clause is called when production opt_ttl_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_ttl_clause(ctx *Opt_ttl_clauseContext) {}
+
+// ExitOpt_ttl_clause is called when production opt_ttl_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_ttl_clause(ctx *Opt_ttl_clauseContext) {}
+
+// EnterOpt_copy_table is called when production opt_copy_table is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_copy_table(ctx *Opt_copy_tableContext) {}
+
+// ExitOpt_copy_table is called when production opt_copy_table is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_copy_table(ctx *Opt_copy_tableContext) {}
+
+// EnterCopy_data_source is called when production copy_data_source is entered.
+func (s *BaseGoogleSQLParserListener) EnterCopy_data_source(ctx *Copy_data_sourceContext) {}
+
+// ExitCopy_data_source is called when production copy_data_source is exited.
+func (s *BaseGoogleSQLParserListener) ExitCopy_data_source(ctx *Copy_data_sourceContext) {}
+
+// EnterOpt_clone_table is called when production opt_clone_table is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_clone_table(ctx *Opt_clone_tableContext) {}
+
+// ExitOpt_clone_table is called when production opt_clone_table is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_clone_table(ctx *Opt_clone_tableContext) {}
+
+// EnterOpt_spanner_table_options is called when production opt_spanner_table_options is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_spanner_table_options(ctx *Opt_spanner_table_optionsContext) {
+}
+
+// ExitOpt_spanner_table_options is called when production opt_spanner_table_options is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_spanner_table_options(ctx *Opt_spanner_table_optionsContext) {
+}
+
+// EnterOpt_spanner_interleave_in_parent_clause is called when production opt_spanner_interleave_in_parent_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_spanner_interleave_in_parent_clause(ctx *Opt_spanner_interleave_in_parent_clauseContext) {
+}
+
+// ExitOpt_spanner_interleave_in_parent_clause is called when production opt_spanner_interleave_in_parent_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_spanner_interleave_in_parent_clause(ctx *Opt_spanner_interleave_in_parent_clauseContext) {
+}
+
+// EnterSpanner_primary_key is called when production spanner_primary_key is entered.
+func (s *BaseGoogleSQLParserListener) EnterSpanner_primary_key(ctx *Spanner_primary_keyContext) {}
+
+// ExitSpanner_primary_key is called when production spanner_primary_key is exited.
+func (s *BaseGoogleSQLParserListener) ExitSpanner_primary_key(ctx *Spanner_primary_keyContext) {}
+
+// EnterCreate_table_function_statement is called when production create_table_function_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_table_function_statement(ctx *Create_table_function_statementContext) {
+}
+
+// ExitCreate_table_function_statement is called when production create_table_function_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_table_function_statement(ctx *Create_table_function_statementContext) {
+}
+
+// EnterOpt_as_query_or_string is called when production opt_as_query_or_string is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_as_query_or_string(ctx *Opt_as_query_or_stringContext) {
+}
+
+// ExitOpt_as_query_or_string is called when production opt_as_query_or_string is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_as_query_or_string(ctx *Opt_as_query_or_stringContext) {
+}
+
+// EnterUnordered_language_options is called when production unordered_language_options is entered.
+func (s *BaseGoogleSQLParserListener) EnterUnordered_language_options(ctx *Unordered_language_optionsContext) {
+}
+
+// ExitUnordered_language_options is called when production unordered_language_options is exited.
+func (s *BaseGoogleSQLParserListener) ExitUnordered_language_options(ctx *Unordered_language_optionsContext) {
+}
+
+// EnterOpt_function_parameters is called when production opt_function_parameters is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_function_parameters(ctx *Opt_function_parametersContext) {
+}
+
+// ExitOpt_function_parameters is called when production opt_function_parameters is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_function_parameters(ctx *Opt_function_parametersContext) {
+}
+
 // EnterCreate_snapshot_statement is called when production create_snapshot_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCreate_snapshot_statement(ctx *Create_snapshot_statementContext) {
 }
