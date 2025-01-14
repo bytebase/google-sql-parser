@@ -19,6 +19,69 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterCreate_property_graph_statement is called when entering the create_property_graph_statement production.
+	EnterCreate_property_graph_statement(c *Create_property_graph_statementContext)
+
+	// EnterOpt_edge_table_clause is called when entering the opt_edge_table_clause production.
+	EnterOpt_edge_table_clause(c *Opt_edge_table_clauseContext)
+
+	// EnterElement_table_list is called when entering the element_table_list production.
+	EnterElement_table_list(c *Element_table_listContext)
+
+	// EnterElement_table_definition is called when entering the element_table_definition production.
+	EnterElement_table_definition(c *Element_table_definitionContext)
+
+	// EnterOpt_label_and_properties_clause is called when entering the opt_label_and_properties_clause production.
+	EnterOpt_label_and_properties_clause(c *Opt_label_and_properties_clauseContext)
+
+	// EnterLabel_and_properties_list is called when entering the label_and_properties_list production.
+	EnterLabel_and_properties_list(c *Label_and_properties_listContext)
+
+	// EnterLabel_and_properties is called when entering the label_and_properties production.
+	EnterLabel_and_properties(c *Label_and_propertiesContext)
+
+	// EnterProperties_clause is called when entering the properties_clause production.
+	EnterProperties_clause(c *Properties_clauseContext)
+
+	// EnterDerived_property_list is called when entering the derived_property_list production.
+	EnterDerived_property_list(c *Derived_property_listContext)
+
+	// EnterDerived_property is called when entering the derived_property production.
+	EnterDerived_property(c *Derived_propertyContext)
+
+	// EnterOpt_except_column_list is called when entering the opt_except_column_list production.
+	EnterOpt_except_column_list(c *Opt_except_column_listContext)
+
+	// EnterProperties_all_columns is called when entering the properties_all_columns production.
+	EnterProperties_all_columns(c *Properties_all_columnsContext)
+
+	// EnterOpt_dest_node_table_clause is called when entering the opt_dest_node_table_clause production.
+	EnterOpt_dest_node_table_clause(c *Opt_dest_node_table_clauseContext)
+
+	// EnterOpt_source_node_table_clause is called when entering the opt_source_node_table_clause production.
+	EnterOpt_source_node_table_clause(c *Opt_source_node_table_clauseContext)
+
+	// EnterOpt_key_clause is called when entering the opt_key_clause production.
+	EnterOpt_key_clause(c *Opt_key_clauseContext)
+
+	// EnterCreate_model_statement is called when entering the create_model_statement production.
+	EnterCreate_model_statement(c *Create_model_statementContext)
+
+	// EnterOpt_input_output_clause is called when entering the opt_input_output_clause production.
+	EnterOpt_input_output_clause(c *Opt_input_output_clauseContext)
+
+	// EnterOpt_transform_clause is called when entering the opt_transform_clause production.
+	EnterOpt_transform_clause(c *Opt_transform_clauseContext)
+
+	// EnterOpt_as_query_or_aliased_query_list is called when entering the opt_as_query_or_aliased_query_list production.
+	EnterOpt_as_query_or_aliased_query_list(c *Opt_as_query_or_aliased_query_listContext)
+
+	// EnterAliased_query_list is called when entering the aliased_query_list production.
+	EnterAliased_query_list(c *Aliased_query_listContext)
+
+	// EnterAs_query is called when entering the as_query production.
+	EnterAs_query(c *As_queryContext)
+
 	// EnterCreate_external_table_function_statement is called when entering the create_external_table_function_statement production.
 	EnterCreate_external_table_function_statement(c *Create_external_table_function_statementContext)
 
@@ -1512,6 +1575,69 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitCreate_property_graph_statement is called when exiting the create_property_graph_statement production.
+	ExitCreate_property_graph_statement(c *Create_property_graph_statementContext)
+
+	// ExitOpt_edge_table_clause is called when exiting the opt_edge_table_clause production.
+	ExitOpt_edge_table_clause(c *Opt_edge_table_clauseContext)
+
+	// ExitElement_table_list is called when exiting the element_table_list production.
+	ExitElement_table_list(c *Element_table_listContext)
+
+	// ExitElement_table_definition is called when exiting the element_table_definition production.
+	ExitElement_table_definition(c *Element_table_definitionContext)
+
+	// ExitOpt_label_and_properties_clause is called when exiting the opt_label_and_properties_clause production.
+	ExitOpt_label_and_properties_clause(c *Opt_label_and_properties_clauseContext)
+
+	// ExitLabel_and_properties_list is called when exiting the label_and_properties_list production.
+	ExitLabel_and_properties_list(c *Label_and_properties_listContext)
+
+	// ExitLabel_and_properties is called when exiting the label_and_properties production.
+	ExitLabel_and_properties(c *Label_and_propertiesContext)
+
+	// ExitProperties_clause is called when exiting the properties_clause production.
+	ExitProperties_clause(c *Properties_clauseContext)
+
+	// ExitDerived_property_list is called when exiting the derived_property_list production.
+	ExitDerived_property_list(c *Derived_property_listContext)
+
+	// ExitDerived_property is called when exiting the derived_property production.
+	ExitDerived_property(c *Derived_propertyContext)
+
+	// ExitOpt_except_column_list is called when exiting the opt_except_column_list production.
+	ExitOpt_except_column_list(c *Opt_except_column_listContext)
+
+	// ExitProperties_all_columns is called when exiting the properties_all_columns production.
+	ExitProperties_all_columns(c *Properties_all_columnsContext)
+
+	// ExitOpt_dest_node_table_clause is called when exiting the opt_dest_node_table_clause production.
+	ExitOpt_dest_node_table_clause(c *Opt_dest_node_table_clauseContext)
+
+	// ExitOpt_source_node_table_clause is called when exiting the opt_source_node_table_clause production.
+	ExitOpt_source_node_table_clause(c *Opt_source_node_table_clauseContext)
+
+	// ExitOpt_key_clause is called when exiting the opt_key_clause production.
+	ExitOpt_key_clause(c *Opt_key_clauseContext)
+
+	// ExitCreate_model_statement is called when exiting the create_model_statement production.
+	ExitCreate_model_statement(c *Create_model_statementContext)
+
+	// ExitOpt_input_output_clause is called when exiting the opt_input_output_clause production.
+	ExitOpt_input_output_clause(c *Opt_input_output_clauseContext)
+
+	// ExitOpt_transform_clause is called when exiting the opt_transform_clause production.
+	ExitOpt_transform_clause(c *Opt_transform_clauseContext)
+
+	// ExitOpt_as_query_or_aliased_query_list is called when exiting the opt_as_query_or_aliased_query_list production.
+	ExitOpt_as_query_or_aliased_query_list(c *Opt_as_query_or_aliased_query_listContext)
+
+	// ExitAliased_query_list is called when exiting the aliased_query_list production.
+	ExitAliased_query_list(c *Aliased_query_listContext)
+
+	// ExitAs_query is called when exiting the as_query production.
+	ExitAs_query(c *As_queryContext)
 
 	// ExitCreate_external_table_function_statement is called when exiting the create_external_table_function_statement production.
 	ExitCreate_external_table_function_statement(c *Create_external_table_function_statementContext)

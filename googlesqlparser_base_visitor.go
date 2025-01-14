@@ -23,6 +23,90 @@ func (v *BaseGoogleSQLParserVisitor) VisitSql_statement_body(ctx *Sql_statement_
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitCreate_property_graph_statement(ctx *Create_property_graph_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_edge_table_clause(ctx *Opt_edge_table_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitElement_table_list(ctx *Element_table_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitElement_table_definition(ctx *Element_table_definitionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_label_and_properties_clause(ctx *Opt_label_and_properties_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitLabel_and_properties_list(ctx *Label_and_properties_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitLabel_and_properties(ctx *Label_and_propertiesContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitProperties_clause(ctx *Properties_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitDerived_property_list(ctx *Derived_property_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitDerived_property(ctx *Derived_propertyContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_except_column_list(ctx *Opt_except_column_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitProperties_all_columns(ctx *Properties_all_columnsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_dest_node_table_clause(ctx *Opt_dest_node_table_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_source_node_table_clause(ctx *Opt_source_node_table_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_key_clause(ctx *Opt_key_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitCreate_model_statement(ctx *Create_model_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_input_output_clause(ctx *Opt_input_output_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_transform_clause(ctx *Opt_transform_clauseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_as_query_or_aliased_query_list(ctx *Opt_as_query_or_aliased_query_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitAliased_query_list(ctx *Aliased_query_listContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitAs_query(ctx *As_queryContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitCreate_external_table_function_statement(ctx *Create_external_table_function_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }

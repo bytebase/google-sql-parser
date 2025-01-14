@@ -46,6 +46,154 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterCreate_property_graph_statement is called when production create_property_graph_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_property_graph_statement(ctx *Create_property_graph_statementContext) {
+}
+
+// ExitCreate_property_graph_statement is called when production create_property_graph_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_property_graph_statement(ctx *Create_property_graph_statementContext) {
+}
+
+// EnterOpt_edge_table_clause is called when production opt_edge_table_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_edge_table_clause(ctx *Opt_edge_table_clauseContext) {}
+
+// ExitOpt_edge_table_clause is called when production opt_edge_table_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_edge_table_clause(ctx *Opt_edge_table_clauseContext) {}
+
+// EnterElement_table_list is called when production element_table_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterElement_table_list(ctx *Element_table_listContext) {}
+
+// ExitElement_table_list is called when production element_table_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitElement_table_list(ctx *Element_table_listContext) {}
+
+// EnterElement_table_definition is called when production element_table_definition is entered.
+func (s *BaseGoogleSQLParserListener) EnterElement_table_definition(ctx *Element_table_definitionContext) {
+}
+
+// ExitElement_table_definition is called when production element_table_definition is exited.
+func (s *BaseGoogleSQLParserListener) ExitElement_table_definition(ctx *Element_table_definitionContext) {
+}
+
+// EnterOpt_label_and_properties_clause is called when production opt_label_and_properties_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_label_and_properties_clause(ctx *Opt_label_and_properties_clauseContext) {
+}
+
+// ExitOpt_label_and_properties_clause is called when production opt_label_and_properties_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_label_and_properties_clause(ctx *Opt_label_and_properties_clauseContext) {
+}
+
+// EnterLabel_and_properties_list is called when production label_and_properties_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterLabel_and_properties_list(ctx *Label_and_properties_listContext) {
+}
+
+// ExitLabel_and_properties_list is called when production label_and_properties_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitLabel_and_properties_list(ctx *Label_and_properties_listContext) {
+}
+
+// EnterLabel_and_properties is called when production label_and_properties is entered.
+func (s *BaseGoogleSQLParserListener) EnterLabel_and_properties(ctx *Label_and_propertiesContext) {}
+
+// ExitLabel_and_properties is called when production label_and_properties is exited.
+func (s *BaseGoogleSQLParserListener) ExitLabel_and_properties(ctx *Label_and_propertiesContext) {}
+
+// EnterProperties_clause is called when production properties_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterProperties_clause(ctx *Properties_clauseContext) {}
+
+// ExitProperties_clause is called when production properties_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitProperties_clause(ctx *Properties_clauseContext) {}
+
+// EnterDerived_property_list is called when production derived_property_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterDerived_property_list(ctx *Derived_property_listContext) {}
+
+// ExitDerived_property_list is called when production derived_property_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitDerived_property_list(ctx *Derived_property_listContext) {}
+
+// EnterDerived_property is called when production derived_property is entered.
+func (s *BaseGoogleSQLParserListener) EnterDerived_property(ctx *Derived_propertyContext) {}
+
+// ExitDerived_property is called when production derived_property is exited.
+func (s *BaseGoogleSQLParserListener) ExitDerived_property(ctx *Derived_propertyContext) {}
+
+// EnterOpt_except_column_list is called when production opt_except_column_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_except_column_list(ctx *Opt_except_column_listContext) {
+}
+
+// ExitOpt_except_column_list is called when production opt_except_column_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_except_column_list(ctx *Opt_except_column_listContext) {
+}
+
+// EnterProperties_all_columns is called when production properties_all_columns is entered.
+func (s *BaseGoogleSQLParserListener) EnterProperties_all_columns(ctx *Properties_all_columnsContext) {
+}
+
+// ExitProperties_all_columns is called when production properties_all_columns is exited.
+func (s *BaseGoogleSQLParserListener) ExitProperties_all_columns(ctx *Properties_all_columnsContext) {
+}
+
+// EnterOpt_dest_node_table_clause is called when production opt_dest_node_table_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_dest_node_table_clause(ctx *Opt_dest_node_table_clauseContext) {
+}
+
+// ExitOpt_dest_node_table_clause is called when production opt_dest_node_table_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_dest_node_table_clause(ctx *Opt_dest_node_table_clauseContext) {
+}
+
+// EnterOpt_source_node_table_clause is called when production opt_source_node_table_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_source_node_table_clause(ctx *Opt_source_node_table_clauseContext) {
+}
+
+// ExitOpt_source_node_table_clause is called when production opt_source_node_table_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_source_node_table_clause(ctx *Opt_source_node_table_clauseContext) {
+}
+
+// EnterOpt_key_clause is called when production opt_key_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_key_clause(ctx *Opt_key_clauseContext) {}
+
+// ExitOpt_key_clause is called when production opt_key_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_key_clause(ctx *Opt_key_clauseContext) {}
+
+// EnterCreate_model_statement is called when production create_model_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_model_statement(ctx *Create_model_statementContext) {
+}
+
+// ExitCreate_model_statement is called when production create_model_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_model_statement(ctx *Create_model_statementContext) {
+}
+
+// EnterOpt_input_output_clause is called when production opt_input_output_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_input_output_clause(ctx *Opt_input_output_clauseContext) {
+}
+
+// ExitOpt_input_output_clause is called when production opt_input_output_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_input_output_clause(ctx *Opt_input_output_clauseContext) {
+}
+
+// EnterOpt_transform_clause is called when production opt_transform_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_transform_clause(ctx *Opt_transform_clauseContext) {}
+
+// ExitOpt_transform_clause is called when production opt_transform_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_transform_clause(ctx *Opt_transform_clauseContext) {}
+
+// EnterOpt_as_query_or_aliased_query_list is called when production opt_as_query_or_aliased_query_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_as_query_or_aliased_query_list(ctx *Opt_as_query_or_aliased_query_listContext) {
+}
+
+// ExitOpt_as_query_or_aliased_query_list is called when production opt_as_query_or_aliased_query_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_as_query_or_aliased_query_list(ctx *Opt_as_query_or_aliased_query_listContext) {
+}
+
+// EnterAliased_query_list is called when production aliased_query_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterAliased_query_list(ctx *Aliased_query_listContext) {}
+
+// ExitAliased_query_list is called when production aliased_query_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitAliased_query_list(ctx *Aliased_query_listContext) {}
+
+// EnterAs_query is called when production as_query is entered.
+func (s *BaseGoogleSQLParserListener) EnterAs_query(ctx *As_queryContext) {}
+
+// ExitAs_query is called when production as_query is exited.
+func (s *BaseGoogleSQLParserListener) ExitAs_query(ctx *As_queryContext) {}
+
 // EnterCreate_external_table_function_statement is called when production create_external_table_function_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCreate_external_table_function_statement(ctx *Create_external_table_function_statementContext) {
 }
