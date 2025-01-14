@@ -46,6 +46,34 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterCreate_view_statement is called when production create_view_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_view_statement(ctx *Create_view_statementContext) {}
+
+// ExitCreate_view_statement is called when production create_view_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_view_statement(ctx *Create_view_statementContext) {}
+
+// EnterQuery_or_replica_source is called when production query_or_replica_source is entered.
+func (s *BaseGoogleSQLParserListener) EnterQuery_or_replica_source(ctx *Query_or_replica_sourceContext) {
+}
+
+// ExitQuery_or_replica_source is called when production query_or_replica_source is exited.
+func (s *BaseGoogleSQLParserListener) ExitQuery_or_replica_source(ctx *Query_or_replica_sourceContext) {
+}
+
+// EnterColumn_with_options_list is called when production column_with_options_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterColumn_with_options_list(ctx *Column_with_options_listContext) {
+}
+
+// ExitColumn_with_options_list is called when production column_with_options_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitColumn_with_options_list(ctx *Column_with_options_listContext) {
+}
+
+// EnterColumn_with_options is called when production column_with_options is entered.
+func (s *BaseGoogleSQLParserListener) EnterColumn_with_options(ctx *Column_with_optionsContext) {}
+
+// ExitColumn_with_options is called when production column_with_options is exited.
+func (s *BaseGoogleSQLParserListener) ExitColumn_with_options(ctx *Column_with_optionsContext) {}
+
 // EnterCreate_table_statement is called when production create_table_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCreate_table_statement(ctx *Create_table_statementContext) {
 }

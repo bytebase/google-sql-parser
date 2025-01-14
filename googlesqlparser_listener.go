@@ -19,6 +19,18 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterCreate_view_statement is called when entering the create_view_statement production.
+	EnterCreate_view_statement(c *Create_view_statementContext)
+
+	// EnterQuery_or_replica_source is called when entering the query_or_replica_source production.
+	EnterQuery_or_replica_source(c *Query_or_replica_sourceContext)
+
+	// EnterColumn_with_options_list is called when entering the column_with_options_list production.
+	EnterColumn_with_options_list(c *Column_with_options_listContext)
+
+	// EnterColumn_with_options is called when entering the column_with_options production.
+	EnterColumn_with_options(c *Column_with_optionsContext)
+
 	// EnterCreate_table_statement is called when entering the create_table_statement production.
 	EnterCreate_table_statement(c *Create_table_statementContext)
 
@@ -1620,6 +1632,18 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitCreate_view_statement is called when exiting the create_view_statement production.
+	ExitCreate_view_statement(c *Create_view_statementContext)
+
+	// ExitQuery_or_replica_source is called when exiting the query_or_replica_source production.
+	ExitQuery_or_replica_source(c *Query_or_replica_sourceContext)
+
+	// ExitColumn_with_options_list is called when exiting the column_with_options_list production.
+	ExitColumn_with_options_list(c *Column_with_options_listContext)
+
+	// ExitColumn_with_options is called when exiting the column_with_options production.
+	ExitColumn_with_options(c *Column_with_optionsContext)
 
 	// ExitCreate_table_statement is called when exiting the create_table_statement production.
 	ExitCreate_table_statement(c *Create_table_statementContext)
