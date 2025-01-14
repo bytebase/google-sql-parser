@@ -1,4 +1,4 @@
-// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from GoogleSQLParser.g4 by ANTLR 4.13.2. DO NOT EDIT.
 
 package parser // GoogleSQLParser
 import "github.com/antlr4-go/antlr/v4"
@@ -45,6 +45,38 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
+
+// EnterCreate_external_table_function_statement is called when production create_external_table_function_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_external_table_function_statement(ctx *Create_external_table_function_statementContext) {
+}
+
+// ExitCreate_external_table_function_statement is called when production create_external_table_function_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_external_table_function_statement(ctx *Create_external_table_function_statementContext) {
+}
+
+// EnterCreate_external_table_statement is called when production create_external_table_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_external_table_statement(ctx *Create_external_table_statementContext) {
+}
+
+// ExitCreate_external_table_statement is called when production create_external_table_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_external_table_statement(ctx *Create_external_table_statementContext) {
+}
+
+// EnterOpt_default_collate_clause is called when production opt_default_collate_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_default_collate_clause(ctx *Opt_default_collate_clauseContext) {
+}
+
+// ExitOpt_default_collate_clause is called when production opt_default_collate_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_default_collate_clause(ctx *Opt_default_collate_clauseContext) {
+}
+
+// EnterOpt_like_path_expression is called when production opt_like_path_expression is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_like_path_expression(ctx *Opt_like_path_expressionContext) {
+}
+
+// ExitOpt_like_path_expression is called when production opt_like_path_expression is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_like_path_expression(ctx *Opt_like_path_expressionContext) {
+}
 
 // EnterCreate_row_access_policy_statement is called when production create_row_access_policy_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCreate_row_access_policy_statement(ctx *Create_row_access_policy_statementContext) {
