@@ -46,6 +46,22 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterCreate_entity_statement is called when production create_entity_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_entity_statement(ctx *Create_entity_statementContext) {
+}
+
+// ExitCreate_entity_statement is called when production create_entity_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_entity_statement(ctx *Create_entity_statementContext) {
+}
+
+// EnterOpt_generic_entity_body is called when production opt_generic_entity_body is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_generic_entity_body(ctx *Opt_generic_entity_bodyContext) {
+}
+
+// ExitOpt_generic_entity_body is called when production opt_generic_entity_body is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_generic_entity_body(ctx *Opt_generic_entity_bodyContext) {
+}
+
 // EnterCreate_view_statement is called when production create_view_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCreate_view_statement(ctx *Create_view_statementContext) {}
 

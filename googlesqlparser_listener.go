@@ -19,6 +19,12 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterCreate_entity_statement is called when entering the create_entity_statement production.
+	EnterCreate_entity_statement(c *Create_entity_statementContext)
+
+	// EnterOpt_generic_entity_body is called when entering the opt_generic_entity_body production.
+	EnterOpt_generic_entity_body(c *Opt_generic_entity_bodyContext)
+
 	// EnterCreate_view_statement is called when entering the create_view_statement production.
 	EnterCreate_view_statement(c *Create_view_statementContext)
 
@@ -1632,6 +1638,12 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitCreate_entity_statement is called when exiting the create_entity_statement production.
+	ExitCreate_entity_statement(c *Create_entity_statementContext)
+
+	// ExitOpt_generic_entity_body is called when exiting the opt_generic_entity_body production.
+	ExitOpt_generic_entity_body(c *Opt_generic_entity_bodyContext)
 
 	// ExitCreate_view_statement is called when exiting the create_view_statement production.
 	ExitCreate_view_statement(c *Create_view_statementContext)

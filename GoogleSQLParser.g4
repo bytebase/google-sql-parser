@@ -54,7 +54,14 @@ sql_statement_body:
 	| create_table_function_statement
 	| create_table_statement
 	| create_view_statement
+	| create_entity_statement
 	| rollback_statement;
+
+create_entity_statement:
+	CREATE_SYMBOL opt_or_replace? generic_entity_type opt_if_not_exists? path_expression
+		opt_options_list? opt_generic_entity_body?;
+
+opt_generic_entity_body: AS_SYMBOL generic_entity_body;
 
 create_view_statement:
 	CREATE_SYMBOL opt_or_replace? opt_create_scope? RECURSIVE_SYMBOL? VIEW_SYMBOL opt_if_not_exists?
