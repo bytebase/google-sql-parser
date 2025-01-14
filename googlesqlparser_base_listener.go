@@ -46,6 +46,18 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterExport_data_statement is called when production export_data_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterExport_data_statement(ctx *Export_data_statementContext) {}
+
+// ExitExport_data_statement is called when production export_data_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitExport_data_statement(ctx *Export_data_statementContext) {}
+
+// EnterExport_data_no_query is called when production export_data_no_query is entered.
+func (s *BaseGoogleSQLParserListener) EnterExport_data_no_query(ctx *Export_data_no_queryContext) {}
+
+// ExitExport_data_no_query is called when production export_data_no_query is exited.
+func (s *BaseGoogleSQLParserListener) ExitExport_data_no_query(ctx *Export_data_no_queryContext) {}
+
 // EnterExplain_statement is called when production explain_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterExplain_statement(ctx *Explain_statementContext) {}
 

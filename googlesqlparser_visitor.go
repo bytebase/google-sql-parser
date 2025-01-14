@@ -19,6 +19,12 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#export_data_statement.
+	VisitExport_data_statement(ctx *Export_data_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#export_data_no_query.
+	VisitExport_data_no_query(ctx *Export_data_no_queryContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#explain_statement.
 	VisitExplain_statement(ctx *Explain_statementContext) interface{}
 
