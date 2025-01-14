@@ -46,6 +46,44 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterExecute_immediate is called when production execute_immediate is entered.
+func (s *BaseGoogleSQLParserListener) EnterExecute_immediate(ctx *Execute_immediateContext) {}
+
+// ExitExecute_immediate is called when production execute_immediate is exited.
+func (s *BaseGoogleSQLParserListener) ExitExecute_immediate(ctx *Execute_immediateContext) {}
+
+// EnterOpt_execute_into_clause is called when production opt_execute_into_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_execute_into_clause(ctx *Opt_execute_into_clauseContext) {
+}
+
+// ExitOpt_execute_into_clause is called when production opt_execute_into_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_execute_into_clause(ctx *Opt_execute_into_clauseContext) {
+}
+
+// EnterOpt_execute_using_clause is called when production opt_execute_using_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_execute_using_clause(ctx *Opt_execute_using_clauseContext) {
+}
+
+// ExitOpt_execute_using_clause is called when production opt_execute_using_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_execute_using_clause(ctx *Opt_execute_using_clauseContext) {
+}
+
+// EnterExecute_using_argument_list is called when production execute_using_argument_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterExecute_using_argument_list(ctx *Execute_using_argument_listContext) {
+}
+
+// ExitExecute_using_argument_list is called when production execute_using_argument_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitExecute_using_argument_list(ctx *Execute_using_argument_listContext) {
+}
+
+// EnterExecute_using_argument is called when production execute_using_argument is entered.
+func (s *BaseGoogleSQLParserListener) EnterExecute_using_argument(ctx *Execute_using_argumentContext) {
+}
+
+// ExitExecute_using_argument is called when production execute_using_argument is exited.
+func (s *BaseGoogleSQLParserListener) ExitExecute_using_argument(ctx *Execute_using_argumentContext) {
+}
+
 // EnterDescribe_statement is called when production describe_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterDescribe_statement(ctx *Describe_statementContext) {}
 

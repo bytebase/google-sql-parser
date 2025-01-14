@@ -112,6 +112,8 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/define_table.test",
         # describe_statement
         "zetasql/parser/testdata/describe.test",
+        # execute_immediate
+        "zetasql/parser/testdata/execute_immediate.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)
