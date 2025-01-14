@@ -55,7 +55,12 @@ sql_statement_body:
 	| create_table_statement
 	| create_view_statement
 	| create_entity_statement
+	// /* TODO(zp): define macro statement */ | define_macro_statement
+	| define_table_statement
 	| rollback_statement;
+
+define_table_statement:
+	DEFINE_SYMBOL TABLE_SYMBOL path_expression options_list?;
 
 create_entity_statement:
 	CREATE_SYMBOL opt_or_replace? generic_entity_type opt_if_not_exists? path_expression

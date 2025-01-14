@@ -108,6 +108,8 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/create_table_as_select.test",
         # create_view_statement
         "zetasql/parser/testdata/create_view.test",
+        # define_table_statement
+        "zetasql/parser/testdata/define_table.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)

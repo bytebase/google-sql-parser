@@ -23,6 +23,10 @@ func (v *BaseGoogleSQLParserVisitor) VisitSql_statement_body(ctx *Sql_statement_
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitDefine_table_statement(ctx *Define_table_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitCreate_entity_statement(ctx *Create_entity_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
