@@ -50,7 +50,15 @@ sql_statement_body:
 	| create_property_graph_statement
 	| create_schema_statement
 	| create_external_schema_statement
+	| create_snapshot_statement
 	| rollback_statement;
+
+create_snapshot_statement:
+	CREATE_SYMBOL opt_or_replace? SNAPSHOT_SYMBOL (
+		TABLE_SYMBOL
+		| schema_object_kind
+	) opt_if_not_exists? maybe_dashed_path_expression CLONE_SYMBOL clone_data_source
+		opt_options_list?;
 
 create_external_schema_statement:
 	CREATE_SYMBOL opt_or_replace? opt_create_scope? EXTERNAL_SYMBOL SCHEMA_SYMBOL opt_if_not_exists?

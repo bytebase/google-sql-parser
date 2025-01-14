@@ -19,6 +19,9 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterCreate_snapshot_statement is called when entering the create_snapshot_statement production.
+	EnterCreate_snapshot_statement(c *Create_snapshot_statementContext)
+
 	// EnterCreate_external_schema_statement is called when entering the create_external_schema_statement production.
 	EnterCreate_external_schema_statement(c *Create_external_schema_statementContext)
 
@@ -1581,6 +1584,9 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitCreate_snapshot_statement is called when exiting the create_snapshot_statement production.
+	ExitCreate_snapshot_statement(c *Create_snapshot_statementContext)
 
 	// ExitCreate_external_schema_statement is called when exiting the create_external_schema_statement production.
 	ExitCreate_external_schema_statement(c *Create_external_schema_statementContext)
