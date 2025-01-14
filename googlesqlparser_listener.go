@@ -19,6 +19,9 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterExport_metadata_statement is called when entering the export_metadata_statement production.
+	EnterExport_metadata_statement(c *Export_metadata_statementContext)
+
 	// EnterExport_model_statement is called when entering the export_model_statement production.
 	EnterExport_model_statement(c *Export_model_statementContext)
 
@@ -1680,6 +1683,9 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitExport_metadata_statement is called when exiting the export_metadata_statement production.
+	ExitExport_metadata_statement(c *Export_metadata_statementContext)
 
 	// ExitExport_model_statement is called when exiting the export_model_statement production.
 	ExitExport_model_statement(c *Export_model_statementContext)
