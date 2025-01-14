@@ -60,7 +60,22 @@ sql_statement_body:
 	| describe_statement
 	| execute_immediate
 	| explain_statement
+	| export_data_statement
+	| export_model_statement
+	| export_metadata_statement
 	| rollback_statement;
+
+export_metadata_statement:
+	EXPORT_SYMBOL table_or_table_function METADATA_SYMBOL FROM_SYMBOL maybe_dashed_path_expression
+		with_connection_clause? opt_options_list?;
+
+export_model_statement:
+	EXPORT_SYMBOL MODEL_SYMBOL path_expression with_connection_clause? opt_options_list?;
+
+export_data_statement: export_data_no_query as_query;
+
+export_data_no_query:
+	EXPORT_SYMBOL DATA_SYMBOL with_connection_clause? opt_options_list?;
 
 explain_statement: EXPLAIN_SYMBOL unterminated_sql_statement;
 

@@ -19,6 +19,18 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterExport_metadata_statement is called when entering the export_metadata_statement production.
+	EnterExport_metadata_statement(c *Export_metadata_statementContext)
+
+	// EnterExport_model_statement is called when entering the export_model_statement production.
+	EnterExport_model_statement(c *Export_model_statementContext)
+
+	// EnterExport_data_statement is called when entering the export_data_statement production.
+	EnterExport_data_statement(c *Export_data_statementContext)
+
+	// EnterExport_data_no_query is called when entering the export_data_no_query production.
+	EnterExport_data_no_query(c *Export_data_no_queryContext)
+
 	// EnterExplain_statement is called when entering the explain_statement production.
 	EnterExplain_statement(c *Explain_statementContext)
 
@@ -1671,6 +1683,18 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitExport_metadata_statement is called when exiting the export_metadata_statement production.
+	ExitExport_metadata_statement(c *Export_metadata_statementContext)
+
+	// ExitExport_model_statement is called when exiting the export_model_statement production.
+	ExitExport_model_statement(c *Export_model_statementContext)
+
+	// ExitExport_data_statement is called when exiting the export_data_statement production.
+	ExitExport_data_statement(c *Export_data_statementContext)
+
+	// ExitExport_data_no_query is called when exiting the export_data_no_query production.
+	ExitExport_data_no_query(c *Export_data_no_queryContext)
 
 	// ExitExplain_statement is called when exiting the explain_statement production.
 	ExitExplain_statement(c *Explain_statementContext)
