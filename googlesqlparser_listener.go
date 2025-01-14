@@ -19,6 +19,21 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterExecute_immediate is called when entering the execute_immediate production.
+	EnterExecute_immediate(c *Execute_immediateContext)
+
+	// EnterOpt_execute_into_clause is called when entering the opt_execute_into_clause production.
+	EnterOpt_execute_into_clause(c *Opt_execute_into_clauseContext)
+
+	// EnterOpt_execute_using_clause is called when entering the opt_execute_using_clause production.
+	EnterOpt_execute_using_clause(c *Opt_execute_using_clauseContext)
+
+	// EnterExecute_using_argument_list is called when entering the execute_using_argument_list production.
+	EnterExecute_using_argument_list(c *Execute_using_argument_listContext)
+
+	// EnterExecute_using_argument is called when entering the execute_using_argument production.
+	EnterExecute_using_argument(c *Execute_using_argumentContext)
+
 	// EnterDescribe_statement is called when entering the describe_statement production.
 	EnterDescribe_statement(c *Describe_statementContext)
 
@@ -1653,6 +1668,21 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitExecute_immediate is called when exiting the execute_immediate production.
+	ExitExecute_immediate(c *Execute_immediateContext)
+
+	// ExitOpt_execute_into_clause is called when exiting the opt_execute_into_clause production.
+	ExitOpt_execute_into_clause(c *Opt_execute_into_clauseContext)
+
+	// ExitOpt_execute_using_clause is called when exiting the opt_execute_using_clause production.
+	ExitOpt_execute_using_clause(c *Opt_execute_using_clauseContext)
+
+	// ExitExecute_using_argument_list is called when exiting the execute_using_argument_list production.
+	ExitExecute_using_argument_list(c *Execute_using_argument_listContext)
+
+	// ExitExecute_using_argument is called when exiting the execute_using_argument production.
+	ExitExecute_using_argument(c *Execute_using_argumentContext)
 
 	// ExitDescribe_statement is called when exiting the describe_statement production.
 	ExitDescribe_statement(c *Describe_statementContext)

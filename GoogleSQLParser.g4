@@ -58,7 +58,21 @@ sql_statement_body:
 	// /* TODO(zp): define macro statement */ | define_macro_statement
 	| define_table_statement
 	| describe_statement
+	| execute_immediate
 	| rollback_statement;
+
+execute_immediate:
+	EXECUTE_SYMBOL IMMEDIATE_SYMBOL expression opt_execute_into_clause? opt_execute_using_clause?;
+
+opt_execute_into_clause: INTO_SYMBOL identifier_list;
+
+opt_execute_using_clause:
+	USING_SYMBOL execute_using_argument_list;
+
+execute_using_argument_list:
+	execute_using_argument (COMMA_SYMBOL execute_using_argument)*;
+
+execute_using_argument: expression (AS_SYMBOL identifier)?;
 
 describe_statement: describe_keyword describe_info;
 

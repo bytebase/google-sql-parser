@@ -19,6 +19,21 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#execute_immediate.
+	VisitExecute_immediate(ctx *Execute_immediateContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_execute_into_clause.
+	VisitOpt_execute_into_clause(ctx *Opt_execute_into_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_execute_using_clause.
+	VisitOpt_execute_using_clause(ctx *Opt_execute_using_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#execute_using_argument_list.
+	VisitExecute_using_argument_list(ctx *Execute_using_argument_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#execute_using_argument.
+	VisitExecute_using_argument(ctx *Execute_using_argumentContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#describe_statement.
 	VisitDescribe_statement(ctx *Describe_statementContext) interface{}
 
