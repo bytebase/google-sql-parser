@@ -46,6 +46,38 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterCreate_table_function_statement is called when production create_table_function_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterCreate_table_function_statement(ctx *Create_table_function_statementContext) {
+}
+
+// ExitCreate_table_function_statement is called when production create_table_function_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitCreate_table_function_statement(ctx *Create_table_function_statementContext) {
+}
+
+// EnterOpt_as_query_or_string is called when production opt_as_query_or_string is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_as_query_or_string(ctx *Opt_as_query_or_stringContext) {
+}
+
+// ExitOpt_as_query_or_string is called when production opt_as_query_or_string is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_as_query_or_string(ctx *Opt_as_query_or_stringContext) {
+}
+
+// EnterUnordered_language_options is called when production unordered_language_options is entered.
+func (s *BaseGoogleSQLParserListener) EnterUnordered_language_options(ctx *Unordered_language_optionsContext) {
+}
+
+// ExitUnordered_language_options is called when production unordered_language_options is exited.
+func (s *BaseGoogleSQLParserListener) ExitUnordered_language_options(ctx *Unordered_language_optionsContext) {
+}
+
+// EnterOpt_function_parameters is called when production opt_function_parameters is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_function_parameters(ctx *Opt_function_parametersContext) {
+}
+
+// ExitOpt_function_parameters is called when production opt_function_parameters is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_function_parameters(ctx *Opt_function_parametersContext) {
+}
+
 // EnterCreate_snapshot_statement is called when production create_snapshot_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCreate_snapshot_statement(ctx *Create_snapshot_statementContext) {
 }

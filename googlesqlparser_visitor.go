@@ -19,6 +19,18 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#create_table_function_statement.
+	VisitCreate_table_function_statement(ctx *Create_table_function_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_as_query_or_string.
+	VisitOpt_as_query_or_string(ctx *Opt_as_query_or_stringContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#unordered_language_options.
+	VisitUnordered_language_options(ctx *Unordered_language_optionsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_function_parameters.
+	VisitOpt_function_parameters(ctx *Opt_function_parametersContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#create_snapshot_statement.
 	VisitCreate_snapshot_statement(ctx *Create_snapshot_statementContext) interface{}
 

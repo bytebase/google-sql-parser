@@ -51,7 +51,28 @@ sql_statement_body:
 	| create_schema_statement
 	| create_external_schema_statement
 	| create_snapshot_statement
+	| create_table_function_statement
 	| rollback_statement;
+
+create_table_function_statement:
+	CREATE_SYMBOL opt_or_replace? opt_create_scope? TABLE_SYMBOL FUNCTION_SYMBOL opt_if_not_exists?
+		path_expression opt_function_parameters? opt_returns? opt_sql_security_clause?
+		unordered_language_options? opt_as_query_or_string? {
+			if localctx.Opt_function_parameters() == nil {
+				p.NotifyErrorListeners("Syntax error: Expected (", nil, nil)
+			}
+		};
+
+opt_as_query_or_string: as_query | AS_SYMBOL string_literal;
+
+unordered_language_options:
+	language opt_options_list?
+	| opt_options_list language?;
+
+opt_function_parameters:
+	LR_BRACKET_SYMBOL (
+		function_parameter (COMMA_SYMBOL function_parameter)*
+	)? RR_BRACKET_SYMBOL;
 
 create_snapshot_statement:
 	CREATE_SYMBOL opt_or_replace? SNAPSHOT_SYMBOL (

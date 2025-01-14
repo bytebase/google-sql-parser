@@ -23,6 +23,22 @@ func (v *BaseGoogleSQLParserVisitor) VisitSql_statement_body(ctx *Sql_statement_
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitCreate_table_function_statement(ctx *Create_table_function_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_as_query_or_string(ctx *Opt_as_query_or_stringContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitUnordered_language_options(ctx *Unordered_language_optionsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_function_parameters(ctx *Opt_function_parametersContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitCreate_snapshot_statement(ctx *Create_snapshot_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }

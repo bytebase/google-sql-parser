@@ -19,6 +19,18 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterCreate_table_function_statement is called when entering the create_table_function_statement production.
+	EnterCreate_table_function_statement(c *Create_table_function_statementContext)
+
+	// EnterOpt_as_query_or_string is called when entering the opt_as_query_or_string production.
+	EnterOpt_as_query_or_string(c *Opt_as_query_or_stringContext)
+
+	// EnterUnordered_language_options is called when entering the unordered_language_options production.
+	EnterUnordered_language_options(c *Unordered_language_optionsContext)
+
+	// EnterOpt_function_parameters is called when entering the opt_function_parameters production.
+	EnterOpt_function_parameters(c *Opt_function_parametersContext)
+
 	// EnterCreate_snapshot_statement is called when entering the create_snapshot_statement production.
 	EnterCreate_snapshot_statement(c *Create_snapshot_statementContext)
 
@@ -1584,6 +1596,18 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitCreate_table_function_statement is called when exiting the create_table_function_statement production.
+	ExitCreate_table_function_statement(c *Create_table_function_statementContext)
+
+	// ExitOpt_as_query_or_string is called when exiting the opt_as_query_or_string production.
+	ExitOpt_as_query_or_string(c *Opt_as_query_or_stringContext)
+
+	// ExitUnordered_language_options is called when exiting the unordered_language_options production.
+	ExitUnordered_language_options(c *Unordered_language_optionsContext)
+
+	// ExitOpt_function_parameters is called when exiting the opt_function_parameters production.
+	ExitOpt_function_parameters(c *Opt_function_parametersContext)
 
 	// ExitCreate_snapshot_statement is called when exiting the create_snapshot_statement production.
 	ExitCreate_snapshot_statement(c *Create_snapshot_statementContext)
