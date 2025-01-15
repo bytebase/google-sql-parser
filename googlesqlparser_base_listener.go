@@ -46,6 +46,32 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterImport_statement is called when production import_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterImport_statement(ctx *Import_statementContext) {}
+
+// ExitImport_statement is called when production import_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitImport_statement(ctx *Import_statementContext) {}
+
+// EnterOpt_as_or_into_alias is called when production opt_as_or_into_alias is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_as_or_into_alias(ctx *Opt_as_or_into_aliasContext) {}
+
+// ExitOpt_as_or_into_alias is called when production opt_as_or_into_alias is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_as_or_into_alias(ctx *Opt_as_or_into_aliasContext) {}
+
+// EnterPath_expression_or_string is called when production path_expression_or_string is entered.
+func (s *BaseGoogleSQLParserListener) EnterPath_expression_or_string(ctx *Path_expression_or_stringContext) {
+}
+
+// ExitPath_expression_or_string is called when production path_expression_or_string is exited.
+func (s *BaseGoogleSQLParserListener) ExitPath_expression_or_string(ctx *Path_expression_or_stringContext) {
+}
+
+// EnterImport_type is called when production import_type is entered.
+func (s *BaseGoogleSQLParserListener) EnterImport_type(ctx *Import_typeContext) {}
+
+// ExitImport_type is called when production import_type is exited.
+func (s *BaseGoogleSQLParserListener) ExitImport_type(ctx *Import_typeContext) {}
+
 // EnterCall_statement is called when production call_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterCall_statement(ctx *Call_statementContext) {}
 

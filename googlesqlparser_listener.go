@@ -19,6 +19,18 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterImport_statement is called when entering the import_statement production.
+	EnterImport_statement(c *Import_statementContext)
+
+	// EnterOpt_as_or_into_alias is called when entering the opt_as_or_into_alias production.
+	EnterOpt_as_or_into_alias(c *Opt_as_or_into_aliasContext)
+
+	// EnterPath_expression_or_string is called when entering the path_expression_or_string production.
+	EnterPath_expression_or_string(c *Path_expression_or_stringContext)
+
+	// EnterImport_type is called when entering the import_type production.
+	EnterImport_type(c *Import_typeContext)
+
 	// EnterCall_statement is called when entering the call_statement production.
 	EnterCall_statement(c *Call_statementContext)
 
@@ -1716,6 +1728,18 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitImport_statement is called when exiting the import_statement production.
+	ExitImport_statement(c *Import_statementContext)
+
+	// ExitOpt_as_or_into_alias is called when exiting the opt_as_or_into_alias production.
+	ExitOpt_as_or_into_alias(c *Opt_as_or_into_aliasContext)
+
+	// ExitPath_expression_or_string is called when exiting the path_expression_or_string production.
+	ExitPath_expression_or_string(c *Path_expression_or_stringContext)
+
+	// ExitImport_type is called when exiting the import_type production.
+	ExitImport_type(c *Import_typeContext)
 
 	// ExitCall_statement is called when exiting the call_statement production.
 	ExitCall_statement(c *Call_statementContext)

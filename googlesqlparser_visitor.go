@@ -19,6 +19,18 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#import_statement.
+	VisitImport_statement(ctx *Import_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_as_or_into_alias.
+	VisitOpt_as_or_into_alias(ctx *Opt_as_or_into_aliasContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#path_expression_or_string.
+	VisitPath_expression_or_string(ctx *Path_expression_or_stringContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#import_type.
+	VisitImport_type(ctx *Import_typeContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#call_statement.
 	VisitCall_statement(ctx *Call_statementContext) interface{}
 
