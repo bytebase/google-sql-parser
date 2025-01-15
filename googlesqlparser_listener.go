@@ -19,6 +19,9 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterRename_statement is called when entering the rename_statement production.
+	EnterRename_statement(c *Rename_statementContext)
+
 	// EnterRevoke_statement is called when entering the revoke_statement production.
 	EnterRevoke_statement(c *Revoke_statementContext)
 
@@ -1692,6 +1695,9 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitRename_statement is called when exiting the rename_statement production.
+	ExitRename_statement(c *Rename_statementContext)
 
 	// ExitRevoke_statement is called when exiting the revoke_statement production.
 	ExitRevoke_statement(c *Revoke_statementContext)

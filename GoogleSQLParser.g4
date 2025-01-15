@@ -65,8 +65,12 @@ sql_statement_body:
 	| export_metadata_statement
 	// /* TODO(zp): implement it */| gql_statement
 	| grant_statement
+	| rename_statement
 	| revoke_statement
 	| rollback_statement;
+
+rename_statement:
+	RENAME_SYMBOL identifier path_expression TO_SYMBOL path_expression;
 
 revoke_statement:
 	REVOKE_SYMBOL privileges ON_SYMBOL (identifier identifier?)? path_expression FROM_SYMBOL
