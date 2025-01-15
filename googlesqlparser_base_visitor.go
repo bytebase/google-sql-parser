@@ -23,6 +23,30 @@ func (v *BaseGoogleSQLParserVisitor) VisitSql_statement_body(ctx *Sql_statement_
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitUndrop_statement(ctx *Undrop_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitModule_statement(ctx *Module_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitImport_statement(ctx *Import_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_as_or_into_alias(ctx *Opt_as_or_into_aliasContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitPath_expression_or_string(ctx *Path_expression_or_stringContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitImport_type(ctx *Import_typeContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitCall_statement(ctx *Call_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
