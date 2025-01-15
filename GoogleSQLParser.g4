@@ -72,7 +72,11 @@ sql_statement_body:
 	| drop_all_row_access_policies_statement
 	| drop_statement
 	| call_statement
-	| import_statement;
+	| import_statement
+	| module_statement;
+
+module_statement:
+	MODULE_SYMBOL path_expression opt_options_list?;
 
 import_statement:
 	IMPORT_SYMBOL import_type path_expression_or_string opt_as_or_into_alias? opt_options_list?;
@@ -81,7 +85,7 @@ opt_as_or_into_alias: (AS_SYMBOL | INTO_SYMBOL) identifier;
 
 path_expression_or_string: path_expression | string_literal;
 
-import_type: MODULE_SYMBOL PROTO_SYMBOL;
+import_type: MODULE_SYMBOL | PROTO_SYMBOL;
 
 call_statement:
 	CALL_SYMBOL path_expression LR_BRACKET_SYMBOL (

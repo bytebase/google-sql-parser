@@ -19,6 +19,9 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterModule_statement is called when entering the module_statement production.
+	EnterModule_statement(c *Module_statementContext)
+
 	// EnterImport_statement is called when entering the import_statement production.
 	EnterImport_statement(c *Import_statementContext)
 
@@ -1728,6 +1731,9 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitModule_statement is called when exiting the module_statement production.
+	ExitModule_statement(c *Module_statementContext)
 
 	// ExitImport_statement is called when exiting the import_statement production.
 	ExitImport_statement(c *Import_statementContext)

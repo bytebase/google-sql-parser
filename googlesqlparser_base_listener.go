@@ -46,6 +46,12 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterModule_statement is called when production module_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterModule_statement(ctx *Module_statementContext) {}
+
+// ExitModule_statement is called when production module_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitModule_statement(ctx *Module_statementContext) {}
+
 // EnterImport_statement is called when production import_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterImport_statement(ctx *Import_statementContext) {}
 
