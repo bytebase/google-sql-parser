@@ -68,7 +68,27 @@ sql_statement_body:
 	| rename_statement
 	| revoke_statement
 	| rollback_statement
-	| show_statement;
+	| show_statement
+	| drop_all_row_access_policies_statement
+	| drop_statement;
+
+drop_statement:
+	DROP_SYMBOL PRIVILEGE_SYMBOL RESTRICTION_SYMBOL opt_if_exists? ON_SYMBOL privilege_list
+		ON_SYMBOL identifier path_expression
+	| DROP_SYMBOL ROW_SYMBOL ACCESS_SYMBOL POLICY_SYMBOL opt_if_exists? identifier
+		on_path_expression
+	| DROP_SYMBOL index_type INDEX_SYMBOL opt_if_exists? path_expression on_path_expression?
+	| /* TODO(zp): Refine syntax error */ DROP_SYMBOL table_or_table_function opt_if_exists?
+		maybe_dashed_path_expression opt_function_parameters?
+	| DROP_SYMBOL SNAPSHOT_SYMBOL TABLE_SYMBOL opt_if_exists? maybe_dashed_path_expression
+	| DROP_SYMBOL generic_entity_type opt_if_exists? path_expression
+	| DROP_SYMBOL schema_object_kind opt_if_exists? path_expression opt_function_parameters?
+		opt_drop_mode?;
+
+opt_drop_mode: RESTRICT_SYMBOL | CASCADE_SYMBOL;
+
+drop_all_row_access_policies_statement:
+	DROP_SYMBOL ALL_SYMBOL ROW_SYMBOL ACCESS_SYMBOL? POLICIES_SYMBOL ON_SYMBOL path_expression;
 
 show_statement:
 	SHOW_SYMBOL show_target opt_from_path_expression? opt_like_string_literal?;

@@ -46,6 +46,26 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterDrop_statement is called when production drop_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterDrop_statement(ctx *Drop_statementContext) {}
+
+// ExitDrop_statement is called when production drop_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitDrop_statement(ctx *Drop_statementContext) {}
+
+// EnterOpt_drop_mode is called when production opt_drop_mode is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_drop_mode(ctx *Opt_drop_modeContext) {}
+
+// ExitOpt_drop_mode is called when production opt_drop_mode is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_drop_mode(ctx *Opt_drop_modeContext) {}
+
+// EnterDrop_all_row_access_policies_statement is called when production drop_all_row_access_policies_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterDrop_all_row_access_policies_statement(ctx *Drop_all_row_access_policies_statementContext) {
+}
+
+// ExitDrop_all_row_access_policies_statement is called when production drop_all_row_access_policies_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitDrop_all_row_access_policies_statement(ctx *Drop_all_row_access_policies_statementContext) {
+}
+
 // EnterShow_statement is called when production show_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterShow_statement(ctx *Show_statementContext) {}
 
