@@ -124,6 +124,10 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/rename.test",
         # show_statement
         "zetasql/parser/testdata/show.test",
+        # drop_statement
+        "zetasql/parser/testdata/drop.test",
+        "zetasql/parser/testdata/drop_function.test",
+        "zetasql/parser/testdata/drop_row_access_policy.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)

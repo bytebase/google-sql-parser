@@ -19,6 +19,15 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterDrop_statement is called when entering the drop_statement production.
+	EnterDrop_statement(c *Drop_statementContext)
+
+	// EnterOpt_drop_mode is called when entering the opt_drop_mode production.
+	EnterOpt_drop_mode(c *Opt_drop_modeContext)
+
+	// EnterDrop_all_row_access_policies_statement is called when entering the drop_all_row_access_policies_statement production.
+	EnterDrop_all_row_access_policies_statement(c *Drop_all_row_access_policies_statementContext)
+
 	// EnterShow_statement is called when entering the show_statement production.
 	EnterShow_statement(c *Show_statementContext)
 
@@ -1704,6 +1713,15 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitDrop_statement is called when exiting the drop_statement production.
+	ExitDrop_statement(c *Drop_statementContext)
+
+	// ExitOpt_drop_mode is called when exiting the opt_drop_mode production.
+	ExitOpt_drop_mode(c *Opt_drop_modeContext)
+
+	// ExitDrop_all_row_access_policies_statement is called when exiting the drop_all_row_access_policies_statement production.
+	ExitDrop_all_row_access_policies_statement(c *Drop_all_row_access_policies_statementContext)
 
 	// ExitShow_statement is called when exiting the show_statement production.
 	ExitShow_statement(c *Show_statementContext)

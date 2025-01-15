@@ -23,6 +23,18 @@ func (v *BaseGoogleSQLParserVisitor) VisitSql_statement_body(ctx *Sql_statement_
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitDrop_statement(ctx *Drop_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_drop_mode(ctx *Opt_drop_modeContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitDrop_all_row_access_policies_statement(ctx *Drop_all_row_access_policies_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitShow_statement(ctx *Show_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }

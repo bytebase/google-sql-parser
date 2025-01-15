@@ -19,6 +19,15 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#drop_statement.
+	VisitDrop_statement(ctx *Drop_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_drop_mode.
+	VisitOpt_drop_mode(ctx *Opt_drop_modeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#drop_all_row_access_policies_statement.
+	VisitDrop_all_row_access_policies_statement(ctx *Drop_all_row_access_policies_statementContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#show_statement.
 	VisitShow_statement(ctx *Show_statementContext) interface{}
 
