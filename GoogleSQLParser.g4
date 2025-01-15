@@ -73,7 +73,12 @@ sql_statement_body:
 	| drop_statement
 	| call_statement
 	| import_statement
-	| module_statement;
+	| module_statement
+	| undrop_statement;
+
+undrop_statement:
+	UNDROP_SYMBOL schema_object_kind opt_if_not_exists? path_expression opt_at_system_time?
+		opt_options_list?;
 
 module_statement:
 	MODULE_SYMBOL path_expression opt_options_list?;
