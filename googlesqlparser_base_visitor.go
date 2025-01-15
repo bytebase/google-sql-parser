@@ -23,6 +23,10 @@ func (v *BaseGoogleSQLParserVisitor) VisitSql_statement_body(ctx *Sql_statement_
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitRename_statement(ctx *Rename_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitRevoke_statement(ctx *Revoke_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }

@@ -46,6 +46,12 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterRename_statement is called when production rename_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterRename_statement(ctx *Rename_statementContext) {}
+
+// ExitRename_statement is called when production rename_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitRename_statement(ctx *Rename_statementContext) {}
+
 // EnterRevoke_statement is called when production revoke_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterRevoke_statement(ctx *Revoke_statementContext) {}
 
