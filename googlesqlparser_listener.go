@@ -19,6 +19,15 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterRevoke_statement is called when entering the revoke_statement production.
+	EnterRevoke_statement(c *Revoke_statementContext)
+
+	// EnterGrant_statement is called when entering the grant_statement production.
+	EnterGrant_statement(c *Grant_statementContext)
+
+	// EnterPrivileges is called when entering the privileges production.
+	EnterPrivileges(c *PrivilegesContext)
+
 	// EnterExport_metadata_statement is called when entering the export_metadata_statement production.
 	EnterExport_metadata_statement(c *Export_metadata_statementContext)
 
@@ -1683,6 +1692,15 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitRevoke_statement is called when exiting the revoke_statement production.
+	ExitRevoke_statement(c *Revoke_statementContext)
+
+	// ExitGrant_statement is called when exiting the grant_statement production.
+	ExitGrant_statement(c *Grant_statementContext)
+
+	// ExitPrivileges is called when exiting the privileges production.
+	ExitPrivileges(c *PrivilegesContext)
 
 	// ExitExport_metadata_statement is called when exiting the export_metadata_statement production.
 	ExitExport_metadata_statement(c *Export_metadata_statementContext)

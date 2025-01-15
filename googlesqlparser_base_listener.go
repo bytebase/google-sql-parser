@@ -46,6 +46,24 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterRevoke_statement is called when production revoke_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterRevoke_statement(ctx *Revoke_statementContext) {}
+
+// ExitRevoke_statement is called when production revoke_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitRevoke_statement(ctx *Revoke_statementContext) {}
+
+// EnterGrant_statement is called when production grant_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterGrant_statement(ctx *Grant_statementContext) {}
+
+// ExitGrant_statement is called when production grant_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitGrant_statement(ctx *Grant_statementContext) {}
+
+// EnterPrivileges is called when production privileges is entered.
+func (s *BaseGoogleSQLParserListener) EnterPrivileges(ctx *PrivilegesContext) {}
+
+// ExitPrivileges is called when production privileges is exited.
+func (s *BaseGoogleSQLParserListener) ExitPrivileges(ctx *PrivilegesContext) {}
+
 // EnterExport_metadata_statement is called when production export_metadata_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterExport_metadata_statement(ctx *Export_metadata_statementContext) {
 }

@@ -63,7 +63,20 @@ sql_statement_body:
 	| export_data_statement
 	| export_model_statement
 	| export_metadata_statement
+	// /* TODO(zp): implement it */| gql_statement
+	| grant_statement
+	| revoke_statement
 	| rollback_statement;
+
+revoke_statement:
+	REVOKE_SYMBOL privileges ON_SYMBOL (identifier identifier?)? path_expression FROM_SYMBOL
+		grantee_list;
+
+grant_statement:
+	GRANT_SYMBOL privileges ON_SYMBOL (identifier identifier?)? path_expression TO_SYMBOL
+		grantee_list;
+
+privileges: ALL_SYMBOL PRIVILEGES_SYMBOL? | privilege_list;
 
 export_metadata_statement:
 	EXPORT_SYMBOL table_or_table_function METADATA_SYMBOL FROM_SYMBOL maybe_dashed_path_expression

@@ -19,6 +19,15 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#revoke_statement.
+	VisitRevoke_statement(ctx *Revoke_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#grant_statement.
+	VisitGrant_statement(ctx *Grant_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#privileges.
+	VisitPrivileges(ctx *PrivilegesContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#export_metadata_statement.
 	VisitExport_metadata_statement(ctx *Export_metadata_statementContext) interface{}
 
