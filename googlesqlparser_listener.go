@@ -19,6 +19,15 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterShow_statement is called when entering the show_statement production.
+	EnterShow_statement(c *Show_statementContext)
+
+	// EnterOpt_like_string_literal is called when entering the opt_like_string_literal production.
+	EnterOpt_like_string_literal(c *Opt_like_string_literalContext)
+
+	// EnterShow_target is called when entering the show_target production.
+	EnterShow_target(c *Show_targetContext)
+
 	// EnterRename_statement is called when entering the rename_statement production.
 	EnterRename_statement(c *Rename_statementContext)
 
@@ -1695,6 +1704,15 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitShow_statement is called when exiting the show_statement production.
+	ExitShow_statement(c *Show_statementContext)
+
+	// ExitOpt_like_string_literal is called when exiting the opt_like_string_literal production.
+	ExitOpt_like_string_literal(c *Opt_like_string_literalContext)
+
+	// ExitShow_target is called when exiting the show_target production.
+	ExitShow_target(c *Show_targetContext)
 
 	// ExitRename_statement is called when exiting the rename_statement production.
 	ExitRename_statement(c *Rename_statementContext)

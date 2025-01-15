@@ -19,6 +19,15 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#show_statement.
+	VisitShow_statement(ctx *Show_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_like_string_literal.
+	VisitOpt_like_string_literal(ctx *Opt_like_string_literalContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#show_target.
+	VisitShow_target(ctx *Show_targetContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#rename_statement.
 	VisitRename_statement(ctx *Rename_statementContext) interface{}
 
