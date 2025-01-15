@@ -70,7 +70,13 @@ sql_statement_body:
 	| rollback_statement
 	| show_statement
 	| drop_all_row_access_policies_statement
-	| drop_statement;
+	| drop_statement
+	| call_statement;
+
+call_statement:
+	CALL_SYMBOL path_expression LR_BRACKET_SYMBOL (
+		tvf_argument (COMMA_SYMBOL tvf_argument)*
+	)? RR_BRACKET_SYMBOL;
 
 drop_statement:
 	DROP_SYMBOL PRIVILEGE_SYMBOL RESTRICTION_SYMBOL opt_if_exists? ON_SYMBOL privilege_list
