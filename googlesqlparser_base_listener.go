@@ -46,6 +46,26 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterShow_statement is called when production show_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterShow_statement(ctx *Show_statementContext) {}
+
+// ExitShow_statement is called when production show_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitShow_statement(ctx *Show_statementContext) {}
+
+// EnterOpt_like_string_literal is called when production opt_like_string_literal is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_like_string_literal(ctx *Opt_like_string_literalContext) {
+}
+
+// ExitOpt_like_string_literal is called when production opt_like_string_literal is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_like_string_literal(ctx *Opt_like_string_literalContext) {
+}
+
+// EnterShow_target is called when production show_target is entered.
+func (s *BaseGoogleSQLParserListener) EnterShow_target(ctx *Show_targetContext) {}
+
+// ExitShow_target is called when production show_target is exited.
+func (s *BaseGoogleSQLParserListener) ExitShow_target(ctx *Show_targetContext) {}
+
 // EnterRename_statement is called when production rename_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterRename_statement(ctx *Rename_statementContext) {}
 

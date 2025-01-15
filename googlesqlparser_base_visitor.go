@@ -23,6 +23,18 @@ func (v *BaseGoogleSQLParserVisitor) VisitSql_statement_body(ctx *Sql_statement_
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGoogleSQLParserVisitor) VisitShow_statement(ctx *Show_statementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitOpt_like_string_literal(ctx *Opt_like_string_literalContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGoogleSQLParserVisitor) VisitShow_target(ctx *Show_targetContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGoogleSQLParserVisitor) VisitRename_statement(ctx *Rename_statementContext) interface{} {
 	return v.VisitChildren(ctx)
 }

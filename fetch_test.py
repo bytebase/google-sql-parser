@@ -122,6 +122,8 @@ if __name__ == "__main__":
         "zetasql/parser/testdata/grant_and_revoke.test",
         # rename_statement
         "zetasql/parser/testdata/rename.test",
+        # show_statement
+        "zetasql/parser/testdata/show.test",
     ]
     for filepath in filepaths:
         content = fetch_file(filepath)

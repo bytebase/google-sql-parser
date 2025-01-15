@@ -67,7 +67,15 @@ sql_statement_body:
 	| grant_statement
 	| rename_statement
 	| revoke_statement
-	| rollback_statement;
+	| rollback_statement
+	| show_statement;
+
+show_statement:
+	SHOW_SYMBOL show_target opt_from_path_expression? opt_like_string_literal?;
+
+opt_like_string_literal: LIKE_SYMBOL string_literal;
+
+show_target: MATERIALIZED_SYMBOL VIEWS_SYMBOL | identifier;
 
 rename_statement:
 	RENAME_SYMBOL identifier path_expression TO_SYMBOL path_expression;
