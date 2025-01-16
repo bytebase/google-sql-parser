@@ -19,6 +19,165 @@ type GoogleSQLParserListener interface {
 	// EnterSql_statement_body is called when entering the sql_statement_body production.
 	EnterSql_statement_body(c *Sql_statement_bodyContext)
 
+	// EnterGql_statement is called when entering the gql_statement production.
+	EnterGql_statement(c *Gql_statementContext)
+
+	// EnterGraph_operation_block is called when entering the graph_operation_block production.
+	EnterGraph_operation_block(c *Graph_operation_blockContext)
+
+	// EnterGraph_composite_query_block is called when entering the graph_composite_query_block production.
+	EnterGraph_composite_query_block(c *Graph_composite_query_blockContext)
+
+	// EnterGraph_composite_query_prefix is called when entering the graph_composite_query_prefix production.
+	EnterGraph_composite_query_prefix(c *Graph_composite_query_prefixContext)
+
+	// EnterGraph_set_operation_metadata is called when entering the graph_set_operation_metadata production.
+	EnterGraph_set_operation_metadata(c *Graph_set_operation_metadataContext)
+
+	// EnterGraph_linear_query_operation is called when entering the graph_linear_query_operation production.
+	EnterGraph_linear_query_operation(c *Graph_linear_query_operationContext)
+
+	// EnterGraph_linear_operator_list is called when entering the graph_linear_operator_list production.
+	EnterGraph_linear_operator_list(c *Graph_linear_operator_listContext)
+
+	// EnterGraph_linear_operator is called when entering the graph_linear_operator production.
+	EnterGraph_linear_operator(c *Graph_linear_operatorContext)
+
+	// EnterGraph_sample_clause is called when entering the graph_sample_clause production.
+	EnterGraph_sample_clause(c *Graph_sample_clauseContext)
+
+	// EnterOpt_graph_sample_clause_suffix is called when entering the opt_graph_sample_clause_suffix production.
+	EnterOpt_graph_sample_clause_suffix(c *Opt_graph_sample_clause_suffixContext)
+
+	// EnterGraph_for_operator is called when entering the graph_for_operator production.
+	EnterGraph_for_operator(c *Graph_for_operatorContext)
+
+	// EnterOpt_with_offset_and_alias_with_required_as is called when entering the opt_with_offset_and_alias_with_required_as production.
+	EnterOpt_with_offset_and_alias_with_required_as(c *Opt_with_offset_and_alias_with_required_asContext)
+
+	// EnterGraph_with_operator is called when entering the graph_with_operator production.
+	EnterGraph_with_operator(c *Graph_with_operatorContext)
+
+	// EnterGraph_page_operator is called when entering the graph_page_operator production.
+	EnterGraph_page_operator(c *Graph_page_operatorContext)
+
+	// EnterGraph_order_by_operator is called when entering the graph_order_by_operator production.
+	EnterGraph_order_by_operator(c *Graph_order_by_operatorContext)
+
+	// EnterGraph_filter_operator is called when entering the graph_filter_operator production.
+	EnterGraph_filter_operator(c *Graph_filter_operatorContext)
+
+	// EnterGraph_let_operator is called when entering the graph_let_operator production.
+	EnterGraph_let_operator(c *Graph_let_operatorContext)
+
+	// EnterGraph_let_variable_definition_list is called when entering the graph_let_variable_definition_list production.
+	EnterGraph_let_variable_definition_list(c *Graph_let_variable_definition_listContext)
+
+	// EnterGraph_let_variable_definition is called when entering the graph_let_variable_definition production.
+	EnterGraph_let_variable_definition(c *Graph_let_variable_definitionContext)
+
+	// EnterGraph_optional_match_operator is called when entering the graph_optional_match_operator production.
+	EnterGraph_optional_match_operator(c *Graph_optional_match_operatorContext)
+
+	// EnterGraph_match_operator is called when entering the graph_match_operator production.
+	EnterGraph_match_operator(c *Graph_match_operatorContext)
+
+	// EnterGraph_pattern is called when entering the graph_pattern production.
+	EnterGraph_pattern(c *Graph_patternContext)
+
+	// EnterGraph_path_pattern_list is called when entering the graph_path_pattern_list production.
+	EnterGraph_path_pattern_list(c *Graph_path_pattern_listContext)
+
+	// EnterGraph_path_pattern is called when entering the graph_path_pattern production.
+	EnterGraph_path_pattern(c *Graph_path_patternContext)
+
+	// EnterGraph_path_pattern_expr is called when entering the graph_path_pattern_expr production.
+	EnterGraph_path_pattern_expr(c *Graph_path_pattern_exprContext)
+
+	// EnterGraph_path_factor is called when entering the graph_path_factor production.
+	EnterGraph_path_factor(c *Graph_path_factorContext)
+
+	// EnterGraph_quantified_path_primary is called when entering the graph_quantified_path_primary production.
+	EnterGraph_quantified_path_primary(c *Graph_quantified_path_primaryContext)
+
+	// EnterGraph_path_primary is called when entering the graph_path_primary production.
+	EnterGraph_path_primary(c *Graph_path_primaryContext)
+
+	// EnterGraph_parenthesized_path_pattern is called when entering the graph_parenthesized_path_pattern production.
+	EnterGraph_parenthesized_path_pattern(c *Graph_parenthesized_path_patternContext)
+
+	// EnterGraph_element_pattern is called when entering the graph_element_pattern production.
+	EnterGraph_element_pattern(c *Graph_element_patternContext)
+
+	// EnterGraph_edge_pattern is called when entering the graph_edge_pattern production.
+	EnterGraph_edge_pattern(c *Graph_edge_patternContext)
+
+	// EnterGraph_node_pattern is called when entering the graph_node_pattern production.
+	EnterGraph_node_pattern(c *Graph_node_patternContext)
+
+	// EnterGraph_element_pattern_filler is called when entering the graph_element_pattern_filler production.
+	EnterGraph_element_pattern_filler(c *Graph_element_pattern_fillerContext)
+
+	// EnterGraph_property_specification is called when entering the graph_property_specification production.
+	EnterGraph_property_specification(c *Graph_property_specificationContext)
+
+	// EnterGraph_property_name_and_value is called when entering the graph_property_name_and_value production.
+	EnterGraph_property_name_and_value(c *Graph_property_name_and_valueContext)
+
+	// EnterOpt_is_label_expression is called when entering the opt_is_label_expression production.
+	EnterOpt_is_label_expression(c *Opt_is_label_expressionContext)
+
+	// EnterLabel_expression is called when entering the label_expression production.
+	EnterLabel_expression(c *Label_expressionContext)
+
+	// EnterLabel_primary is called when entering the label_primary production.
+	EnterLabel_primary(c *Label_primaryContext)
+
+	// EnterParenthesized_label_expression is called when entering the parenthesized_label_expression production.
+	EnterParenthesized_label_expression(c *Parenthesized_label_expressionContext)
+
+	// EnterOpt_graph_element_identifier is called when entering the opt_graph_element_identifier production.
+	EnterOpt_graph_element_identifier(c *Opt_graph_element_identifierContext)
+
+	// EnterOpt_graph_path_mode_prefix is called when entering the opt_graph_path_mode_prefix production.
+	EnterOpt_graph_path_mode_prefix(c *Opt_graph_path_mode_prefixContext)
+
+	// EnterPath_or_paths is called when entering the path_or_paths production.
+	EnterPath_or_paths(c *Path_or_pathsContext)
+
+	// EnterOpt_graph_path_mode is called when entering the opt_graph_path_mode production.
+	EnterOpt_graph_path_mode(c *Opt_graph_path_modeContext)
+
+	// EnterOpt_graph_search_prefix is called when entering the opt_graph_search_prefix production.
+	EnterOpt_graph_search_prefix(c *Opt_graph_search_prefixContext)
+
+	// EnterOpt_path_variable_assignment is called when entering the opt_path_variable_assignment production.
+	EnterOpt_path_variable_assignment(c *Opt_path_variable_assignmentContext)
+
+	// EnterGraph_identifier is called when entering the graph_identifier production.
+	EnterGraph_identifier(c *Graph_identifierContext)
+
+	// EnterGraph_return_operator is called when entering the graph_return_operator production.
+	EnterGraph_return_operator(c *Graph_return_operatorContext)
+
+	// EnterGraph_page_clause is called when entering the graph_page_clause production.
+	EnterGraph_page_clause(c *Graph_page_clauseContext)
+
+	// EnterGraph_order_by_clause is called when entering the graph_order_by_clause production.
+	EnterGraph_order_by_clause(c *Graph_order_by_clauseContext)
+
+	// EnterGraph_ordering_expression is called when entering the graph_ordering_expression production.
+	EnterGraph_ordering_expression(c *Graph_ordering_expressionContext)
+
+	// EnterOpt_graph_asc_or_desc is called when entering the opt_graph_asc_or_desc production.
+	EnterOpt_graph_asc_or_desc(c *Opt_graph_asc_or_descContext)
+
+	// EnterGraph_return_item_list is called when entering the graph_return_item_list production.
+	EnterGraph_return_item_list(c *Graph_return_item_listContext)
+
+	// EnterGraph_return_item is called when entering the graph_return_item production.
+	EnterGraph_return_item(c *Graph_return_itemContext)
+
 	// EnterUndrop_statement is called when entering the undrop_statement production.
 	EnterUndrop_statement(c *Undrop_statementContext)
 
@@ -1734,6 +1893,165 @@ type GoogleSQLParserListener interface {
 
 	// ExitSql_statement_body is called when exiting the sql_statement_body production.
 	ExitSql_statement_body(c *Sql_statement_bodyContext)
+
+	// ExitGql_statement is called when exiting the gql_statement production.
+	ExitGql_statement(c *Gql_statementContext)
+
+	// ExitGraph_operation_block is called when exiting the graph_operation_block production.
+	ExitGraph_operation_block(c *Graph_operation_blockContext)
+
+	// ExitGraph_composite_query_block is called when exiting the graph_composite_query_block production.
+	ExitGraph_composite_query_block(c *Graph_composite_query_blockContext)
+
+	// ExitGraph_composite_query_prefix is called when exiting the graph_composite_query_prefix production.
+	ExitGraph_composite_query_prefix(c *Graph_composite_query_prefixContext)
+
+	// ExitGraph_set_operation_metadata is called when exiting the graph_set_operation_metadata production.
+	ExitGraph_set_operation_metadata(c *Graph_set_operation_metadataContext)
+
+	// ExitGraph_linear_query_operation is called when exiting the graph_linear_query_operation production.
+	ExitGraph_linear_query_operation(c *Graph_linear_query_operationContext)
+
+	// ExitGraph_linear_operator_list is called when exiting the graph_linear_operator_list production.
+	ExitGraph_linear_operator_list(c *Graph_linear_operator_listContext)
+
+	// ExitGraph_linear_operator is called when exiting the graph_linear_operator production.
+	ExitGraph_linear_operator(c *Graph_linear_operatorContext)
+
+	// ExitGraph_sample_clause is called when exiting the graph_sample_clause production.
+	ExitGraph_sample_clause(c *Graph_sample_clauseContext)
+
+	// ExitOpt_graph_sample_clause_suffix is called when exiting the opt_graph_sample_clause_suffix production.
+	ExitOpt_graph_sample_clause_suffix(c *Opt_graph_sample_clause_suffixContext)
+
+	// ExitGraph_for_operator is called when exiting the graph_for_operator production.
+	ExitGraph_for_operator(c *Graph_for_operatorContext)
+
+	// ExitOpt_with_offset_and_alias_with_required_as is called when exiting the opt_with_offset_and_alias_with_required_as production.
+	ExitOpt_with_offset_and_alias_with_required_as(c *Opt_with_offset_and_alias_with_required_asContext)
+
+	// ExitGraph_with_operator is called when exiting the graph_with_operator production.
+	ExitGraph_with_operator(c *Graph_with_operatorContext)
+
+	// ExitGraph_page_operator is called when exiting the graph_page_operator production.
+	ExitGraph_page_operator(c *Graph_page_operatorContext)
+
+	// ExitGraph_order_by_operator is called when exiting the graph_order_by_operator production.
+	ExitGraph_order_by_operator(c *Graph_order_by_operatorContext)
+
+	// ExitGraph_filter_operator is called when exiting the graph_filter_operator production.
+	ExitGraph_filter_operator(c *Graph_filter_operatorContext)
+
+	// ExitGraph_let_operator is called when exiting the graph_let_operator production.
+	ExitGraph_let_operator(c *Graph_let_operatorContext)
+
+	// ExitGraph_let_variable_definition_list is called when exiting the graph_let_variable_definition_list production.
+	ExitGraph_let_variable_definition_list(c *Graph_let_variable_definition_listContext)
+
+	// ExitGraph_let_variable_definition is called when exiting the graph_let_variable_definition production.
+	ExitGraph_let_variable_definition(c *Graph_let_variable_definitionContext)
+
+	// ExitGraph_optional_match_operator is called when exiting the graph_optional_match_operator production.
+	ExitGraph_optional_match_operator(c *Graph_optional_match_operatorContext)
+
+	// ExitGraph_match_operator is called when exiting the graph_match_operator production.
+	ExitGraph_match_operator(c *Graph_match_operatorContext)
+
+	// ExitGraph_pattern is called when exiting the graph_pattern production.
+	ExitGraph_pattern(c *Graph_patternContext)
+
+	// ExitGraph_path_pattern_list is called when exiting the graph_path_pattern_list production.
+	ExitGraph_path_pattern_list(c *Graph_path_pattern_listContext)
+
+	// ExitGraph_path_pattern is called when exiting the graph_path_pattern production.
+	ExitGraph_path_pattern(c *Graph_path_patternContext)
+
+	// ExitGraph_path_pattern_expr is called when exiting the graph_path_pattern_expr production.
+	ExitGraph_path_pattern_expr(c *Graph_path_pattern_exprContext)
+
+	// ExitGraph_path_factor is called when exiting the graph_path_factor production.
+	ExitGraph_path_factor(c *Graph_path_factorContext)
+
+	// ExitGraph_quantified_path_primary is called when exiting the graph_quantified_path_primary production.
+	ExitGraph_quantified_path_primary(c *Graph_quantified_path_primaryContext)
+
+	// ExitGraph_path_primary is called when exiting the graph_path_primary production.
+	ExitGraph_path_primary(c *Graph_path_primaryContext)
+
+	// ExitGraph_parenthesized_path_pattern is called when exiting the graph_parenthesized_path_pattern production.
+	ExitGraph_parenthesized_path_pattern(c *Graph_parenthesized_path_patternContext)
+
+	// ExitGraph_element_pattern is called when exiting the graph_element_pattern production.
+	ExitGraph_element_pattern(c *Graph_element_patternContext)
+
+	// ExitGraph_edge_pattern is called when exiting the graph_edge_pattern production.
+	ExitGraph_edge_pattern(c *Graph_edge_patternContext)
+
+	// ExitGraph_node_pattern is called when exiting the graph_node_pattern production.
+	ExitGraph_node_pattern(c *Graph_node_patternContext)
+
+	// ExitGraph_element_pattern_filler is called when exiting the graph_element_pattern_filler production.
+	ExitGraph_element_pattern_filler(c *Graph_element_pattern_fillerContext)
+
+	// ExitGraph_property_specification is called when exiting the graph_property_specification production.
+	ExitGraph_property_specification(c *Graph_property_specificationContext)
+
+	// ExitGraph_property_name_and_value is called when exiting the graph_property_name_and_value production.
+	ExitGraph_property_name_and_value(c *Graph_property_name_and_valueContext)
+
+	// ExitOpt_is_label_expression is called when exiting the opt_is_label_expression production.
+	ExitOpt_is_label_expression(c *Opt_is_label_expressionContext)
+
+	// ExitLabel_expression is called when exiting the label_expression production.
+	ExitLabel_expression(c *Label_expressionContext)
+
+	// ExitLabel_primary is called when exiting the label_primary production.
+	ExitLabel_primary(c *Label_primaryContext)
+
+	// ExitParenthesized_label_expression is called when exiting the parenthesized_label_expression production.
+	ExitParenthesized_label_expression(c *Parenthesized_label_expressionContext)
+
+	// ExitOpt_graph_element_identifier is called when exiting the opt_graph_element_identifier production.
+	ExitOpt_graph_element_identifier(c *Opt_graph_element_identifierContext)
+
+	// ExitOpt_graph_path_mode_prefix is called when exiting the opt_graph_path_mode_prefix production.
+	ExitOpt_graph_path_mode_prefix(c *Opt_graph_path_mode_prefixContext)
+
+	// ExitPath_or_paths is called when exiting the path_or_paths production.
+	ExitPath_or_paths(c *Path_or_pathsContext)
+
+	// ExitOpt_graph_path_mode is called when exiting the opt_graph_path_mode production.
+	ExitOpt_graph_path_mode(c *Opt_graph_path_modeContext)
+
+	// ExitOpt_graph_search_prefix is called when exiting the opt_graph_search_prefix production.
+	ExitOpt_graph_search_prefix(c *Opt_graph_search_prefixContext)
+
+	// ExitOpt_path_variable_assignment is called when exiting the opt_path_variable_assignment production.
+	ExitOpt_path_variable_assignment(c *Opt_path_variable_assignmentContext)
+
+	// ExitGraph_identifier is called when exiting the graph_identifier production.
+	ExitGraph_identifier(c *Graph_identifierContext)
+
+	// ExitGraph_return_operator is called when exiting the graph_return_operator production.
+	ExitGraph_return_operator(c *Graph_return_operatorContext)
+
+	// ExitGraph_page_clause is called when exiting the graph_page_clause production.
+	ExitGraph_page_clause(c *Graph_page_clauseContext)
+
+	// ExitGraph_order_by_clause is called when exiting the graph_order_by_clause production.
+	ExitGraph_order_by_clause(c *Graph_order_by_clauseContext)
+
+	// ExitGraph_ordering_expression is called when exiting the graph_ordering_expression production.
+	ExitGraph_ordering_expression(c *Graph_ordering_expressionContext)
+
+	// ExitOpt_graph_asc_or_desc is called when exiting the opt_graph_asc_or_desc production.
+	ExitOpt_graph_asc_or_desc(c *Opt_graph_asc_or_descContext)
+
+	// ExitGraph_return_item_list is called when exiting the graph_return_item_list production.
+	ExitGraph_return_item_list(c *Graph_return_item_listContext)
+
+	// ExitGraph_return_item is called when exiting the graph_return_item production.
+	ExitGraph_return_item(c *Graph_return_itemContext)
 
 	// ExitUndrop_statement is called when exiting the undrop_statement production.
 	ExitUndrop_statement(c *Undrop_statementContext)

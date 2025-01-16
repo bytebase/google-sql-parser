@@ -46,6 +46,376 @@ func (s *BaseGoogleSQLParserListener) EnterSql_statement_body(ctx *Sql_statement
 // ExitSql_statement_body is called when production sql_statement_body is exited.
 func (s *BaseGoogleSQLParserListener) ExitSql_statement_body(ctx *Sql_statement_bodyContext) {}
 
+// EnterGql_statement is called when production gql_statement is entered.
+func (s *BaseGoogleSQLParserListener) EnterGql_statement(ctx *Gql_statementContext) {}
+
+// ExitGql_statement is called when production gql_statement is exited.
+func (s *BaseGoogleSQLParserListener) ExitGql_statement(ctx *Gql_statementContext) {}
+
+// EnterGraph_operation_block is called when production graph_operation_block is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_operation_block(ctx *Graph_operation_blockContext) {}
+
+// ExitGraph_operation_block is called when production graph_operation_block is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_operation_block(ctx *Graph_operation_blockContext) {}
+
+// EnterGraph_composite_query_block is called when production graph_composite_query_block is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_composite_query_block(ctx *Graph_composite_query_blockContext) {
+}
+
+// ExitGraph_composite_query_block is called when production graph_composite_query_block is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_composite_query_block(ctx *Graph_composite_query_blockContext) {
+}
+
+// EnterGraph_composite_query_prefix is called when production graph_composite_query_prefix is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_composite_query_prefix(ctx *Graph_composite_query_prefixContext) {
+}
+
+// ExitGraph_composite_query_prefix is called when production graph_composite_query_prefix is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_composite_query_prefix(ctx *Graph_composite_query_prefixContext) {
+}
+
+// EnterGraph_set_operation_metadata is called when production graph_set_operation_metadata is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_set_operation_metadata(ctx *Graph_set_operation_metadataContext) {
+}
+
+// ExitGraph_set_operation_metadata is called when production graph_set_operation_metadata is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_set_operation_metadata(ctx *Graph_set_operation_metadataContext) {
+}
+
+// EnterGraph_linear_query_operation is called when production graph_linear_query_operation is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_linear_query_operation(ctx *Graph_linear_query_operationContext) {
+}
+
+// ExitGraph_linear_query_operation is called when production graph_linear_query_operation is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_linear_query_operation(ctx *Graph_linear_query_operationContext) {
+}
+
+// EnterGraph_linear_operator_list is called when production graph_linear_operator_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_linear_operator_list(ctx *Graph_linear_operator_listContext) {
+}
+
+// ExitGraph_linear_operator_list is called when production graph_linear_operator_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_linear_operator_list(ctx *Graph_linear_operator_listContext) {
+}
+
+// EnterGraph_linear_operator is called when production graph_linear_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_linear_operator(ctx *Graph_linear_operatorContext) {}
+
+// ExitGraph_linear_operator is called when production graph_linear_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_linear_operator(ctx *Graph_linear_operatorContext) {}
+
+// EnterGraph_sample_clause is called when production graph_sample_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_sample_clause(ctx *Graph_sample_clauseContext) {}
+
+// ExitGraph_sample_clause is called when production graph_sample_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_sample_clause(ctx *Graph_sample_clauseContext) {}
+
+// EnterOpt_graph_sample_clause_suffix is called when production opt_graph_sample_clause_suffix is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_graph_sample_clause_suffix(ctx *Opt_graph_sample_clause_suffixContext) {
+}
+
+// ExitOpt_graph_sample_clause_suffix is called when production opt_graph_sample_clause_suffix is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_graph_sample_clause_suffix(ctx *Opt_graph_sample_clause_suffixContext) {
+}
+
+// EnterGraph_for_operator is called when production graph_for_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_for_operator(ctx *Graph_for_operatorContext) {}
+
+// ExitGraph_for_operator is called when production graph_for_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_for_operator(ctx *Graph_for_operatorContext) {}
+
+// EnterOpt_with_offset_and_alias_with_required_as is called when production opt_with_offset_and_alias_with_required_as is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_with_offset_and_alias_with_required_as(ctx *Opt_with_offset_and_alias_with_required_asContext) {
+}
+
+// ExitOpt_with_offset_and_alias_with_required_as is called when production opt_with_offset_and_alias_with_required_as is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_with_offset_and_alias_with_required_as(ctx *Opt_with_offset_and_alias_with_required_asContext) {
+}
+
+// EnterGraph_with_operator is called when production graph_with_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_with_operator(ctx *Graph_with_operatorContext) {}
+
+// ExitGraph_with_operator is called when production graph_with_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_with_operator(ctx *Graph_with_operatorContext) {}
+
+// EnterGraph_page_operator is called when production graph_page_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_page_operator(ctx *Graph_page_operatorContext) {}
+
+// ExitGraph_page_operator is called when production graph_page_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_page_operator(ctx *Graph_page_operatorContext) {}
+
+// EnterGraph_order_by_operator is called when production graph_order_by_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_order_by_operator(ctx *Graph_order_by_operatorContext) {
+}
+
+// ExitGraph_order_by_operator is called when production graph_order_by_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_order_by_operator(ctx *Graph_order_by_operatorContext) {
+}
+
+// EnterGraph_filter_operator is called when production graph_filter_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_filter_operator(ctx *Graph_filter_operatorContext) {}
+
+// ExitGraph_filter_operator is called when production graph_filter_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_filter_operator(ctx *Graph_filter_operatorContext) {}
+
+// EnterGraph_let_operator is called when production graph_let_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_let_operator(ctx *Graph_let_operatorContext) {}
+
+// ExitGraph_let_operator is called when production graph_let_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_let_operator(ctx *Graph_let_operatorContext) {}
+
+// EnterGraph_let_variable_definition_list is called when production graph_let_variable_definition_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_let_variable_definition_list(ctx *Graph_let_variable_definition_listContext) {
+}
+
+// ExitGraph_let_variable_definition_list is called when production graph_let_variable_definition_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_let_variable_definition_list(ctx *Graph_let_variable_definition_listContext) {
+}
+
+// EnterGraph_let_variable_definition is called when production graph_let_variable_definition is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_let_variable_definition(ctx *Graph_let_variable_definitionContext) {
+}
+
+// ExitGraph_let_variable_definition is called when production graph_let_variable_definition is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_let_variable_definition(ctx *Graph_let_variable_definitionContext) {
+}
+
+// EnterGraph_optional_match_operator is called when production graph_optional_match_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_optional_match_operator(ctx *Graph_optional_match_operatorContext) {
+}
+
+// ExitGraph_optional_match_operator is called when production graph_optional_match_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_optional_match_operator(ctx *Graph_optional_match_operatorContext) {
+}
+
+// EnterGraph_match_operator is called when production graph_match_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_match_operator(ctx *Graph_match_operatorContext) {}
+
+// ExitGraph_match_operator is called when production graph_match_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_match_operator(ctx *Graph_match_operatorContext) {}
+
+// EnterGraph_pattern is called when production graph_pattern is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_pattern(ctx *Graph_patternContext) {}
+
+// ExitGraph_pattern is called when production graph_pattern is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_pattern(ctx *Graph_patternContext) {}
+
+// EnterGraph_path_pattern_list is called when production graph_path_pattern_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_path_pattern_list(ctx *Graph_path_pattern_listContext) {
+}
+
+// ExitGraph_path_pattern_list is called when production graph_path_pattern_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_path_pattern_list(ctx *Graph_path_pattern_listContext) {
+}
+
+// EnterGraph_path_pattern is called when production graph_path_pattern is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_path_pattern(ctx *Graph_path_patternContext) {}
+
+// ExitGraph_path_pattern is called when production graph_path_pattern is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_path_pattern(ctx *Graph_path_patternContext) {}
+
+// EnterGraph_path_pattern_expr is called when production graph_path_pattern_expr is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_path_pattern_expr(ctx *Graph_path_pattern_exprContext) {
+}
+
+// ExitGraph_path_pattern_expr is called when production graph_path_pattern_expr is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_path_pattern_expr(ctx *Graph_path_pattern_exprContext) {
+}
+
+// EnterGraph_path_factor is called when production graph_path_factor is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_path_factor(ctx *Graph_path_factorContext) {}
+
+// ExitGraph_path_factor is called when production graph_path_factor is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_path_factor(ctx *Graph_path_factorContext) {}
+
+// EnterGraph_quantified_path_primary is called when production graph_quantified_path_primary is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_quantified_path_primary(ctx *Graph_quantified_path_primaryContext) {
+}
+
+// ExitGraph_quantified_path_primary is called when production graph_quantified_path_primary is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_quantified_path_primary(ctx *Graph_quantified_path_primaryContext) {
+}
+
+// EnterGraph_path_primary is called when production graph_path_primary is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_path_primary(ctx *Graph_path_primaryContext) {}
+
+// ExitGraph_path_primary is called when production graph_path_primary is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_path_primary(ctx *Graph_path_primaryContext) {}
+
+// EnterGraph_parenthesized_path_pattern is called when production graph_parenthesized_path_pattern is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_parenthesized_path_pattern(ctx *Graph_parenthesized_path_patternContext) {
+}
+
+// ExitGraph_parenthesized_path_pattern is called when production graph_parenthesized_path_pattern is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_parenthesized_path_pattern(ctx *Graph_parenthesized_path_patternContext) {
+}
+
+// EnterGraph_element_pattern is called when production graph_element_pattern is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_element_pattern(ctx *Graph_element_patternContext) {}
+
+// ExitGraph_element_pattern is called when production graph_element_pattern is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_element_pattern(ctx *Graph_element_patternContext) {}
+
+// EnterGraph_edge_pattern is called when production graph_edge_pattern is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_edge_pattern(ctx *Graph_edge_patternContext) {}
+
+// ExitGraph_edge_pattern is called when production graph_edge_pattern is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_edge_pattern(ctx *Graph_edge_patternContext) {}
+
+// EnterGraph_node_pattern is called when production graph_node_pattern is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_node_pattern(ctx *Graph_node_patternContext) {}
+
+// ExitGraph_node_pattern is called when production graph_node_pattern is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_node_pattern(ctx *Graph_node_patternContext) {}
+
+// EnterGraph_element_pattern_filler is called when production graph_element_pattern_filler is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_element_pattern_filler(ctx *Graph_element_pattern_fillerContext) {
+}
+
+// ExitGraph_element_pattern_filler is called when production graph_element_pattern_filler is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_element_pattern_filler(ctx *Graph_element_pattern_fillerContext) {
+}
+
+// EnterGraph_property_specification is called when production graph_property_specification is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_property_specification(ctx *Graph_property_specificationContext) {
+}
+
+// ExitGraph_property_specification is called when production graph_property_specification is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_property_specification(ctx *Graph_property_specificationContext) {
+}
+
+// EnterGraph_property_name_and_value is called when production graph_property_name_and_value is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_property_name_and_value(ctx *Graph_property_name_and_valueContext) {
+}
+
+// ExitGraph_property_name_and_value is called when production graph_property_name_and_value is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_property_name_and_value(ctx *Graph_property_name_and_valueContext) {
+}
+
+// EnterOpt_is_label_expression is called when production opt_is_label_expression is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_is_label_expression(ctx *Opt_is_label_expressionContext) {
+}
+
+// ExitOpt_is_label_expression is called when production opt_is_label_expression is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_is_label_expression(ctx *Opt_is_label_expressionContext) {
+}
+
+// EnterLabel_expression is called when production label_expression is entered.
+func (s *BaseGoogleSQLParserListener) EnterLabel_expression(ctx *Label_expressionContext) {}
+
+// ExitLabel_expression is called when production label_expression is exited.
+func (s *BaseGoogleSQLParserListener) ExitLabel_expression(ctx *Label_expressionContext) {}
+
+// EnterLabel_primary is called when production label_primary is entered.
+func (s *BaseGoogleSQLParserListener) EnterLabel_primary(ctx *Label_primaryContext) {}
+
+// ExitLabel_primary is called when production label_primary is exited.
+func (s *BaseGoogleSQLParserListener) ExitLabel_primary(ctx *Label_primaryContext) {}
+
+// EnterParenthesized_label_expression is called when production parenthesized_label_expression is entered.
+func (s *BaseGoogleSQLParserListener) EnterParenthesized_label_expression(ctx *Parenthesized_label_expressionContext) {
+}
+
+// ExitParenthesized_label_expression is called when production parenthesized_label_expression is exited.
+func (s *BaseGoogleSQLParserListener) ExitParenthesized_label_expression(ctx *Parenthesized_label_expressionContext) {
+}
+
+// EnterOpt_graph_element_identifier is called when production opt_graph_element_identifier is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_graph_element_identifier(ctx *Opt_graph_element_identifierContext) {
+}
+
+// ExitOpt_graph_element_identifier is called when production opt_graph_element_identifier is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_graph_element_identifier(ctx *Opt_graph_element_identifierContext) {
+}
+
+// EnterOpt_graph_path_mode_prefix is called when production opt_graph_path_mode_prefix is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_graph_path_mode_prefix(ctx *Opt_graph_path_mode_prefixContext) {
+}
+
+// ExitOpt_graph_path_mode_prefix is called when production opt_graph_path_mode_prefix is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_graph_path_mode_prefix(ctx *Opt_graph_path_mode_prefixContext) {
+}
+
+// EnterPath_or_paths is called when production path_or_paths is entered.
+func (s *BaseGoogleSQLParserListener) EnterPath_or_paths(ctx *Path_or_pathsContext) {}
+
+// ExitPath_or_paths is called when production path_or_paths is exited.
+func (s *BaseGoogleSQLParserListener) ExitPath_or_paths(ctx *Path_or_pathsContext) {}
+
+// EnterOpt_graph_path_mode is called when production opt_graph_path_mode is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_graph_path_mode(ctx *Opt_graph_path_modeContext) {}
+
+// ExitOpt_graph_path_mode is called when production opt_graph_path_mode is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_graph_path_mode(ctx *Opt_graph_path_modeContext) {}
+
+// EnterOpt_graph_search_prefix is called when production opt_graph_search_prefix is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_graph_search_prefix(ctx *Opt_graph_search_prefixContext) {
+}
+
+// ExitOpt_graph_search_prefix is called when production opt_graph_search_prefix is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_graph_search_prefix(ctx *Opt_graph_search_prefixContext) {
+}
+
+// EnterOpt_path_variable_assignment is called when production opt_path_variable_assignment is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_path_variable_assignment(ctx *Opt_path_variable_assignmentContext) {
+}
+
+// ExitOpt_path_variable_assignment is called when production opt_path_variable_assignment is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_path_variable_assignment(ctx *Opt_path_variable_assignmentContext) {
+}
+
+// EnterGraph_identifier is called when production graph_identifier is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_identifier(ctx *Graph_identifierContext) {}
+
+// ExitGraph_identifier is called when production graph_identifier is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_identifier(ctx *Graph_identifierContext) {}
+
+// EnterGraph_return_operator is called when production graph_return_operator is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_return_operator(ctx *Graph_return_operatorContext) {}
+
+// ExitGraph_return_operator is called when production graph_return_operator is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_return_operator(ctx *Graph_return_operatorContext) {}
+
+// EnterGraph_page_clause is called when production graph_page_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_page_clause(ctx *Graph_page_clauseContext) {}
+
+// ExitGraph_page_clause is called when production graph_page_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_page_clause(ctx *Graph_page_clauseContext) {}
+
+// EnterGraph_order_by_clause is called when production graph_order_by_clause is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_order_by_clause(ctx *Graph_order_by_clauseContext) {}
+
+// ExitGraph_order_by_clause is called when production graph_order_by_clause is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_order_by_clause(ctx *Graph_order_by_clauseContext) {}
+
+// EnterGraph_ordering_expression is called when production graph_ordering_expression is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_ordering_expression(ctx *Graph_ordering_expressionContext) {
+}
+
+// ExitGraph_ordering_expression is called when production graph_ordering_expression is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_ordering_expression(ctx *Graph_ordering_expressionContext) {
+}
+
+// EnterOpt_graph_asc_or_desc is called when production opt_graph_asc_or_desc is entered.
+func (s *BaseGoogleSQLParserListener) EnterOpt_graph_asc_or_desc(ctx *Opt_graph_asc_or_descContext) {}
+
+// ExitOpt_graph_asc_or_desc is called when production opt_graph_asc_or_desc is exited.
+func (s *BaseGoogleSQLParserListener) ExitOpt_graph_asc_or_desc(ctx *Opt_graph_asc_or_descContext) {}
+
+// EnterGraph_return_item_list is called when production graph_return_item_list is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_return_item_list(ctx *Graph_return_item_listContext) {
+}
+
+// ExitGraph_return_item_list is called when production graph_return_item_list is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_return_item_list(ctx *Graph_return_item_listContext) {
+}
+
+// EnterGraph_return_item is called when production graph_return_item is entered.
+func (s *BaseGoogleSQLParserListener) EnterGraph_return_item(ctx *Graph_return_itemContext) {}
+
+// ExitGraph_return_item is called when production graph_return_item is exited.
+func (s *BaseGoogleSQLParserListener) ExitGraph_return_item(ctx *Graph_return_itemContext) {}
+
 // EnterUndrop_statement is called when production undrop_statement is entered.
 func (s *BaseGoogleSQLParserListener) EnterUndrop_statement(ctx *Undrop_statementContext) {}
 

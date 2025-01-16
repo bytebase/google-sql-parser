@@ -63,7 +63,7 @@ sql_statement_body:
 	| export_data_statement
 	| export_model_statement
 	| export_metadata_statement
-	// /* TODO(zp): implement it */| gql_statement
+	| gql_statement
 	| grant_statement
 	| rename_statement
 	| revoke_statement
@@ -75,6 +75,213 @@ sql_statement_body:
 	| import_statement
 	| module_statement
 	| undrop_statement;
+
+gql_statement:
+	GRAPH_SYMBOL path_expression graph_operation_block;
+
+graph_operation_block:
+	graph_composite_query_block (
+		NEXT_SYMBOL graph_composite_query_block
+	)*;
+
+graph_composite_query_block:
+	graph_linear_query_operation
+	| graph_composite_query_prefix;
+
+graph_composite_query_prefix:
+	graph_linear_query_operation graph_set_operation_metadata graph_linear_query_operation (
+		graph_set_operation_metadata graph_linear_query_operation
+	)*;
+
+graph_set_operation_metadata:
+	query_set_operation_type all_or_distinct;
+
+graph_linear_query_operation:
+	graph_linear_operator_list? graph_return_operator;
+
+graph_linear_operator_list: graph_linear_operator+;
+
+graph_linear_operator:
+	graph_match_operator
+	| graph_optional_match_operator
+	| graph_let_operator
+	| graph_filter_operator
+	| graph_order_by_operator
+	| graph_page_operator
+	| graph_with_operator
+	| graph_for_operator
+	| graph_sample_clause;
+
+graph_sample_clause:
+	TABLESAMPLE_SYMBOL identifier LR_BRACKET_SYMBOL sample_size RR_BRACKET_SYMBOL
+		opt_graph_sample_clause_suffix?;
+
+opt_graph_sample_clause_suffix:
+	repeatable_clause
+	| WITH_SYMBOL WEIGHT_SYMBOL repeatable_clause?
+	| WITH_SYMBOL WEIGHT_SYMBOL AS_SYMBOL identifier repeatable_clause?;
+
+graph_for_operator:
+	FOR_SYMBOL identifier IN_SYMBOL expression opt_with_offset_and_alias_with_required_as?;
+
+opt_with_offset_and_alias_with_required_as:
+	WITH_SYMBOL OFFSET_SYMBOL opt_as_alias_with_required_as?;
+
+graph_with_operator:
+	WITH_SYMBOL all_or_distinct? hint? graph_return_item_list group_by_clause?;
+
+graph_page_operator: graph_page_clause;
+
+graph_order_by_operator: graph_order_by_clause;
+
+graph_filter_operator:
+	FILTER_SYMBOL where_clause
+	| FILTER_SYMBOL expression;
+
+graph_let_operator:
+	LET_SYMBOL graph_let_variable_definition_list;
+
+graph_let_variable_definition_list:
+	graph_let_variable_definition (
+		COMMA_SYMBOL graph_let_variable_definition
+	)*;
+
+graph_let_variable_definition:
+	identifier EQUAL_OPERATOR expression;
+
+graph_optional_match_operator:
+	OPTIONAL_SYMBOL MATCH_SYMBOL hint? graph_pattern;
+
+graph_match_operator: MATCH_SYMBOL hint? graph_pattern;
+
+graph_pattern: graph_path_pattern_list where_clause?;
+
+graph_path_pattern_list:
+	graph_path_pattern (COMMA_SYMBOL hint? graph_path_pattern)*;
+
+graph_path_pattern:
+	opt_path_variable_assignment? opt_graph_search_prefix? opt_graph_path_mode_prefix?
+		graph_path_pattern_expr;
+
+graph_path_pattern_expr:
+	graph_path_factor (hint? graph_path_factor)*;
+
+graph_path_factor:
+	graph_path_primary
+	| graph_quantified_path_primary;
+
+graph_quantified_path_primary:
+	graph_path_primary LC_BRACKET_SYMBOL int_literal_or_parameter? COMMA_SYMBOL
+		int_literal_or_parameter RC_BRACKET_SYMBOL
+	| graph_path_primary LC_BRACKET_SYMBOL int_literal_or_parameter RC_BRACKET_SYMBOL;
+
+graph_path_primary:
+	graph_element_pattern
+	| graph_parenthesized_path_pattern;
+
+graph_parenthesized_path_pattern:
+	LR_BRACKET_SYMBOL hint? graph_path_pattern where_clause? RR_BRACKET_SYMBOL;
+
+graph_element_pattern: graph_node_pattern | graph_edge_pattern;
+
+graph_edge_pattern:
+	LT_OPERATOR? MINUS_OPERATOR LS_BRACKET_SYMBOL graph_element_pattern_filler RS_BRACKET_SYMBOL
+		MINUS_OPERATOR
+	| MINUS_OPERATOR LS_BRACKET_SYMBOL graph_element_pattern_filler RS_BRACKET_SYMBOL
+		SUB_GT_BRACKET_SYMBOL
+	| MINUS_OPERATOR
+	| LT_OPERATOR MINUS_OPERATOR
+	| SUB_GT_BRACKET_SYMBOL;
+
+graph_node_pattern:
+	LR_BRACKET_SYMBOL graph_element_pattern_filler RR_BRACKET_SYMBOL;
+
+graph_element_pattern_filler:
+	// TODO(zp): It is better to avoid using empty production because it confused listener user.
+	hint? opt_graph_element_identifier? opt_is_label_expression? graph_property_specification?
+	| hint? opt_graph_element_identifier opt_is_label_expression? where_clause
+	| hint? opt_graph_element_identifier opt_is_label_expression? graph_property_specification
+		where_clause;
+
+graph_property_specification:
+	LC_BRACKET_SYMBOL graph_property_name_and_value (
+		COMMA_SYMBOL graph_property_name_and_value
+	)* RC_BRACKET_SYMBOL;
+
+graph_property_name_and_value:
+	identifier COLON_SYMBOL expression;
+
+opt_is_label_expression:
+	IS_SYMBOL label_expression
+	| COLON_SYMBOL label_expression;
+
+label_expression:
+	label_primary
+	| label_expression BIT_AND_SYMBOL label_expression
+	| label_expression STROKE_SYMBOL label_expression
+	| EXCLAMATION_OPERATOR label_expression;
+
+label_primary:
+	identifier
+	| MODULO_OPERATOR
+	| parenthesized_label_expression;
+
+parenthesized_label_expression:
+	LR_BRACKET_SYMBOL label_expression RR_BRACKET_SYMBOL;
+
+opt_graph_element_identifier: graph_identifier;
+
+opt_graph_path_mode_prefix: opt_graph_path_mode path_or_paths?;
+
+path_or_paths: PATH_SYMBOL | PATHS_SYMBOL;
+
+opt_graph_path_mode:
+	WALK_SYMBOL
+	| TRAIL_SYMBOL
+	| SIMPLE_SYMBOL
+	| ACYCLIC_SYMBOL;
+
+opt_graph_search_prefix:
+	(ANY_SYMBOL | ALL_SYMBOL) SHORTEST_SYMBOL?;
+
+opt_path_variable_assignment: graph_identifier EQUAL_OPERATOR;
+
+graph_identifier:
+	token_identifier
+	| common_keyword_as_identifier;
+
+graph_return_operator:
+	RETURN_SYMBOL hint? all_or_distinct? graph_return_item_list group_by_clause?
+		graph_order_by_clause? graph_page_clause?;
+
+graph_page_clause:
+	OFFSET_SYMBOL possibly_cast_int_literal_or_parameter LIMIT_SYMBOL
+		possibly_cast_int_literal_or_parameter
+	| SKIP_SYMBOL possibly_cast_int_literal_or_parameter LIMIT_SYMBOL
+		possibly_cast_int_literal_or_parameter
+	| OFFSET_SYMBOL possibly_cast_int_literal_or_parameter
+	| SKIP_SYMBOL possibly_cast_int_literal_or_parameter
+	| LIMIT_SYMBOL possibly_cast_int_literal_or_parameter;
+
+graph_order_by_clause:
+	ORDER_SYMBOL hint? BY_SYMBOL graph_ordering_expression (
+		COMMA_SYMBOL graph_ordering_expression
+	)*;
+
+graph_ordering_expression:
+	expression collate_clause? opt_graph_asc_or_desc? null_order?;
+
+opt_graph_asc_or_desc:
+	asc_or_desc
+	| ASCENDING_SYMBOL
+	| DESCENDING_SYMBOL;
+
+graph_return_item_list:
+	graph_return_item (COMMA_SYMBOL graph_return_item)*;
+
+graph_return_item:
+	expression (AS_SYMBOL identifier)?
+	| MULTIPLY_OPERATOR;
 
 undrop_statement:
 	UNDROP_SYMBOL schema_object_kind opt_if_not_exists? path_expression opt_at_system_time?
@@ -2507,7 +2714,18 @@ common_keyword_as_identifier:
 	| NODE_SYMBOL
 	| PROPERTIES_SYMBOL
 	| LABEL_SYMBOL
-	| EDGE_SYMBOL;
+	| EDGE_SYMBOL
+	| NEXT_SYMBOL
+	| ASCENDING_SYMBOL
+	| DESCENDING_SYMBOL
+	| SKIP_SYMBOL
+	| PATH_SYMBOL
+	| PATHS_SYMBOL
+	| WALK_SYMBOL
+	| TRAIL_SYMBOL
+	| ACYCLIC_SYMBOL
+	| OPTIONAL_SYMBOL
+	| LET_SYMBOL;
 
 token_identifier: IDENTIFIER;
 
