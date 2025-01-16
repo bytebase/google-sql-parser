@@ -19,6 +19,165 @@ type GoogleSQLParserVisitor interface {
 	// Visit a parse tree produced by GoogleSQLParser#sql_statement_body.
 	VisitSql_statement_body(ctx *Sql_statement_bodyContext) interface{}
 
+	// Visit a parse tree produced by GoogleSQLParser#gql_statement.
+	VisitGql_statement(ctx *Gql_statementContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_operation_block.
+	VisitGraph_operation_block(ctx *Graph_operation_blockContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_composite_query_block.
+	VisitGraph_composite_query_block(ctx *Graph_composite_query_blockContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_composite_query_prefix.
+	VisitGraph_composite_query_prefix(ctx *Graph_composite_query_prefixContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_set_operation_metadata.
+	VisitGraph_set_operation_metadata(ctx *Graph_set_operation_metadataContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_linear_query_operation.
+	VisitGraph_linear_query_operation(ctx *Graph_linear_query_operationContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_linear_operator_list.
+	VisitGraph_linear_operator_list(ctx *Graph_linear_operator_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_linear_operator.
+	VisitGraph_linear_operator(ctx *Graph_linear_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_sample_clause.
+	VisitGraph_sample_clause(ctx *Graph_sample_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_graph_sample_clause_suffix.
+	VisitOpt_graph_sample_clause_suffix(ctx *Opt_graph_sample_clause_suffixContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_for_operator.
+	VisitGraph_for_operator(ctx *Graph_for_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_with_offset_and_alias_with_required_as.
+	VisitOpt_with_offset_and_alias_with_required_as(ctx *Opt_with_offset_and_alias_with_required_asContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_with_operator.
+	VisitGraph_with_operator(ctx *Graph_with_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_page_operator.
+	VisitGraph_page_operator(ctx *Graph_page_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_order_by_operator.
+	VisitGraph_order_by_operator(ctx *Graph_order_by_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_filter_operator.
+	VisitGraph_filter_operator(ctx *Graph_filter_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_let_operator.
+	VisitGraph_let_operator(ctx *Graph_let_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_let_variable_definition_list.
+	VisitGraph_let_variable_definition_list(ctx *Graph_let_variable_definition_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_let_variable_definition.
+	VisitGraph_let_variable_definition(ctx *Graph_let_variable_definitionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_optional_match_operator.
+	VisitGraph_optional_match_operator(ctx *Graph_optional_match_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_match_operator.
+	VisitGraph_match_operator(ctx *Graph_match_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_pattern.
+	VisitGraph_pattern(ctx *Graph_patternContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_path_pattern_list.
+	VisitGraph_path_pattern_list(ctx *Graph_path_pattern_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_path_pattern.
+	VisitGraph_path_pattern(ctx *Graph_path_patternContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_path_pattern_expr.
+	VisitGraph_path_pattern_expr(ctx *Graph_path_pattern_exprContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_path_factor.
+	VisitGraph_path_factor(ctx *Graph_path_factorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_quantified_path_primary.
+	VisitGraph_quantified_path_primary(ctx *Graph_quantified_path_primaryContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_path_primary.
+	VisitGraph_path_primary(ctx *Graph_path_primaryContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_parenthesized_path_pattern.
+	VisitGraph_parenthesized_path_pattern(ctx *Graph_parenthesized_path_patternContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_element_pattern.
+	VisitGraph_element_pattern(ctx *Graph_element_patternContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_edge_pattern.
+	VisitGraph_edge_pattern(ctx *Graph_edge_patternContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_node_pattern.
+	VisitGraph_node_pattern(ctx *Graph_node_patternContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_element_pattern_filler.
+	VisitGraph_element_pattern_filler(ctx *Graph_element_pattern_fillerContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_property_specification.
+	VisitGraph_property_specification(ctx *Graph_property_specificationContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_property_name_and_value.
+	VisitGraph_property_name_and_value(ctx *Graph_property_name_and_valueContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_is_label_expression.
+	VisitOpt_is_label_expression(ctx *Opt_is_label_expressionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#label_expression.
+	VisitLabel_expression(ctx *Label_expressionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#label_primary.
+	VisitLabel_primary(ctx *Label_primaryContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#parenthesized_label_expression.
+	VisitParenthesized_label_expression(ctx *Parenthesized_label_expressionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_graph_element_identifier.
+	VisitOpt_graph_element_identifier(ctx *Opt_graph_element_identifierContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_graph_path_mode_prefix.
+	VisitOpt_graph_path_mode_prefix(ctx *Opt_graph_path_mode_prefixContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#path_or_paths.
+	VisitPath_or_paths(ctx *Path_or_pathsContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_graph_path_mode.
+	VisitOpt_graph_path_mode(ctx *Opt_graph_path_modeContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_graph_search_prefix.
+	VisitOpt_graph_search_prefix(ctx *Opt_graph_search_prefixContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_path_variable_assignment.
+	VisitOpt_path_variable_assignment(ctx *Opt_path_variable_assignmentContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_identifier.
+	VisitGraph_identifier(ctx *Graph_identifierContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_return_operator.
+	VisitGraph_return_operator(ctx *Graph_return_operatorContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_page_clause.
+	VisitGraph_page_clause(ctx *Graph_page_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_order_by_clause.
+	VisitGraph_order_by_clause(ctx *Graph_order_by_clauseContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_ordering_expression.
+	VisitGraph_ordering_expression(ctx *Graph_ordering_expressionContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#opt_graph_asc_or_desc.
+	VisitOpt_graph_asc_or_desc(ctx *Opt_graph_asc_or_descContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_return_item_list.
+	VisitGraph_return_item_list(ctx *Graph_return_item_listContext) interface{}
+
+	// Visit a parse tree produced by GoogleSQLParser#graph_return_item.
+	VisitGraph_return_item(ctx *Graph_return_itemContext) interface{}
+
 	// Visit a parse tree produced by GoogleSQLParser#undrop_statement.
 	VisitUndrop_statement(ctx *Undrop_statementContext) interface{}
 
